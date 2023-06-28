@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Sky_Tracker-ecc23b97-7f04-4c6b-9bca-2225e94f41ea</UserSecretsId>
-    <RootNamespace>Sky_Tracker</RootNamespace>
+    <UserSecretsId>aspnet-Skytracker-ecc23b97-7f04-4c6b-9bca-2225e94f41ea</UserSecretsId>
+    <RootNamespace>SkyTracker</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
