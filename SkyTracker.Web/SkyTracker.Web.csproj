@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Skytracker-ecc23b97-7f04-4c6b-9bca-2225e94f41ea</UserSecretsId>
-    <RootNamespace>SkyTracker</RootNamespace>
+    <RootNamespace>SkyTracker.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
