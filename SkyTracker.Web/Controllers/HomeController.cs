@@ -1,10 +1,11 @@
-﻿namespace Sky_Tracker.Controllers
+﻿
+namespace SkyTracker.Web.Controllers
 {
     using System.Diagnostics;
 
     using Microsoft.AspNetCore.Mvc;
 
-    using Sky_Tracker.Models;
+    using Models;
 
     public class HomeController : Controller
     {

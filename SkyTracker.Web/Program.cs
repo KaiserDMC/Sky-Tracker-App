@@ -1,9 +1,9 @@
-namespace Sky_Tracker
+namespace SkyTracker.Web
 {
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
-    using Sky_Tracker.Data;
+    using SkyTracker.Web.Data;
 
     public class Program
     {

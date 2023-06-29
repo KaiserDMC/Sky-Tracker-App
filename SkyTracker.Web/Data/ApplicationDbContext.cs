@@ -1,4 +1,4 @@
-﻿namespace Sky_Tracker.Data
+﻿namespace SkyTracker.Web.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;

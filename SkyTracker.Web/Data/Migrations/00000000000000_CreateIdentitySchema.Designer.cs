@@ -9,7 +9,7 @@ namespace Sky_Tracker.Data.Migrations
     using Microsoft.EntityFrameworkCore.Migrations;
     using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-    using Sky_Tracker.Data;
+    using SkyTracker.Web.Data;
 
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]

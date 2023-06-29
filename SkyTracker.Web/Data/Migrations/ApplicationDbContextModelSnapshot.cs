@@ -8,7 +8,7 @@ namespace Sky_Tracker.Data.Migrations
     using Microsoft.EntityFrameworkCore.Metadata;
     using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-    using Sky_Tracker.Data;
+    using SkyTracker.Web.Data;
 
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
