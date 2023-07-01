@@ -1,4 +1,4 @@
-﻿namespace SkyTracker.Data.Seeding;
+﻿namespace SkyTracker.Data.Seeding.DTOs;
 
 using CsvHelper.Configuration.Attributes;
 
@@ -17,13 +17,13 @@ public class FlightSeedDTO
     public string? Equipment { get; set; }
 
     [Name("callsign")]
-    public string Callsign { get; set; }
+    public string Callsign { get; set; } = null!;
 
     [Name("flight")]
     public string? FlightNumber { get; set; }
 
     [Name("schd_from")]
-    public string ScheduledDeparture { get; set; }
+    public string ScheduledDeparture { get; set; }  = null!;
 
     [Name("schd_to")]
     public string? ScheduledArrival { get; set; }

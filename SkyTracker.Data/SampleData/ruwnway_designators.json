@@ -1,0 +1,434 @@
+[
+  {
+    "designation1": "01",
+    "designation2": "19"
+  },
+  {
+    "designation1": "02",
+    "designation2": "20"
+  },
+  {
+    "designation1": "03",
+    "designation2": "21"
+  },
+  {
+    "designation1": "04",
+    "designation2": "22"
+  },
+  {
+    "designation1": "05",
+    "designation2": "23"
+  },
+  {
+    "designation1": "06",
+    "designation2": "24"
+  },
+  {
+    "designation1": "07",
+    "designation2": "25"
+  },
+  {
+    "designation1": "08",
+    "designation2": "26"
+  },
+  {
+    "designation1": "09",
+    "designation2": "27"
+  },
+  {
+    "designation1": "10",
+    "designation2": "28"
+  },
+  {
+    "designation1": "11",
+    "designation2": "29"
+  },
+  {
+    "designation1": "12",
+    "designation2": "30"
+  },
+  {
+    "designation1": "13",
+    "designation2": "31"
+  },
+  {
+    "designation1": "14",
+    "designation2": "32"
+  },
+  {
+    "designation1": "15",
+    "designation2": "33"
+  },
+  {
+    "designation1": "16",
+    "designation2": "34"
+  },
+  {
+    "designation1": "17",
+    "designation2": "35"
+  },
+  {
+    "designation1": "18",
+    "designation2": "36"
+  },
+  {
+    "designation1": "19",
+    "designation2": "01"
+  },
+  {
+    "designation1": "20",
+    "designation2": "02"
+  },
+  {
+    "designation1": "21",
+    "designation2": "03"
+  },
+  {
+    "designation1": "22",
+    "designation2": "04"
+  },
+  {
+    "designation1": "23",
+    "designation2": "05"
+  },
+  {
+    "designation1": "24",
+    "designation2": "06"
+  },
+  {
+    "designation1": "25",
+    "designation2": "07"
+  },
+  {
+    "designation1": "26",
+    "designation2": "08"
+  },
+  {
+    "designation1": "27",
+    "designation2": "09"
+  },
+  {
+    "designation1": "28",
+    "designation2": "10"
+  },
+  {
+    "designation1": "29",
+    "designation2": "11"
+  },
+  {
+    "designation1": "30",
+    "designation2": "12"
+  },
+  {
+    "designation1": "31",
+    "designation2": "13"
+  },
+  {
+    "designation1": "32",
+    "designation2": "14"
+  },
+  {
+    "designation1": "33",
+    "designation2": "15"
+  },
+  {
+    "designation1": "34",
+    "designation2": "16"
+  },
+  {
+    "designation1": "35",
+    "designation2": "17"
+  },
+  {
+    "designation1": "36",
+    "designation2": "18"
+  },
+  {
+    "designation1": "01R",
+    "designation2": "19L"
+  },
+  {
+    "designation1": "02R",
+    "designation2": "20L"
+  },
+  {
+    "designation1": "03R",
+    "designation2": "21L"
+  },
+  {
+    "designation1": "04R",
+    "designation2": "22L"
+  },
+  {
+    "designation1": "05R",
+    "designation2": "23L"
+  },
+  {
+    "designation1": "06R",
+    "designation2": "24L"
+  },
+  {
+    "designation1": "07R",
+    "designation2": "25L"
+  },
+  {
+    "designation1": "08R",
+    "designation2": "26L"
+  },
+  {
+    "designation1": "09R",
+    "designation2": "27L"
+  },
+  {
+    "designation1": "10R",
+    "designation2": "28L"
+  },
+  {
+    "designation1": "11R",
+    "designation2": "29L"
+  },
+  {
+    "designation1": "12R",
+    "designation2": "30L"
+  },
+  {
+    "designation1": "13R",
+    "designation2": "31L"
+  },
+  {
+    "designation1": "14R",
+    "designation2": "32L"
+  },
+  {
+    "designation1": "15R",
+    "designation2": "33L"
+  },
+  {
+    "designation1": "16R",
+    "designation2": "34L"
+  },
+  {
+    "designation1": "17R",
+    "designation2": "35L"
+  },
+  {
+    "designation1": "18R",
+    "designation2": "36L"
+  },
+  {
+    "designation1": "19R",
+    "designation2": "01L"
+  },
+  {
+    "designation1": "20R",
+    "designation2": "02L"
+  },
+  {
+    "designation1": "21R",
+    "designation2": "03L"
+  },
+  {
+    "designation1": "22R",
+    "designation2": "04L"
+  },
+  {
+    "designation1": "23R",
+    "designation2": "05L"
+  },
+  {
+    "designation1": "24R",
+    "designation2": "06L"
+  },
+  {
+    "designation1": "25R",
+    "designation2": "07L"
+  },
+  {
+    "designation1": "26R",
+    "designation2": "08L"
+  },
+  {
+    "designation1": "27R",
+    "designation2": "09L"
+  },
+  {
+    "designation1": "28R",
+    "designation2": "10L"
+  },
+  {
+    "designation1": "29R",
+    "designation2": "11L"
+  },
+  {
+    "designation1": "30R",
+    "designation2": "12L"
+  },
+  {
+    "designation1": "31R",
+    "designation2": "13L"
+  },
+  {
+    "designation1": "32R",
+    "designation2": "14L"
+  },
+  {
+    "designation1": "33R",
+    "designation2": "15L"
+  },
+  {
+    "designation1": "34R",
+    "designation2": "16L"
+  },
+  {
+    "designation1": "35R",
+    "designation2": "17L"
+  },
+  {
+    "designation1": "36R",
+    "designation2": "18L"
+  },
+  {
+    "designation1": "01L",
+    "designation2": "19R"
+  },
+  {
+    "designation1": "02L",
+    "designation2": "20R"
+  },
+  {
+    "designation1": "03L",
+    "designation2": "21R"
+  },
+  {
+    "designation1": "04L",
+    "designation2": "22R"
+  },
+  {
+    "designation1": "05L",
+    "designation2": "23R"
+  },
+  {
+    "designation1": "06L",
+    "designation2": "24R"
+  },
+  {
+    "designation1": "07L",
+    "designation2": "25R"
+  },
+  {
+    "designation1": "08L",
+    "designation2": "26R"
+  },
+  {
+    "designation1": "09L",
+    "designation2": "27R"
+  },
+  {
+    "designation1": "10L",
+    "designation2": "28R"
+  },
+  {
+    "designation1": "11L",
+    "designation2": "29R"
+  },
+  {
+    "designation1": "12L",
+    "designation2": "30R"
+  },
+  {
+    "designation1": "13L",
+    "designation2": "31R"
+  },
+  {
+    "designation1": "14L",
+    "designation2": "32R"
+  },
+  {
+    "designation1": "15L",
+    "designation2": "33R"
+  },
+  {
+    "designation1": "16L",
+    "designation2": "34R"
+  },
+  {
+    "designation1": "17L",
+    "designation2": "35R"
+  },
+  {
+    "designation1": "18L",
+    "designation2": "36R"
+  },
+  {
+    "designation1": "19L",
+    "designation2": "01R"
+  },
+  {
+    "designation1": "20L",
+    "designation2": "02R"
+  },
+  {
+    "designation1": "21L",
+    "designation2": "03R"
+  },
+  {
+    "designation1": "22L",
+    "designation2": "04R"
+  },
+  {
+    "designation1": "23L",
+    "designation2": "05R"
+  },
+  {
+    "designation1": "24L",
+    "designation2": "06R"
+  },
+  {
+    "designation1": "25L",
+    "designation2": "07R"
+  },
+  {
+    "designation1": "26L",
+    "designation2": "08R"
+  },
+  {
+    "designation1": "27L",
+    "designation2": "09R"
+  },
+  {
+    "designation1": "28L",
+    "designation2": "10R"
+  },
+  {
+    "designation1": "29L",
+    "designation2": "11R"
+  },
+  {
+    "designation1": "30L",
+    "designation2": "12R"
+  },
+  {
+    "designation1": "31L",
+    "designation2": "13R"
+  },
+  {
+    "designation1": "32L",
+    "designation2": "14R"
+  },
+  {
+    "designation1": "33L",
+    "designation2": "15R"
+  },
+  {
+    "designation1": "34L",
+    "designation2": "16R"
+  },
+  {
+    "designation1": "35L",
+    "designation2": "17R"
+  },
+  {
+    "designation1": "36L",
+    "designation2": "18R"
+  }
+]

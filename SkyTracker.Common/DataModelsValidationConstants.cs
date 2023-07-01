@@ -43,6 +43,6 @@ public static class DataModelsValidationConstants
 
     public static class Runway
     {
-        public const string Number = @"^0[1-9]$|^[1-2][0-9]$|^3[0-6]$";
+        public const string DesignatorRegexPattern = @"^(0[1-9]|[1-2][0-9]|3[0-6])([RL])?$";
     }
 }

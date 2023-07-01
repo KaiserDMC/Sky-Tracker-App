@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Models;
 using Seeding;
 
-public class FlightAirportEntityConfiguration : IEntityTypeConfiguration<Flight>, IEntityTypeConfiguration<Airport>, IEntityTypeConfiguration<Runway>
+public class FlightAirportEntityConfiguration : IEntityTypeConfiguration<Flight>, IEntityTypeConfiguration<Airport>
 {
     private readonly FlightAirportSeeder _flightAirportSeeder;
 
@@ -23,10 +23,5 @@ public class FlightAirportEntityConfiguration : IEntityTypeConfiguration<Flight>
     public void Configure(EntityTypeBuilder<Airport> builder)
     {
         builder.HasData(this._flightAirportSeeder.airport);
-    }
-
-    public void Configure(EntityTypeBuilder<Runway> builder)
-    {
-        throw new NotImplementedException();
     }
 }

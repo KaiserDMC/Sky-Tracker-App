@@ -1,4 +1,4 @@
-﻿namespace SkyTracker.Data.Seeding;
+﻿namespace SkyTracker.Data.Seeding.DTOs;
 
 public class AircraftSeedDTO
 {

@@ -19,12 +19,36 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<Flight> Flights { get; set; } = null!;
 
+    public DbSet<Airport> Airports { get; set; } = null!;
+
+    public DbSet<Runway> Runways { get; set; } = null!;
+
+    public DbSet<HeraldPost> HeraldPosts { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         Assembly configurationAssembly = Assembly.GetAssembly(typeof(SkyTrackerDbContext)) ??
-                                         Assembly.GetExecutingAssembly();
+                                           Assembly.GetExecutingAssembly();
 
         builder.ApplyConfigurationsFromAssembly(configurationAssembly);
+
+        builder.Entity<Aircraft>(aircraft =>
+        {
+            aircraft
+                .HasMany(a => a.Flights)
+                .WithOne(f => f.Aircraft)
+                .HasForeignKey(e => e.AircraftId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        builder.Entity<Flight>(flight =>
+        {
+            flight
+                .HasOne(f => f.Aircraft)
+                .WithMany(a => a.Flights)
+                .HasForeignKey(f => f.AircraftId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
 
         base.OnModelCreating(builder);
     }

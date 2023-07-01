@@ -5,6 +5,7 @@ using System.Globalization;
 using CsvHelper;
 
 using Seeding;
+using SkyTracker.Data.Seeding.DTOs;
 
 public class GenerateData
 {
@@ -18,11 +19,10 @@ public class GenerateData
 
     private void GenerateFlightAndAircraftData()
     {
-        string folderName = "DataGeneration";
-        string folderPath = Path.Combine("../../../", folderName);
-        string filePath = Path.Combine(folderPath, "20210723_flights.csv");
-
-        using (var reader = new StreamReader(filePath))
+        string relativePath = @"..\SkyTracker.Data\SampleData\DataGeneration\20210723_flights.csv";
+        string fullPath = Path.GetFullPath(relativePath);
+        
+        using (var reader = new StreamReader(fullPath))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
             var flights = csv.GetRecords<FlightSeedDTO>().ToList();

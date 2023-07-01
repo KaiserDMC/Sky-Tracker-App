@@ -18,14 +18,14 @@ public class FlightAirportSeeder
             flights.Add(new Flight()
             {
                 FlightId = flightDTO.FlightId,
-                AircraftId = flightDTO.AircraftId,
+                AircraftId = flightDTO.AircraftId.ToString(),
                 Registration = flightDTO.Registration,
                 Equipment = flightDTO.Equipment,
                 Callsign = flightDTO.Callsign,
                 DepartureId = flightDTO.ScheduledDeparture,
-                ArrivalId = flightDTO.ScheduledArrival,
-                RealArrivalid = flightDTO.RealArrival,
-                ReservedId = flightDTO.Reserved
+                ScheduledArrival = flightDTO.ScheduledArrival,
+                RealArrival = flightDTO.RealArrival,
+                Reserved = flightDTO.Reserved
             });
         }
     }

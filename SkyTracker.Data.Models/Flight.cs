@@ -11,6 +11,7 @@ public class Flight
     {
         this.Id = Guid.NewGuid();
     }
+
     [Key]
     public Guid Id { get; set; }
 
@@ -19,10 +20,10 @@ public class Flight
     [RegularExpression(FlightIdRegexPattern)]
     public int FlightId { get; set; }
 
-    [Required, ForeignKey(nameof(Aircraft))]
+    [Required]
     [MaxLength(AircraftIdLengthMax)]
     [RegularExpression(AircraftIdRegexPattern)]
-    public int AircraftId { get; set; }
+    public string AircraftId { get; set; }
     public Aircraft Aircraft { get; set; } = null!;
 
     [MaxLength(RegistrationLengthMax)]
@@ -36,7 +37,7 @@ public class Flight
     [Required]
     [MaxLength(CallsignLengthMax)]
     [RegularExpression(CallsignRegexPattern)]
-    public string Callsign { get; set; }
+    public string Callsign { get; set; } = null!;
 
     [MaxLength(FlightNumberLengthMax)]
     [RegularExpression(FlightNumberRegexPattern)]
@@ -44,17 +45,11 @@ public class Flight
 
     [Required, ForeignKey(nameof(ScheduledDeparture))]
     public string DepartureId { get; set; } = null!;
-    public Airport ScheduledDeparture { get; set; }
+    public Airport ScheduledDeparture { get; set; } = null!;
 
-    [ForeignKey(nameof(ScheduledArrival))]
-    public string ArrivalId { get; set; } = null!;
-    public Airport? ScheduledArrival { get; set; }
+    public string? ScheduledArrival { get; set; }
 
-    [ForeignKey(nameof(RealArrival))]
-    public string RealArrivalid { get; set; } = null!;
-    public Airport? RealArrival { get; set; }
+    public string? RealArrival { get; set; }
 
-    [ForeignKey(nameof(Reserved))]
-    public string ReservedId { get; set; } = null!;
-    public Airport? Reserved { get; set; }
+    public string? Reserved { get; set; }
 }

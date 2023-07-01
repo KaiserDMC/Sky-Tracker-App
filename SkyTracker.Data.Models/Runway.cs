@@ -16,13 +16,17 @@ public class Runway
     public Guid Id { get; set; }
 
     [Required]
-    [RegularExpression(Number)]
-    public string RunwayNumber { get; set; }
+    [RegularExpression(DesignatorRegexPattern)]
+    public string RunwayDesignatorOne { get; set; } = null!;
 
     [Required]
-    public double Length { get; set; }
+    [RegularExpression(DesignatorRegexPattern)]
+    public string RunwayDesignatorTwo { get; set; } = null!;
 
-    public double? Width { get; set; }
+    [Required]
+    public int Length { get; set; }
+
+    public int? Width { get; set; }
 
     public string? SurfaceType { get; set; }
 
