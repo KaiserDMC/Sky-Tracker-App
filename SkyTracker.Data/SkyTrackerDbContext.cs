@@ -1,5 +1,7 @@
 ﻿namespace SkyTracker.Data;
 
+using System.Reflection;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +15,16 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
     {
     }
 
+    public DbSet<Aircraft> Aircraft { get; set; } = null!;
 
+    public DbSet<Flight> Flights { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        Assembly configurationAssembly = Assembly.GetAssembly(typeof(SkyTrackerDbContext)) ??
+                                         Assembly.GetExecutingAssembly();
 
+        builder.ApplyConfigurationsFromAssembly(configurationAssembly);
 
         base.OnModelCreating(builder);
     }
