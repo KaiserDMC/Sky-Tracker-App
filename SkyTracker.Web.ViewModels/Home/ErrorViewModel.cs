@@ -1,4 +1,4 @@
-namespace SkyTracker.Web.Models
+namespace SkyTracker.Web.ViewModels.Home
 {
     public class ErrorViewModel
     {
