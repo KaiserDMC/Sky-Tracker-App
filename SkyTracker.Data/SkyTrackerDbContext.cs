@@ -1,4 +1,6 @@
-﻿namespace SkyTracker.Data;
+﻿using SkyTracker.Data.Configuration;
+
+namespace SkyTracker.Data;
 
 using System.Reflection;
 
@@ -27,10 +29,18 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        Assembly configurationAssembly = Assembly.GetAssembly(typeof(SkyTrackerDbContext)) ??
-                                           Assembly.GetExecutingAssembly();
+        //Assembly configurationAssembly = Assembly.GetAssembly(typeof(SkyTrackerDbContext)) ??
+        //                                   Assembly.GetExecutingAssembly();
 
-        builder.ApplyConfigurationsFromAssembly(configurationAssembly);
+        //builder.ApplyConfigurationsFromAssembly(configurationAssembly);
+
+        builder.ApplyConfiguration(new RunwayCollectionEntityConfiguration());
+        builder.ApplyConfiguration(new AircraftCollectionEntityConfiguration());
+
+        builder.ApplyConfiguration(new HeraldPostEntityConfiguration());
+
+        builder.Entity<Flight>(e => e.HasKey(x => x.AircraftId));
+        builder.Entity<Aircraft>(e => e.HasKey(x => x.AircraftId));
 
         builder.Entity<Aircraft>(aircraft =>
         {
