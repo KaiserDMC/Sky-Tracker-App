@@ -17,19 +17,19 @@ public class CollectionEntityConfiguration :
     private readonly RunwaySeeder _runwaySeeder;
     private readonly GenerateData _generateData;
     private readonly HeraldPostSeeder _heraldPostSeeder;
-    private readonly FlightAirportSeeder _flightAirportSeeder;
+    private readonly FlightSeeder _flightSeeder;
 
     public CollectionEntityConfiguration()
     {
         this._runwaySeeder = new RunwaySeeder();
         this._generateData = new GenerateData();
         this._heraldPostSeeder = new HeraldPostSeeder();
-        this._flightAirportSeeder = new FlightAirportSeeder();
+        this._flightSeeder = new FlightSeeder();
     }
 
     public void Configure(EntityTypeBuilder<Flight> builder)
     {
-        builder.HasData(_flightAirportSeeder.Flights);
+        builder.HasData(_flightSeeder.Flights);
     }
 
     public void Configure(EntityTypeBuilder<Airport> builder)

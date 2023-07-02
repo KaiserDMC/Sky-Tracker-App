@@ -1,15 +1,12 @@
 ﻿namespace SkyTracker.Data;
 
-
-using System.Reflection;
-using SkyTracker.Data.SampleData.DataGeneration;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-using SkyTracker.Data.Configuration;
 using Models;
+
+using SkyTracker.Data.Configuration;
 
 public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 {
@@ -51,14 +48,14 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             .HasKey(fa => new { fa.FlightId, fa.AircraftId });
         });
 
-       //var collectionEntityConfiguration = new CollectionEntityConfiguration();
+        var collectionEntityConfiguration = new CollectionEntityConfiguration();
 
-       //builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
-       //builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
-       //builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
-       //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
-       //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 
-       base.OnModelCreating(builder);
+        base.OnModelCreating(builder);
     }
 }

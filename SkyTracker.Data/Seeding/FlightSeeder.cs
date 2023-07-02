@@ -4,11 +4,11 @@ using Models;
 
 using SampleData.DataGeneration;
 
-public class FlightAirportSeeder
+public class FlightSeeder
 {
     public ICollection<Flight> Flights = new List<Flight>();
 
-    public FlightAirportSeeder()
+    public FlightSeeder()
     {
         var tempFlightCollection = new GenerateData().FlightCollection;
 
