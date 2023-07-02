@@ -5,18 +5,11 @@ using static SkyTracker.Common.DataModelsValidationConstants.Aircraft;
 
 public class Aircraft
 {
-    //public Aircraft()
-    //{
-    //    this.Id = Guid.NewGuid();
-    //}
-
-    //[Key]
-    //public Guid Id { get; set; }
-
+    [Key]
     [Required]
     [MaxLength(AircraftIdLengthMax)]
     [RegularExpression(AircraftIdRegexPattern)]
-    public string AircraftId { get; set; } = null!;
+    public string Id { get; set; } = null!;
 
     [MaxLength(RegistrationLengthMax)]
     [RegularExpression(RegistrationRegexPattern)]
@@ -26,5 +19,5 @@ public class Aircraft
     [RegularExpression(EquipmentRegexPattern)]
     public string? Equipment { get; set; }
 
-    public ICollection<Flight> Flights { get; set; } = new HashSet<Flight>();
+    public ICollection<FlightAircraft> FlightsAircraft { get; set; } = new HashSet<FlightAircraft>();
 }

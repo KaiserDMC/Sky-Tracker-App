@@ -1,45 +1,47 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
+using Newtonsoft.Json;
 
-using System.Collections;
 using SkyTracker.Data.Models;
 using SkyTracker.Data.Seeding.DTOs;
 
-
-using Newtonsoft.Json;
-
-using SkyTracker.Data.SampleData.DataGeneration;
-
 public class RunwaySeeder
 {
-    internal object[] GenerateRunways()
+    public ICollection<Runway> Runways = new List<Runway>();
+    public RunwaySeeder()
     {
-        ICollection<RunwaySeedDTO>? runwaysDTO = new List<RunwaySeedDTO>();
+        Runways = GenerateRunways();
+    }
+
+    private ICollection<Runway> GenerateRunways()
+    {
+        ICollection<RunwaySeedDto>? runwaysDto = new List<RunwaySeedDto>();
         string[] surfaceTypes = new string[] { "Asphalt", "Concrete", "Grass", "Gravel", "Dirt", "Sand" };
-        ICollection<Runway> runways = new List<Runway>();
+
 
         // Specify the folder name relative to the current directory
         string relativePath = @"..\SkyTracker.Data\SampleData\ruwnway_designators.json";
         string fullPath = Path.GetFullPath(relativePath);
-        
+
         string json = File.ReadAllText(fullPath);
 
-        runwaysDTO = JsonConvert.DeserializeObject<List<RunwaySeedDTO>>(json);
+        runwaysDto = JsonConvert.DeserializeObject<List<RunwaySeedDto>>(json);
 
-        foreach (var runwayDTO in runwaysDTO)
-        {
-            Runway runway = new()
+        if (runwaysDto != null)
+            foreach (var runwayDto in runwaysDto)
             {
-                RunwayDesignatorOne = runwayDTO.RunwayDesignatorOne,
-                RunwayDesignatorTwo = runwayDTO.RunwayDesignatorTwo,
-                Length = new Random().Next(1000, 5000),
-                Width = new Random().Next(60, 600),
-                SurfaceType = surfaceTypes[new Random().Next(0, surfaceTypes.Length)]
-            };
+                Runway runway = new()
+                {
+                    RunwayDesignatorOne = runwayDto.RunwayDesignatorOne,
+                    RunwayDesignatorTwo = runwayDto.RunwayDesignatorTwo,
+                    Length = new Random().Next(20, 100) * 50,
+                    Width = new Random().Next(2, 20) * 30,
+                    SurfaceType = surfaceTypes[new Random().Next(0, surfaceTypes.Length)]
+                };
 
-            runways.Add(runway);
-        }
+                Runways.Add(runway);
+            }
 
-        return runways.ToArray();
+        return Runways.ToArray();
     }
 }

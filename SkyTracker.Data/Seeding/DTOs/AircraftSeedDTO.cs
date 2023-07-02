@@ -1,8 +1,8 @@
 ﻿namespace SkyTracker.Data.Seeding.DTOs;
 
-public class AircraftSeedDTO
+public class AircraftSeedDto
 {
-    public int AircraftId { get; set; }
+    public string AircraftId { get; set; } = null!;
 
     public string? Registration { get; set; }
 

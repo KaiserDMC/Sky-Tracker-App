@@ -12,8 +12,8 @@ using SkyTracker.Data;
 namespace SkyTracker.Data.Migrations
 {
     [DbContext(typeof(SkyTrackerDbContext))]
-    [Migration("20230701133317_CreatedIdentity")]
-    partial class CreatedIdentity
+    [Migration("20230702194257_InitialDb-CustomTables-NoSeed")]
+    partial class InitialDbCustomTablesNoSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -159,6 +159,38 @@ namespace SkyTracker.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("SkyTracker.Data.Models.Aircraft", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("Equipment")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<string>("Registration")
+                        .HasMaxLength(7)
+                        .HasColumnType("nvarchar(7)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Aircraft");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Airport", b =>
+                {
+                    b.Property<string>("IATA")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ICAO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IATA");
+
+                    b.ToTable("Airports");
+                });
+
             modelBuilder.Entity("SkyTracker.Data.Models.ApplicationUser", b =>
                 {
                     b.Property<Guid>("Id")
@@ -225,6 +257,129 @@ namespace SkyTracker.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("SkyTracker.Data.Models.Flight", b =>
+                {
+                    b.Property<string>("FlightId")
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
+
+                    b.Property<string>("Callsign")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<string>("DepartureId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Equipment")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<string>("FlightNumber")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("RealArrival")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Registration")
+                        .HasMaxLength(7)
+                        .HasColumnType("nvarchar(7)");
+
+                    b.Property<string>("Reserved")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ScheduledArrival")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FlightId");
+
+                    b.HasIndex("DepartureId");
+
+                    b.ToTable("Flights");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.FlightAircraft", b =>
+                {
+                    b.Property<string>("FlightId")
+                        .HasColumnType("nvarchar(9)");
+
+                    b.Property<string>("AircraftId")
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("FlightId", "AircraftId");
+
+                    b.HasIndex("AircraftId");
+
+                    b.ToTable("FlightsAircraft");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.HeraldPost", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Details")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Occurrence")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeOccurence")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HeraldPosts");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Runway", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<string>("RunwayDesignatorOne")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RunwayDesignatorTwo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SurfaceType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Width")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Runways");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.RunwayAirport", b =>
+                {
+                    b.Property<string>("RunwayId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AirportId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("RunwayId", "AirportId");
+
+                    b.HasIndex("AirportId");
+
+                    b.ToTable("RunwaysAirports");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
@@ -274,6 +429,75 @@ namespace SkyTracker.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Flight", b =>
+                {
+                    b.HasOne("SkyTracker.Data.Models.Airport", "ScheduledDeparture")
+                        .WithMany()
+                        .HasForeignKey("DepartureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ScheduledDeparture");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.FlightAircraft", b =>
+                {
+                    b.HasOne("SkyTracker.Data.Models.Aircraft", "Aircraft")
+                        .WithMany("FlightsAircraft")
+                        .HasForeignKey("AircraftId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SkyTracker.Data.Models.Flight", "Flight")
+                        .WithMany("FlightsAircraft")
+                        .HasForeignKey("FlightId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Aircraft");
+
+                    b.Navigation("Flight");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.RunwayAirport", b =>
+                {
+                    b.HasOne("SkyTracker.Data.Models.Airport", "Airport")
+                        .WithMany("RunwaysAirports")
+                        .HasForeignKey("AirportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SkyTracker.Data.Models.Runway", "Runway")
+                        .WithMany("RunwaysAirports")
+                        .HasForeignKey("RunwayId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Airport");
+
+                    b.Navigation("Runway");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Aircraft", b =>
+                {
+                    b.Navigation("FlightsAircraft");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Airport", b =>
+                {
+                    b.Navigation("RunwaysAirports");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Flight", b =>
+                {
+                    b.Navigation("FlightsAircraft");
+                });
+
+            modelBuilder.Entity("SkyTracker.Data.Models.Runway", b =>
+                {
+                    b.Navigation("RunwaysAirports");
                 });
 #pragma warning restore 612, 618
         }

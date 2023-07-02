@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json;
 
-public class RunwaySeedDTO
+public class RunwaySeedDto
 {
     [JsonProperty("designation1")]
     public string RunwayDesignatorOne { get; set; } = null!;

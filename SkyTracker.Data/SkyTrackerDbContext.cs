@@ -1,13 +1,14 @@
-﻿using SkyTracker.Data.Configuration;
+﻿namespace SkyTracker.Data;
 
-namespace SkyTracker.Data;
 
 using System.Reflection;
+using SkyTracker.Data.SampleData.DataGeneration;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+using SkyTracker.Data.Configuration;
 using Models;
 
 public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
@@ -27,39 +28,37 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
     public DbSet<HeraldPost> HeraldPosts { get; set; } = null!;
 
+    public DbSet<RunwayAirport> RunwaysAirports { get; set; } = null!;
+
+    public DbSet<FlightAircraft> FlightsAircraft { get; set; } = null!;
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.EnableSensitiveDataLogging();
+    }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        //Assembly configurationAssembly = Assembly.GetAssembly(typeof(SkyTrackerDbContext)) ??
-        //                                   Assembly.GetExecutingAssembly();
-
-        //builder.ApplyConfigurationsFromAssembly(configurationAssembly);
-
-        builder.ApplyConfiguration(new RunwayCollectionEntityConfiguration());
-        builder.ApplyConfiguration(new AircraftCollectionEntityConfiguration());
-
-        builder.ApplyConfiguration(new HeraldPostEntityConfiguration());
-
-        builder.Entity<Flight>(e => e.HasKey(x => x.AircraftId));
-        builder.Entity<Aircraft>(e => e.HasKey(x => x.AircraftId));
-
-        builder.Entity<Aircraft>(aircraft =>
+        builder.Entity<RunwayAirport>(entity =>
         {
-            aircraft
-                .HasMany(a => a.Flights)
-                .WithOne(f => f.Aircraft)
-                .HasForeignKey(e => e.AircraftId)
-                .OnDelete(DeleteBehavior.Restrict);
+            entity
+            .HasKey(ra => new { ra.RunwayId, ra.AirportId });
         });
 
-        builder.Entity<Flight>(flight =>
+        builder.Entity<FlightAircraft>(entity =>
         {
-            flight
-                .HasOne(f => f.Aircraft)
-                .WithMany(a => a.Flights)
-                .HasForeignKey(f => f.AircraftId)
-                .OnDelete(DeleteBehavior.Restrict);
+            entity
+            .HasKey(fa => new { fa.FlightId, fa.AircraftId });
         });
 
-        base.OnModelCreating(builder);
+       //var collectionEntityConfiguration = new CollectionEntityConfiguration();
+
+       //builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
+       //builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
+       //builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
+       //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+       //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+
+       base.OnModelCreating(builder);
     }
 }

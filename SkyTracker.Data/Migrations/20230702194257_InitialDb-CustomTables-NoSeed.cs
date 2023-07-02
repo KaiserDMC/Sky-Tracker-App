@@ -5,10 +5,35 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SkyTracker.Data.Migrations
 {
-    public partial class CreatedIdentity : Migration
+    public partial class InitialDbCustomTablesNoSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Aircraft",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(7)", maxLength: 7, nullable: true),
+                    Equipment = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Aircraft", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Airports",
+                columns: table => new
+                {
+                    IATA = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ICAO = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Airports", x => x.IATA);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -46,6 +71,61 @@ namespace SkyTracker.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HeraldPosts",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Occurrence = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TypeOccurence = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Details = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HeraldPosts", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Runways",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RunwayDesignatorOne = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RunwayDesignatorTwo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Length = table.Column<int>(type: "int", nullable: false),
+                    Width = table.Column<int>(type: "int", nullable: true),
+                    SurfaceType = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Runways", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Flights",
+                columns: table => new
+                {
+                    FlightId = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    Registration = table.Column<string>(type: "nvarchar(7)", maxLength: 7, nullable: true),
+                    Equipment = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: true),
+                    Callsign = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
+                    FlightNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: true),
+                    DepartureId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ScheduledArrival = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RealArrival = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Reserved = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Flights", x => x.FlightId);
+                    table.ForeignKey(
+                        name: "FK_Flights_Airports_DepartureId",
+                        column: x => x.DepartureId,
+                        principalTable: "Airports",
+                        principalColumn: "IATA",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +234,54 @@ namespace SkyTracker.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RunwaysAirports",
+                columns: table => new
+                {
+                    RunwayId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AirportId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RunwaysAirports", x => new { x.RunwayId, x.AirportId });
+                    table.ForeignKey(
+                        name: "FK_RunwaysAirports_Airports_AirportId",
+                        column: x => x.AirportId,
+                        principalTable: "Airports",
+                        principalColumn: "IATA",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RunwaysAirports_Runways_RunwayId",
+                        column: x => x.RunwayId,
+                        principalTable: "Runways",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FlightsAircraft",
+                columns: table => new
+                {
+                    AircraftId = table.Column<string>(type: "nvarchar(60)", nullable: false),
+                    FlightId = table.Column<string>(type: "nvarchar(9)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FlightsAircraft", x => new { x.FlightId, x.AircraftId });
+                    table.ForeignKey(
+                        name: "FK_FlightsAircraft_Aircraft_AircraftId",
+                        column: x => x.AircraftId,
+                        principalTable: "Aircraft",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FlightsAircraft_Flights_FlightId",
+                        column: x => x.FlightId,
+                        principalTable: "Flights",
+                        principalColumn: "FlightId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +320,21 @@ namespace SkyTracker.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Flights_DepartureId",
+                table: "Flights",
+                column: "DepartureId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FlightsAircraft_AircraftId",
+                table: "FlightsAircraft",
+                column: "AircraftId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RunwaysAirports_AirportId",
+                table: "RunwaysAirports",
+                column: "AirportId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +355,31 @@ namespace SkyTracker.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "FlightsAircraft");
+
+            migrationBuilder.DropTable(
+                name: "HeraldPosts");
+
+            migrationBuilder.DropTable(
+                name: "RunwaysAirports");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Aircraft");
+
+            migrationBuilder.DropTable(
+                name: "Flights");
+
+            migrationBuilder.DropTable(
+                name: "Runways");
+
+            migrationBuilder.DropTable(
+                name: "Airports");
         }
     }
 }

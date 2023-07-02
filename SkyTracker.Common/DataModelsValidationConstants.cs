@@ -33,6 +33,8 @@ public static class DataModelsValidationConstants
 
         public const int FlightNumberLengthMax = 12;
         public const string FlightNumberRegexPattern = @"[A-Z0-9]+$";
+
+        public const string CodeIATA = @"[A-Z]{3}$";
     }
 
     public static class Airport

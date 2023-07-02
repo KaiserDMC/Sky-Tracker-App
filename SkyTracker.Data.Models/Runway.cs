@@ -9,11 +9,11 @@ public class Runway
 {
     public Runway()
     {
-        this.Id = Guid.NewGuid();
+        this.Id = Guid.NewGuid().ToString();
     }
 
     [Key]
-    public Guid Id { get; set; }
+    public string Id { get; set; }
 
     [Required]
     [RegularExpression(DesignatorRegexPattern)]
@@ -30,7 +30,5 @@ public class Runway
 
     public string? SurfaceType { get; set; }
 
-    [Required, ForeignKey(nameof(Airport))]
-    public string AirportId { get; set; } = null!;
-    public Airport Airport { get; set; } = null!;
+    public ICollection<RunwayAirport> RunwaysAirports { get; set; } = new List<RunwayAirport>();
 }

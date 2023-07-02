@@ -6,26 +6,25 @@ using SampleData.DataGeneration;
 
 public class FlightAirportSeeder
 {
-    public ICollection<Flight> flights = new List<Flight>();
-    public ICollection<Airport> airport = new HashSet<Airport>();
+    public ICollection<Flight> Flights = new List<Flight>();
 
     public FlightAirportSeeder()
     {
         var tempFlightCollection = new GenerateData().FlightCollection;
 
-        foreach (var flightDTO in tempFlightCollection)
+        foreach (var flightDto in tempFlightCollection)
         {
-            flights.Add(new Flight()
+            Flights.Add(new Flight
             {
-                FlightId = flightDTO.FlightId,
-                AircraftId = flightDTO.AircraftId.ToString(),
-                Registration = flightDTO.Registration,
-                Equipment = flightDTO.Equipment,
-                Callsign = flightDTO.Callsign,
-                DepartureId = flightDTO.ScheduledDeparture,
-                ScheduledArrival = flightDTO.ScheduledArrival,
-                RealArrival = flightDTO.RealArrival,
-                Reserved = flightDTO.Reserved
+                FlightId = flightDto.FlightId,
+                Registration = flightDto.Registration,
+                Equipment = flightDto.Equipment,
+                Callsign = flightDto.Callsign,
+                FlightNumber = flightDto.FlightNumber,
+                DepartureId = flightDto.DepartureId,
+                ScheduledArrival = flightDto.ScheduledArrival,
+                RealArrival = flightDto.RealArrival,
+                Reserved = flightDto.Reserved
             });
         }
     }

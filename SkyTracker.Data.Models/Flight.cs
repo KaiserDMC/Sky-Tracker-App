@@ -7,24 +7,18 @@ using static SkyTracker.Common.DataModelsValidationConstants.Flight;
 
 public class Flight
 {
-    public Flight()
-    {
-        this.Id = Guid.NewGuid();
-    }
-
     [Key]
-    public Guid Id { get; set; }
-
     [Required]
     [MaxLength(FlightIdLengthMax)]
     [RegularExpression(FlightIdRegexPattern)]
-    public int FlightId { get; set; }
+    public string FlightId { get; set; } = null!;
 
-    [Required]
-    [MaxLength(AircraftIdLengthMax)]
-    [RegularExpression(AircraftIdRegexPattern)]
-    public string AircraftId { get; set; }
-    public Aircraft Aircraft { get; set; } = null!;
+    //[Required]
+    //[MaxLength(AircraftIdLengthMax)]
+    //[RegularExpression(AircraftIdRegexPattern)]
+    //public string AircraftId { get; set; } = null!;
+    //[ForeignKey("AircraftId")]
+    //public Aircraft Aircraft { get; set; } = null!;
 
     [MaxLength(RegistrationLengthMax)]
     [RegularExpression(RegistrationRegexPattern)]
@@ -44,12 +38,18 @@ public class Flight
     public string? FlightNumber { get; set; }
 
     [Required, ForeignKey(nameof(ScheduledDeparture))]
+    [RegularExpression(CodeIATA)]
     public string DepartureId { get; set; } = null!;
     public Airport ScheduledDeparture { get; set; } = null!;
 
+    [RegularExpression(CodeIATA)]
     public string? ScheduledArrival { get; set; }
 
+    [RegularExpression(CodeIATA)]
     public string? RealArrival { get; set; }
 
+    [RegularExpression(CodeIATA)]
     public string? Reserved { get; set; }
+
+    public ICollection<FlightAircraft> FlightsAircraft { get; set; } = new HashSet<FlightAircraft>();
 }

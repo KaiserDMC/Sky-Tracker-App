@@ -15,8 +15,8 @@ public class HeraldPost
     public Guid Id { get; set; }
 
     [Required]
-    [JsonProperty("Occurence")]
-    public string Occurence { get; set; } = null!;
+    [JsonProperty("Occurrence")]
+    public string Occurrence { get; set; } = null!;
 
     [Required]
     [JsonProperty("title")]

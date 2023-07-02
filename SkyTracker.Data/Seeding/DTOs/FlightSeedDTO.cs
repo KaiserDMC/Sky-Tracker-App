@@ -2,13 +2,13 @@
 
 using CsvHelper.Configuration.Attributes;
 
-public class FlightSeedDTO
+public class FlightSeedDto
 {
     [Name("flight_id")]
-    public int FlightId { get; set; }
+    public string FlightId { get; set; } = null!;
 
     [Name("aircraft_id")]
-    public int AircraftId { get; set; }
+    public string AircraftId { get; set; } = null!;
 
     [Name("reg")]
     public string? Registration { get; set; }
@@ -23,7 +23,7 @@ public class FlightSeedDTO
     public string? FlightNumber { get; set; }
 
     [Name("schd_from")]
-    public string ScheduledDeparture { get; set; }  = null!;
+    public string ScheduledDeparture { get; set; } = null!;
 
     [Name("schd_to")]
     public string? ScheduledArrival { get; set; }
