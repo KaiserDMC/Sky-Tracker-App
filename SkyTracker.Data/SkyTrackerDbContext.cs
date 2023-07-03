@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using Models;
-
-using SkyTracker.Data.Configuration;
+using Configuration;
 
 public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 {
@@ -53,8 +52,15 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
         builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
         builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
-        builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
-        builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+
+        // Runway and HeraldPost need to be commented out to after initial migration avoid seeding errors, as they use randomly generated data.
+        //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+
+        var mappingEntityConfiguration = new MappingEntityConfiguration();
+
+        builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
+        builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
 
         base.OnModelCreating(builder);
     }

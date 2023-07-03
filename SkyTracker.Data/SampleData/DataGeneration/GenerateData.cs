@@ -5,9 +5,8 @@ using System.Globalization;
 using CsvHelper;
 
 using Seeding;
-
-using SkyTracker.Data.Models;
-using SkyTracker.Data.Seeding.DTOs;
+using Models;
+using Seeding.DTOs;
 
 public class GenerateData
 {
@@ -15,8 +14,7 @@ public class GenerateData
     public ICollection<Flight> FlightCollection = new List<Flight>();
     public ICollection<Airport> AirportCollection = new List<Airport>();
 
-    public ICollection<string> RunwayIds = new HashSet<string>();
-    private readonly RunwaySeeder _runwaySeeder = new RunwaySeeder();
+
 
     public GenerateData()
     {
@@ -27,8 +25,6 @@ public class GenerateData
     {
         string relativePath = @"..\SkyTracker.Data\SampleData\DataGeneration\20210723_flights.csv";
         string fullPath = Path.GetFullPath(relativePath);
-
-        RunwayIds = _runwaySeeder.Runways.Select(r => r.Id).ToList();
 
         using (var reader = new StreamReader(fullPath))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))

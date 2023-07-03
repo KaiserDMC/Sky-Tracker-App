@@ -3,9 +3,9 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-using SkyTracker.Data.Models;
-using SkyTracker.Data.SampleData.DataGeneration;
-using SkyTracker.Data.Seeding;
+using Models;
+using SampleData.DataGeneration;
+using Seeding;
 
 public class CollectionEntityConfiguration :
     IEntityTypeConfiguration<Flight>,
@@ -42,13 +42,14 @@ public class CollectionEntityConfiguration :
         builder.HasData(_generateData.AircraftCollection);
     }
 
+    // Runway and HeraldPost need to be commented out to after initial migration avoid seeding errors, as they use randomly generated data.
     public void Configure(EntityTypeBuilder<Runway> builder)
     {
-        builder.HasData(_runwaySeeder.Runways);
+        //builder.HasData(_runwaySeeder.Runways);
     }
 
     public void Configure(EntityTypeBuilder<HeraldPost> builder)
     {
-        builder.HasData(_heraldPostSeeder.GenerateHeraldPosts());
+        //builder.HasData(_heraldPostSeeder.GenerateHeraldPosts());
     }
 }
