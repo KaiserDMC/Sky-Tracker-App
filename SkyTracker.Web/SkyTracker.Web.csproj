@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SkyTracker.Common\SkyTracker.Common.csproj" />
     <ProjectReference Include="..\SkyTracker.Data\SkyTracker.Data.csproj" />
+    <ProjectReference Include="..\SkyTracker.Services.Data\SkyTracker.Services.Data.csproj" />
     <ProjectReference Include="..\SkyTracker.Web.ViewModels\SkyTracker.Web.ViewModels.csproj" />
   </ItemGroup>
 

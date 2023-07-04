@@ -79,7 +79,7 @@ public class RegisterModel : PageModel
                 Email = Input.Email
             };
 
-            await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+            await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
 
             var result = await _userManager.CreateAsync(user, Input.Password);
 

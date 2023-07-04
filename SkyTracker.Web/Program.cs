@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 using Data;
 using Data.Models;
+using SkyTracker.Services.Data;
+using SkyTracker.Services.Data.Interfaces;
 
 public class Program
 {
@@ -22,10 +24,19 @@ public class Program
         builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         {
             options.SignIn.RequireConfirmedAccount = false;
+            options.Password.RequireDigit = false;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
         })
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
-
         builder.Services.AddControllersWithViews();
+
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            options.LoginPath = "/Identity/Account/Login";
+        });
+
+        builder.Services.AddScoped<IHeraldService, HeraldService>();
 
         var app = builder.Build();
 

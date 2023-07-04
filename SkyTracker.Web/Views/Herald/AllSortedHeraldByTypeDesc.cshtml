@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HeraldAllViewModel>
+
+@{
+    ViewBag.Title = "All current aviation heralds";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    <div class="col-12 mb-3 row justify-content-end">
+        <div class="col-3">
+            <div class="input-group">
+                <label for="sortDropdown" class="input-group-text">Sort By:</label>
+                <select id="sortDropdown" class="form-select" onchange=" this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
+                    <option value="">-- Select --</option>
+                    <option value="@Url.Action("AllSortedHeraldByTypeAsc", "Herald")">Type Occurence Asc &#x2191;</option>
+                    <option value="@Url.Action("AllSortedHeraldByTypeDesc", "Herald")">Type Occurence Desc &#x2193;</option>
+                    <option value="@Url.Action("All", "Herald")">Clear;</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Date of Occurence</th>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr class="@(GetRowColourClass(item.TypeOccurence))">
+                <td>@item.OccurrenceDate</td>
+                <td>@item.TypeOccurence</td>
+                <td>@item.Details</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    string GetRowColourClass(string typeOccurrence)
+    {
+        switch (typeOccurrence)
+        {
+            case "Crash":
+                return "table-danger";
+            case "Accident":
+                return "table-warning";
+            case "Report":
+                return "table-light";
+            case "News":
+                return "table-secondary";
+            default: //Incident
+                return "table-info";
+        }
+    }
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
