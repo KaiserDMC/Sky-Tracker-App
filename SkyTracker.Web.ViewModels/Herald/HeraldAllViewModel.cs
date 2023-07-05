@@ -2,7 +2,7 @@
 
 public class HeraldAllViewModel
 {
-    public string OccurrenceId { get; set; }
+    public string OccurrenceId { get; set; } = null!;
 
     public string OccurrenceDate { get; set; } = null!;
 

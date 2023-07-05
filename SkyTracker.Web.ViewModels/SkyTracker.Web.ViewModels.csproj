@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Folder Include="Herald\" />
+    <Folder Include="Aircraft\" />
+    <Folder Include="Airlines\" />
+    <Folder Include="Airports\" />
   </ItemGroup>
 
 </Project>

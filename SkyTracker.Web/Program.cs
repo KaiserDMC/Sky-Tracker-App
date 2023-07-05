@@ -37,6 +37,9 @@ public class Program
         });
 
         builder.Services.AddScoped<IHeraldService, HeraldService>();
+        builder.Services.AddScoped<IAircraftService, AircraftService>();
+        builder.Services.AddScoped<IAirportsService, AirportsService>();
+        builder.Services.AddScoped<IAirlinesService, AirlinesService>();
 
         var app = builder.Build();
 

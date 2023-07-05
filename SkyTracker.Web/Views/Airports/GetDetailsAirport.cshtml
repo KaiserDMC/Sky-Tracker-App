@@ -1,0 +1,33 @@
+﻿@model AirportsDetailsViewModel
+
+@{
+    ViewBag.Title = "Airport Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="card w-100">
+        <div class="card-body">
+            <h3 class="card-title text-center"><span class="fw-bold">@Model.CommonName</span></h3>
+            <p class="mb-0"><span class="fw-bold">Elevation: </span>@Model.Elevation</p>
+            <p class="mb-0"><span class="fw-bold">Location: </span>@Model.LocationCity, @Model.LocationCountry</p>
+            <p class="mb-0"><span class="fw-bold">IATA: </span>@Model.IATA</p>
+            <p class="mb-0"><span class="fw-bold">ICAO: </span>@Model.ICAO</p>
+        </div>
+
+        <div class="card-body">
+            <h3 class="card-title text-center"><span class="fw-bold">Runway Characteristics</span></h3>
+            <p class="mb-0"><span class="fw-bold">Runways: </span>@Model.Runway.RunwayDesignatorOne &#47; @Model.Runway.RunwayDesignatorTwo</p>
+            <p class="mb-0"><span class="fw-bold">Dimensions: </span> Length @Model.Runway.Length [m], Width @Model.Runway.Width <span class="font-italic">[m]</span></p>
+            <p class="mb-0"><span class="fw-bold">Surface: </span>@Model.Runway.SurfaceType</p>
+        </div>
+
+        <a asp-controller="Airports" asp-action="All" class="btn btn-info mb-2 w-100 p-3 fw-bold">Back to All Airports</a>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
