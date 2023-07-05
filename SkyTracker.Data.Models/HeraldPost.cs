@@ -3,20 +3,18 @@
 using System.ComponentModel.DataAnnotations;
 
 using Newtonsoft.Json;
+using static SkyTracker.Common.DataModelsValidationConstants.HeraldPost;
 
 public class HeraldPost
 {
-    public HeraldPost()
-    {
-        this.Id = Guid.NewGuid();
-    } 
-    
     [Key]
+    [JsonProperty("guid")]
     public Guid Id { get; set; }
 
     [Required]
     [JsonProperty("Occurrence")]
-    public string Occurrence { get; set; } = null!;
+    [DisplayFormat(DataFormatString = DateFormat)]
+    public DateTime Occurrence { get; set; }
 
     [Required]
     [JsonProperty("title")]

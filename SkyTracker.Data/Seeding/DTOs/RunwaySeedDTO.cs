@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 public class RunwaySeedDto
 {
+    [JsonProperty("guid")]
+    public string Guid { get; set; } = null!;
+
     [JsonProperty("designation1")]
     public string RunwayDesignatorOne { get; set; } = null!;
 

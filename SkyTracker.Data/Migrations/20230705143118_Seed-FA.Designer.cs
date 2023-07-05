@@ -12,8 +12,8 @@ using SkyTracker.Data;
 namespace SkyTracker.Data.Migrations
 {
     [DbContext(typeof(SkyTrackerDbContext))]
-    [Migration("20230702195545_Name-fix")]
-    partial class Namefix
+    [Migration("20230705143118_Seed-FA")]
+    partial class SeedFA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1501,6 +1501,508 @@ namespace SkyTracker.Data.Migrations
                     b.HasIndex("AircraftId");
 
                     b.ToTable("FlightsAircraft");
+
+                    b.HasData(
+                        new
+                        {
+                            FlightId = "679748590",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679750895",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679757090",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679761752",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679765704",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679770174",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679784404",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679790096",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679791496",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679794482",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679796785",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679808241",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679811120",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679812684",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679814796",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679817699",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679819640",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679821595",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679823946",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679826809",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679828515",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679846352",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679851834",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679855207",
+                            AircraftId = "10594670"
+                        },
+                        new
+                        {
+                            FlightId = "679707362",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679713624",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679719352",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679726997",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679733154",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679739359",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679747520",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679753739",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679764400",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679774436",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679780795",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679791388",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679802343",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679809739",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679818719",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679831846",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679837628",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679844139",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679850961",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679856747",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679863999",
+                            AircraftId = "12610754"
+                        },
+                        new
+                        {
+                            FlightId = "679614404",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679727922",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679734609",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679740984",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679747205",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679758316",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679765495",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679771458",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679777572",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679784563",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679790845",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679797902",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679804347",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679816192",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679834468",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679839081",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679842417",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679846327",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679862566",
+                            AircraftId = "10801158"
+                        },
+                        new
+                        {
+                            FlightId = "679635572",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679643668",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679650031",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679657990",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679662640",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679668617",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679671482",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679727537",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679744597",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679757567",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679774768",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679790185",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679803664",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679814645",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679823514",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679835660",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679841780",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679854848",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679861117",
+                            AircraftId = "10658329"
+                        },
+                        new
+                        {
+                            FlightId = "679709505",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679716540",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679720729",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679760166",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679767637",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679773916",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679781850",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679790844",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679798112",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679803953",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679818403",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679822399",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679828409",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679832266",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679843338",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679847956",
+                            AircraftId = "4735111"
+                        },
+                        new
+                        {
+                            FlightId = "679853082",
+                            AircraftId = "4735111"
+                        });
                 });
 
             modelBuilder.Entity("SkyTracker.Data.Models.HeraldPost", b =>
@@ -1513,9 +2015,8 @@ namespace SkyTracker.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Occurrence")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Occurrence")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TypeOccurence")
                         .IsRequired()
@@ -1528,1242 +2029,1243 @@ namespace SkyTracker.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c400bbed-4e5f-4dc7-af09-75105f7d32ab"),
+                            Id = new Guid("4c8bba4c-1d05-4a95-955d-5fa49bf0e6ab"),
                             Details = "Spicejet B738 near Patna on Nov 17th 2021, loss of cabin pressure causes momentary incapacitation of captain",
-                            Occurrence = "Friday Jun 30th 2023",
+                            Occurrence = new DateTime(2023, 6, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Report"
                         },
                         new
                         {
-                            Id = new Guid("4485376d-c3b5-475a-a9fc-11d56178f6a5"),
+                            Id = new Guid("dd965a8e-930d-42a1-b2cd-d1bf603a909c"),
                             Details = "Vietjet A21N near Laoag on Jun 28th 2023, engine vibration indications",
-                            Occurrence = "Wednesday Jun 28th 2023",
+                            Occurrence = new DateTime(2023, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2d40f6c7-c23b-4d5d-be22-e88513f45596"),
+                            Id = new Guid("70989495-3e91-4be0-9a37-f01a5d3178eb"),
                             Details = "ANZ B789 near Auckland on Jun 23rd 2023, fuel issues",
-                            Occurrence = "Tuesday Jun 27th 2023",
+                            Occurrence = new DateTime(2023, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2436c1b8-67f3-41fc-8b7c-194887aeba6c"),
+                            Id = new Guid("19fc73d0-7203-4112-876e-506e2bf9663d"),
                             Details = "Fedex MD11 at Toronto on Jun 21st 2023, thrust reverser deployed in flight",
-                            Occurrence = "Monday Jun 26th 2023",
+                            Occurrence = new DateTime(2023, 6, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b46fd14b-8e90-4c15-818e-c7ba4c11084c"),
+                            Id = new Guid("ef19532a-01bf-429d-9ff4-3cd87877203f"),
                             Details = "LATAM Cargo at Frankfurt on Jun 20th 2023, stalled during go around, overflew parallel runway and stalled again",
-                            Occurrence = "Sunday Jun 25th 2023",
+                            Occurrence = new DateTime(2023, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b5a318b4-5eb9-423f-8679-c47ed2f2fcdd"),
+                            Id = new Guid("66858dbf-bb59-40bf-ac04-2e44dd2b91ae"),
                             Details = "Cathay B773 at Hong Kong on Jun 24th 2023, rejected takeoff",
-                            Occurrence = "Saturday Jun 24th 2023",
+                            Occurrence = new DateTime(2023, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("c904b6fe-3128-49bf-9b17-cca0d87caef9"),
+                            Id = new Guid("eb5dbabe-58f6-417b-abd2-d0e07daa3b58"),
                             Details = "Batik A333 at Madinah on Jun 12th 2023, hydraulic leak",
-                            Occurrence = "Friday Jun 23rd 2023",
+                            Occurrence = new DateTime(2023, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cdc958d5-f375-42b2-88be-c343947e61a1"),
+                            Id = new Guid("de904f6d-c8e5-4cd2-8384-77d0df029674"),
                             Details = "Edelweiss A320 at Zurich on Jun 18th 2023, gear problems on departure",
-                            Occurrence = "Thursday Jun 22nd 2023",
+                            Occurrence = new DateTime(2023, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cf9f3df5-42db-4562-a7d8-3efc5888d6da"),
+                            Id = new Guid("e40bcf84-4661-4948-8928-7fadeedac17f"),
                             Details = "Condor A339 near Mauritius on Mar 2nd 2023, turbulence injures 20",
-                            Occurrence = "Wednesday Jun 21st 2023",
+                            Occurrence = new DateTime(2023, 6, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("7454d1a3-0ce5-4621-9151-164bbec9f693"),
+                            Id = new Guid("2d47641a-3d73-4996-902c-52226d83e3d1"),
                             Details = "Argentinas B738 near Posadas on Jun 19th 2023, burning odour on board",
-                            Occurrence = "Tuesday Jun 20th 2023",
+                            Occurrence = new DateTime(2023, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("87fb8d75-21e3-41d1-856b-15139ca92d56"),
+                            Id = new Guid("bd99def8-fcc7-40bd-a446-89a5485d07c6"),
                             Details = "ANZ B789 enroute on Jun 19th 2023, cracked windshield",
-                            Occurrence = "Monday Jun 19th 2023",
+                            Occurrence = new DateTime(2023, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("dd37490d-f345-4425-a975-13c2f544c7ef"),
+                            Id = new Guid("298d4962-56e3-4a4f-9705-3546c05c1b2b"),
                             Details = "British Airways B773 near Singapore on Jun 16th 2023, turbulence causes injuries",
-                            Occurrence = "Sunday Jun 18th 2023",
+                            Occurrence = new DateTime(2023, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("2cea118d-e66e-4883-a4e9-806cace95c59"),
+                            Id = new Guid("6937ddc5-45ae-4874-b33f-1bde09060a34"),
                             Details = "France A359 near Osaka on May 28th 2023, weather radar and airspeed malfunction",
-                            Occurrence = "Friday Jun 16th 2023",
+                            Occurrence = new DateTime(2023, 6, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("c4a1c0a8-ed55-446f-a32a-95ab7e39cdf4"),
+                            Id = new Guid("4054f929-b335-43f1-9421-656dd83e3da2"),
                             Details = "Delta B738 at Burlington on Jun 12th 2023, engine failure",
-                            Occurrence = "Thursday Jun 15th 2023",
+                            Occurrence = new DateTime(2023, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("fe38dca9-11b1-4ecd-adf1-6680d96ceecf"),
+                            Id = new Guid("11445c3c-e906-4206-a3ea-5404a627019e"),
                             Details = "Lufthansa CRJ9 at Frankfurt on Jun 15th 2023, smell of smoke in cabin",
-                            Occurrence = "Thursday Jun 15th 2023",
+                            Occurrence = new DateTime(2023, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("72688762-0e40-4a98-9bba-7f1f824e7fce"),
+                            Id = new Guid("8586c2b4-0bd4-44bc-a828-4d4d563cdcd9"),
                             Details = "TAP A320 at Copenhagen on Apr 8th 2022, reverser opened on TOGA, overflew buildings at very low height on go around",
-                            Occurrence = "Wednesday Jun 14th 2023",
+                            Occurrence = new DateTime(2023, 6, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("fa9f95e6-fd14-4120-a0f6-f5b73d505110"),
+                            Id = new Guid("489a6cb1-909c-40d5-a89c-8faad2d929ce"),
                             Details = "Delta B763 near New York on Jun 10th 2023, engine problem",
-                            Occurrence = "Tuesday Jun 13th 2023",
+                            Occurrence = new DateTime(2023, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("71532ff0-6818-4815-9eaf-c3a187a8107e"),
+                            Id = new Guid("70be182d-879b-48cc-95b4-96cfa93b3478"),
                             Details = "United A320 near Kansas City on Jun 11th 2023, fumes in cockpit",
-                            Occurrence = "Monday Jun 12th 2023",
+                            Occurrence = new DateTime(2023, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("525ed43b-15ca-4238-b826-efe837be0d01"),
+                            Id = new Guid("e7535a1c-15b8-4f36-a80f-a31cd75d12a5"),
                             Details = "Indigo A21N at Delhi on Jun 10th 2023, engine failure",
-                            Occurrence = "Sunday Jun 11th 2023",
+                            Occurrence = new DateTime(2023, 6, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("c0c75df8-172d-47ec-b3fa-f7fa52a4ea6c"),
+                            Id = new Guid("6a5a0373-80c5-4d9d-a396-ecacba800d65"),
                             Details = "Perimeter DH8C at Gods Lake Narrows on Jun 3rd 2023, hydraulic leak",
-                            Occurrence = "Saturday Jun 10th 2023",
+                            Occurrence = new DateTime(2023, 6, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("8aa852f6-1723-4347-bff3-9cf8793192a7"),
+                            Id = new Guid("c2a55d7c-65b9-4f70-bb56-f8f501c4e269"),
                             Details = "Algerie B738 near Marseille on Jun 8th 2023, loss of cabin pressure",
-                            Occurrence = "Friday Jun  9th 2023",
+                            Occurrence = new DateTime(2023, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("960bb82e-cbb8-45dc-96e0-f727a9abb0fe"),
+                            Id = new Guid("965cb058-3318-47c3-99f4-8ed8cd55892c"),
                             Details = "Volotea A319 near Bordeaux on Jun 2nd 2023, loss of cabin pressure",
-                            Occurrence = "Thursday Jun  8th 2023",
+                            Occurrence = new DateTime(2023, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("40c3bb7d-ea4d-4710-99e8-cb396700f4cb"),
+                            Id = new Guid("b7954598-218c-4bbc-afc0-9bdfa1bf6f14"),
                             Details = "Virgin Australia B738 at Sydney on Oct 19th 2022, verbal slip in clearance",
-                            Occurrence = "Tuesday Jun  6th 2023",
+                            Occurrence = new DateTime(2023, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Report"
                         },
                         new
                         {
-                            Id = new Guid("1d33cb18-3d94-4b52-b544-ba2645c97f31"),
+                            Id = new Guid("3c67c85d-5c8f-41a2-9dc6-a6deb5050edb"),
                             Details = "Ethiopian B772 at Shanghai on Jul 22nd 2020, aircraft burned down on apron",
-                            Occurrence = "Monday Jun  5th 2023",
+                            Occurrence = new DateTime(2023, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("2731de03-bb49-4296-9256-d8274a7fca51"),
+                            Id = new Guid("61369b93-8ac2-4913-bcd8-f2d322a686d6"),
                             Details = "Azul AT72 at Valadares on Jun 3rd 2023, engine fire indication",
-                            Occurrence = "Sunday Jun  4th 2023",
+                            Occurrence = new DateTime(2023, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("5bbd79a3-de0b-4fff-9159-9b614ac602e1"),
+                            Id = new Guid("18f47283-13d4-418f-a638-8227522302e1"),
                             Details = "Wideroe DH8A at Tromso on Jun 2nd 2023, engine shut down in flight",
-                            Occurrence = "Saturday Jun  3rd 2023",
+                            Occurrence = new DateTime(2023, 6, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d2d5dbf5-3b94-4534-87d8-81a70dbd223c"),
+                            Id = new Guid("5aa06c7c-d653-46a2-ab15-b51179761a48"),
                             Details = "United Nigeria E145 at Lagos on May 31st 2023, runway excursion",
-                            Occurrence = "Friday Jun  2nd 2023",
+                            Occurrence = new DateTime(2023, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("91c61bea-8fa2-4e7e-b4e0-28bfd90d55b6"),
+                            Id = new Guid("52ca76e5-4995-4adb-92f5-0ce2c549f0d3"),
                             Details = "Westjet Encore DH8D at Calgary on May 31st 2023, engine fire",
-                            Occurrence = "Thursday Jun  1st 2023",
+                            Occurrence = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("09c3a598-0ec0-4ceb-8fbd-87a4e7ef35d3"),
+                            Id = new Guid("4c7af6c8-f87f-40ad-bf8d-b5b0826860b3"),
                             Details = "KLM B772 over Mediterranean on Feb 9th 2023, cabin problems - electrical fire in oven",
-                            Occurrence = "Thursday Jun  1st 2023",
+                            Occurrence = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("0707e567-5936-45e1-9858-8e81d6e4def5"),
+                            Id = new Guid("41fdd98c-2b1d-4009-8698-c453d0535d74"),
                             Details = "Garuda B738 at Manado on May 31st 2023, engine problems",
-                            Occurrence = "Wednesday May 31st 2023",
+                            Occurrence = new DateTime(2023, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cc3ebd62-0edc-407c-9c6c-afb39982fde9"),
+                            Id = new Guid("86e9b094-fc72-46f9-a0ca-eac7c0087c60"),
                             Details = "KLM B772 near Dubai on May 26th 2023, engine shut down in flight",
-                            Occurrence = "Tuesday May 30th 2023",
+                            Occurrence = new DateTime(2023, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f812872f-0a96-4563-a0f7-07401b3291c4"),
+                            Id = new Guid("1d0b9ab2-767f-4bf2-ba81-2196c301c097"),
                             Details = "Easyjet A320 at London on May 28th 2023, engine failure",
-                            Occurrence = "Monday May 29th 2023",
+                            Occurrence = new DateTime(2023, 5, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("457da31f-d021-43cb-b283-13a2eef159fc"),
+                            Id = new Guid("4686971d-5849-4e92-958b-43611f06eeb9"),
                             Details = "Malta Air B738 at Milan on May 27th 2023, nose tyre damage on departure",
-                            Occurrence = "Sunday May 28th 2023",
+                            Occurrence = new DateTime(2023, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("48aaf039-c9ab-4aab-86b1-c122ea422700"),
+                            Id = new Guid("398add8a-a222-4176-8db9-4e8ad487531b"),
                             Details = "Asiana A321 at Daegu on May 26th 2023, emergency exit opened in flight",
-                            Occurrence = "Friday May 26th 2023",
+                            Occurrence = new DateTime(2023, 5, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("90a35800-751e-4e2b-a247-efdc1603b583"),
+                            Id = new Guid("3e5c92a5-b13f-4da2-a24b-80ba8ab2111a"),
                             Details = "United B753 over Pacific on May 24th 2023, rudder issues",
-                            Occurrence = "Thursday May 25th 2023",
+                            Occurrence = new DateTime(2023, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("222067e0-b294-41eb-ab13-fa47576ee971"),
+                            Id = new Guid("41a7f5e0-3281-4d9e-bb73-0de3e51bf097"),
                             Details = "PIA A320 at Karachi on May 24th 2023, bird strike",
-                            Occurrence = "Wednesday May 24th 2023",
+                            Occurrence = new DateTime(2023, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("df5ac761-5fc7-4a15-870f-a76f4b635ec7"),
+                            Id = new Guid("ef195491-1a27-4ceb-85ee-66a4294ef291"),
                             Details = "Jetblue A320 near New York on May 22nd 2023, loss of cabin pressure",
-                            Occurrence = "Tuesday May 23rd 2023",
+                            Occurrence = new DateTime(2023, 5, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9f3b986e-9f54-4648-98cb-7821f2796afd"),
+                            Id = new Guid("0e55f1f0-e623-420b-9c7f-d92ad27054b9"),
                             Details = "Brussels A333 near Paris on May 22nd 2023, engine vibrations",
-                            Occurrence = "Monday May 22nd 2023",
+                            Occurrence = new DateTime(2023, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ec6c9453-e385-4a40-96f7-d984596ab85c"),
+                            Id = new Guid("bd81647e-287a-4aac-8c72-7ad3e0f12ce1"),
                             Details = "Easyjet A319 near Manchester on May 19th 2023, burning odour on board",
-                            Occurrence = "Saturday May 20th 2023",
+                            Occurrence = new DateTime(2023, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("217c8753-c49d-403c-82e7-be2318132317"),
+                            Id = new Guid("68094bdf-71ff-457e-b25f-08ebb1671c47"),
                             Details = "Easyjet A320 at Geneva on May 18th 2023, fire in overhead locker",
-                            Occurrence = "Friday May 19th 2023",
+                            Occurrence = new DateTime(2023, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2a262e27-3c61-4fda-90b9-b1ed3ecb1f31"),
+                            Id = new Guid("61d8225a-3a9f-4975-9b71-7df92e23f2ea"),
                             Details = "Aeromexico B38M at Mexico City on May 10th 2023, rejected takeoff after operational error",
-                            Occurrence = "Thursday May 18th 2023",
+                            Occurrence = new DateTime(2023, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a8255375-03fc-4683-8749-fb0ad0ded15b"),
+                            Id = new Guid("0d03e449-f9df-49e0-8c52-d9f59b6575fe"),
                             Details = "Oman B739 at Shiraz on May 15th 2023, foreign object on runway at landing",
-                            Occurrence = "Wednesday May 17th 2023",
+                            Occurrence = new DateTime(2023, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a026bbde-afbf-4611-9003-547ed353a185"),
+                            Id = new Guid("4f8fd3ba-b9f9-4c65-869d-e141007bc143"),
                             Details = "Link SF34 at Canberra on Nov 10th 2022, propeller strap penetrates cabin in flight",
-                            Occurrence = "Wednesday May 17th 2023",
+                            Occurrence = new DateTime(2023, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("6f4c8aa6-7024-4c93-b579-44b2f5208a45"),
+                            Id = new Guid("801613d0-664e-41c1-b68c-508efc7ecb27"),
                             Details = "Airwork B733 at Darwin on Nov 4th 2021, cabin did not pressurize",
-                            Occurrence = "Tuesday May 16th 2023",
+                            Occurrence = new DateTime(2023, 5, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("97d38caf-b116-476e-b396-8a931682e25e"),
+                            Id = new Guid("3bde6a81-4da6-4b3d-a763-774a2c44c0d8"),
                             Details = "Cargolux B744 at Luxembourg on May 14th 2023, could not retract landing gear, on return right center gear bogey separated",
-                            Occurrence = "Monday May 15th 2023",
+                            Occurrence = new DateTime(2023, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("9ec542f3-463c-4d80-82e5-6758253cb286"),
+                            Id = new Guid("26b35488-be5c-40a8-ade0-5501f768ac8c"),
                             Details = "HiSky A21N near Manchester on May 11th 2023, pilot incapacitated",
-                            Occurrence = "Sunday May 14th 2023",
+                            Occurrence = new DateTime(2023, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3ca3166b-5056-44fc-ab4c-3c479efdb939"),
+                            Id = new Guid("70000f32-fe6e-483b-85ea-54b5752971ac"),
                             Details = "Baltic BCS3 at Brussels on Apr 19th 2023, started final descent too early",
-                            Occurrence = "Saturday May 13th 2023",
+                            Occurrence = new DateTime(2023, 5, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3d1fb550-0746-4e3c-8d2a-c2c5b1b87672"),
+                            Id = new Guid("4897c7b0-0f89-4a39-ad1e-faaa4aff56d9"),
                             Details = "Aeroregional B735 near Quito on May 5th 2023, loss of cabin pressure",
-                            Occurrence = "Thursday May 11th 2023",
+                            Occurrence = new DateTime(2023, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a322d045-b31c-43b3-94e7-d5957af34c3e"),
+                            Id = new Guid("37e54a85-8fca-4e98-807a-11bbd2d6c3c8"),
                             Details = "Canada B773 near Toronto on Apr 30th 2023, something glowing on wing",
-                            Occurrence = "Wednesday May 10th 2023",
+                            Occurrence = new DateTime(2023, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("61b0c2d0-ea67-4b74-918d-225583bdffc7"),
+                            Id = new Guid("3420ce03-baf0-41cc-b4f7-cf436c470fd3"),
                             Details = "United B788 near Dublin on May 4th 2023, cracked windshield",
-                            Occurrence = "Tuesday May  9th 2023",
+                            Occurrence = new DateTime(2023, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("567d130c-555f-4dbc-b205-4f31c8cddb1c"),
+                            Id = new Guid("bbac0457-d33c-4e88-9548-50e7fbea2c81"),
                             Details = "Fedex A306 near Indianapolis on May 7th 2023, hydraulic problems",
-                            Occurrence = "Monday May  8th 2023",
+                            Occurrence = new DateTime(2023, 5, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3bd2769d-ecc2-4def-98cd-33445d7a0583"),
+                            Id = new Guid("a32d4a7d-d360-4d19-9ddb-beaf00f26031"),
                             Details = "Transavia B738 at Rotterdam on May 4th 2023, bird strike",
-                            Occurrence = "Saturday May  6th 2023",
+                            Occurrence = new DateTime(2023, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("6ef85a36-e979-4bc5-a063-9a1091569606"),
+                            Id = new Guid("ede76c5f-6db0-4b65-bb2f-ad6f26f37b9a"),
                             Details = "TUI B738 enroute on May 4th 2023, one flight crew incapacitated",
-                            Occurrence = "Friday May  5th 2023",
+                            Occurrence = new DateTime(2023, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f20165b0-0a00-4bbf-b57a-437f30aaed99"),
+                            Id = new Guid("85285234-005e-4585-a884-ce3854128450"),
                             Details = "Aeromexico E190 near Oaxaca on May 3rd 2023, loss of cabin pressure",
-                            Occurrence = "Thursday May  4th 2023",
+                            Occurrence = new DateTime(2023, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f8cc80c4-cfe3-4699-a526-f3e37116ae37"),
+                            Id = new Guid("f84a45d0-7001-4673-9416-6733106c0fa3"),
                             Details = "Hawaiian A332 at Kahului on Apr 30th 2023, smell of smoke",
-                            Occurrence = "Wednesday May  3rd 2023",
+                            Occurrence = new DateTime(2023, 5, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f059361e-16f3-4221-804e-8735b47176ba"),
+                            Id = new Guid("18c2691f-e40c-469a-ae71-ecab22406cd8"),
                             Details = "Nolinor B738 at Toronto on Apr 15th 2023, flaps failure",
-                            Occurrence = "Tuesday May  2nd 2023",
+                            Occurrence = new DateTime(2023, 5, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("0f916046-1277-4758-aada-0c6d8a9cd20b"),
+                            Id = new Guid("f7032957-105b-4b8b-9819-93a3e9c37f67"),
                             Details = "Scoot B789 near Adelaide on Apr 29th 2023, engine shut down in flight",
-                            Occurrence = "Monday May  1st 2023",
+                            Occurrence = new DateTime(2023, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("c64ebb0d-fe2f-4dba-9526-7790247ee939"),
+                            Id = new Guid("cb29adb3-34e2-485d-97e3-216d1570c8ef"),
                             Details = "Lufthansa B748 at Buenos Aires on Apr 29th 2023, could not retract landing gear",
-                            Occurrence = "Sunday Apr 30th 2023",
+                            Occurrence = new DateTime(2023, 4, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d3e1dc92-7fba-4d13-a6c4-0e1ee9101813"),
+                            Id = new Guid("e044b376-d1e5-400e-80aa-bab52d202b7e"),
                             Details = "Delta B738 at New York on Apr 23rd 2023, lightning strike",
-                            Occurrence = "Friday Apr 28th 2023",
+                            Occurrence = new DateTime(2023, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9f00a244-552a-4ba6-ba92-22e03a7b9dc3"),
+                            Id = new Guid("5414b160-a242-4f66-8d52-6ee28b39aeed"),
                             Details = "Sunwing B738 at Santa Clara on Apr 26th 2023, could not retract left main gear",
-                            Occurrence = "Thursday Apr 27th 2023",
+                            Occurrence = new DateTime(2023, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b2a5f3c6-fdbc-46d2-9c38-3334ab6587a2"),
+                            Id = new Guid("2d3108a5-f8df-4dd5-a975-bfa0e488c2fd"),
                             Details = "Avianca A320 at San Andres on Apr 25th 2023, bird strike",
-                            Occurrence = "Wednesday Apr 26th 2023",
+                            Occurrence = new DateTime(2023, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ca86230a-93b5-4524-b062-a2f3e3bc055c"),
+                            Id = new Guid("3064ebcc-f366-4dd8-93ee-f998c3f7328f"),
                             Details = "Flydubai B738 at Kathmandu on Apr 24th 2023, bird strike on departure",
-                            Occurrence = "Tuesday Apr 25th 2023",
+                            Occurrence = new DateTime(2023, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9692b0b4-c69b-44bc-8784-fbe854911f09"),
+                            Id = new Guid("2946b491-f9b9-4ed9-9896-55b6481eaa9f"),
                             Details = "Pel SF34 near Cobar on Apr 23rd 2023, fire on board",
-                            Occurrence = "Monday Apr 24th 2023",
+                            Occurrence = new DateTime(2023, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("6f49de7e-f566-4d28-ac78-5e201bea4b02"),
+                            Id = new Guid("59d88a51-5b88-45c0-98c4-ae9a02dce8fd"),
                             Details = "El Al B788 at Tel Aviv on Apr 22nd 2023, engine problem",
-                            Occurrence = "Sunday Apr 23rd 2023",
+                            Occurrence = new DateTime(2023, 4, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a4ade24b-d964-475f-a0d7-705af8a0cd4f"),
+                            Id = new Guid("8478d912-5e8a-4065-bc07-616402b20238"),
                             Details = "Delta B763 over Atlantic on Jul 7th 2022, flooding on board, autopilots disconnected",
-                            Occurrence = "Friday Apr 21st 2023",
+                            Occurrence = new DateTime(2023, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ae2224fe-1d71-471b-b0e0-2cdf0da0c235"),
+                            Id = new Guid("3a9b3be2-d82e-4d74-ad7f-6da370cb2400"),
                             Details = "Porter DH8D at Boston on Mar 30th 2023, engine shut down in flight",
-                            Occurrence = "Thursday Apr 20th 2023",
+                            Occurrence = new DateTime(2023, 4, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("53bf6838-7e61-4bfc-811d-ca3870a51798"),
+                            Id = new Guid("7c147614-1c5b-4428-a957-d818bb867a3a"),
                             Details = "Longtail B744 at Maastricht on Feb 20th 2021, rain of engine parts",
-                            Occurrence = "Wednesday Apr 19th 2023",
+                            Occurrence = new DateTime(2023, 4, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("d30b99e6-6b96-4b18-934a-c5a2e525b28c"),
+                            Id = new Guid("bba884ed-0ae6-4341-867d-9466b82d7842"),
                             Details = "Spicejet B738 at Delhi on Apr 18th 2023, cargo smoke indication",
-                            Occurrence = "Tuesday Apr 18th 2023",
+                            Occurrence = new DateTime(2023, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("bb67cfd9-7681-4c02-b5de-74a5e7c91fc2"),
+                            Id = new Guid("e9ad8edf-faac-47e4-8032-d61170e7f1a5"),
                             Details = "Singapore B744 at Nairobi on Apr 17th 2023, rejected takeoff due to bird strike",
-                            Occurrence = "Monday Apr 17th 2023",
+                            Occurrence = new DateTime(2023, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("42ad6b53-7262-4c16-94e5-9a09cb0fc917"),
+                            Id = new Guid("64db7a0d-0256-444e-8b5c-45e7949b816c"),
                             Details = "TAG SF34 at Flores on Apr 16th 2023, gear problem on approach, runway excursion",
-                            Occurrence = "Monday Apr 17th 2023",
+                            Occurrence = new DateTime(2023, 4, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("4f52acc7-6400-49c7-92b6-a6026704d185"),
+                            Id = new Guid("c771303b-7e3b-4d12-9d4d-9c538810a429"),
                             Details = "Lufthansa B744 enroute on Apr 15th 2023, hydraulic problem",
-                            Occurrence = "Sunday Apr 16th 2023",
+                            Occurrence = new DateTime(2023, 4, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("5f1aefd4-12c6-4555-abd9-0cbf9943afb3"),
+                            Id = new Guid("0434b789-6ff5-4f12-b153-8261ec9b171e"),
                             Details = "Skywest CRJ2 near Pierre on Apr 12th 2023, engine failure",
-                            Occurrence = "Friday Apr 14th 2023",
+                            Occurrence = new DateTime(2023, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d7fcfa38-e333-4826-b894-8c55b457a422"),
+                            Id = new Guid("c31e2825-f258-499f-a2f8-5b8346e632ab"),
                             Details = "Virgin Australia B738 at Coolangatta on Jan 24th 2023, long landing",
-                            Occurrence = "Thursday Apr 13th 2023",
+                            Occurrence = new DateTime(2023, 4, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("89b3acf1-89d5-48e8-b588-d6dcf8b5e2df"),
+                            Id = new Guid("49151a53-f572-4a87-a6a0-d8e897bd84e9"),
                             Details = "Kasai AN26 at Lisala on Apr 11th 2023, runway excursion on landing",
-                            Occurrence = "Wednesday Apr 12th 2023",
+                            Occurrence = new DateTime(2023, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("e9586048-73f9-4c58-b914-3bf399b3a635"),
+                            Id = new Guid("5faaa1f7-2330-4e59-b2b3-ab0cb91d6037"),
                             Details = "El Al B772 over Germany and Austria on Apr 10th 2023, losscomm",
-                            Occurrence = "Tuesday Apr 11th 2023",
+                            Occurrence = new DateTime(2023, 4, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("131cc839-2651-4d3c-abda-ac6e66583380"),
+                            Id = new Guid("45eb1a07-560c-404c-aba0-13209e7b6a83"),
                             Details = "British Airways A320 near Glasgow on Apr 10th 2023, fuel transfer problem",
-                            Occurrence = "Monday Apr 10th 2023",
+                            Occurrence = new DateTime(2023, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("bc8850a8-f422-4da2-96bb-4d7775b0173a"),
+                            Id = new Guid("243325f8-ab21-4c2c-8f49-23ebd44f3dee"),
                             Details = "Ryanair B738 at Dublin on Apr 9th 2023, temporary runway excursion and nose gear damage on landing",
-                            Occurrence = "Sunday Apr  9th 2023",
+                            Occurrence = new DateTime(2023, 4, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("9a868c5d-adda-46ef-b927-f3e6aeb3ff18"),
+                            Id = new Guid("10cac8c2-eb22-4171-b3ce-1b4acda6b7e0"),
                             Details = "THY B739 at Kayseri on Apr 7th 2023, bird strike",
-                            Occurrence = "Saturday Apr  8th 2023",
+                            Occurrence = new DateTime(2023, 4, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("49f5537b-6ef9-4a26-bc0a-7121a0eef941"),
+                            Id = new Guid("a0b5bfe7-2de0-4469-b408-988c164ea547"),
                             Details = "Ariana A313 at Jeddah on Feb 24th 2023, rejected takeoff due to sliding window",
-                            Occurrence = "Thursday Apr  6th 2023",
+                            Occurrence = new DateTime(2023, 4, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d1838698-c983-42c2-9a62-cf5931a6f27e"),
+                            Id = new Guid("c73e62b6-fe96-4d48-aed8-9698c33bd6ef"),
                             Details = "El Al B789 at Tel Aviv on Apr 4th 2023, engine shut down in flight",
-                            Occurrence = "Wednesday Apr  5th 2023",
+                            Occurrence = new DateTime(2023, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("20c7ba9e-91a0-4caa-a3d5-6626d4657efb"),
+                            Id = new Guid("236a1264-29db-4a88-851b-04392b04472c"),
                             Details = "Key Lime SW4 and private aircraft at Denver on May 12th 2021, midair collision",
-                            Occurrence = "Tuesday Apr  4th 2023",
+                            Occurrence = new DateTime(2023, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("fdfc304e-dfb9-4ead-92de-d2a01ddab118"),
+                            Id = new Guid("83c716e5-8f7b-44f9-91ad-58cec161ab1b"),
                             Details = "American B738 at Merida on Apr 1st 2023, flaps problems on approach",
-                            Occurrence = "Monday Apr  3rd 2023",
+                            Occurrence = new DateTime(2023, 4, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f23fd807-6135-4e9f-8600-56c22596e8f1"),
+                            Id = new Guid("038763cc-0af4-46ca-a4cd-9822b3fd6c57"),
                             Details = "Delta A321 at New Orleans on Mar 31st 2023, rejected takeoff on ATC instruction",
-                            Occurrence = "Sunday Apr  2nd 2023",
+                            Occurrence = new DateTime(2023, 4, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f6db395c-7a89-4805-ae5b-3651d0c05a8a"),
+                            Id = new Guid("ad045a02-3dd6-44d7-bf7c-498227318aeb"),
                             Details = "Lufthansa A21N at Frankfurt on Mar 31st 2023, lightning strike",
-                            Occurrence = "Saturday Apr  1st 2023",
+                            Occurrence = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("65aef9fb-ebe0-48ff-a13d-6c717e6f1c85"),
+                            Id = new Guid("6a303c04-3262-4127-bc91-99b1b297c478"),
                             Details = "Swiss A320 at Zurich on Feb 14th 2023, took off with vehicle on runway",
-                            Occurrence = "Saturday Apr  1st 2023",
+                            Occurrence = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("0676f7d9-d8d4-404e-a00c-64951cc2a683"),
+                            Id = new Guid("8bf9b52f-03da-411b-ade3-cd5384dafeec"),
                             Details = "British Airways A320 near Zurich on Mar 29th 2023, unusual odour on board",
-                            Occurrence = "Friday Mar 31st 2023",
+                            Occurrence = new DateTime(2023, 3, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("1df0c357-8e56-4ff2-b070-ea0c1afa197d"),
+                            Id = new Guid("28fefb9c-17b0-43f2-b38b-b1c3aab7e07f"),
                             Details = "Ibex CRJ7 near Fukuoka on Apr 18th 2022, loss of left and right airspeed indications",
-                            Occurrence = "Thursday Mar 30th 2023",
+                            Occurrence = new DateTime(2023, 3, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2982a523-33d6-4e95-a5fc-846b1c84cde4"),
+                            Id = new Guid("9b0a6fee-7696-4611-abf9-6659eff88af9"),
                             Details = "United B763 at Houston on Mar 28th 2023, engine shut down in flight",
-                            Occurrence = "Wednesday Mar 29th 2023",
+                            Occurrence = new DateTime(2023, 3, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f64fd407-16cf-4a65-95e5-8225a1d0d9fb"),
+                            Id = new Guid("25dd9b8c-99bb-44b3-a98b-86b33d497d0a"),
                             Details = "Flydubai B39M at Male on Mar 28th 2023, burst tyres on landing",
-                            Occurrence = "Tuesday Mar 28th 2023",
+                            Occurrence = new DateTime(2023, 3, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("897c05a4-8b57-4a57-858a-6140f57b26be"),
+                            Id = new Guid("8d99648e-4172-4613-8f2e-f97d1daa1fc1"),
                             Details = "TAROM B738 near Bucharest on Mar 25th 2023, captain incapacitated",
-                            Occurrence = "Monday Mar 27th 2023",
+                            Occurrence = new DateTime(2023, 3, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("616df614-8d6c-46b8-8eea-75343e37d75b"),
+                            Id = new Guid("1559bfaf-9120-47d9-af6a-da1b6934bae0"),
                             Details = "Server harddisk crashed, we are back up in full service after about 6 hours",
-                            Occurrence = "Saturday Mar 25th 2023",
+                            Occurrence = new DateTime(2023, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "News"
                         },
                         new
                         {
-                            Id = new Guid("a80effdf-ebb1-42fe-a5aa-5f1cf84d9c24"),
+                            Id = new Guid("f9497552-1b8d-453f-be4d-fbc3c26241b2"),
                             Details = "Network Australia F100 at Paraburdoo on Nov 22nd 2021, descent below minimum without visual reference",
-                            Occurrence = "Friday Mar 24th 2023",
+                            Occurrence = new DateTime(2023, 3, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9df0473d-9835-48eb-9f28-55022fdfabe2"),
+                            Id = new Guid("0218ea27-cb00-4b8c-8049-db021e43583d"),
                             Details = "Transavia B737 at Rotterdam on Apr 24th 2021, we think we are 6500 feet, military radar tells FL110, unreliable speed and altitude on both left and right pitot systems",
-                            Occurrence = "Thursday Mar 23rd 2023",
+                            Occurrence = new DateTime(2023, 3, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("74aeea9d-16ed-4047-b1a7-9b782f779c78"),
+                            Id = new Guid("2b8fc4b6-cbf1-464f-ae40-a02fbd079b0b"),
                             Details = "Sun Country B738 at Las Vegas on Feb 4th 2022, gear malfunction on departure",
-                            Occurrence = "Wednesday Mar 22nd 2023",
+                            Occurrence = new DateTime(2023, 3, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("c46ce4f2-aeda-49cd-96a8-177def51d096"),
+                            Id = new Guid("c13a0d65-a3ea-4cd5-a530-c622d802f67a"),
                             Details = "Qantas A332 near Adelaide on Feb 4th 2021, loss of cabin pressure",
-                            Occurrence = "Tuesday Mar 21st 2023",
+                            Occurrence = new DateTime(2023, 3, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f3817d1b-d1eb-4802-a25f-8a68c655177d"),
+                            Id = new Guid("8c701e39-7075-4f1f-9f43-30385d817e8b"),
                             Details = "Wideroe DH8D near Sandefjord on Mar 17th 2023, departed without being refueled",
-                            Occurrence = "Monday Mar 20th 2023",
+                            Occurrence = new DateTime(2023, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d407b9ab-fcf0-42b3-ae32-d4c3a32a2c63"),
+                            Id = new Guid("a20e35fa-3a8b-413b-98fd-e0119107e8e0"),
                             Details = "Delta B752 at New York on Mar 15th 2023, slat disagree",
-                            Occurrence = "Sunday Mar 19th 2023",
+                            Occurrence = new DateTime(2023, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("fb053448-1fb6-41f1-bd0e-dcd3d81cf52c"),
+                            Id = new Guid("d26a487d-51f2-4800-9b20-8c9ef173b882"),
                             Details = "Indigo A20N near Hyderabad on Mar 18th 2023, hail strike",
-                            Occurrence = "Sunday Mar 19th 2023",
+                            Occurrence = new DateTime(2023, 3, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("c8f37854-ccf5-4eb0-b6cf-1509987a9fc0"),
+                            Id = new Guid("c3e85507-074d-4dc1-8e09-978ec32dd14a"),
                             Details = "Buddha AT72 at Kathmandu on Mar 18th 2023, unreliable airspeed",
-                            Occurrence = "Saturday Mar 18th 2023",
+                            Occurrence = new DateTime(2023, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("54f1afd0-5070-41e2-895f-8274e60df84a"),
+                            Id = new Guid("d9f5e6c4-c48d-484e-8810-cb8f0e527422"),
                             Details = "Precision AT42 at Bukoba on Nov 6th 2022, touched down short of  runway and ended up in Lake Victoria",
-                            Occurrence = "Friday Mar 17th 2023",
+                            Occurrence = new DateTime(2023, 3, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("a0162b35-3d26-4e83-8604-c1a8327d6468"),
+                            Id = new Guid("71990ac5-6637-4625-8835-b73e0b624628"),
                             Details = "Mahan A346 near Almaty on Mar 5th 2023, engine fire indication",
-                            Occurrence = "Thursday Mar 16th 2023",
+                            Occurrence = new DateTime(2023, 3, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("92113d14-fcae-478b-b27a-abb8441428eb"),
+                            Id = new Guid("14bd9eed-c2ec-491b-a87a-e7fce46c2797"),
                             Details = "Transat A332 near Nassau on Mar 4th 2023, overheating cabin floor and burning odour",
-                            Occurrence = "Wednesday Mar 15th 2023",
+                            Occurrence = new DateTime(2023, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("036b147d-e31c-4c97-81f7-b499b4b11ae7"),
+                            Id = new Guid("86b99408-3551-4afd-b85e-28a24d4c1e3b"),
                             Details = "Swiss RJ1H enroute on Sep 3rd 2016, fumes in cockpit and cabin",
-                            Occurrence = "Tuesday Mar 14th 2023",
+                            Occurrence = new DateTime(2023, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("06c249e3-4081-4f81-9f64-ac34ff55e895"),
+                            Id = new Guid("11cce2fd-d1ea-4b8a-b6e3-5c919138db72"),
                             Details = "Iceland B39M at Toronto on Mar 4th 2023, tail strike on balked landing",
-                            Occurrence = "Monday Mar 13th 2023",
+                            Occurrence = new DateTime(2023, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("53aac3b8-10c3-4b40-b59c-01c438d38b78"),
+                            Id = new Guid("56458cc3-6a13-44b3-9bf7-1ad356162e44"),
                             Details = "LOT B788 at Warsaw on Mar 12th 2023, could not retract nose gear",
-                            Occurrence = "Sunday Mar 12th 2023",
+                            Occurrence = new DateTime(2023, 3, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cfedc82b-8d23-45e4-b932-011b2296fc32"),
+                            Id = new Guid("1f482eb3-bda0-4f28-b891-378396f2f991"),
                             Details = "Trigana B735 at Yahukimo on Mar 11th 2023, aircraft being shot at",
-                            Occurrence = "Saturday Mar 11th 2023",
+                            Occurrence = new DateTime(2023, 3, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("ad362333-e057-4511-afc0-12e4b98bca04"),
+                            Id = new Guid("5ba3b939-f028-4b60-bce7-a2782bf352bc"),
                             Details = "Delta A320 at Omaha on Nov 19th 2022, bird strike",
-                            Occurrence = "Friday Mar 10th 2023",
+                            Occurrence = new DateTime(2023, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("acb3a2a9-e08c-453b-a355-2ef2b4f152d9"),
+                            Id = new Guid("22cdc2ef-e7f8-4893-affc-42c9575a9e2e"),
                             Details = "Shree DH8D near Kathmandu on Mar 9th 2023, engine fire indication",
-                            Occurrence = "Thursday Mar  9th 2023",
+                            Occurrence = new DateTime(2023, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("fb52f873-f0b1-4844-92eb-e07dfca6ef8e"),
+                            Id = new Guid("bb4a4a89-d7ce-4b9b-973c-d5ae93281487"),
                             Details = "VARA A320 near Adelaide on Mar 3rd 2023, first officer incapacitated",
-                            Occurrence = "Wednesday Mar  8th 2023",
+                            Occurrence = new DateTime(2023, 3, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("707767b4-495d-4884-aa5b-6d33942312da"),
+                            Id = new Guid("69449aac-0051-4558-a753-99166d453c7a"),
                             Details = "United A319 at Miami on Mar 6th 2023, engine compressor stall",
-                            Occurrence = "Tuesday Mar  7th 2023",
+                            Occurrence = new DateTime(2023, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2738109a-3245-4691-b24d-7ffa0455315d"),
+                            Id = new Guid("35640bc5-8162-4429-a412-c983358ea924"),
                             Details = "KLM B773 at Paramaribo on Mar 6th 2023, damaged a number of tyres on landing",
-                            Occurrence = "Monday Mar  6th 2023",
+                            Occurrence = new DateTime(2023, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a0f4892f-b47b-45b5-8f55-abdc79281b2b"),
+                            Id = new Guid("86b127ba-9d70-4a19-9ad6-cd3b99278970"),
                             Details = "Ryanair B738 at Eindhoven on Mar 5th 2023, tyre damage on landing",
-                            Occurrence = "Sunday Mar  5th 2023",
+                            Occurrence = new DateTime(2023, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("859dfa7c-1f41-4728-b226-3fa8130017c3"),
+                            Id = new Guid("85a5df29-7d5f-42f4-a668-c3dccf78999c"),
                             Details = "Edelweiss A343 at Phuket on Mar 2nd 2023, dropped slat panel",
-                            Occurrence = "Saturday Mar  4th 2023",
+                            Occurrence = new DateTime(2023, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("efc872f2-d912-440c-958e-1ff79f192551"),
+                            Id = new Guid("375fdc03-63a3-4085-baf8-d04651585616"),
                             Details = "Fedex B763 and Southwest B737 at Austin on Feb 4th 2023, loss of separation on runway resolved by go around",
-                            Occurrence = "Friday Mar  3rd 2023",
+                            Occurrence = new DateTime(2023, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("19d6a038-d2ef-4d72-8f70-7020476e36a5"),
+                            Id = new Guid("9eff6f10-0f79-4bdb-96d7-1a5ff4d824a7"),
                             Details = "Lufthansa A333 near Washington on Mar 1st 2023, turbulence causes injuries",
-                            Occurrence = "Thursday Mar  2nd 2023",
+                            Occurrence = new DateTime(2023, 3, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("cabdedcc-50d9-4a3e-8247-0e6d1bde1e48"),
+                            Id = new Guid("828fc764-cb4f-4728-a66c-8ffe607e89e3"),
                             Details = "Chair A320 at Zurich on Mar 1st 2023, cargo door open indication",
-                            Occurrence = "Wednesday Mar  1st 2023",
+                            Occurrence = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b81e2996-54b4-4728-a68a-563e7278e8d7"),
+                            Id = new Guid("55ccfc96-5cbc-4634-b2fb-716666e8ed42"),
                             Details = "ICE B752 enroute on Feb 27th 2023, engine issue",
-                            Occurrence = "Tuesday Feb 28th 2023",
+                            Occurrence = new DateTime(2023, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("7791d992-01cd-441a-bfb6-423b63750840"),
+                            Id = new Guid("8d062f46-e5df-4785-b0a8-ab37e0b67e68"),
                             Details = "Indigo A20N at Surat on Feb 26th 2023, bird strike",
-                            Occurrence = "Monday Feb 27th 2023",
+                            Occurrence = new DateTime(2023, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("4a82c4b0-a61b-49f7-9a3e-3f121b908090"),
+                            Id = new Guid("4ac76aa5-ef2f-422b-b985-ffdc11e2f148"),
                             Details = "TAP A20N at Bissau on Feb 25th 2023, bird strike",
-                            Occurrence = "Sunday Feb 26th 2023",
+                            Occurrence = new DateTime(2023, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ca3e1267-0411-4d4d-9888-011c282619fb"),
+                            Id = new Guid("20410cf0-ea32-404a-9bf6-4af529339dac"),
                             Details = "Jetblue A320 at Jacksonvill on Feb 22nd 2023, engine failure",
-                            Occurrence = "Saturday Feb 25th 2023",
+                            Occurrence = new DateTime(2023, 2, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("bc80b7fe-f9ce-4442-a55e-18ee82640355"),
+                            Id = new Guid("5552497f-001f-4fd8-aa56-65bd69c2f3ee"),
                             Details = "India Express B738 at Kozhikode on Feb 24th 2023, technical problem",
-                            Occurrence = "Friday Feb 24th 2023",
+                            Occurrence = new DateTime(2023, 2, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("787c452f-9e79-4c19-a563-56b265013c95"),
+                            Id = new Guid("3f6003c3-6521-4ced-9901-5cd3ff41e0cb"),
                             Details = "Bluebird B734 at Paris on Feb 10th 2023, huge bangs on descent",
-                            Occurrence = "Thursday Feb 23rd 2023",
+                            Occurrence = new DateTime(2023, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("69ef9a84-2226-4bf1-8cb5-1c41c4041239"),
+                            Id = new Guid("80cc4355-011b-43f7-b8d7-4f559095040f"),
                             Details = "India B773 near Stockholm on Feb 22nd 2023, engine shut down in flight",
-                            Occurrence = "Wednesday Feb 22nd 2023",
+                            Occurrence = new DateTime(2023, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b1131ab9-cb59-4feb-a36d-527f7b74332d"),
+                            Id = new Guid("687c27e6-68c0-48b0-95b8-8d14633f82c0"),
                             Details = "Challenge B744 at Atlanta on Feb 20th 2023, flaps problems on departure",
-                            Occurrence = "Tuesday Feb 21st 2023",
+                            Occurrence = new DateTime(2023, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("67a4ff8a-bf36-4217-aff7-34a97ab0ce4c"),
+                            Id = new Guid("95f0fa1f-6ef8-47c5-bfec-9574a2b51f87"),
                             Details = "Key Lime J328 at Phoenix on Feb 16th 2023, engine rolled back",
-                            Occurrence = "Monday Feb 20th 2023",
+                            Occurrence = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b2232249-42ef-4c38-93da-85c5f5baf0c1"),
+                            Id = new Guid("f5f5b8c4-11e6-4291-8d1d-35905a60c77d"),
                             Details = "India Express B738 at Trivandrum on Feb 19th 2023, nose tyre damage on landing",
-                            Occurrence = "Sunday Feb 19th 2023",
+                            Occurrence = new DateTime(2023, 2, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("8e64fe55-67ad-4b40-9f09-9dbd57a816ca"),
+                            Id = new Guid("8678a055-6bcf-4888-9696-b4fbfcecce67"),
                             Details = "Canada A333 at Madrid on Jul 13th 2022, TCAS RA on final approach",
-                            Occurrence = "Friday Feb 17th 2023",
+                            Occurrence = new DateTime(2023, 2, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("93ae563f-3b21-4d7b-8560-6144c62f0d77"),
+                            Id = new Guid("9189f8de-8336-418b-97af-cc6735e45834"),
                             Details = "United B772 at Honolulu on Jan 23rd 2023, runway incursion",
-                            Occurrence = "Thursday Feb 16th 2023",
+                            Occurrence = new DateTime(2023, 2, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ebdaf4b9-32ae-4298-9d89-24b7f70e6f6c"),
+                            Id = new Guid("e70be7b8-1d1f-4bad-a52c-ca2f51255006"),
                             Details = "Yeti AT72 at Pokhara on Jan 15th 2023, lost height on final approach, both propellers went into feather",
-                            Occurrence = "Wednesday Feb 15th 2023",
+                            Occurrence = new DateTime(2023, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Crash"
                         },
                         new
                         {
-                            Id = new Guid("fad29c83-c1f0-427f-8849-92c9440076d5"),
+                            Id = new Guid("60b1483a-1183-4fb0-b0b1-807e9bcff431"),
                             Details = "American B772 at Barcelona on Mar 20th 2022, flap fairing detached in flight",
-                            Occurrence = "Tuesday Feb 14th 2023",
+                            Occurrence = new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("60b3c703-5813-4ecc-ad3c-01fc9a27f77a"),
+                            Id = new Guid("15927a4f-dc89-4faf-9af0-40589642ef54"),
                             Details = "SAS A20N at Tromso on Feb 12th 2023, rejected takeoff due to difficulties with directional control",
-                            Occurrence = "Monday Feb 13th 2023",
+                            Occurrence = new DateTime(2023, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3009e57d-b132-41ce-9afa-ee3ba0728eb8"),
+                            Id = new Guid("34962014-777b-4ec9-bc02-42066fbe2aae"),
                             Details = "Asiana A333 at Tokyo on Feb 12th 2023, oil leak",
-                            Occurrence = "Sunday Feb 12th 2023",
+                            Occurrence = new DateTime(2023, 2, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3303295c-2543-46c4-94f3-a9018eeb0a93"),
+                            Id = new Guid("7ea83e94-6fdc-4458-b958-e8a9789e2a88"),
                             Details = "Qantas E190 at Darwin on Feb 10th 2023, could not fully retract gear",
-                            Occurrence = "Saturday Feb 11th 2023",
+                            Occurrence = new DateTime(2023, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b0e106dd-ec23-40c6-a377-6d6521eead91"),
+                            Id = new Guid("7fedcfd6-624f-41cf-99db-a24e5f34a56b"),
                             Details = "Flair B38M over Gulf of Mexico on Feb 7th 2023, loss of cabin pressure",
-                            Occurrence = "Friday Feb 10th 2023",
+                            Occurrence = new DateTime(2023, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ba0f4877-24a3-44a4-9de4-b5f5a203eb59"),
+                            Id = new Guid("9e20d935-293b-4f6b-9a9f-adff134f6e9c"),
                             Details = "Delta B763 at Edinburgh on Feb 10th 2023, engine shut down in flight",
-                            Occurrence = "Friday Feb 10th 2023",
+                            Occurrence = new DateTime(2023, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3e72121d-9f1b-41ec-9ce7-2af24c7ddf0e"),
+                            Id = new Guid("80ff88be-7fcb-4a2b-9dc3-649e82efd851"),
                             Details = "Flynas A20N at Dubai on Feb 9th 2023, engine failure",
-                            Occurrence = "Thursday Feb  9th 2023",
+                            Occurrence = new DateTime(2023, 2, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("95fe1d2f-5646-4319-a255-e5191ac24f6e"),
+                            Id = new Guid("ed479bde-b136-40fc-9026-fc0e65ac6e31"),
                             Details = "Qatar B788 at Doha on Jan 10th 2023, steep descent after takeoff",
-                            Occurrence = "Wednesday Feb  8th 2023",
+                            Occurrence = new DateTime(2023, 2, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("ae5acbe5-e4e2-4ff1-b9bf-5acd3192694a"),
+                            Id = new Guid("2804f4d5-7e68-415a-9f50-2d79c634e762"),
                             Details = "CAA A320 at Mbuji Mayi on Jan 29th 2023, dropped part of elevator on departure",
-                            Occurrence = "Tuesday Feb  7th 2023",
+                            Occurrence = new DateTime(2023, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("0437ffe8-c74e-4069-8843-102f90fae14a"),
+                            Id = new Guid("1b9417d8-2fdd-4ebb-8399-bbfe50f9e13b"),
                             Details = "LOT B788 at Warsaw on Feb 4th 2023, backup ADI failed",
-                            Occurrence = "Monday Feb  6th 2023",
+                            Occurrence = new DateTime(2023, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("486be86b-e53f-4c54-a405-232a9730f48f"),
+                            Id = new Guid("938eca17-da75-4430-b6e7-5715c2908aaf"),
                             Details = "United B772 near Lincoln on Feb 4th 2023, engine shut down in flight",
-                            Occurrence = "Sunday Feb  5th 2023",
+                            Occurrence = new DateTime(2023, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("8d3627ee-f55b-4325-8c7d-9ffa79b9ba99"),
+                            Id = new Guid("2270616a-5f35-4df0-a1d5-89e5ce29c034"),
                             Details = "Norwegian Sweden B738 at Gothenburg on Feb 2nd 2023, balls",
-                            Occurrence = "Saturday Feb  4th 2023",
+                            Occurrence = new DateTime(2023, 2, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("f348eaed-1cca-4c4e-a233-2c58764ec85b"),
+                            Id = new Guid("d00fd3d0-3cef-4892-a484-78e34fe75ce6"),
                             Details = "India Express B738 at Abu Dhabi on Feb 3rd 2023, engine fire",
-                            Occurrence = "Friday Feb  3rd 2023",
+                            Occurrence = new DateTime(2023, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("1a3e955e-4478-42f0-9572-96f017a404d3"),
+                            Id = new Guid("59996896-73c2-4688-b972-1824554a6118"),
                             Details = "Sunstate DH8D at Brisbane on Feb 1st 2023, turbulence injures two people",
-                            Occurrence = "Thursday Feb  2nd 2023",
+                            Occurrence = new DateTime(2023, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("1e0328d7-d665-49bd-95a9-f63c84d66be4"),
+                            Id = new Guid("ec19b794-a976-461f-8177-edbdd0d28c42"),
                             Details = "Delta BCS1 near Kansas City on Jan 31st 2023, cracked passenger window",
-                            Occurrence = "Wednesday Feb  1st 2023",
+                            Occurrence = new DateTime(2023, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("3ebbb0c0-d581-48d3-9e8c-b0782ad3ead0"),
+                            Id = new Guid("d27c8108-07bd-405a-aaa2-74a5c40008d6"),
                             Details = "THY B739 at Kayseri on Jan 30th 2023, burst tyre on landing",
-                            Occurrence = "Tuesday Jan 31st 2023",
+                            Occurrence = new DateTime(2023, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("21cf1605-e12a-49c1-9d3e-1fcb7cff992e"),
+                            Id = new Guid("86951b81-fca5-4b0a-8035-d50b79aedc4f"),
                             Details = "India Express B738 at Kochi on Jan 29th 2023, hydraulic failure",
-                            Occurrence = "Monday Jan 30th 2023",
+                            Occurrence = new DateTime(2023, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("304ebd4e-f9d2-413f-858a-74d54f9bf923"),
+                            Id = new Guid("cea357c4-ba35-4338-8497-6ae6f428a4df"),
                             Details = "ANZ B773 at Auckland on Jan 27th 2023, runway excursion on landing",
-                            Occurrence = "Sunday Jan 29th 2023",
+                            Occurrence = new DateTime(2023, 1, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("51fcb3e1-ec85-4904-a644-0861d9319ace"),
+                            Id = new Guid("86af95cf-e82a-4e7d-bec1-76c0b2f58b7e"),
                             Details = "Wideroe DH8A at Svolvaer on Dec 22nd 2022, GPWS saves the day",
-                            Occurrence = "Saturday Jan 28th 2023",
+                            Occurrence = new DateTime(2023, 1, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("35e08e43-31ea-4c77-9ba3-6dfe402652b2"),
+                            Id = new Guid("50c80266-5545-43ae-9ded-9d7d82cce754"),
                             Details = "British Airways A320 near Manchester on Jan 27th 2023, fumes in cockpit",
-                            Occurrence = "Friday Jan 27th 2023",
+                            Occurrence = new DateTime(2023, 1, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("16c7aced-f2ea-4ac1-b6dd-28f392e57af9"),
+                            Id = new Guid("1892773e-bdb2-40f5-bd4d-7f3f8afb88a9"),
                             Details = "Skywest CRJ2 at Houston on May 11th 2022, runway excursion on landing",
-                            Occurrence = "Thursday Jan 26th 2023",
+                            Occurrence = new DateTime(2023, 1, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("bdfe5b76-4c35-4755-99b1-36cfe3cc2b57"),
+                            Id = new Guid("b3bbc347-9d94-4554-901c-bd014b75dd2c"),
                             Details = "Edelweiss A320 at Zurich on Aug 17th 2021, rejected takeoff",
-                            Occurrence = "Wednesday Jan 25th 2023",
+                            Occurrence = new DateTime(2023, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("72703c6c-ce06-4d55-b82e-4903ad9a4c5a"),
+                            Id = new Guid("a88d1fa0-93fd-4554-a618-b8c4dfe815e0"),
                             Details = "United B739 at Fort Myers on Apr 11th 2019, galley oven refused to slow down on landing",
-                            Occurrence = "Tuesday Jan 24th 2023",
+                            Occurrence = new DateTime(2023, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Report"
                         },
                         new
                         {
-                            Id = new Guid("bd4c877b-b4a3-411a-9fcb-31e3b502823c"),
+                            Id = new Guid("f08dcad2-7d23-49d0-824a-cea1594b2d61"),
                             Details = "India Express B738 at Trivandrum on Jan 23rd 2023, FMS trouble",
-                            Occurrence = "Monday Jan 23rd 2023",
+                            Occurrence = new DateTime(2023, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cc6fcab6-1548-42e5-a99b-759c55bdbd7e"),
+                            Id = new Guid("1cc4f2ab-4bc3-4eca-83ec-9a5e62725dca"),
                             Details = "Qantas B738 near Nadi on Jan 22nd 2023, fumes in cabin",
-                            Occurrence = "Sunday Jan 22nd 2023",
+                            Occurrence = new DateTime(2023, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("67eb3fc9-a837-4beb-9fbb-d37466bf39e9"),
+                            Id = new Guid("b2aa0488-193b-45ad-803d-04d788e93562"),
                             Details = "American B38M at Miami on Jan 20th 2023, failure of stabilizer trim",
-                            Occurrence = "Saturday Jan 21st 2023",
+                            Occurrence = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9612bc39-5e64-42bd-b899-b36935afeb34"),
+                            Id = new Guid("bb52f35c-bd8a-468b-b242-25f71b4286ec"),
                             Details = "Qantas B738 at Melbourne on Jan 20th 2023, engine problem",
-                            Occurrence = "Friday Jan 20th 2023",
+                            Occurrence = new DateTime(2023, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("9e3f5eb4-fe9a-4422-ab46-940c29896f4a"),
+                            Id = new Guid("3978ff7d-406b-4987-876d-01afa9bd0178"),
                             Details = "Qantas B738 over Tasman Sea on Jan 18th 2023, engine shut down in flight",
-                            Occurrence = "Thursday Jan 19th 2023",
+                            Occurrence = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d12fa5de-6fa6-4635-9a87-0f5cab212412"),
+                            Id = new Guid("d14cb529-50a3-4f93-a889-64b8170dfd52"),
                             Details = "Lufthansa A320 at Munich on Jan 17th 2023, slat problem",
-                            Occurrence = "Wednesday Jan 18th 2023",
+                            Occurrence = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("cab19358-e9c6-4b66-8064-5597d77df37a"),
+                            Id = new Guid("975e617d-1018-4ab9-943c-a2d1071e0f85"),
                             Details = "SAS A320 at Haugesund on Jan 17th 2023, could not retract the landing gear",
-                            Occurrence = "Tuesday Jan 17th 2023",
+                            Occurrence = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("608d7afe-31a4-4fa4-9fca-a705a74c8b74"),
+                            Id = new Guid("3568c2bd-8203-470c-b2bc-c524fdb1db74"),
                             Details = "Smartwings Poland B738 at Warsaw and Prague on Jan 9th 2023, right hand airspeed and altitude indications faulty",
-                            Occurrence = "Tuesday Jan 17th 2023",
+                            Occurrence = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("4b897e5e-5194-48bb-9f4a-956984070426"),
+                            Id = new Guid("d3a634a2-943e-400a-9b47-abc5b40c2e69"),
                             Details = "Lufthansa Cityline A319 near Munich on Jan 15th 2023, failure of weather radar",
-                            Occurrence = "Monday Jan 16th 2023",
+                            Occurrence = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a177f973-be87-43b0-86c4-d51497e81415"),
+                            Id = new Guid("1951e601-9bfe-4d32-a8a7-89e18abcd46c"),
                             Details = "Hawaiian A332 near Honolulu on Dec 18th 2022, turbulence injures 42",
-                            Occurrence = "Saturday Jan 14th 2023",
+                            Occurrence = new DateTime(2023, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Accident"
                         },
                         new
                         {
-                            Id = new Guid("7f1074ae-e384-4367-a4ad-a6087fa19ab5"),
+                            Id = new Guid("9bc8b668-58d2-48e2-841c-4b2b4e3c0bb4"),
                             Details = "Easyjet Europe A320 at Bordeaux on Dec 31th 2022, cleared to land on occupied runway",
-                            Occurrence = "Friday Jan 13th 2023",
+                            Occurrence = new DateTime(2023, 1, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("6d1a1843-9575-4ffa-8402-89feaecb34f7"),
+                            Id = new Guid("ed10b11d-524e-431f-87e5-684cb560d922"),
                             Details = "Pionair B462 at Rockhampton on Jan 5th 2023, descended below safe height",
-                            Occurrence = "Thursday Jan 12th 2023",
+                            Occurrence = new DateTime(2023, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("58e2b1c8-afea-4767-a721-9a8af27685eb"),
+                            Id = new Guid("573a189f-223b-45a6-b826-63f8ce75071f"),
                             Details = "Hawaiian A332 at San Diego on Jan 10th 2023, hydraulic failure",
-                            Occurrence = "Wednesday Jan 11th 2023",
+                            Occurrence = new DateTime(2023, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("10799631-4f0d-49e5-9971-c5bdcad2f721"),
+                            Id = new Guid("b4839094-9a53-4d84-a499-e6da3c7cd76f"),
                             Details = "Swiss BCS3 at Zurich on Jan 9th 2023, lightning strike",
-                            Occurrence = "Tuesday Jan 10th 2023",
+                            Occurrence = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("a41a16e9-73fc-4f3e-8837-5cb05c70d7bb"),
+                            Id = new Guid("bd6a8ce6-88e1-49df-9aff-5b84d3e682d8"),
                             Details = "China Express CRJ9 near Guiyang on Jan 6th 2023, loss of communication",
-                            Occurrence = "Monday Jan  9th 2023",
+                            Occurrence = new DateTime(2023, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("fe0817b3-6ede-475f-8e38-4b71afe27619"),
+                            Id = new Guid("eaed6c1e-df3e-4834-99c0-3cca3a47e8ef"),
                             Details = "Eastern Airways AT72 near Exeter on Jan 7th 2023, cracked windshield",
-                            Occurrence = "Sunday Jan  8th 2023",
+                            Occurrence = new DateTime(2023, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("b2cb0db7-1ea3-4b59-b4d6-224e40e21792"),
+                            Id = new Guid("44c82ca0-4c04-4b59-b751-667ae58a6848"),
                             Details = "Easyjet Europe A319 near Naples on Jan 5th 2023, flight management computer failure",
-                            Occurrence = "Saturday Jan  7th 2023",
+                            Occurrence = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("988a9ecd-a449-4b52-a1d9-6b43d21a4429"),
+                            Id = new Guid("d5bd2a9a-1066-4889-8d25-2f0eeb9035ae"),
                             Details = "Swiss A320 at Zurich on Jan 6th 2023, smoke in cockpit and cabin",
-                            Occurrence = "Friday Jan  6th 2023",
+                            Occurrence = new DateTime(2023, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("2d60a569-3e7e-4a14-9c63-c4515f6d802d"),
+                            Id = new Guid("bd5f93fe-4fb0-4853-b333-0641aaab855f"),
                             Details = "Canada B772 over Atlantic Ocean on Dec 18th 2022, one flight crew and two cabin crew incapacitated",
-                            Occurrence = "Thursday Jan  5th 2023",
+                            Occurrence = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("d491aff9-6926-44c6-b824-748b00eb896f"),
+                            Id = new Guid("487a5420-cb92-4455-952a-6abcfd516bb4"),
                             Details = "Argentina B738 at Buenos Aires on Jan 2nd 2023, bird strike",
-                            Occurrence = "Thursday Jan  5th 2023",
+                            Occurrence = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("07f1b7ef-8325-47d7-b7c0-669093b98d42"),
+                            Id = new Guid("ee41db14-555f-4451-9e14-af94d8be980f"),
                             Details = "Easyjet Europe A320 at Milan on Dec 28th 2022, rejected takeoff due to cargo door warning",
-                            Occurrence = "Wednesday Jan  4th 2023",
+                            Occurrence = new DateTime(2023, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("876c7350-9dd5-4824-bd47-97a4da0f296f"),
+                            Id = new Guid("3cbd9e78-12db-44fc-a1fe-07a5cb7aeb9d"),
                             Details = "Indigo A21N at Delhi on Jan 3rd 2023, hydraulic failure",
-                            Occurrence = "Tuesday Jan  3rd 2023",
+                            Occurrence = new DateTime(2023, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("5fca2592-b078-43d5-bf41-79292e0b1ede"),
+                            Id = new Guid("45ab18d9-5399-416d-b635-3093c08da162"),
                             Details = "Central Mountain DH8A at Ft. McMurray on Dec 21st 2022, nose gear stuck in half retracted/extended position",
-                            Occurrence = "Monday Jan  2nd 2023",
+                            Occurrence = new DateTime(2023, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         },
                         new
                         {
-                            Id = new Guid("412e1bf9-bb74-482d-9cea-71d383239ce4"),
+                            Id = new Guid("ac13b4fb-816a-45a2-ac65-93d97be8fc79"),
                             Details = "Qatar B773 at Brisbane on Dec 31st 2022, flaps problem",
-                            Occurrence = "Sunday Jan  1st 2023",
+                            Occurrence = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TypeOccurence = "Incident"
                         });
                 });
 
             modelBuilder.Entity("SkyTracker.Data.Models.Runway", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Length")
                         .HasColumnType("int");
@@ -2789,971 +3291,971 @@ namespace SkyTracker.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "76b5a1ba-5963-471e-8668-e98c5fdc0fb6",
-                            Length = 2700,
+                            Id = new Guid("b928d322-7d6a-45af-a14e-d4d17cead7d7"),
+                            Length = 4600,
                             RunwayDesignatorOne = "01",
                             RunwayDesignatorTwo = "19",
+                            SurfaceType = "Gravel",
+                            Width = 450
+                        },
+                        new
+                        {
+                            Id = new Guid("5cc30f4f-9194-4527-aeac-d2aa9413a97b"),
+                            Length = 4100,
+                            RunwayDesignatorOne = "02",
+                            RunwayDesignatorTwo = "20",
+                            SurfaceType = "Sand",
+                            Width = 510
+                        },
+                        new
+                        {
+                            Id = new Guid("ddcb5c90-cdc0-4946-87f4-7ce7f84cdcae"),
+                            Length = 1600,
+                            RunwayDesignatorOne = "03",
+                            RunwayDesignatorTwo = "21",
                             SurfaceType = "Sand",
                             Width = 450
                         },
                         new
                         {
-                            Id = "3c91e82b-5282-4343-8270-74f904c7b80e",
-                            Length = 2550,
-                            RunwayDesignatorOne = "02",
-                            RunwayDesignatorTwo = "20",
-                            SurfaceType = "Grass",
-                            Width = 120
-                        },
-                        new
-                        {
-                            Id = "108a4810-dc98-4865-924e-98e80ce3a7da",
-                            Length = 4200,
-                            RunwayDesignatorOne = "03",
-                            RunwayDesignatorTwo = "21",
-                            SurfaceType = "Grass",
-                            Width = 420
-                        },
-                        new
-                        {
-                            Id = "d18c318e-836d-4c9b-9742-925cb3f58520",
-                            Length = 4150,
+                            Id = new Guid("fe042ca0-d09d-42e8-b793-08f386d8e907"),
+                            Length = 3750,
                             RunwayDesignatorOne = "04",
                             RunwayDesignatorTwo = "22",
                             SurfaceType = "Gravel",
-                            Width = 120
+                            Width = 330
                         },
                         new
                         {
-                            Id = "2406d593-6a80-4487-8cf7-7039bbf94eb7",
-                            Length = 4050,
+                            Id = new Guid("365d1fbb-00d3-4302-a66b-62c2b22ac887"),
+                            Length = 4500,
                             RunwayDesignatorOne = "05",
                             RunwayDesignatorTwo = "23",
-                            SurfaceType = "Sand",
-                            Width = 270
+                            SurfaceType = "Asphalt",
+                            Width = 240
                         },
                         new
                         {
-                            Id = "45b89485-3dfb-4c1f-8c9b-dcba38a6486b",
-                            Length = 4650,
+                            Id = new Guid("b2b204c6-88a1-43f2-bee5-d45f2a717e96"),
+                            Length = 1100,
                             RunwayDesignatorOne = "06",
                             RunwayDesignatorTwo = "24",
                             SurfaceType = "Gravel",
-                            Width = 480
+                            Width = 330
                         },
                         new
                         {
-                            Id = "78868f96-40e5-4022-b483-2bd113bf7beb",
-                            Length = 3950,
+                            Id = new Guid("548cf69c-3622-40d4-9be2-36b8b47431cd"),
+                            Length = 4900,
                             RunwayDesignatorOne = "07",
                             RunwayDesignatorTwo = "25",
-                            SurfaceType = "Asphalt",
-                            Width = 120
+                            SurfaceType = "Dirt",
+                            Width = 270
                         },
                         new
                         {
-                            Id = "43295f10-f22a-4c56-b915-addf10f7812a",
-                            Length = 3100,
+                            Id = new Guid("8b32297e-e690-483c-aa62-b588ccaafd60"),
+                            Length = 2900,
                             RunwayDesignatorOne = "08",
                             RunwayDesignatorTwo = "26",
-                            SurfaceType = "Concrete",
-                            Width = 210
+                            SurfaceType = "Dirt",
+                            Width = 240
                         },
                         new
                         {
-                            Id = "737ff781-44ba-4e40-aa16-2c182cb33b25",
-                            Length = 2950,
+                            Id = new Guid("23242025-2b97-4035-a5f5-e536b1dea585"),
+                            Length = 1150,
                             RunwayDesignatorOne = "09",
                             RunwayDesignatorTwo = "27",
                             SurfaceType = "Grass",
-                            Width = 90
+                            Width = 60
                         },
                         new
                         {
-                            Id = "8dd7e970-2350-49c4-aa3a-22aa6174253c",
-                            Length = 3500,
+                            Id = new Guid("873c9768-e2ed-426c-9c13-4011fcd3365b"),
+                            Length = 4500,
                             RunwayDesignatorOne = "10",
                             RunwayDesignatorTwo = "28",
-                            SurfaceType = "Dirt",
-                            Width = 450
+                            SurfaceType = "Gravel",
+                            Width = 540
                         },
                         new
                         {
-                            Id = "4a490115-711b-43ab-b280-018b9738fbe1",
-                            Length = 2150,
+                            Id = new Guid("3621d4f6-c0a3-40c2-8229-c52a9674122c"),
+                            Length = 2000,
                             RunwayDesignatorOne = "11",
                             RunwayDesignatorTwo = "29",
-                            SurfaceType = "Grass",
-                            Width = 360
+                            SurfaceType = "Asphalt",
+                            Width = 510
                         },
                         new
                         {
-                            Id = "3f8db17e-738b-40bc-bc12-c97d571848a6",
-                            Length = 2250,
+                            Id = new Guid("e5d3c6b9-b075-4723-aa5d-02189c5b302e"),
+                            Length = 1900,
                             RunwayDesignatorOne = "12",
                             RunwayDesignatorTwo = "30",
                             SurfaceType = "Dirt",
-                            Width = 510
+                            Width = 420
                         },
                         new
                         {
-                            Id = "479b7c19-8051-4211-9eae-199bd34a94f7",
-                            Length = 2600,
+                            Id = new Guid("1af9c434-b5b4-4987-8445-022407fc2d57"),
+                            Length = 1350,
                             RunwayDesignatorOne = "13",
                             RunwayDesignatorTwo = "31",
-                            SurfaceType = "Concrete",
-                            Width = 510
+                            SurfaceType = "Asphalt",
+                            Width = 120
                         },
                         new
                         {
-                            Id = "90e94afb-02c2-4f94-aada-522d137b2b50",
-                            Length = 1400,
+                            Id = new Guid("5dbc0258-3480-47fb-b47d-95b1c240d0e4"),
+                            Length = 3250,
                             RunwayDesignatorOne = "14",
                             RunwayDesignatorTwo = "32",
-                            SurfaceType = "Sand",
-                            Width = 450
-                        },
-                        new
-                        {
-                            Id = "b4f2aff3-7823-4b1a-8101-38cfd718a786",
-                            Length = 1200,
-                            RunwayDesignatorOne = "15",
-                            RunwayDesignatorTwo = "33",
-                            SurfaceType = "Asphalt",
-                            Width = 480
-                        },
-                        new
-                        {
-                            Id = "03f86560-9973-45ad-bd04-13e7c100d740",
-                            Length = 1300,
-                            RunwayDesignatorOne = "16",
-                            RunwayDesignatorTwo = "34",
-                            SurfaceType = "Concrete",
+                            SurfaceType = "Gravel",
                             Width = 180
                         },
                         new
                         {
-                            Id = "d8967bb2-9236-4464-acce-29715cc16f9a",
-                            Length = 1650,
+                            Id = new Guid("9125a26d-cb1e-495e-b244-0bd199db8c80"),
+                            Length = 4200,
+                            RunwayDesignatorOne = "15",
+                            RunwayDesignatorTwo = "33",
+                            SurfaceType = "Dirt",
+                            Width = 540
+                        },
+                        new
+                        {
+                            Id = new Guid("94aabd30-5ca1-430c-b00e-5b0be535cb8d"),
+                            Length = 1750,
+                            RunwayDesignatorOne = "16",
+                            RunwayDesignatorTwo = "34",
+                            SurfaceType = "Dirt",
+                            Width = 180
+                        },
+                        new
+                        {
+                            Id = new Guid("da0ab1f3-a4e1-44a8-9ef4-0d85ac2e7769"),
+                            Length = 3850,
                             RunwayDesignatorOne = "17",
                             RunwayDesignatorTwo = "35",
                             SurfaceType = "Concrete",
-                            Width = 150
+                            Width = 540
                         },
                         new
                         {
-                            Id = "d078f5b0-361f-440d-b6cb-f46cf2ff75f8",
-                            Length = 3550,
+                            Id = new Guid("cbaf9970-1111-44bd-a5ef-4fb0274f983f"),
+                            Length = 4350,
                             RunwayDesignatorOne = "18",
                             RunwayDesignatorTwo = "36",
                             SurfaceType = "Asphalt",
-                            Width = 90
+                            Width = 210
                         },
                         new
                         {
-                            Id = "cc3055d9-f287-4677-baf8-c554659fbc2a",
-                            Length = 4200,
+                            Id = new Guid("8f9ed5c7-54fa-452b-9063-3308400bed7f"),
+                            Length = 4250,
                             RunwayDesignatorOne = "19",
                             RunwayDesignatorTwo = "01",
-                            SurfaceType = "Gravel",
-                            Width = 450
+                            SurfaceType = "Asphalt",
+                            Width = 540
                         },
                         new
                         {
-                            Id = "0efc6cce-257b-4223-8468-5e166e14151f",
-                            Length = 2350,
+                            Id = new Guid("812d9a71-3ed4-4061-9975-2ec6ba433125"),
+                            Length = 1600,
                             RunwayDesignatorOne = "20",
                             RunwayDesignatorTwo = "02",
-                            SurfaceType = "Asphalt",
-                            Width = 480
+                            SurfaceType = "Gravel",
+                            Width = 120
                         },
                         new
                         {
-                            Id = "c43d0912-53f1-455e-97ae-8a4eb3e2c7fa",
-                            Length = 1100,
+                            Id = new Guid("7a06d874-9d78-4b6a-a39f-0ff1fbf1dbe2"),
+                            Length = 2600,
                             RunwayDesignatorOne = "21",
                             RunwayDesignatorTwo = "03",
-                            SurfaceType = "Concrete",
-                            Width = 360
+                            SurfaceType = "Sand",
+                            Width = 330
                         },
                         new
                         {
-                            Id = "023e0139-b6d2-4701-b9f1-9e597cfc98d6",
-                            Length = 2900,
+                            Id = new Guid("c8043beb-a90d-49db-a961-7250cc4f5dbe"),
+                            Length = 3600,
                             RunwayDesignatorOne = "22",
                             RunwayDesignatorTwo = "04",
                             SurfaceType = "Asphalt",
-                            Width = 180
+                            Width = 90
                         },
                         new
                         {
-                            Id = "21d494b7-f860-4e2c-a657-cb86be52c6f0",
-                            Length = 3000,
+                            Id = new Guid("01c85e17-7fd0-40b0-aed2-5c936b8d6bfa"),
+                            Length = 1050,
                             RunwayDesignatorOne = "23",
                             RunwayDesignatorTwo = "05",
                             SurfaceType = "Sand",
-                            Width = 90
+                            Width = 540
                         },
                         new
                         {
-                            Id = "24fd002e-3326-4351-9224-fab8b59e02e8",
-                            Length = 4900,
+                            Id = new Guid("68eef3a3-ee6d-45d2-81a8-00537fbd219f"),
+                            Length = 3450,
                             RunwayDesignatorOne = "24",
                             RunwayDesignatorTwo = "06",
-                            SurfaceType = "Sand",
-                            Width = 150
+                            SurfaceType = "Gravel",
+                            Width = 270
                         },
                         new
                         {
-                            Id = "28651038-578f-4cb7-adb8-19c8d537ff76",
-                            Length = 3900,
+                            Id = new Guid("e622af83-3acb-4c05-941a-1315c3fe148d"),
+                            Length = 1500,
                             RunwayDesignatorOne = "25",
                             RunwayDesignatorTwo = "07",
-                            SurfaceType = "Grass",
-                            Width = 330
+                            SurfaceType = "Dirt",
+                            Width = 450
                         },
                         new
                         {
-                            Id = "23bf9262-fac3-4268-baff-ff072ac56f59",
-                            Length = 3500,
+                            Id = new Guid("c805c5be-78aa-4b06-ac02-4bb7afd9574f"),
+                            Length = 2700,
                             RunwayDesignatorOne = "26",
                             RunwayDesignatorTwo = "08",
-                            SurfaceType = "Gravel",
+                            SurfaceType = "Grass",
+                            Width = 390
+                        },
+                        new
+                        {
+                            Id = new Guid("1d8c2065-2708-472e-afd4-ca53ed3f9e00"),
+                            Length = 1350,
+                            RunwayDesignatorOne = "27",
+                            RunwayDesignatorTwo = "09",
+                            SurfaceType = "Dirt",
+                            Width = 570
+                        },
+                        new
+                        {
+                            Id = new Guid("778e256d-1a1c-48ab-ba2a-dd0c8bba3d7c"),
+                            Length = 3150,
+                            RunwayDesignatorOne = "28",
+                            RunwayDesignatorTwo = "10",
+                            SurfaceType = "Asphalt",
+                            Width = 60
+                        },
+                        new
+                        {
+                            Id = new Guid("1f63628a-9bcb-49f1-8272-b223b9976db9"),
+                            Length = 4300,
+                            RunwayDesignatorOne = "29",
+                            RunwayDesignatorTwo = "11",
+                            SurfaceType = "Asphalt",
                             Width = 90
                         },
                         new
                         {
-                            Id = "554bbb88-631f-4a4b-95e9-4c3a5ebdfeaa",
-                            Length = 1850,
-                            RunwayDesignatorOne = "27",
-                            RunwayDesignatorTwo = "09",
-                            SurfaceType = "Sand",
-                            Width = 240
-                        },
-                        new
-                        {
-                            Id = "56ebd2b1-f6cd-4dbe-b5ce-5c885756581a",
-                            Length = 2950,
-                            RunwayDesignatorOne = "28",
-                            RunwayDesignatorTwo = "10",
-                            SurfaceType = "Grass",
-                            Width = 480
-                        },
-                        new
-                        {
-                            Id = "b3828498-370a-4a68-b99c-1f745df95ba3",
-                            Length = 4100,
-                            RunwayDesignatorOne = "29",
-                            RunwayDesignatorTwo = "11",
-                            SurfaceType = "Grass",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "0a93802e-64cc-48f1-a0a6-4b4f76fcbd6b",
-                            Length = 3800,
+                            Id = new Guid("d428bcc6-dd6c-4abb-97c3-ab79170938ed"),
+                            Length = 3600,
                             RunwayDesignatorOne = "30",
                             RunwayDesignatorTwo = "12",
-                            SurfaceType = "Grass",
+                            SurfaceType = "Concrete",
+                            Width = 420
+                        },
+                        new
+                        {
+                            Id = new Guid("ae8bc761-486f-4020-a0ea-739f0f131b45"),
+                            Length = 4450,
+                            RunwayDesignatorOne = "31",
+                            RunwayDesignatorTwo = "13",
+                            SurfaceType = "Gravel",
                             Width = 210
                         },
                         new
                         {
-                            Id = "2e1dd28f-a789-47e9-8a0e-c42d399f94cb",
+                            Id = new Guid("1916389d-fc35-4793-8d45-5802e1fe3b60"),
                             Length = 2950,
-                            RunwayDesignatorOne = "31",
-                            RunwayDesignatorTwo = "13",
-                            SurfaceType = "Dirt",
-                            Width = 420
-                        },
-                        new
-                        {
-                            Id = "3c2baa01-71bf-4fed-a49a-ca3e35fea39c",
-                            Length = 2300,
                             RunwayDesignatorOne = "32",
                             RunwayDesignatorTwo = "14",
-                            SurfaceType = "Grass",
-                            Width = 420
+                            SurfaceType = "Concrete",
+                            Width = 390
                         },
                         new
                         {
-                            Id = "8d20ec8f-fdc2-42cf-ab6e-b3a272147f34",
-                            Length = 1800,
+                            Id = new Guid("9659908c-62f3-4d8d-af41-e98345f6f77f"),
+                            Length = 1700,
                             RunwayDesignatorOne = "33",
                             RunwayDesignatorTwo = "15",
                             SurfaceType = "Asphalt",
+                            Width = 570
+                        },
+                        new
+                        {
+                            Id = new Guid("ad6262e6-ec3c-4df6-8226-72fc9f09edaa"),
+                            Length = 2500,
+                            RunwayDesignatorOne = "34",
+                            RunwayDesignatorTwo = "16",
+                            SurfaceType = "Concrete",
+                            Width = 480
+                        },
+                        new
+                        {
+                            Id = new Guid("e31422e4-b5b0-4953-9a56-21afee581f61"),
+                            Length = 2350,
+                            RunwayDesignatorOne = "35",
+                            RunwayDesignatorTwo = "17",
+                            SurfaceType = "Concrete",
+                            Width = 570
+                        },
+                        new
+                        {
+                            Id = new Guid("8fd3ccb2-dd30-4efe-afb0-d253a85e8e19"),
+                            Length = 4550,
+                            RunwayDesignatorOne = "36",
+                            RunwayDesignatorTwo = "18",
+                            SurfaceType = "Gravel",
+                            Width = 420
+                        },
+                        new
+                        {
+                            Id = new Guid("5382e489-1590-427b-a49f-1b23cfc29c4f"),
+                            Length = 1600,
+                            RunwayDesignatorOne = "01R",
+                            RunwayDesignatorTwo = "19L",
+                            SurfaceType = "Grass",
+                            Width = 450
+                        },
+                        new
+                        {
+                            Id = new Guid("7c552e43-e3e7-464b-934b-353e47fc3f83"),
+                            Length = 2650,
+                            RunwayDesignatorOne = "02R",
+                            RunwayDesignatorTwo = "20L",
+                            SurfaceType = "Gravel",
+                            Width = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("4ee00dc6-2f47-4855-98df-a30801ae9550"),
+                            Length = 1750,
+                            RunwayDesignatorOne = "03R",
+                            RunwayDesignatorTwo = "21L",
+                            SurfaceType = "Gravel",
                             Width = 270
                         },
                         new
                         {
-                            Id = "8f8b2955-624e-4cec-9bb8-f0a82f815438",
-                            Length = 2450,
-                            RunwayDesignatorOne = "34",
-                            RunwayDesignatorTwo = "16",
-                            SurfaceType = "Asphalt",
-                            Width = 540
+                            Id = new Guid("f80875d8-1c95-430c-9271-b275ca5edb9b"),
+                            Length = 3550,
+                            RunwayDesignatorOne = "04R",
+                            RunwayDesignatorTwo = "22L",
+                            SurfaceType = "Dirt",
+                            Width = 510
                         },
                         new
                         {
-                            Id = "1e443146-c6b4-4287-8c80-432c31e68fa5",
-                            Length = 2300,
-                            RunwayDesignatorOne = "35",
-                            RunwayDesignatorTwo = "17",
+                            Id = new Guid("f5fe3b97-bbb6-4504-9e9b-d97b45c1a83b"),
+                            Length = 2750,
+                            RunwayDesignatorOne = "05R",
+                            RunwayDesignatorTwo = "23L",
+                            SurfaceType = "Dirt",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("d0f2fbf5-79d4-44b8-a1a1-2c5f378758b0"),
+                            Length = 1850,
+                            RunwayDesignatorOne = "06R",
+                            RunwayDesignatorTwo = "24L",
+                            SurfaceType = "Dirt",
+                            Width = 60
+                        },
+                        new
+                        {
+                            Id = new Guid("8cfa1025-60af-4629-ad66-d635e6d57ae7"),
+                            Length = 1150,
+                            RunwayDesignatorOne = "07R",
+                            RunwayDesignatorTwo = "25L",
+                            SurfaceType = "Dirt",
+                            Width = 480
+                        },
+                        new
+                        {
+                            Id = new Guid("9eeff0d4-eb63-416d-a8fe-0d9f7c3f354d"),
+                            Length = 4600,
+                            RunwayDesignatorOne = "08R",
+                            RunwayDesignatorTwo = "26L",
+                            SurfaceType = "Gravel",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("fc8443ac-a73e-4dc2-a638-c12e785a7003"),
+                            Length = 2950,
+                            RunwayDesignatorOne = "09R",
+                            RunwayDesignatorTwo = "27L",
+                            SurfaceType = "Sand",
+                            Width = 210
+                        },
+                        new
+                        {
+                            Id = new Guid("890558cf-bfca-4c89-bc31-cd763a02ee75"),
+                            Length = 2150,
+                            RunwayDesignatorOne = "10R",
+                            RunwayDesignatorTwo = "28L",
+                            SurfaceType = "Grass",
+                            Width = 360
+                        },
+                        new
+                        {
+                            Id = new Guid("69585cc8-a642-4a1f-9ccd-e9f51d716cc8"),
+                            Length = 1050,
+                            RunwayDesignatorOne = "11R",
+                            RunwayDesignatorTwo = "29L",
+                            SurfaceType = "Concrete",
+                            Width = 240
+                        },
+                        new
+                        {
+                            Id = new Guid("240e9bf7-7e0e-41e5-8e11-1a8936645e6b"),
+                            Length = 1300,
+                            RunwayDesignatorOne = "12R",
+                            RunwayDesignatorTwo = "30L",
                             SurfaceType = "Concrete",
                             Width = 450
                         },
                         new
                         {
-                            Id = "06198202-7a5c-4dfb-ba08-247112ee3d18",
-                            Length = 1300,
-                            RunwayDesignatorOne = "36",
-                            RunwayDesignatorTwo = "18",
-                            SurfaceType = "Dirt",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "45c34480-2794-49a5-9880-d8ed1a65d29b",
-                            Length = 2450,
-                            RunwayDesignatorOne = "01R",
-                            RunwayDesignatorTwo = "19L",
+                            Id = new Guid("0a388e35-ac42-42ea-be87-30c544a4c801"),
+                            Length = 1700,
+                            RunwayDesignatorOne = "13R",
+                            RunwayDesignatorTwo = "31L",
                             SurfaceType = "Concrete",
-                            Width = 300
+                            Width = 540
                         },
                         new
                         {
-                            Id = "f60ae2fa-263e-4fdb-92c7-a7e1ef666d76",
-                            Length = 4450,
-                            RunwayDesignatorOne = "02R",
-                            RunwayDesignatorTwo = "20L",
-                            SurfaceType = "Sand",
-                            Width = 390
-                        },
-                        new
-                        {
-                            Id = "40aa4f56-260e-4959-8129-2a713c341858",
-                            Length = 1000,
-                            RunwayDesignatorOne = "03R",
-                            RunwayDesignatorTwo = "21L",
+                            Id = new Guid("228d8bff-6de5-4ddd-acf1-49c4cee2f746"),
+                            Length = 3000,
+                            RunwayDesignatorOne = "14R",
+                            RunwayDesignatorTwo = "32L",
                             SurfaceType = "Grass",
-                            Width = 210
+                            Width = 90
                         },
                         new
                         {
-                            Id = "aa486e74-2d69-43da-9a7a-32f7e86bf0f8",
-                            Length = 3750,
-                            RunwayDesignatorOne = "04R",
-                            RunwayDesignatorTwo = "22L",
-                            SurfaceType = "Concrete",
-                            Width = 300
-                        },
-                        new
-                        {
-                            Id = "9625a6a0-1fa1-42b7-a4e0-be9b579c6aa1",
-                            Length = 1150,
-                            RunwayDesignatorOne = "05R",
-                            RunwayDesignatorTwo = "23L",
+                            Id = new Guid("0ce09b75-3a47-4e93-999c-41576b42cf18"),
+                            Length = 2250,
+                            RunwayDesignatorOne = "15R",
+                            RunwayDesignatorTwo = "33L",
                             SurfaceType = "Gravel",
                             Width = 60
                         },
                         new
                         {
-                            Id = "c101e4c3-2977-48b3-9403-61ee73e3f5d7",
+                            Id = new Guid("53172577-0a4d-4383-9091-3822e0b8cd15"),
+                            Length = 4700,
+                            RunwayDesignatorOne = "16R",
+                            RunwayDesignatorTwo = "34L",
+                            SurfaceType = "Dirt",
+                            Width = 570
+                        },
+                        new
+                        {
+                            Id = new Guid("f82002a9-e16b-4e09-a239-5366b15ee530"),
+                            Length = 3700,
+                            RunwayDesignatorOne = "17R",
+                            RunwayDesignatorTwo = "35L",
+                            SurfaceType = "Grass",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("01f5aeb6-703b-4a1a-859d-c71b6ec666f7"),
+                            Length = 2450,
+                            RunwayDesignatorOne = "18R",
+                            RunwayDesignatorTwo = "36L",
+                            SurfaceType = "Sand",
+                            Width = 540
+                        },
+                        new
+                        {
+                            Id = new Guid("4ff6fa4f-5533-4e5a-a33b-a23b56fc84f4"),
+                            Length = 4500,
+                            RunwayDesignatorOne = "19R",
+                            RunwayDesignatorTwo = "01L",
+                            SurfaceType = "Grass",
+                            Width = 390
+                        },
+                        new
+                        {
+                            Id = new Guid("8c707595-be2a-40ac-b7f7-32a3ff97c757"),
+                            Length = 2350,
+                            RunwayDesignatorOne = "20R",
+                            RunwayDesignatorTwo = "02L",
+                            SurfaceType = "Asphalt",
+                            Width = 240
+                        },
+                        new
+                        {
+                            Id = new Guid("ca322b75-01ab-4c95-9c04-0ea6fd842790"),
+                            Length = 2150,
+                            RunwayDesignatorOne = "21R",
+                            RunwayDesignatorTwo = "03L",
+                            SurfaceType = "Sand",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("84563346-802b-4262-a4bd-6ea9a06b462d"),
+                            Length = 1400,
+                            RunwayDesignatorOne = "22R",
+                            RunwayDesignatorTwo = "04L",
+                            SurfaceType = "Gravel",
+                            Width = 270
+                        },
+                        new
+                        {
+                            Id = new Guid("2b0d7c4c-0204-4317-b7c2-c11c0c8f6c45"),
+                            Length = 3900,
+                            RunwayDesignatorOne = "23R",
+                            RunwayDesignatorTwo = "05L",
+                            SurfaceType = "Gravel",
+                            Width = 540
+                        },
+                        new
+                        {
+                            Id = new Guid("0b3549c4-f4ca-49c5-8d46-bc2e1982e9dd"),
+                            Length = 3300,
+                            RunwayDesignatorOne = "24R",
+                            RunwayDesignatorTwo = "06L",
+                            SurfaceType = "Dirt",
+                            Width = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("e06b10c5-8eae-442c-a407-01f029c4ac73"),
+                            Length = 1100,
+                            RunwayDesignatorOne = "25R",
+                            RunwayDesignatorTwo = "07L",
+                            SurfaceType = "Grass",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("aa1ba7bb-5991-47e4-9f8b-3add8b60d075"),
+                            Length = 3200,
+                            RunwayDesignatorOne = "26R",
+                            RunwayDesignatorTwo = "08L",
+                            SurfaceType = "Concrete",
+                            Width = 390
+                        },
+                        new
+                        {
+                            Id = new Guid("3b96102b-caff-4fa9-ad6e-129beccdbbd2"),
+                            Length = 2150,
+                            RunwayDesignatorOne = "27R",
+                            RunwayDesignatorTwo = "09L",
+                            SurfaceType = "Concrete",
+                            Width = 330
+                        },
+                        new
+                        {
+                            Id = new Guid("360930ad-6357-4982-ae5a-1f51132b364d"),
+                            Length = 2950,
+                            RunwayDesignatorOne = "28R",
+                            RunwayDesignatorTwo = "10L",
+                            SurfaceType = "Grass",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("87387d2d-38d5-4c4f-8eee-557fc432c5a0"),
+                            Length = 3350,
+                            RunwayDesignatorOne = "29R",
+                            RunwayDesignatorTwo = "11L",
+                            SurfaceType = "Asphalt",
+                            Width = 210
+                        },
+                        new
+                        {
+                            Id = new Guid("c19cf343-a208-46b3-b285-bdf8fbb13f26"),
+                            Length = 2550,
+                            RunwayDesignatorOne = "30R",
+                            RunwayDesignatorTwo = "12L",
+                            SurfaceType = "Grass",
+                            Width = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("88138564-cb45-49d8-a43f-9320b8a1da0a"),
+                            Length = 1550,
+                            RunwayDesignatorOne = "31R",
+                            RunwayDesignatorTwo = "13L",
+                            SurfaceType = "Concrete",
+                            Width = 360
+                        },
+                        new
+                        {
+                            Id = new Guid("5ecb0c6f-fff8-4459-bf41-567c5b05b564"),
+                            Length = 4250,
+                            RunwayDesignatorOne = "32R",
+                            RunwayDesignatorTwo = "14L",
+                            SurfaceType = "Grass",
+                            Width = 450
+                        },
+                        new
+                        {
+                            Id = new Guid("099b2a88-2906-4890-8c1d-9e4988cb6043"),
+                            Length = 3050,
+                            RunwayDesignatorOne = "33R",
+                            RunwayDesignatorTwo = "15L",
+                            SurfaceType = "Sand",
+                            Width = 510
+                        },
+                        new
+                        {
+                            Id = new Guid("b290ec57-0357-4836-8e6f-0de744db9db4"),
+                            Length = 2450,
+                            RunwayDesignatorOne = "34R",
+                            RunwayDesignatorTwo = "16L",
+                            SurfaceType = "Asphalt",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("156f64b0-5a7e-4cb4-a500-8c8eade22e12"),
+                            Length = 4000,
+                            RunwayDesignatorOne = "35R",
+                            RunwayDesignatorTwo = "17L",
+                            SurfaceType = "Gravel",
+                            Width = 420
+                        },
+                        new
+                        {
+                            Id = new Guid("5bf826a5-d17b-4450-9035-6d682374c6b1"),
+                            Length = 4250,
+                            RunwayDesignatorOne = "36R",
+                            RunwayDesignatorTwo = "18L",
+                            SurfaceType = "Grass",
+                            Width = 60
+                        },
+                        new
+                        {
+                            Id = new Guid("f6a7e74d-445f-415b-a8a5-e6959c88db4b"),
                             Length = 3100,
-                            RunwayDesignatorOne = "06R",
-                            RunwayDesignatorTwo = "24L",
+                            RunwayDesignatorOne = "01L",
+                            RunwayDesignatorTwo = "19R",
+                            SurfaceType = "Dirt",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("e15827b8-4957-48e8-83cc-64c2278c8446"),
+                            Length = 2200,
+                            RunwayDesignatorOne = "02L",
+                            RunwayDesignatorTwo = "20R",
+                            SurfaceType = "Asphalt",
+                            Width = 90
+                        },
+                        new
+                        {
+                            Id = new Guid("30897162-9c40-416a-aabd-fdb1880c4cbb"),
+                            Length = 2400,
+                            RunwayDesignatorOne = "03L",
+                            RunwayDesignatorTwo = "21R",
                             SurfaceType = "Asphalt",
                             Width = 420
                         },
                         new
                         {
-                            Id = "128ac164-e837-4b40-980e-5359f35e392c",
-                            Length = 1800,
-                            RunwayDesignatorOne = "07R",
-                            RunwayDesignatorTwo = "25L",
-                            SurfaceType = "Sand",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "0db58cf0-803f-4360-9587-f2760c9cf609",
-                            Length = 4250,
-                            RunwayDesignatorOne = "08R",
-                            RunwayDesignatorTwo = "26L",
-                            SurfaceType = "Gravel",
-                            Width = 240
-                        },
-                        new
-                        {
-                            Id = "579b4ecb-4cc6-4084-9aec-e3d1fa8ac609",
-                            Length = 2900,
-                            RunwayDesignatorOne = "09R",
-                            RunwayDesignatorTwo = "27L",
-                            SurfaceType = "Dirt",
-                            Width = 120
-                        },
-                        new
-                        {
-                            Id = "49b7d626-393c-46f6-8c06-9cd87f2e29e1",
-                            Length = 4800,
-                            RunwayDesignatorOne = "10R",
-                            RunwayDesignatorTwo = "28L",
-                            SurfaceType = "Gravel",
-                            Width = 510
-                        },
-                        new
-                        {
-                            Id = "dbc9d612-af06-4ee2-9b4d-7888b20051de",
-                            Length = 4550,
-                            RunwayDesignatorOne = "11R",
-                            RunwayDesignatorTwo = "29L",
-                            SurfaceType = "Dirt",
-                            Width = 390
-                        },
-                        new
-                        {
-                            Id = "45fba64f-b034-4079-b76a-6815b14cd685",
-                            Length = 2650,
-                            RunwayDesignatorOne = "12R",
-                            RunwayDesignatorTwo = "30L",
-                            SurfaceType = "Dirt",
-                            Width = 510
-                        },
-                        new
-                        {
-                            Id = "319a4bb7-d1b6-4046-bba8-5db3a5402b7a",
-                            Length = 1050,
-                            RunwayDesignatorOne = "13R",
-                            RunwayDesignatorTwo = "31L",
-                            SurfaceType = "Asphalt",
-                            Width = 450
-                        },
-                        new
-                        {
-                            Id = "8f409efa-9ca0-4f2f-9e5b-227f1432a2e2",
-                            Length = 3100,
-                            RunwayDesignatorOne = "14R",
-                            RunwayDesignatorTwo = "32L",
-                            SurfaceType = "Sand",
-                            Width = 480
-                        },
-                        new
-                        {
-                            Id = "a3cf7ecc-b741-4190-a184-c2bf40022559",
-                            Length = 1900,
-                            RunwayDesignatorOne = "15R",
-                            RunwayDesignatorTwo = "33L",
-                            SurfaceType = "Asphalt",
-                            Width = 270
-                        },
-                        new
-                        {
-                            Id = "833a77e0-d6b0-4594-b571-029a66a44967",
-                            Length = 3250,
-                            RunwayDesignatorOne = "16R",
-                            RunwayDesignatorTwo = "34L",
-                            SurfaceType = "Concrete",
-                            Width = 240
-                        },
-                        new
-                        {
-                            Id = "9a160602-21e9-40d3-bd2e-1a77110602a4",
-                            Length = 2750,
-                            RunwayDesignatorOne = "17R",
-                            RunwayDesignatorTwo = "35L",
-                            SurfaceType = "Sand",
-                            Width = 270
-                        },
-                        new
-                        {
-                            Id = "ab8199a2-3957-446c-8fc3-a4da6b703592",
-                            Length = 1950,
-                            RunwayDesignatorOne = "18R",
-                            RunwayDesignatorTwo = "36L",
-                            SurfaceType = "Sand",
-                            Width = 450
-                        },
-                        new
-                        {
-                            Id = "d6f802c7-5394-4894-8bd9-8aa1e9d52183",
-                            Length = 4900,
-                            RunwayDesignatorOne = "19R",
-                            RunwayDesignatorTwo = "01L",
-                            SurfaceType = "Grass",
-                            Width = 570
-                        },
-                        new
-                        {
-                            Id = "4d9a9c25-f163-4528-ada9-f48ba0158c25",
-                            Length = 2250,
-                            RunwayDesignatorOne = "20R",
-                            RunwayDesignatorTwo = "02L",
-                            SurfaceType = "Grass",
-                            Width = 570
-                        },
-                        new
-                        {
-                            Id = "10caa09a-314b-4965-bf6f-bc51e2471ceb",
-                            Length = 3350,
-                            RunwayDesignatorOne = "21R",
-                            RunwayDesignatorTwo = "03L",
-                            SurfaceType = "Asphalt",
-                            Width = 450
-                        },
-                        new
-                        {
-                            Id = "5267d731-a9a8-4630-9342-11733a714f3d",
-                            Length = 3800,
-                            RunwayDesignatorOne = "22R",
-                            RunwayDesignatorTwo = "04L",
-                            SurfaceType = "Asphalt",
-                            Width = 240
-                        },
-                        new
-                        {
-                            Id = "b3aee5cd-6660-4350-9470-c6162b1d7671",
-                            Length = 1800,
-                            RunwayDesignatorOne = "23R",
-                            RunwayDesignatorTwo = "05L",
-                            SurfaceType = "Asphalt",
-                            Width = 90
-                        },
-                        new
-                        {
-                            Id = "a93aaa3e-6a33-4278-9cbe-c5185bf577d7",
-                            Length = 1800,
-                            RunwayDesignatorOne = "24R",
-                            RunwayDesignatorTwo = "06L",
-                            SurfaceType = "Dirt",
-                            Width = 90
-                        },
-                        new
-                        {
-                            Id = "d1e6b34a-dfb5-4473-948b-b73ad1008e8b",
-                            Length = 2700,
-                            RunwayDesignatorOne = "25R",
-                            RunwayDesignatorTwo = "07L",
-                            SurfaceType = "Asphalt",
-                            Width = 570
-                        },
-                        new
-                        {
-                            Id = "bb59214e-5d99-4feb-a4ef-ee4f5cbfce62",
-                            Length = 4050,
-                            RunwayDesignatorOne = "26R",
-                            RunwayDesignatorTwo = "08L",
-                            SurfaceType = "Gravel",
-                            Width = 390
-                        },
-                        new
-                        {
-                            Id = "d88edca4-8eb7-4dda-9a99-ade0e351f237",
-                            Length = 3650,
-                            RunwayDesignatorOne = "27R",
-                            RunwayDesignatorTwo = "09L",
-                            SurfaceType = "Gravel",
-                            Width = 150
-                        },
-                        new
-                        {
-                            Id = "bd019af8-4319-4c1b-a308-0670e4920df2",
-                            Length = 1700,
-                            RunwayDesignatorOne = "28R",
-                            RunwayDesignatorTwo = "10L",
-                            SurfaceType = "Grass",
-                            Width = 150
-                        },
-                        new
-                        {
-                            Id = "a44193a4-0a62-4721-bc60-428fdbc578f2",
-                            Length = 3400,
-                            RunwayDesignatorOne = "29R",
-                            RunwayDesignatorTwo = "11L",
-                            SurfaceType = "Concrete",
-                            Width = 570
-                        },
-                        new
-                        {
-                            Id = "ecb1d7db-cae6-451d-be08-22f021753f00",
-                            Length = 1450,
-                            RunwayDesignatorOne = "30R",
-                            RunwayDesignatorTwo = "12L",
-                            SurfaceType = "Asphalt",
-                            Width = 120
-                        },
-                        new
-                        {
-                            Id = "caf18d59-58e6-4e90-bebd-239d3a2ae05d",
-                            Length = 3350,
-                            RunwayDesignatorOne = "31R",
-                            RunwayDesignatorTwo = "13L",
-                            SurfaceType = "Gravel",
-                            Width = 540
-                        },
-                        new
-                        {
-                            Id = "a17fdd80-8f64-4923-a941-d09ec4ae28b6",
-                            Length = 4150,
-                            RunwayDesignatorOne = "32R",
-                            RunwayDesignatorTwo = "14L",
-                            SurfaceType = "Dirt",
-                            Width = 120
-                        },
-                        new
-                        {
-                            Id = "c05a73b9-19af-4cad-9418-f1208838f400",
-                            Length = 4850,
-                            RunwayDesignatorOne = "33R",
-                            RunwayDesignatorTwo = "15L",
-                            SurfaceType = "Gravel",
-                            Width = 450
-                        },
-                        new
-                        {
-                            Id = "2c58df05-49c7-4bdb-864d-b07fd4a6eee7",
-                            Length = 2350,
-                            RunwayDesignatorOne = "34R",
-                            RunwayDesignatorTwo = "16L",
-                            SurfaceType = "Gravel",
-                            Width = 150
-                        },
-                        new
-                        {
-                            Id = "bae28ecb-7b51-4f8e-96b2-d7dba2a23be0",
-                            Length = 1150,
-                            RunwayDesignatorOne = "35R",
-                            RunwayDesignatorTwo = "17L",
-                            SurfaceType = "Gravel",
-                            Width = 510
-                        },
-                        new
-                        {
-                            Id = "dda64ced-ced3-4501-9ffc-4198f2076f95",
-                            Length = 4700,
-                            RunwayDesignatorOne = "36R",
-                            RunwayDesignatorTwo = "18L",
-                            SurfaceType = "Grass",
-                            Width = 90
-                        },
-                        new
-                        {
-                            Id = "3810e112-0eae-4a9e-9411-42899456e129",
-                            Length = 2950,
-                            RunwayDesignatorOne = "01L",
-                            RunwayDesignatorTwo = "19R",
-                            SurfaceType = "Concrete",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "5b608890-5ee8-4b45-a3c1-92daa49c1767",
-                            Length = 3950,
-                            RunwayDesignatorOne = "02L",
-                            RunwayDesignatorTwo = "20R",
-                            SurfaceType = "Sand",
-                            Width = 210
-                        },
-                        new
-                        {
-                            Id = "069f7b17-932d-4da7-bf57-d0496e5f8b64",
-                            Length = 1700,
-                            RunwayDesignatorOne = "03L",
-                            RunwayDesignatorTwo = "21R",
-                            SurfaceType = "Sand",
-                            Width = 90
-                        },
-                        new
-                        {
-                            Id = "a68e4131-ee5e-4e2d-bdc3-129e3484585a",
-                            Length = 3600,
+                            Id = new Guid("6e334296-4b9d-409d-b520-d652336c72af"),
+                            Length = 3550,
                             RunwayDesignatorOne = "04L",
                             RunwayDesignatorTwo = "22R",
-                            SurfaceType = "Dirt",
+                            SurfaceType = "Concrete",
                             Width = 540
                         },
                         new
                         {
-                            Id = "8e3ddc9b-cad7-4bf7-9c92-84cce5c5c02c",
-                            Length = 1500,
+                            Id = new Guid("97ca3857-d17b-4f01-9546-079c7de05fcf"),
+                            Length = 2200,
                             RunwayDesignatorOne = "05L",
                             RunwayDesignatorTwo = "23R",
-                            SurfaceType = "Concrete",
-                            Width = 300
+                            SurfaceType = "Gravel",
+                            Width = 510
                         },
                         new
                         {
-                            Id = "133f49c3-7752-42b9-9ebc-9933ebb77ae9",
-                            Length = 2950,
+                            Id = new Guid("e0a3b3ec-fec7-4c06-81ba-f7f4c44c84cb"),
+                            Length = 4250,
                             RunwayDesignatorOne = "06L",
                             RunwayDesignatorTwo = "24R",
-                            SurfaceType = "Asphalt",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "defc4d64-8246-4e2d-bd1b-eeb4f888da90",
-                            Length = 1400,
-                            RunwayDesignatorOne = "07L",
-                            RunwayDesignatorTwo = "25R",
-                            SurfaceType = "Asphalt",
-                            Width = 60
-                        },
-                        new
-                        {
-                            Id = "52c63384-e1de-4df7-a74e-81a55b781331",
-                            Length = 4350,
-                            RunwayDesignatorOne = "08L",
-                            RunwayDesignatorTwo = "26R",
-                            SurfaceType = "Asphalt",
-                            Width = 270
-                        },
-                        new
-                        {
-                            Id = "353ba800-bd06-4b56-8731-9502ba11d695",
-                            Length = 1550,
-                            RunwayDesignatorOne = "09L",
-                            RunwayDesignatorTwo = "27R",
-                            SurfaceType = "Gravel",
-                            Width = 540
-                        },
-                        new
-                        {
-                            Id = "402c3abe-ee16-4683-8eae-bd6f670e2ad1",
-                            Length = 3450,
-                            RunwayDesignatorOne = "10L",
-                            RunwayDesignatorTwo = "28R",
-                            SurfaceType = "Concrete",
-                            Width = 270
-                        },
-                        new
-                        {
-                            Id = "ec6cddfd-787b-4aa1-ac09-685a7d49aba1",
-                            Length = 1050,
-                            RunwayDesignatorOne = "11L",
-                            RunwayDesignatorTwo = "29R",
                             SurfaceType = "Grass",
-                            Width = 330
-                        },
-                        new
-                        {
-                            Id = "10dc2bdd-5615-43e8-a212-39026714d0d7",
-                            Length = 3450,
-                            RunwayDesignatorOne = "12L",
-                            RunwayDesignatorTwo = "30R",
-                            SurfaceType = "Dirt",
-                            Width = 360
-                        },
-                        new
-                        {
-                            Id = "e2d56a09-75e3-48c0-a5e6-2adad8bca436",
-                            Length = 1500,
-                            RunwayDesignatorOne = "13L",
-                            RunwayDesignatorTwo = "31R",
-                            SurfaceType = "Sand",
                             Width = 180
                         },
                         new
                         {
-                            Id = "ca00b1b7-9f9f-405d-8c68-0b13516609d3",
-                            Length = 2700,
-                            RunwayDesignatorOne = "14L",
-                            RunwayDesignatorTwo = "32R",
+                            Id = new Guid("590c27c4-5e4a-4c10-aa9c-67cb61886245"),
+                            Length = 3950,
+                            RunwayDesignatorOne = "07L",
+                            RunwayDesignatorTwo = "25R",
+                            SurfaceType = "Sand",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("263ed122-e755-4777-80f8-6a95c34f094c"),
+                            Length = 1650,
+                            RunwayDesignatorOne = "08L",
+                            RunwayDesignatorTwo = "26R",
                             SurfaceType = "Asphalt",
-                            Width = 300
+                            Width = 150
                         },
                         new
                         {
-                            Id = "61d6a504-871a-4211-9ad2-61edae28e03d",
-                            Length = 2550,
-                            RunwayDesignatorOne = "15L",
-                            RunwayDesignatorTwo = "33R",
-                            SurfaceType = "Concrete",
-                            Width = 300
+                            Id = new Guid("22983d69-b07a-416b-a84a-3958ef3fcd6a"),
+                            Length = 3100,
+                            RunwayDesignatorOne = "09L",
+                            RunwayDesignatorTwo = "27R",
+                            SurfaceType = "Gravel",
+                            Width = 330
                         },
                         new
                         {
-                            Id = "13ff99cd-f02a-4cbf-9470-3335e94de013",
-                            Length = 4500,
-                            RunwayDesignatorOne = "16L",
-                            RunwayDesignatorTwo = "34R",
-                            SurfaceType = "Concrete",
-                            Width = 510
-                        },
-                        new
-                        {
-                            Id = "9afb3c13-809d-4f25-bb3a-cade6bae2140",
-                            Length = 3450,
-                            RunwayDesignatorOne = "17L",
-                            RunwayDesignatorTwo = "35R",
+                            Id = new Guid("de17f842-2069-4ed0-9696-c3152926766d"),
+                            Length = 4200,
+                            RunwayDesignatorOne = "10L",
+                            RunwayDesignatorTwo = "28R",
                             SurfaceType = "Asphalt",
-                            Width = 300
+                            Width = 390
                         },
                         new
                         {
-                            Id = "c3a3b412-1312-43e2-a165-0ac456f2486c",
-                            Length = 1200,
-                            RunwayDesignatorOne = "18L",
-                            RunwayDesignatorTwo = "36R",
-                            SurfaceType = "Dirt",
-                            Width = 420
+                            Id = new Guid("6573c4b8-4a5f-48e1-a1d6-28701269d923"),
+                            Length = 4550,
+                            RunwayDesignatorOne = "11L",
+                            RunwayDesignatorTwo = "29R",
+                            SurfaceType = "Sand",
+                            Width = 120
                         },
                         new
                         {
-                            Id = "c50092e4-6e11-4213-a81d-4621df37499a",
-                            Length = 2050,
-                            RunwayDesignatorOne = "19L",
-                            RunwayDesignatorTwo = "01R",
-                            SurfaceType = "Dirt",
-                            Width = 240
-                        },
-                        new
-                        {
-                            Id = "aaceed07-fb32-49e9-b177-1cd65a28c3e3",
-                            Length = 2500,
-                            RunwayDesignatorOne = "20L",
-                            RunwayDesignatorTwo = "02R",
+                            Id = new Guid("8a4cea93-961b-47ba-929d-1e2cfb08f819"),
+                            Length = 1300,
+                            RunwayDesignatorOne = "12L",
+                            RunwayDesignatorTwo = "30R",
                             SurfaceType = "Dirt",
                             Width = 60
                         },
                         new
                         {
-                            Id = "a8583b58-4959-429d-8abc-a7266d16c9c3",
-                            Length = 1350,
-                            RunwayDesignatorOne = "21L",
-                            RunwayDesignatorTwo = "03R",
-                            SurfaceType = "Asphalt",
-                            Width = 540
-                        },
-                        new
-                        {
-                            Id = "ad9ec370-a016-4872-b124-1e5cad6a4d86",
-                            Length = 3000,
-                            RunwayDesignatorOne = "22L",
-                            RunwayDesignatorTwo = "04R",
-                            SurfaceType = "Concrete",
-                            Width = 210
-                        },
-                        new
-                        {
-                            Id = "abd3cdaa-1509-4c88-a8f9-fd262dada2c3",
-                            Length = 2800,
-                            RunwayDesignatorOne = "23L",
-                            RunwayDesignatorTwo = "05R",
+                            Id = new Guid("72936986-8fe6-4210-a619-f1e4dbed58ad"),
+                            Length = 1550,
+                            RunwayDesignatorOne = "13L",
+                            RunwayDesignatorTwo = "31R",
                             SurfaceType = "Grass",
+                            Width = 510
+                        },
+                        new
+                        {
+                            Id = new Guid("77a65462-a795-4f86-a003-79d6fe59fd0c"),
+                            Length = 3650,
+                            RunwayDesignatorOne = "14L",
+                            RunwayDesignatorTwo = "32R",
+                            SurfaceType = "Asphalt",
                             Width = 570
                         },
                         new
                         {
-                            Id = "88b0d7da-1dad-44a6-8d99-a2db18edb41b",
-                            Length = 3150,
-                            RunwayDesignatorOne = "24L",
-                            RunwayDesignatorTwo = "06R",
-                            SurfaceType = "Concrete",
-                            Width = 270
-                        },
-                        new
-                        {
-                            Id = "84f2f201-a19f-46fb-b8fd-6be60ba4b3b1",
-                            Length = 4050,
-                            RunwayDesignatorOne = "25L",
-                            RunwayDesignatorTwo = "07R",
-                            SurfaceType = "Dirt",
-                            Width = 300
-                        },
-                        new
-                        {
-                            Id = "63c00221-06a8-4a4f-8c28-49bfec81c0ad",
-                            Length = 3550,
-                            RunwayDesignatorOne = "26L",
-                            RunwayDesignatorTwo = "08R",
+                            Id = new Guid("05f0ba1e-14e6-4844-be1c-ecc3ba8ce3ac"),
+                            Length = 2250,
+                            RunwayDesignatorOne = "15L",
+                            RunwayDesignatorTwo = "33R",
                             SurfaceType = "Sand",
-                            Width = 300
+                            Width = 510
                         },
                         new
                         {
-                            Id = "39a12391-18ae-4c63-9ce4-1ee1a974ec83",
-                            Length = 1800,
-                            RunwayDesignatorOne = "27L",
-                            RunwayDesignatorTwo = "09R",
+                            Id = new Guid("0a93f7cb-71ff-43c8-a8d5-db6aae6127f0"),
+                            Length = 3200,
+                            RunwayDesignatorOne = "16L",
+                            RunwayDesignatorTwo = "34R",
                             SurfaceType = "Concrete",
-                            Width = 120
+                            Width = 150
                         },
                         new
                         {
-                            Id = "be5f7394-8548-494f-83da-92cd6d0b8a06",
-                            Length = 3650,
-                            RunwayDesignatorOne = "28L",
-                            RunwayDesignatorTwo = "10R",
-                            SurfaceType = "Sand",
-                            Width = 120
-                        },
-                        new
-                        {
-                            Id = "c43dd996-afab-406c-a1c9-885bfe61cb19",
-                            Length = 2350,
-                            RunwayDesignatorOne = "29L",
-                            RunwayDesignatorTwo = "11R",
-                            SurfaceType = "Dirt",
+                            Id = new Guid("4690cfd3-a95f-4fc3-a090-7427cb4a940a"),
+                            Length = 2400,
+                            RunwayDesignatorOne = "17L",
+                            RunwayDesignatorTwo = "35R",
+                            SurfaceType = "Asphalt",
                             Width = 360
                         },
                         new
                         {
-                            Id = "25c32b0c-be9c-4c89-9e9f-ab31765fb6b1",
-                            Length = 4600,
-                            RunwayDesignatorOne = "30L",
-                            RunwayDesignatorTwo = "12R",
-                            SurfaceType = "Asphalt",
-                            Width = 240
+                            Id = new Guid("8f9551d1-13be-4804-a8d6-62dc30d85a24"),
+                            Length = 3500,
+                            RunwayDesignatorOne = "18L",
+                            RunwayDesignatorTwo = "36R",
+                            SurfaceType = "Dirt",
+                            Width = 210
                         },
                         new
                         {
-                            Id = "2d9dad59-ab14-4946-acb7-f15b136befcf",
-                            Length = 2750,
-                            RunwayDesignatorOne = "31L",
-                            RunwayDesignatorTwo = "13R",
-                            SurfaceType = "Gravel",
-                            Width = 420
-                        },
-                        new
-                        {
-                            Id = "6f07d234-ee7e-4aa9-bc85-04c5e59a49b9",
-                            Length = 4500,
-                            RunwayDesignatorOne = "32L",
-                            RunwayDesignatorTwo = "14R",
+                            Id = new Guid("bda016ac-4c9e-42c9-81ca-38c8c900f9ec"),
+                            Length = 1550,
+                            RunwayDesignatorOne = "19L",
+                            RunwayDesignatorTwo = "01R",
                             SurfaceType = "Concrete",
-                            Width = 570
+                            Width = 150
                         },
                         new
                         {
-                            Id = "5b933379-dda4-46d0-ad2b-8d31f5e574cb",
-                            Length = 2200,
-                            RunwayDesignatorOne = "33L",
-                            RunwayDesignatorTwo = "15R",
+                            Id = new Guid("38e8e0a0-e79a-4315-980d-b65027360ea6"),
+                            Length = 4400,
+                            RunwayDesignatorOne = "20L",
+                            RunwayDesignatorTwo = "02R",
+                            SurfaceType = "Asphalt",
+                            Width = 60
+                        },
+                        new
+                        {
+                            Id = new Guid("77c2946c-ef98-41e2-91b5-3f1e0d9dda54"),
+                            Length = 1100,
+                            RunwayDesignatorOne = "21L",
+                            RunwayDesignatorTwo = "03R",
                             SurfaceType = "Gravel",
                             Width = 150
                         },
                         new
                         {
-                            Id = "9b8ac793-9c05-45b7-842d-7ac3b78356ad",
-                            Length = 1600,
+                            Id = new Guid("2b9d9cb6-7291-4a26-a986-50365d57eb0d"),
+                            Length = 2300,
+                            RunwayDesignatorOne = "22L",
+                            RunwayDesignatorTwo = "04R",
+                            SurfaceType = "Gravel",
+                            Width = 360
+                        },
+                        new
+                        {
+                            Id = new Guid("586a6c00-3b63-4f48-9dc7-b899bba91c21"),
+                            Length = 4000,
+                            RunwayDesignatorOne = "23L",
+                            RunwayDesignatorTwo = "05R",
+                            SurfaceType = "Grass",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("1e131b53-73ab-4be5-b902-36f33d30cbc8"),
+                            Length = 4300,
+                            RunwayDesignatorOne = "24L",
+                            RunwayDesignatorTwo = "06R",
+                            SurfaceType = "Gravel",
+                            Width = 210
+                        },
+                        new
+                        {
+                            Id = new Guid("b8482374-60a0-48a0-b125-137e45010d4e"),
+                            Length = 2350,
+                            RunwayDesignatorOne = "25L",
+                            RunwayDesignatorTwo = "07R",
+                            SurfaceType = "Gravel",
+                            Width = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("5b132149-77d3-47fd-a520-1d496900adb6"),
+                            Length = 2200,
+                            RunwayDesignatorOne = "26L",
+                            RunwayDesignatorTwo = "08R",
+                            SurfaceType = "Asphalt",
+                            Width = 210
+                        },
+                        new
+                        {
+                            Id = new Guid("ed7e1529-76f9-4fac-a412-2022316ffc2d"),
+                            Length = 4000,
+                            RunwayDesignatorOne = "27L",
+                            RunwayDesignatorTwo = "09R",
+                            SurfaceType = "Asphalt",
+                            Width = 120
+                        },
+                        new
+                        {
+                            Id = new Guid("3827284c-9cb1-46ab-a51a-50a2cba1bfdf"),
+                            Length = 2850,
+                            RunwayDesignatorOne = "28L",
+                            RunwayDesignatorTwo = "10R",
+                            SurfaceType = "Grass",
+                            Width = 150
+                        },
+                        new
+                        {
+                            Id = new Guid("7a3fa344-2ea7-4d34-b95b-2fea6b063587"),
+                            Length = 2200,
+                            RunwayDesignatorOne = "29L",
+                            RunwayDesignatorTwo = "11R",
+                            SurfaceType = "Asphalt",
+                            Width = 450
+                        },
+                        new
+                        {
+                            Id = new Guid("a7a129ef-57d3-488a-b881-f12ebc12a853"),
+                            Length = 2650,
+                            RunwayDesignatorOne = "30L",
+                            RunwayDesignatorTwo = "12R",
+                            SurfaceType = "Sand",
+                            Width = 570
+                        },
+                        new
+                        {
+                            Id = new Guid("26923970-1000-4a2c-8a79-a94194025663"),
+                            Length = 4900,
+                            RunwayDesignatorOne = "31L",
+                            RunwayDesignatorTwo = "13R",
+                            SurfaceType = "Dirt",
+                            Width = 510
+                        },
+                        new
+                        {
+                            Id = new Guid("79439eb0-3786-4da0-b292-838ff2bf64cc"),
+                            Length = 2100,
+                            RunwayDesignatorOne = "32L",
+                            RunwayDesignatorTwo = "14R",
+                            SurfaceType = "Sand",
+                            Width = 360
+                        },
+                        new
+                        {
+                            Id = new Guid("cb849a9a-d3b4-4afb-b90a-28ff51c54e58"),
+                            Length = 1950,
+                            RunwayDesignatorOne = "33L",
+                            RunwayDesignatorTwo = "15R",
+                            SurfaceType = "Concrete",
+                            Width = 330
+                        },
+                        new
+                        {
+                            Id = new Guid("82d182d9-5e3d-451b-92d5-494b21859d37"),
+                            Length = 1000,
                             RunwayDesignatorOne = "34L",
                             RunwayDesignatorTwo = "16R",
-                            SurfaceType = "Grass",
-                            Width = 300
+                            SurfaceType = "Gravel",
+                            Width = 450
                         },
                         new
                         {
-                            Id = "9855d164-6b98-455d-b1cf-26db83e32e08",
-                            Length = 1050,
+                            Id = new Guid("8af95d1e-52fe-4357-8a6c-6dd97913cff5"),
+                            Length = 3950,
                             RunwayDesignatorOne = "35L",
                             RunwayDesignatorTwo = "17R",
-                            SurfaceType = "Sand",
-                            Width = 390
+                            SurfaceType = "Gravel",
+                            Width = 120
                         },
                         new
                         {
-                            Id = "76fb3a65-c58e-43cb-be17-d94d3acf07ea",
-                            Length = 2750,
+                            Id = new Guid("bac84255-76a9-43a4-ac0c-4db1baa717cf"),
+                            Length = 4950,
                             RunwayDesignatorOne = "36L",
                             RunwayDesignatorTwo = "18R",
                             SurfaceType = "Dirt",
@@ -3763,8 +4265,8 @@ namespace SkyTracker.Data.Migrations
 
             modelBuilder.Entity("SkyTracker.Data.Models.RunwayAirport", b =>
                 {
-                    b.Property<string>("RunwayId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RunwayId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AirportId")
                         .HasColumnType("nvarchar(450)");
@@ -3774,6 +4276,73 @@ namespace SkyTracker.Data.Migrations
                     b.HasIndex("AirportId");
 
                     b.ToTable("RunwaysAirports");
+
+                    b.HasData(
+                        new
+                        {
+                            RunwayId = new Guid("0a93f7cb-71ff-43c8-a8d5-db6aae6127f0"),
+                            AirportId = "GKT"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("1f63628a-9bcb-49f1-8272-b223b9976db9"),
+                            AirportId = "YKF"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("3621d4f6-c0a3-40c2-8229-c52a9674122c"),
+                            AirportId = "YCM"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("1af9c434-b5b4-4987-8445-022407fc2d57"),
+                            AirportId = "BUF"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("68eef3a3-ee6d-45d2-81a8-00537fbd219f"),
+                            AirportId = "YHM"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("1916389d-fc35-4793-8d45-5802e1fe3b60"),
+                            AirportId = "IAG"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("01c85e17-7fd0-40b0-aed2-5c936b8d6bfa"),
+                            AirportId = "BID"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("8cfa1025-60af-4629-ad66-d635e6d57ae7"),
+                            AirportId = "WST"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("79439eb0-3786-4da0-b292-838ff2bf64cc"),
+                            AirportId = "ANC"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("1d8c2065-2708-472e-afd4-ca53ed3f9e00"),
+                            AirportId = "ENA"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("e15827b8-4957-48e8-83cc-64c2278c8446"),
+                            AirportId = "SXM"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("8a4cea93-961b-47ba-929d-1e2cfb08f819"),
+                            AirportId = "SAB"
+                        },
+                        new
+                        {
+                            RunwayId = new Guid("84563346-802b-4262-a4bd-6ea9a06b462d"),
+                            AirportId = "SBH"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

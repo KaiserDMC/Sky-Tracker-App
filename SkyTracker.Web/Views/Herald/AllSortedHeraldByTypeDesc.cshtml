@@ -14,9 +14,10 @@
                 <label for="sortDropdown" class="input-group-text">Sort By:</label>
                 <select id="sortDropdown" class="form-select" onchange=" this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
                     <option value="">-- Select --</option>
-                    <option value="@Url.Action("AllSortedHeraldByTypeAsc", "Herald")">Type Occurence Asc &#x2191;</option>
-                    <option value="@Url.Action("AllSortedHeraldByTypeDesc", "Herald")">Type Occurence Desc &#x2193;</option>
-                    <option value="@Url.Action("All", "Herald")">Clear;</option>
+                    <option value="@Url.Action("AllSortedHeraldByDateAsc", "Herald")">Date Asc &#x2191</option>
+                    <option value="@Url.Action("All", "Herald")">Date Desc &#x2193</option>
+                    <option value="@Url.Action("AllSortedHeraldByTypeAsc", "Herald")">Type A-Z &#x2191;</option>
+                    <option value="@Url.Action("AllSortedHeraldByTypeDesc", "Herald")">Type Z-A &#x2193;</option>
                 </select>
             </div>
         </div>
@@ -34,7 +35,7 @@
     <tbody>
         @foreach (var item in @Model)
         {
-            <tr class="@(GetRowColourClass(item.TypeOccurence))">
+            <tr id="row-@item.OccurrenceId" class="@(GetRowColourClass(item.TypeOccurence))">
                 <td>@item.OccurrenceDate</td>
                 <td>@item.TypeOccurence</td>
                 <td>@item.Details</td>
@@ -61,6 +62,18 @@
         }
     }
 }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $('tr[id^="row-"]').click(function () {
+        var rowId = $(this).attr('id');
+        var occurrenceId = rowId.replace('row-', '');
+
+        window.location.href = '/Herald/GetDetails?occurrenceId=' + occurrenceId;
+    });
+</script>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

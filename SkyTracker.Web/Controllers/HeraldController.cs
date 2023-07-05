@@ -24,6 +24,14 @@ public class HeraldController : Controller
     }
 
     [HttpGet]
+    public async Task<IActionResult> AllSortedHeraldByDateAsc()
+    {
+        var heralds = await _heraldService.GetAllHeraldsSortedByDateAscAsync();
+
+        return View(heralds);
+    }
+
+    [HttpGet]
     public async Task<IActionResult> AllSortedHeraldByTypeAsc()
     {
         var heralds = await _heraldService.GetAllHeraldsSortedByTypeAscAsync();
@@ -37,5 +45,13 @@ public class HeraldController : Controller
         var heralds = await _heraldService.GetAllHeraldsSortedByTypeDescAsync();
 
         return View(heralds);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetDetails(string occurrenceId)
+    {
+        var occurence = await _heraldService.GetDetailsById(occurrenceId);
+
+        return View(occurence);
     }
 }

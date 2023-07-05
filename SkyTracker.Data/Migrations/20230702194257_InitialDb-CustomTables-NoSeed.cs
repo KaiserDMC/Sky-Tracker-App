@@ -91,7 +91,7 @@ namespace SkyTracker.Data.Migrations
                 name: "Runways",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RunwayDesignatorOne = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RunwayDesignatorTwo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Length = table.Column<int>(type: "int", nullable: false),
@@ -238,7 +238,7 @@ namespace SkyTracker.Data.Migrations
                 name: "RunwaysAirports",
                 columns: table => new
                 {
-                    RunwayId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RunwayId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AirportId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>

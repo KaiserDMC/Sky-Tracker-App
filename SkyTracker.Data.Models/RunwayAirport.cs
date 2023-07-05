@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class RunwayAirport
 {
     [Required,ForeignKey(nameof(Runway))]
-    public string RunwayId { get; set; } = null!;
+    public Guid RunwayId { get; set; }
     public Runway Runway { get; set; } = null!;
 
     [Required,ForeignKey(nameof(Airport))]

@@ -20,7 +20,7 @@ public class RunwaySeeder
 
 
         // Specify the folder name relative to the current directory
-        string relativePath = @"..\SkyTracker.Data\SampleData\ruwnway_designators.json";
+        string relativePath = @"..\SkyTracker.Data\SampleData\modified_runway.json";
         string fullPath = Path.GetFullPath(relativePath);
 
         string json = File.ReadAllText(fullPath);
@@ -32,6 +32,7 @@ public class RunwaySeeder
             {
                 Runway runway = new()
                 {
+                    Id = Guid.ParseExact(runwayDto.Guid, "D"),
                     RunwayDesignatorOne = runwayDto.RunwayDesignatorOne,
                     RunwayDesignatorTwo = runwayDto.RunwayDesignatorTwo,
                     Length = new Random().Next(20, 100) * 50,

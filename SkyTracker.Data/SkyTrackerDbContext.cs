@@ -54,8 +54,8 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
 
         // Runway and HeraldPost need to be commented out to after initial migration avoid seeding errors, as they use randomly generated data.
-        //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
-        //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 
         var mappingEntityConfiguration = new MappingEntityConfiguration();
 

@@ -1,4 +1,7 @@
-﻿namespace SkyTracker.Services.Data;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace SkyTracker.Services.Data;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -19,9 +22,27 @@ public class HeraldService : IHeraldService
     public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsAsync()
     {
         var heralds = await _dbContext.HeraldPosts
+            .OrderByDescending(x => x.Occurrence)
             .Select(x => new HeraldAllViewModel
             {
-                OccurrenceDate = x.Occurrence,
+                OccurrenceId = x.Id.ToString(),
+                OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
+                TypeOccurence = x.TypeOccurence,
+                Details = x.Details,
+            })
+            .ToListAsync();
+
+        return heralds;
+    }
+
+    public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsSortedByDateAscAsync()
+    {
+        var heralds = await _dbContext.HeraldPosts
+            .OrderBy(x => x.Occurrence)
+            .Select(x => new HeraldAllViewModel
+            {
+                OccurrenceId = x.Id.ToString(),
+                OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
                 TypeOccurence = x.TypeOccurence,
                 Details = x.Details,
             })
@@ -35,7 +56,8 @@ public class HeraldService : IHeraldService
         var heraldsByTypeAsc = await _dbContext.HeraldPosts
              .Select(x => new HeraldAllViewModel
              {
-                 OccurrenceDate = x.Occurrence,
+                 OccurrenceId = x.Id.ToString(),
+                 OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
                  TypeOccurence = x.TypeOccurence,
                  Details = x.Details,
              })
@@ -50,7 +72,8 @@ public class HeraldService : IHeraldService
         var heraldsByTypeDesc = await _dbContext.HeraldPosts
             .Select(x => new HeraldAllViewModel
             {
-                OccurrenceDate = x.Occurrence,
+                OccurrenceId = x.Id.ToString(),
+                OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
                 TypeOccurence = x.TypeOccurence,
                 Details = x.Details,
             })
@@ -58,5 +81,22 @@ public class HeraldService : IHeraldService
             .ToListAsync();
 
         return heraldsByTypeDesc;
+    }
+
+    public async Task<HeraldDetailsViewModel> GetDetailsById(string occurrenceId)
+    {
+        // Retrieve the necessary data based on the occurrence ID and create an OccurrenceViewModel
+        var occurrence = await _dbContext.HeraldPosts
+            .Where(x => x.Id.ToString() == occurrenceId)
+            .Select(x => new HeraldDetailsViewModel
+            {
+                OccurrenceId = x.Id.ToString(),
+                OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
+                TypeOccurence = x.TypeOccurence,
+                Details = x.Details,
+            })
+            .FirstOrDefaultAsync();
+
+        return occurrence;
     }
 }

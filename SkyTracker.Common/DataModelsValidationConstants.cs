@@ -47,4 +47,9 @@ public static class DataModelsValidationConstants
     {
         public const string DesignatorRegexPattern = @"^(0[1-9]|[1-2][0-9]|3[0-6])([RL])?$";
     }
+
+    public static class HeraldPost
+    {
+        public const string DateFormat = "yyyy-MM-dd";
+    }
 }

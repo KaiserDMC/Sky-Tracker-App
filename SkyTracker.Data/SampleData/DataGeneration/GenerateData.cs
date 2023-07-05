@@ -14,8 +14,6 @@ public class GenerateData
     public ICollection<Flight> FlightCollection = new List<Flight>();
     public ICollection<Airport> AirportCollection = new List<Airport>();
 
-
-
     public GenerateData()
     {
         GenerateFlightAndAircraftData();

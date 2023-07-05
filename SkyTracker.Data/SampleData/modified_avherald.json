@@ -1,881 +1,1057 @@
 [
   {
-    "Occurrence": "Friday Jun 30th 2023",
+    "guid": "4c8bba4c-1d05-4a95-955d-5fa49bf0e6ab",
+    "Occurrence": "Friday Jun 30 2023",
     "title": "Report",
     "headline_avherald": "Spicejet B738 near Patna on Nov 17th 2021, loss of cabin pressure causes momentary incapacitation of captain"
   },
   {
-    "Occurrence": "Wednesday Jun 28th 2023",
+    "guid": "dd965a8e-930d-42a1-b2cd-d1bf603a909c",
+    "Occurrence": "Wednesday Jun 28 2023",
     "title": "Incident",
     "headline_avherald": "Vietjet A21N near Laoag on Jun 28th 2023, engine vibration indications"
   },
   {
-    "Occurrence": "Tuesday Jun 27th 2023",
+    "guid": "70989495-3e91-4be0-9a37-f01a5d3178eb",
+    "Occurrence": "Tuesday Jun 27 2023",
     "title": "Incident",
     "headline_avherald": "ANZ B789 near Auckland on Jun 23rd 2023, fuel issues"
   },
   {
-    "Occurrence": "Monday Jun 26th 2023",
+    "guid": "19fc73d0-7203-4112-876e-506e2bf9663d",
+    "Occurrence": "Monday Jun 26 2023",
     "title": "Incident",
     "headline_avherald": "Fedex MD11 at Toronto on Jun 21st 2023, thrust reverser deployed in flight"
   },
   {
-    "Occurrence": "Sunday Jun 25th 2023",
+    "guid": "ef19532a-01bf-429d-9ff4-3cd87877203f",
+    "Occurrence": "Sunday Jun 25 2023",
     "title": "Incident",
     "headline_avherald": "LATAM Cargo at Frankfurt on Jun 20th 2023, stalled during go around, overflew parallel runway and stalled again"
   },
   {
-    "Occurrence": "Saturday Jun 24th 2023",
+    "guid": "66858dbf-bb59-40bf-ac04-2e44dd2b91ae",
+    "Occurrence": "Saturday Jun 24 2023",
     "title": "Accident",
     "headline_avherald": "Cathay B773 at Hong Kong on Jun 24th 2023, rejected takeoff"
   },
   {
-    "Occurrence": "Friday Jun 23rd 2023",
+    "guid": "eb5dbabe-58f6-417b-abd2-d0e07daa3b58",
+    "Occurrence": "Friday Jun 23 2023",
     "title": "Incident",
     "headline_avherald": "Batik A333 at Madinah on Jun 12th 2023, hydraulic leak"
   },
   {
-    "Occurrence": "Thursday Jun 22nd 2023",
+    "guid": "de904f6d-c8e5-4cd2-8384-77d0df029674",
+    "Occurrence": "Thursday Jun 22 2023",
     "title": "Incident",
     "headline_avherald": "Edelweiss A320 at Zurich on Jun 18th 2023, gear problems on departure"
   },
   {
-    "Occurrence": "Wednesday Jun 21st 2023",
+    "guid": "e40bcf84-4661-4948-8928-7fadeedac17f",
+    "Occurrence": "Wednesday Jun 21 2023",
     "title": "Accident",
     "headline_avherald": "Condor A339 near Mauritius on Mar 2nd 2023, turbulence injures 20"
   },
   {
-    "Occurrence": "Tuesday Jun 20th 2023",
+    "guid": "2d47641a-3d73-4996-902c-52226d83e3d1",
+    "Occurrence": "Tuesday Jun 20 2023",
     "title": "Incident",
     "headline_avherald": "Argentinas B738 near Posadas on Jun 19th 2023, burning odour on board"
   },
   {
-    "Occurrence": "Monday Jun 19th 2023",
+    "guid": "bd99def8-fcc7-40bd-a446-89a5485d07c6",
+    "Occurrence": "Monday Jun 19 2023",
     "title": "Incident",
     "headline_avherald": "ANZ B789 enroute on Jun 19th 2023, cracked windshield"
   },
   {
-    "Occurrence": "Sunday Jun 18th 2023",
+    "guid": "298d4962-56e3-4a4f-9705-3546c05c1b2b",
+    "Occurrence": "Sunday Jun 18 2023",
     "title": "Accident",
     "headline_avherald": "British Airways B773 near Singapore on Jun 16th 2023, turbulence causes injuries"
   },
   {
-    "Occurrence": "Friday Jun 16th 2023",
+    "guid": "6937ddc5-45ae-4874-b33f-1bde09060a34",
+    "Occurrence": "Friday Jun 16 2023",
     "title": "Incident",
     "headline_avherald": "France A359 near Osaka on May 28th 2023, weather radar and airspeed malfunction"
   },
   {
-    "Occurrence": "Thursday Jun 15th 2023",
+    "guid": "4054f929-b335-43f1-9421-656dd83e3da2",
+    "Occurrence": "Thursday Jun 15 2023",
     "title": "Incident",
     "headline_avherald": "Delta B738 at Burlington on Jun 12th 2023, engine failure"
   },
   {
-    "Occurrence": "Thursday Jun 15th 2023",
+    "guid": "11445c3c-e906-4206-a3ea-5404a627019e",
+    "Occurrence": "Thursday Jun 15 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa CRJ9 at Frankfurt on Jun 15th 2023, smell of smoke in cabin"
   },
   {
-    "Occurrence": "Wednesday Jun 14th 2023",
+    "guid": "8586c2b4-0bd4-44bc-a828-4d4d563cdcd9",
+    "Occurrence": "Wednesday Jun 14 2023",
     "title": "Incident",
     "headline_avherald": "TAP A320 at Copenhagen on Apr 8th 2022, reverser opened on TOGA, overflew buildings at very low height on go around"
   },
   {
-    "Occurrence": "Tuesday Jun 13th 2023",
+    "guid": "489a6cb1-909c-40d5-a89c-8faad2d929ce",
+    "Occurrence": "Tuesday Jun 13 2023",
     "title": "Incident",
     "headline_avherald": "Delta B763 near New York on Jun 10th 2023, engine problem"
   },
   {
-    "Occurrence": "Monday Jun 12th 2023",
+    "guid": "70be182d-879b-48cc-95b4-96cfa93b3478",
+    "Occurrence": "Monday Jun 12 2023",
     "title": "Incident",
     "headline_avherald": "United A320 near Kansas City on Jun 11th 2023, fumes in cockpit"
   },
   {
-    "Occurrence": "Sunday Jun 11th 2023",
+    "guid": "e7535a1c-15b8-4f36-a80f-a31cd75d12a5",
+    "Occurrence": "Sunday Jun 11 2023",
     "title": "Incident",
     "headline_avherald": "Indigo A21N at Delhi on Jun 10th 2023, engine failure"
   },
   {
-    "Occurrence": "Saturday Jun 10th 2023",
+    "guid": "6a5a0373-80c5-4d9d-a396-ecacba800d65",
+    "Occurrence": "Saturday Jun 10 2023",
     "title": "Incident",
     "headline_avherald": "Perimeter DH8C at Gods Lake Narrows on Jun 3rd 2023, hydraulic leak"
   },
   {
-    "Occurrence": "Friday Jun  9th 2023",
+    "guid": "c2a55d7c-65b9-4f70-bb56-f8f501c4e269",
+    "Occurrence": "Friday Jun 9 2023",
     "title": "Incident",
     "headline_avherald": "Algerie B738 near Marseille on Jun 8th 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Thursday Jun  8th 2023",
+    "guid": "965cb058-3318-47c3-99f4-8ed8cd55892c",
+    "Occurrence": "Thursday Jun 8 2023",
     "title": "Incident",
     "headline_avherald": "Volotea A319 near Bordeaux on Jun 2nd 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Tuesday Jun  6th 2023",
+    "guid": "b7954598-218c-4bbc-afc0-9bdfa1bf6f14",
+    "Occurrence": "Tuesday Jun 6 2023",
     "title": "Report",
     "headline_avherald": "Virgin Australia B738 at Sydney on Oct 19th 2022, verbal slip in clearance"
   },
   {
-    "Occurrence": "Monday Jun  5th 2023",
+    "guid": "3c67c85d-5c8f-41a2-9dc6-a6deb5050edb",
+    "Occurrence": "Monday Jun 5 2023",
     "title": "Accident",
     "headline_avherald": "Ethiopian B772 at Shanghai on Jul 22nd 2020, aircraft burned down on apron"
   },
   {
-    "Occurrence": "Sunday Jun  4th 2023",
+    "guid": "61369b93-8ac2-4913-bcd8-f2d322a686d6",
+    "Occurrence": "Sunday Jun 4 2023",
     "title": "Incident",
     "headline_avherald": "Azul AT72 at Valadares on Jun 3rd 2023, engine fire indication"
   },
   {
-    "Occurrence": "Saturday Jun  3rd 2023",
+    "guid": "18f47283-13d4-418f-a638-8227522302e1",
+    "Occurrence": "Saturday Jun 3 2023",
     "title": "Incident",
     "headline_avherald": "Wideroe DH8A at Tromso on Jun 2nd 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Friday Jun  2nd 2023",
+    "guid": "5aa06c7c-d653-46a2-ab15-b51179761a48",
+    "Occurrence": "Friday Jun 2 2023",
     "title": "Accident",
     "headline_avherald": "United Nigeria E145 at Lagos on May 31st 2023, runway excursion"
   },
   {
-    "Occurrence": "Thursday Jun  1st 2023",
+    "guid": "52ca76e5-4995-4adb-92f5-0ce2c549f0d3",
+    "Occurrence": "Thursday Jun 1 2023",
     "title": "Incident",
     "headline_avherald": "Westjet Encore DH8D at Calgary on May 31st 2023, engine fire"
   },
   {
-    "Occurrence": "Thursday Jun  1st 2023",
+    "guid": "4c7af6c8-f87f-40ad-bf8d-b5b0826860b3",
+    "Occurrence": "Thursday Jun 1 2023",
     "title": "Incident",
     "headline_avherald": "KLM B772 over Mediterranean on Feb 9th 2023, cabin problems - electrical fire in oven"
   },
   {
-    "Occurrence": "Wednesday May 31st 2023",
+    "guid": "41fdd98c-2b1d-4009-8698-c453d0535d74",
+    "Occurrence": "Wednesday May 31 2023",
     "title": "Incident",
     "headline_avherald": "Garuda B738 at Manado on May 31st 2023, engine problems"
   },
   {
-    "Occurrence": "Tuesday May 30th 2023",
+    "guid": "86e9b094-fc72-46f9-a0ca-eac7c0087c60",
+    "Occurrence": "Tuesday May 30 2023",
     "title": "Incident",
     "headline_avherald": "KLM B772 near Dubai on May 26th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Monday May 29th 2023",
+    "guid": "1d0b9ab2-767f-4bf2-ba81-2196c301c097",
+    "Occurrence": "Monday May 29 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet A320 at London on May 28th 2023, engine failure"
   },
   {
-    "Occurrence": "Sunday May 28th 2023",
+    "guid": "4686971d-5849-4e92-958b-43611f06eeb9",
+    "Occurrence": "Sunday May 28 2023",
     "title": "Incident",
     "headline_avherald": "Malta Air B738 at Milan on May 27th 2023, nose tyre damage on departure"
   },
   {
-    "Occurrence": "Friday May 26th 2023",
+    "guid": "398add8a-a222-4176-8db9-4e8ad487531b",
+    "Occurrence": "Friday May 26 2023",
     "title": "Accident",
     "headline_avherald": "Asiana A321 at Daegu on May 26th 2023, emergency exit opened in flight"
   },
   {
-    "Occurrence": "Thursday May 25th 2023",
+    "guid": "3e5c92a5-b13f-4da2-a24b-80ba8ab2111a",
+    "Occurrence": "Thursday May 25 2023",
     "title": "Incident",
     "headline_avherald": "United B753 over Pacific on May 24th 2023, rudder issues"
   },
   {
-    "Occurrence": "Wednesday May 24th 2023",
+    "guid": "41a7f5e0-3281-4d9e-bb73-0de3e51bf097",
+    "Occurrence": "Wednesday May 24 2023",
     "title": "Incident",
     "headline_avherald": "PIA A320 at Karachi on May 24th 2023, bird strike"
   },
   {
-    "Occurrence": "Tuesday May 23rd 2023",
+    "guid": "ef195491-1a27-4ceb-85ee-66a4294ef291",
+    "Occurrence": "Tuesday May 23 2023",
     "title": "Incident",
     "headline_avherald": "Jetblue A320 near New York on May 22nd 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Monday May 22nd 2023",
+    "guid": "0e55f1f0-e623-420b-9c7f-d92ad27054b9",
+    "Occurrence": "Monday May 22 2023",
     "title": "Incident",
     "headline_avherald": "Brussels A333 near Paris on May 22nd 2023, engine vibrations"
   },
   {
-    "Occurrence": "Saturday May 20th 2023",
+    "guid": "bd81647e-287a-4aac-8c72-7ad3e0f12ce1",
+    "Occurrence": "Saturday May 20 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet A319 near Manchester on May 19th 2023, burning odour on board"
   },
   {
-    "Occurrence": "Friday May 19th 2023",
+    "guid": "68094bdf-71ff-457e-b25f-08ebb1671c47",
+    "Occurrence": "Friday May 19 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet A320 at Geneva on May 18th 2023, fire in overhead locker"
   },
   {
-    "Occurrence": "Thursday May 18th 2023",
+    "guid": "61d8225a-3a9f-4975-9b71-7df92e23f2ea",
+    "Occurrence": "Thursday May 18 2023",
     "title": "Incident",
     "headline_avherald": "Aeromexico B38M at Mexico City on May 10th 2023, rejected takeoff after operational error"
   },
   {
-    "Occurrence": "Wednesday May 17th 2023",
+    "guid": "0d03e449-f9df-49e0-8c52-d9f59b6575fe",
+    "Occurrence": "Wednesday May 17 2023",
     "title": "Incident",
     "headline_avherald": "Oman B739 at Shiraz on May 15th 2023, foreign object on runway at landing"
   },
   {
-    "Occurrence": "Wednesday May 17th 2023",
+    "guid": "4f8fd3ba-b9f9-4c65-869d-e141007bc143",
+    "Occurrence": "Wednesday May 17 2023",
     "title": "Accident",
     "headline_avherald": "Link SF34 at Canberra on Nov 10th 2022, propeller strap penetrates cabin in flight"
   },
   {
-    "Occurrence": "Tuesday May 16th 2023",
+    "guid": "801613d0-664e-41c1-b68c-508efc7ecb27",
+    "Occurrence": "Tuesday May 16 2023",
     "title": "Incident",
     "headline_avherald": "Airwork B733 at Darwin on Nov 4th 2021, cabin did not pressurize"
   },
   {
-    "Occurrence": "Monday May 15th 2023",
+    "guid": "3bde6a81-4da6-4b3d-a763-774a2c44c0d8",
+    "Occurrence": "Monday May 15 2023",
     "title": "Accident",
     "headline_avherald": "Cargolux B744 at Luxembourg on May 14th 2023, could not retract landing gear, on return right center gear bogey separated"
   },
   {
-    "Occurrence": "Sunday May 14th 2023",
+    "guid": "26b35488-be5c-40a8-ade0-5501f768ac8c",
+    "Occurrence": "Sunday May 14 2023",
     "title": "Incident",
     "headline_avherald": "HiSky A21N near Manchester on May 11th 2023, pilot incapacitated"
   },
   {
-    "Occurrence": "Saturday May 13th 2023",
+    "guid": "70000f32-fe6e-483b-85ea-54b5752971ac",
+    "Occurrence": "Saturday May 13 2023",
     "title": "Incident",
     "headline_avherald": "Baltic BCS3 at Brussels on Apr 19th 2023, started final descent too early"
   },
   {
-    "Occurrence": "Thursday May 11th 2023",
+    "guid": "4897c7b0-0f89-4a39-ad1e-faaa4aff56d9",
+    "Occurrence": "Thursday May 11 2023",
     "title": "Incident",
     "headline_avherald": "Aeroregional B735 near Quito on May 5th 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Wednesday May 10th 2023",
+    "guid": "37e54a85-8fca-4e98-807a-11bbd2d6c3c8",
+    "Occurrence": "Wednesday May 10 2023",
     "title": "Incident",
     "headline_avherald": "Canada B773 near Toronto on Apr 30th 2023, something glowing on wing"
   },
   {
-    "Occurrence": "Tuesday May  9th 2023",
+    "guid": "3420ce03-baf0-41cc-b4f7-cf436c470fd3",
+    "Occurrence": "Tuesday May 9 2023",
     "title": "Incident",
     "headline_avherald": "United B788 near Dublin on May 4th 2023, cracked windshield"
   },
   {
-    "Occurrence": "Monday May  8th 2023",
+    "guid": "bbac0457-d33c-4e88-9548-50e7fbea2c81",
+    "Occurrence": "Monday May 8 2023",
     "title": "Incident",
     "headline_avherald": "Fedex A306 near Indianapolis on May 7th 2023, hydraulic problems"
   },
   {
-    "Occurrence": "Saturday May  6th 2023",
+    "guid": "a32d4a7d-d360-4d19-9ddb-beaf00f26031",
+    "Occurrence": "Saturday May 6 2023",
     "title": "Incident",
     "headline_avherald": "Transavia B738 at Rotterdam on May 4th 2023, bird strike"
   },
   {
-    "Occurrence": "Friday May  5th 2023",
+    "guid": "ede76c5f-6db0-4b65-bb2f-ad6f26f37b9a",
+    "Occurrence": "Friday May 5 2023",
     "title": "Incident",
     "headline_avherald": "TUI B738 enroute on May 4th 2023, one flight crew incapacitated"
   },
   {
-    "Occurrence": "Thursday May  4th 2023",
+    "guid": "85285234-005e-4585-a884-ce3854128450",
+    "Occurrence": "Thursday May 4 2023",
     "title": "Incident",
     "headline_avherald": "Aeromexico E190 near Oaxaca on May 3rd 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Wednesday May  3rd 2023",
+    "guid": "f84a45d0-7001-4673-9416-6733106c0fa3",
+    "Occurrence": "Wednesday May 3 2023",
     "title": "Incident",
     "headline_avherald": "Hawaiian A332 at Kahului on Apr 30th 2023, smell of smoke"
   },
   {
-    "Occurrence": "Tuesday May  2nd 2023",
+    "guid": "18c2691f-e40c-469a-ae71-ecab22406cd8",
+    "Occurrence": "Tuesday May 2 2023",
     "title": "Incident",
     "headline_avherald": "Nolinor B738 at Toronto on Apr 15th 2023, flaps failure"
   },
   {
-    "Occurrence": "Monday May  1st 2023",
+    "guid": "f7032957-105b-4b8b-9819-93a3e9c37f67",
+    "Occurrence": "Monday May 1 2023",
     "title": "Incident",
     "headline_avherald": "Scoot B789 near Adelaide on Apr 29th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Sunday Apr 30th 2023",
+    "guid": "cb29adb3-34e2-485d-97e3-216d1570c8ef",
+    "Occurrence": "Sunday Apr 30 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa B748 at Buenos Aires on Apr 29th 2023, could not retract landing gear"
   },
   {
-    "Occurrence": "Friday Apr 28th 2023",
+    "guid": "e044b376-d1e5-400e-80aa-bab52d202b7e",
+    "Occurrence": "Friday Apr 28 2023",
     "title": "Incident",
     "headline_avherald": "Delta B738 at New York on Apr 23rd 2023, lightning strike"
   },
   {
-    "Occurrence": "Thursday Apr 27th 2023",
+    "guid": "5414b160-a242-4f66-8d52-6ee28b39aeed",
+    "Occurrence": "Thursday Apr 27 2023",
     "title": "Incident",
     "headline_avherald": "Sunwing B738 at Santa Clara on Apr 26th 2023, could not retract left main gear"
   },
   {
-    "Occurrence": "Wednesday Apr 26th 2023",
+    "guid": "2d3108a5-f8df-4dd5-a975-bfa0e488c2fd",
+    "Occurrence": "Wednesday Apr 26 2023",
     "title": "Incident",
     "headline_avherald": "Avianca A320 at San Andres on Apr 25th 2023, bird strike"
   },
   {
-    "Occurrence": "Tuesday Apr 25th 2023",
+    "guid": "3064ebcc-f366-4dd8-93ee-f998c3f7328f",
+    "Occurrence": "Tuesday Apr 25 2023",
     "title": "Incident",
     "headline_avherald": "Flydubai B738 at Kathmandu on Apr 24th 2023, bird strike on departure"
   },
   {
-    "Occurrence": "Monday Apr 24th 2023",
+    "guid": "2946b491-f9b9-4ed9-9896-55b6481eaa9f",
+    "Occurrence": "Monday Apr 24 2023",
     "title": "Accident",
     "headline_avherald": "Pel SF34 near Cobar on Apr 23rd 2023, fire on board"
   },
   {
-    "Occurrence": "Sunday Apr 23rd 2023",
+    "guid": "59d88a51-5b88-45c0-98c4-ae9a02dce8fd",
+    "Occurrence": "Sunday Apr 23 2023",
     "title": "Incident",
     "headline_avherald": "El Al B788 at Tel Aviv on Apr 22nd 2023, engine problem"
   },
   {
-    "Occurrence": "Friday Apr 21st 2023",
+    "guid": "8478d912-5e8a-4065-bc07-616402b20238",
+    "Occurrence": "Friday Apr 21 2023",
     "title": "Incident",
     "headline_avherald": "Delta B763 over Atlantic on Jul 7th 2022, flooding on board, autopilots disconnected"
   },
   {
-    "Occurrence": "Thursday Apr 20th 2023",
+    "guid": "3a9b3be2-d82e-4d74-ad7f-6da370cb2400",
+    "Occurrence": "Thursday Apr 20 2023",
     "title": "Incident",
     "headline_avherald": "Porter DH8D at Boston on Mar 30th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Wednesday Apr 19th 2023",
+    "guid": "7c147614-1c5b-4428-a957-d818bb867a3a",
+    "Occurrence": "Wednesday Apr 19 2023",
     "title": "Accident",
     "headline_avherald": "Longtail B744 at Maastricht on Feb 20th 2021, rain of engine parts"
   },
   {
-    "Occurrence": "Tuesday Apr 18th 2023",
+    "guid": "bba884ed-0ae6-4341-867d-9466b82d7842",
+    "Occurrence": "Tuesday Apr 18 2023",
     "title": "Incident",
     "headline_avherald": "Spicejet B738 at Delhi on Apr 18th 2023, cargo smoke indication"
   },
   {
-    "Occurrence": "Monday Apr 17th 2023",
+    "guid": "e9ad8edf-faac-47e4-8032-d61170e7f1a5",
+    "Occurrence": "Monday Apr 17 2023",
     "title": "Incident",
     "headline_avherald": "Singapore B744 at Nairobi on Apr 17th 2023, rejected takeoff due to bird strike"
   },
   {
-    "Occurrence": "Monday Apr 17th 2023",
+    "guid": "64db7a0d-0256-444e-8b5c-45e7949b816c",
+    "Occurrence": "Monday Apr 17 2023",
     "title": "Accident",
     "headline_avherald": "TAG SF34 at Flores on Apr 16th 2023, gear problem on approach, runway excursion"
   },
   {
-    "Occurrence": "Sunday Apr 16th 2023",
+    "guid": "c771303b-7e3b-4d12-9d4d-9c538810a429",
+    "Occurrence": "Sunday Apr 16 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa B744 enroute on Apr 15th 2023, hydraulic problem"
   },
   {
-    "Occurrence": "Friday Apr 14th 2023",
+    "guid": "0434b789-6ff5-4f12-b153-8261ec9b171e",
+    "Occurrence": "Friday Apr 14 2023",
     "title": "Incident",
     "headline_avherald": "Skywest CRJ2 near Pierre on Apr 12th 2023, engine failure"
   },
   {
-    "Occurrence": "Thursday Apr 13th 2023",
+    "guid": "c31e2825-f258-499f-a2f8-5b8346e632ab",
+    "Occurrence": "Thursday Apr 13 2023",
     "title": "Incident",
     "headline_avherald": "Virgin Australia B738 at Coolangatta on Jan 24th 2023, long landing"
   },
   {
-    "Occurrence": "Wednesday Apr 12th 2023",
+    "guid": "49151a53-f572-4a87-a6a0-d8e897bd84e9",
+    "Occurrence": "Wednesday Apr 12 2023",
     "title": "Accident",
     "headline_avherald": "Kasai AN26 at Lisala on Apr 11th 2023, runway excursion on landing"
   },
   {
-    "Occurrence": "Tuesday Apr 11th 2023",
+    "guid": "5faaa1f7-2330-4e59-b2b3-ab0cb91d6037",
+    "Occurrence": "Tuesday Apr 11 2023",
     "title": "Incident",
     "headline_avherald": "El Al B772 over Germany and Austria on Apr 10th 2023, losscomm"
   },
   {
-    "Occurrence": "Monday Apr 10th 2023",
+    "guid": "45eb1a07-560c-404c-aba0-13209e7b6a83",
+    "Occurrence": "Monday Apr 10 2023",
     "title": "Incident",
     "headline_avherald": "British Airways A320 near Glasgow on Apr 10th 2023, fuel transfer problem"
   },
   {
-    "Occurrence": "Sunday Apr  9th 2023",
+    "guid": "243325f8-ab21-4c2c-8f49-23ebd44f3dee",
+    "Occurrence": "Sunday Apr 9 2023",
     "title": "Accident",
     "headline_avherald": "Ryanair B738 at Dublin on Apr 9th 2023, temporary runway excursion and nose gear damage on landing"
   },
   {
-    "Occurrence": "Saturday Apr  8th 2023",
+    "guid": "10cac8c2-eb22-4171-b3ce-1b4acda6b7e0",
+    "Occurrence": "Saturday Apr 8 2023",
     "title": "Incident",
     "headline_avherald": "THY B739 at Kayseri on Apr 7th 2023, bird strike"
   },
   {
-    "Occurrence": "Thursday Apr  6th 2023",
+    "guid": "a0b5bfe7-2de0-4469-b408-988c164ea547",
+    "Occurrence": "Thursday Apr 6 2023",
     "title": "Incident",
     "headline_avherald": "Ariana A313 at Jeddah on Feb 24th 2023, rejected takeoff due to sliding window"
   },
   {
-    "Occurrence": "Wednesday Apr  5th 2023",
+    "guid": "c73e62b6-fe96-4d48-aed8-9698c33bd6ef",
+    "Occurrence": "Wednesday Apr 5 2023",
     "title": "Incident",
     "headline_avherald": "El Al B789 at Tel Aviv on Apr 4th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Tuesday Apr  4th 2023",
+    "guid": "236a1264-29db-4a88-851b-04392b04472c",
+    "Occurrence": "Tuesday Apr 4 2023",
     "title": "Accident",
     "headline_avherald": "Key Lime SW4 and private aircraft at Denver on May 12th 2021, midair collision"
   },
   {
-    "Occurrence": "Monday Apr  3rd 2023",
+    "guid": "83c716e5-8f7b-44f9-91ad-58cec161ab1b",
+    "Occurrence": "Monday Apr 3 2023",
     "title": "Incident",
     "headline_avherald": "American B738 at Merida on Apr 1st 2023, flaps problems on approach"
   },
   {
-    "Occurrence": "Sunday Apr  2nd 2023",
+    "guid": "038763cc-0af4-46ca-a4cd-9822b3fd6c57",
+    "Occurrence": "Sunday Apr 2 2023",
     "title": "Incident",
     "headline_avherald": "Delta A321 at New Orleans on Mar 31st 2023, rejected takeoff on ATC instruction"
   },
   {
-    "Occurrence": "Saturday Apr  1st 2023",
+    "guid": "ad045a02-3dd6-44d7-bf7c-498227318aeb",
+    "Occurrence": "Saturday Apr 1 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa A21N at Frankfurt on Mar 31st 2023, lightning strike"
   },
   {
-    "Occurrence": "Saturday Apr  1st 2023",
+    "guid": "6a303c04-3262-4127-bc91-99b1b297c478",
+    "Occurrence": "Saturday Apr 1 2023",
     "title": "Incident",
     "headline_avherald": "Swiss A320 at Zurich on Feb 14th 2023, took off with vehicle on runway"
   },
   {
-    "Occurrence": "Friday Mar 31st 2023",
+    "guid": "8bf9b52f-03da-411b-ade3-cd5384dafeec",
+    "Occurrence": "Friday Mar 31 2023",
     "title": "Incident",
     "headline_avherald": "British Airways A320 near Zurich on Mar 29th 2023, unusual odour on board"
   },
   {
-    "Occurrence": "Thursday Mar 30th 2023",
+    "guid": "28fefb9c-17b0-43f2-b38b-b1c3aab7e07f",
+    "Occurrence": "Thursday Mar 30 2023",
     "title": "Incident",
     "headline_avherald": "Ibex CRJ7 near Fukuoka on Apr 18th 2022, loss of left and right airspeed indications"
   },
   {
-    "Occurrence": "Wednesday Mar 29th 2023",
+    "guid": "9b0a6fee-7696-4611-abf9-6659eff88af9",
+    "Occurrence": "Wednesday Mar 29 2023",
     "title": "Incident",
     "headline_avherald": "United B763 at Houston on Mar 28th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Tuesday Mar 28th 2023",
+    "guid": "25dd9b8c-99bb-44b3-a98b-86b33d497d0a",
+    "Occurrence": "Tuesday Mar 28 2023",
     "title": "Incident",
     "headline_avherald": "Flydubai B39M at Male on Mar 28th 2023, burst tyres on landing"
   },
   {
-    "Occurrence": "Monday Mar 27th 2023",
+    "guid": "8d99648e-4172-4613-8f2e-f97d1daa1fc1",
+    "Occurrence": "Monday Mar 27 2023",
     "title": "Incident",
     "headline_avherald": "TAROM B738 near Bucharest on Mar 25th 2023, captain incapacitated"
   },
   {
-    "Occurrence": "Saturday Mar 25th 2023",
+    "guid": "1559bfaf-9120-47d9-af6a-da1b6934bae0",
+    "Occurrence": "Saturday Mar 25 2023",
     "title": "News",
     "headline_avherald": "Server harddisk crashed, we are back up in full service after about 6 hours"
   },
   {
-    "Occurrence": "Friday Mar 24th 2023",
+    "guid": "f9497552-1b8d-453f-be4d-fbc3c26241b2",
+    "Occurrence": "Friday Mar 24 2023",
     "title": "Incident",
     "headline_avherald": "Network Australia F100 at Paraburdoo on Nov 22nd 2021, descent below minimum without visual reference"
   },
   {
-    "Occurrence": "Thursday Mar 23rd 2023",
+    "guid": "0218ea27-cb00-4b8c-8049-db021e43583d",
+    "Occurrence": "Thursday Mar 23 2023",
     "title": "Incident",
     "headline_avherald": "Transavia B737 at Rotterdam on Apr 24th 2021, we think we are 6500 feet, military radar tells FL110, unreliable speed and altitude on both left and right pitot systems"
   },
   {
-    "Occurrence": "Wednesday Mar 22nd 2023",
+    "guid": "2b8fc4b6-cbf1-464f-ae40-a02fbd079b0b",
+    "Occurrence": "Wednesday Mar 22 2023",
     "title": "Accident",
     "headline_avherald": "Sun Country B738 at Las Vegas on Feb 4th 2022, gear malfunction on departure"
   },
   {
-    "Occurrence": "Tuesday Mar 21st 2023",
+    "guid": "c13a0d65-a3ea-4cd5-a530-c622d802f67a",
+    "Occurrence": "Tuesday Mar 21 2023",
     "title": "Incident",
     "headline_avherald": "Qantas A332 near Adelaide on Feb 4th 2021, loss of cabin pressure"
   },
   {
-    "Occurrence": "Monday Mar 20th 2023",
+    "guid": "8c701e39-7075-4f1f-9f43-30385d817e8b",
+    "Occurrence": "Monday Mar 20 2023",
     "title": "Incident",
     "headline_avherald": "Wideroe DH8D near Sandefjord on Mar 17th 2023, departed without being refueled"
   },
   {
-    "Occurrence": "Sunday Mar 19th 2023",
+    "guid": "a20e35fa-3a8b-413b-98fd-e0119107e8e0",
+    "Occurrence": "Sunday Mar 19 2023",
     "title": "Incident",
     "headline_avherald": "Delta B752 at New York on Mar 15th 2023, slat disagree"
   },
   {
-    "Occurrence": "Sunday Mar 19th 2023",
+    "guid": "d26a487d-51f2-4800-9b20-8c9ef173b882",
+    "Occurrence": "Sunday Mar 19 2023",
     "title": "Incident",
     "headline_avherald": "Indigo A20N near Hyderabad on Mar 18th 2023, hail strike"
   },
   {
-    "Occurrence": "Saturday Mar 18th 2023",
+    "guid": "c3e85507-074d-4dc1-8e09-978ec32dd14a",
+    "Occurrence": "Saturday Mar 18 2023",
     "title": "Incident",
     "headline_avherald": "Buddha AT72 at Kathmandu on Mar 18th 2023, unreliable airspeed"
   },
   {
-    "Occurrence": "Friday Mar 17th 2023",
+    "guid": "d9f5e6c4-c48d-484e-8810-cb8f0e527422",
+    "Occurrence": "Friday Mar 17 2023",
     "title": "Accident",
     "headline_avherald": "Precision AT42 at Bukoba on Nov 6th 2022, touched down short of  runway and ended up in Lake Victoria"
   },
   {
-    "Occurrence": "Thursday Mar 16th 2023",
+    "guid": "71990ac5-6637-4625-8835-b73e0b624628",
+    "Occurrence": "Thursday Mar 16 2023",
     "title": "Incident",
     "headline_avherald": "Mahan A346 near Almaty on Mar 5th 2023, engine fire indication"
   },
   {
-    "Occurrence": "Wednesday Mar 15th 2023",
+    "guid": "14bd9eed-c2ec-491b-a87a-e7fce46c2797",
+    "Occurrence": "Wednesday Mar 15 2023",
     "title": "Incident",
     "headline_avherald": "Transat A332 near Nassau on Mar 4th 2023, overheating cabin floor and burning odour"
   },
   {
-    "Occurrence": "Tuesday Mar 14th 2023",
+    "guid": "86b99408-3551-4afd-b85e-28a24d4c1e3b",
+    "Occurrence": "Tuesday Mar 14 2023",
     "title": "Incident",
     "headline_avherald": "Swiss RJ1H enroute on Sep 3rd 2016, fumes in cockpit and cabin"
   },
   {
-    "Occurrence": "Monday Mar 13th 2023",
+    "guid": "11cce2fd-d1ea-4b8a-b6e3-5c919138db72",
+    "Occurrence": "Monday Mar 13 2023",
     "title": "Incident",
     "headline_avherald": "Iceland B39M at Toronto on Mar 4th 2023, tail strike on balked landing"
   },
   {
-    "Occurrence": "Sunday Mar 12th 2023",
+    "guid": "56458cc3-6a13-44b3-9bf7-1ad356162e44",
+    "Occurrence": "Sunday Mar 12 2023",
     "title": "Incident",
     "headline_avherald": "LOT B788 at Warsaw on Mar 12th 2023, could not retract nose gear"
   },
   {
-    "Occurrence": "Saturday Mar 11th 2023",
+    "guid": "1f482eb3-bda0-4f28-b891-378396f2f991",
+    "Occurrence": "Saturday Mar 11 2023",
     "title": "Accident",
     "headline_avherald": "Trigana B735 at Yahukimo on Mar 11th 2023, aircraft being shot at"
   },
   {
-    "Occurrence": "Friday Mar 10th 2023",
+    "guid": "5ba3b939-f028-4b60-bce7-a2782bf352bc",
+    "Occurrence": "Friday Mar 10 2023",
     "title": "Accident",
     "headline_avherald": "Delta A320 at Omaha on Nov 19th 2022, bird strike"
   },
   {
-    "Occurrence": "Thursday Mar  9th 2023",
+    "guid": "22cdc2ef-e7f8-4893-affc-42c9575a9e2e",
+    "Occurrence": "Thursday Mar 9 2023",
     "title": "Incident",
     "headline_avherald": "Shree DH8D near Kathmandu on Mar 9th 2023, engine fire indication"
   },
   {
-    "Occurrence": "Wednesday Mar  8th 2023",
+    "guid": "bb4a4a89-d7ce-4b9b-973c-d5ae93281487",
+    "Occurrence": "Wednesday Mar 8 2023",
     "title": "Incident",
     "headline_avherald": "VARA A320 near Adelaide on Mar 3rd 2023, first officer incapacitated"
   },
   {
-    "Occurrence": "Tuesday Mar  7th 2023",
+    "guid": "69449aac-0051-4558-a753-99166d453c7a",
+    "Occurrence": "Tuesday Mar 7 2023",
     "title": "Incident",
     "headline_avherald": "United A319 at Miami on Mar 6th 2023, engine compressor stall"
   },
   {
-    "Occurrence": "Monday Mar  6th 2023",
+    "guid": "35640bc5-8162-4429-a412-c983358ea924",
+    "Occurrence": "Monday Mar 6 2023",
     "title": "Incident",
     "headline_avherald": "KLM B773 at Paramaribo on Mar 6th 2023, damaged a number of tyres on landing"
   },
   {
-    "Occurrence": "Sunday Mar  5th 2023",
+    "guid": "86b127ba-9d70-4a19-9ad6-cd3b99278970",
+    "Occurrence": "Sunday Mar 5 2023",
     "title": "Incident",
     "headline_avherald": "Ryanair B738 at Eindhoven on Mar 5th 2023, tyre damage on landing"
   },
   {
-    "Occurrence": "Saturday Mar  4th 2023",
+    "guid": "85a5df29-7d5f-42f4-a668-c3dccf78999c",
+    "Occurrence": "Saturday Mar 4 2023",
     "title": "Accident",
     "headline_avherald": "Edelweiss A343 at Phuket on Mar 2nd 2023, dropped slat panel"
   },
   {
-    "Occurrence": "Friday Mar  3rd 2023",
+    "guid": "375fdc03-63a3-4085-baf8-d04651585616",
+    "Occurrence": "Friday Mar 3 2023",
     "title": "Incident",
     "headline_avherald": "Fedex B763 and Southwest B737 at Austin on Feb 4th 2023, loss of separation on runway resolved by go around"
   },
   {
-    "Occurrence": "Thursday Mar  2nd 2023",
+    "guid": "9eff6f10-0f79-4bdb-96d7-1a5ff4d824a7",
+    "Occurrence": "Thursday Mar 2 2023",
     "title": "Accident",
     "headline_avherald": "Lufthansa A333 near Washington on Mar 1st 2023, turbulence causes injuries"
   },
   {
-    "Occurrence": "Wednesday Mar  1st 2023",
+    "guid": "828fc764-cb4f-4728-a66c-8ffe607e89e3",
+    "Occurrence": "Wednesday Mar 1 2023",
     "title": "Incident",
     "headline_avherald": "Chair A320 at Zurich on Mar 1st 2023, cargo door open indication"
   },
   {
-    "Occurrence": "Tuesday Feb 28th 2023",
+    "guid": "55ccfc96-5cbc-4634-b2fb-716666e8ed42",
+    "Occurrence": "Tuesday Feb 28 2023",
     "title": "Incident",
     "headline_avherald": "ICE B752 enroute on Feb 27th 2023, engine issue"
   },
   {
-    "Occurrence": "Monday Feb 27th 2023",
+    "guid": "8d062f46-e5df-4785-b0a8-ab37e0b67e68",
+    "Occurrence": "Monday Feb 27 2023",
     "title": "Incident",
     "headline_avherald": "Indigo A20N at Surat on Feb 26th 2023, bird strike"
   },
   {
-    "Occurrence": "Sunday Feb 26th 2023",
+    "guid": "4ac76aa5-ef2f-422b-b985-ffdc11e2f148",
+    "Occurrence": "Sunday Feb 26 2023",
     "title": "Incident",
     "headline_avherald": "TAP A20N at Bissau on Feb 25th 2023, bird strike"
   },
   {
-    "Occurrence": "Saturday Feb 25th 2023",
+    "guid": "20410cf0-ea32-404a-9bf6-4af529339dac",
+    "Occurrence": "Saturday Feb 25 2023",
     "title": "Incident",
     "headline_avherald": "Jetblue A320 at Jacksonvill on Feb 22nd 2023, engine failure"
   },
   {
-    "Occurrence": "Friday Feb 24th 2023",
+    "guid": "5552497f-001f-4fd8-aa56-65bd69c2f3ee",
+    "Occurrence": "Friday Feb 24 2023",
     "title": "Incident",
     "headline_avherald": "India Express B738 at Kozhikode on Feb 24th 2023, technical problem"
   },
   {
-    "Occurrence": "Thursday Feb 23rd 2023",
+    "guid": "3f6003c3-6521-4ced-9901-5cd3ff41e0cb",
+    "Occurrence": "Thursday Feb 23 2023",
     "title": "Incident",
     "headline_avherald": "Bluebird B734 at Paris on Feb 10th 2023, huge bangs on descent"
   },
   {
-    "Occurrence": "Wednesday Feb 22nd 2023",
+    "guid": "80cc4355-011b-43f7-b8d7-4f559095040f",
+    "Occurrence": "Wednesday Feb 22 2023",
     "title": "Incident",
     "headline_avherald": "India B773 near Stockholm on Feb 22nd 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Tuesday Feb 21st 2023",
+    "guid": "687c27e6-68c0-48b0-95b8-8d14633f82c0",
+    "Occurrence": "Tuesday Feb 21 2023",
     "title": "Incident",
     "headline_avherald": "Challenge B744 at Atlanta on Feb 20th 2023, flaps problems on departure"
   },
   {
-    "Occurrence": "Monday Feb 20th 2023",
+    "guid": "95f0fa1f-6ef8-47c5-bfec-9574a2b51f87",
+    "Occurrence": "Monday Feb 20 2023",
     "title": "Incident",
     "headline_avherald": "Key Lime J328 at Phoenix on Feb 16th 2023, engine rolled back"
   },
   {
-    "Occurrence": "Sunday Feb 19th 2023",
+    "guid": "f5f5b8c4-11e6-4291-8d1d-35905a60c77d",
+    "Occurrence": "Sunday Feb 19 2023",
     "title": "Incident",
     "headline_avherald": "India Express B738 at Trivandrum on Feb 19th 2023, nose tyre damage on landing"
   },
   {
-    "Occurrence": "Friday Feb 17th 2023",
+    "guid": "8678a055-6bcf-4888-9696-b4fbfcecce67",
+    "Occurrence": "Friday Feb 17 2023",
     "title": "Incident",
     "headline_avherald": "Canada A333 at Madrid on Jul 13th 2022, TCAS RA on final approach"
   },
   {
-    "Occurrence": "Thursday Feb 16th 2023",
+    "guid": "9189f8de-8336-418b-97af-cc6735e45834",
+    "Occurrence": "Thursday Feb 16 2023",
     "title": "Incident",
     "headline_avherald": "United B772 at Honolulu on Jan 23rd 2023, runway incursion"
   },
   {
-    "Occurrence": "Wednesday Feb 15th 2023",
+    "guid": "e70be7b8-1d1f-4bad-a52c-ca2f51255006",
+    "Occurrence": "Wednesday Feb 15 2023",
     "title": "Crash",
     "headline_avherald": "Yeti AT72 at Pokhara on Jan 15th 2023, lost height on final approach, both propellers went into feather"
   },
   {
-    "Occurrence": "Tuesday Feb 14th 2023",
+    "guid": "60b1483a-1183-4fb0-b0b1-807e9bcff431",
+    "Occurrence": "Tuesday Feb 14 2023",
     "title": "Incident",
     "headline_avherald": "American B772 at Barcelona on Mar 20th 2022, flap fairing detached in flight"
   },
   {
-    "Occurrence": "Monday Feb 13th 2023",
+    "guid": "15927a4f-dc89-4faf-9af0-40589642ef54",
+    "Occurrence": "Monday Feb 13 2023",
     "title": "Incident",
     "headline_avherald": "SAS A20N at Tromso on Feb 12th 2023, rejected takeoff due to difficulties with directional control"
   },
   {
-    "Occurrence": "Sunday Feb 12th 2023",
+    "guid": "34962014-777b-4ec9-bc02-42066fbe2aae",
+    "Occurrence": "Sunday Feb 12 2023",
     "title": "Incident",
     "headline_avherald": "Asiana A333 at Tokyo on Feb 12th 2023, oil leak"
   },
   {
-    "Occurrence": "Saturday Feb 11th 2023",
+    "guid": "7ea83e94-6fdc-4458-b958-e8a9789e2a88",
+    "Occurrence": "Saturday Feb 11 2023",
     "title": "Incident",
     "headline_avherald": "Qantas E190 at Darwin on Feb 10th 2023, could not fully retract gear"
   },
   {
-    "Occurrence": "Friday Feb 10th 2023",
+    "guid": "7fedcfd6-624f-41cf-99db-a24e5f34a56b",
+    "Occurrence": "Friday Feb 10 2023",
     "title": "Incident",
     "headline_avherald": "Flair B38M over Gulf of Mexico on Feb 7th 2023, loss of cabin pressure"
   },
   {
-    "Occurrence": "Friday Feb 10th 2023",
+    "guid": "9e20d935-293b-4f6b-9a9f-adff134f6e9c",
+    "Occurrence": "Friday Feb 10 2023",
     "title": "Incident",
     "headline_avherald": "Delta B763 at Edinburgh on Feb 10th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Thursday Feb  9th 2023",
+    "guid": "80ff88be-7fcb-4a2b-9dc3-649e82efd851",
+    "Occurrence": "Thursday Feb 9 2023",
     "title": "Incident",
     "headline_avherald": "Flynas A20N at Dubai on Feb 9th 2023, engine failure"
   },
   {
-    "Occurrence": "Wednesday Feb  8th 2023",
+    "guid": "ed479bde-b136-40fc-9026-fc0e65ac6e31",
+    "Occurrence": "Wednesday Feb 8 2023",
     "title": "Incident",
     "headline_avherald": "Qatar B788 at Doha on Jan 10th 2023, steep descent after takeoff"
   },
   {
-    "Occurrence": "Tuesday Feb  7th 2023",
+    "guid": "2804f4d5-7e68-415a-9f50-2d79c634e762",
+    "Occurrence": "Tuesday Feb 7 2023",
     "title": "Accident",
     "headline_avherald": "CAA A320 at Mbuji Mayi on Jan 29th 2023, dropped part of elevator on departure"
   },
   {
-    "Occurrence": "Monday Feb  6th 2023",
+    "guid": "1b9417d8-2fdd-4ebb-8399-bbfe50f9e13b",
+    "Occurrence": "Monday Feb 6 2023",
     "title": "Incident",
     "headline_avherald": "LOT B788 at Warsaw on Feb 4th 2023, backup ADI failed"
   },
   {
-    "Occurrence": "Sunday Feb  5th 2023",
+    "guid": "938eca17-da75-4430-b6e7-5715c2908aaf",
+    "Occurrence": "Sunday Feb 5 2023",
     "title": "Incident",
     "headline_avherald": "United B772 near Lincoln on Feb 4th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Saturday Feb  4th 2023",
+    "guid": "2270616a-5f35-4df0-a1d5-89e5ce29c034",
+    "Occurrence": "Saturday Feb 4 2023",
     "title": "Incident",
     "headline_avherald": "Norwegian Sweden B738 at Gothenburg on Feb 2nd 2023, balls"
   },
   {
-    "Occurrence": "Friday Feb  3rd 2023",
+    "guid": "d00fd3d0-3cef-4892-a484-78e34fe75ce6",
+    "Occurrence": "Friday Feb 3 2023",
     "title": "Incident",
     "headline_avherald": "India Express B738 at Abu Dhabi on Feb 3rd 2023, engine fire"
   },
   {
-    "Occurrence": "Thursday Feb  2nd 2023",
+    "guid": "59996896-73c2-4688-b972-1824554a6118",
+    "Occurrence": "Thursday Feb 2 2023",
     "title": "Accident",
     "headline_avherald": "Sunstate DH8D at Brisbane on Feb 1st 2023, turbulence injures two people"
   },
   {
-    "Occurrence": "Wednesday Feb  1st 2023",
+    "guid": "ec19b794-a976-461f-8177-edbdd0d28c42",
+    "Occurrence": "Wednesday Feb 1 2023",
     "title": "Incident",
     "headline_avherald": "Delta BCS1 near Kansas City on Jan 31st 2023, cracked passenger window"
   },
   {
-    "Occurrence": "Tuesday Jan 31st 2023",
+    "guid": "d27c8108-07bd-405a-aaa2-74a5c40008d6",
+    "Occurrence": "Tuesday Jan 31 2023",
     "title": "Incident",
     "headline_avherald": "THY B739 at Kayseri on Jan 30th 2023, burst tyre on landing"
   },
   {
-    "Occurrence": "Monday Jan 30th 2023",
+    "guid": "86951b81-fca5-4b0a-8035-d50b79aedc4f",
+    "Occurrence": "Monday Jan 30 2023",
     "title": "Incident",
     "headline_avherald": "India Express B738 at Kochi on Jan 29th 2023, hydraulic failure"
   },
   {
-    "Occurrence": "Sunday Jan 29th 2023",
+    "guid": "cea357c4-ba35-4338-8497-6ae6f428a4df",
+    "Occurrence": "Sunday Jan 29 2023",
     "title": "Incident",
     "headline_avherald": "ANZ B773 at Auckland on Jan 27th 2023, runway excursion on landing"
   },
   {
-    "Occurrence": "Saturday Jan 28th 2023",
+    "guid": "86af95cf-e82a-4e7d-bec1-76c0b2f58b7e",
+    "Occurrence": "Saturday Jan 28 2023",
     "title": "Incident",
     "headline_avherald": "Wideroe DH8A at Svolvaer on Dec 22nd 2022, GPWS saves the day"
   },
   {
-    "Occurrence": "Friday Jan 27th 2023",
+    "guid": "50c80266-5545-43ae-9ded-9d7d82cce754",
+    "Occurrence": "Friday Jan 27 2023",
     "title": "Incident",
     "headline_avherald": "British Airways A320 near Manchester on Jan 27th 2023, fumes in cockpit"
   },
   {
-    "Occurrence": "Thursday Jan 26th 2023",
+    "guid": "1892773e-bdb2-40f5-bd4d-7f3f8afb88a9",
+    "Occurrence": "Thursday Jan 26 2023",
     "title": "Incident",
     "headline_avherald": "Skywest CRJ2 at Houston on May 11th 2022, runway excursion on landing"
   },
   {
-    "Occurrence": "Wednesday Jan 25th 2023",
+    "guid": "b3bbc347-9d94-4554-901c-bd014b75dd2c",
+    "Occurrence": "Wednesday Jan 25 2023",
     "title": "Incident",
     "headline_avherald": "Edelweiss A320 at Zurich on Aug 17th 2021, rejected takeoff"
   },
   {
-    "Occurrence": "Tuesday Jan 24th 2023",
+    "guid": "a88d1fa0-93fd-4554-a618-b8c4dfe815e0",
+    "Occurrence": "Tuesday Jan 24 2023",
     "title": "Report",
     "headline_avherald": "United B739 at Fort Myers on Apr 11th 2019, galley oven refused to slow down on landing"
   },
   {
-    "Occurrence": "Monday Jan 23rd 2023",
+    "guid": "f08dcad2-7d23-49d0-824a-cea1594b2d61",
+    "Occurrence": "Monday Jan 23 2023",
     "title": "Incident",
     "headline_avherald": "India Express B738 at Trivandrum on Jan 23rd 2023, FMS trouble"
   },
   {
-    "Occurrence": "Sunday Jan 22nd 2023",
+    "guid": "1cc4f2ab-4bc3-4eca-83ec-9a5e62725dca",
+    "Occurrence": "Sunday Jan 22 2023",
     "title": "Incident",
     "headline_avherald": "Qantas B738 near Nadi on Jan 22nd 2023, fumes in cabin"
   },
   {
-    "Occurrence": "Saturday Jan 21st 2023",
+    "guid": "b2aa0488-193b-45ad-803d-04d788e93562",
+    "Occurrence": "Saturday Jan 21 2023",
     "title": "Incident",
     "headline_avherald": "American B38M at Miami on Jan 20th 2023, failure of stabilizer trim"
   },
   {
-    "Occurrence": "Friday Jan 20th 2023",
+    "guid": "bb52f35c-bd8a-468b-b242-25f71b4286ec",
+    "Occurrence": "Friday Jan 20 2023",
     "title": "Incident",
     "headline_avherald": "Qantas B738 at Melbourne on Jan 20th 2023, engine problem"
   },
   {
-    "Occurrence": "Thursday Jan 19th 2023",
+    "guid": "3978ff7d-406b-4987-876d-01afa9bd0178",
+    "Occurrence": "Thursday Jan 19 2023",
     "title": "Incident",
     "headline_avherald": "Qantas B738 over Tasman Sea on Jan 18th 2023, engine shut down in flight"
   },
   {
-    "Occurrence": "Wednesday Jan 18th 2023",
+    "guid": "d14cb529-50a3-4f93-a889-64b8170dfd52",
+    "Occurrence": "Wednesday Jan 18 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa A320 at Munich on Jan 17th 2023, slat problem"
   },
   {
-    "Occurrence": "Tuesday Jan 17th 2023",
+    "guid": "975e617d-1018-4ab9-943c-a2d1071e0f85",
+    "Occurrence": "Tuesday Jan 17 2023",
     "title": "Incident",
     "headline_avherald": "SAS A320 at Haugesund on Jan 17th 2023, could not retract the landing gear"
   },
   {
-    "Occurrence": "Tuesday Jan 17th 2023",
+    "guid": "3568c2bd-8203-470c-b2bc-c524fdb1db74",
+    "Occurrence": "Tuesday Jan 17 2023",
     "title": "Incident",
     "headline_avherald": "Smartwings Poland B738 at Warsaw and Prague on Jan 9th 2023, right hand airspeed and altitude indications faulty"
   },
   {
-    "Occurrence": "Monday Jan 16th 2023",
+    "guid": "d3a634a2-943e-400a-9b47-abc5b40c2e69",
+    "Occurrence": "Monday Jan 16 2023",
     "title": "Incident",
     "headline_avherald": "Lufthansa Cityline A319 near Munich on Jan 15th 2023, failure of weather radar"
   },
   {
-    "Occurrence": "Saturday Jan 14th 2023",
+    "guid": "1951e601-9bfe-4d32-a8a7-89e18abcd46c",
+    "Occurrence": "Saturday Jan 14 2023",
     "title": "Accident",
     "headline_avherald": "Hawaiian A332 near Honolulu on Dec 18th 2022, turbulence injures 42"
   },
   {
-    "Occurrence": "Friday Jan 13th 2023",
+    "guid": "9bc8b668-58d2-48e2-841c-4b2b4e3c0bb4",
+    "Occurrence": "Friday Jan 13 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet Europe A320 at Bordeaux on Dec 31th 2022, cleared to land on occupied runway"
   },
   {
-    "Occurrence": "Thursday Jan 12th 2023",
+    "guid": "ed10b11d-524e-431f-87e5-684cb560d922",
+    "Occurrence": "Thursday Jan 12 2023",
     "title": "Incident",
     "headline_avherald": "Pionair B462 at Rockhampton on Jan 5th 2023, descended below safe height"
   },
   {
-    "Occurrence": "Wednesday Jan 11th 2023",
+    "guid": "573a189f-223b-45a6-b826-63f8ce75071f",
+    "Occurrence": "Wednesday Jan 11 2023",
     "title": "Incident",
     "headline_avherald": "Hawaiian A332 at San Diego on Jan 10th 2023, hydraulic failure"
   },
   {
-    "Occurrence": "Tuesday Jan 10th 2023",
+    "guid": "b4839094-9a53-4d84-a499-e6da3c7cd76f",
+    "Occurrence": "Tuesday Jan 10 2023",
     "title": "Incident",
     "headline_avherald": "Swiss BCS3 at Zurich on Jan 9th 2023, lightning strike"
   },
   {
-    "Occurrence": "Monday Jan  9th 2023",
+    "guid": "bd6a8ce6-88e1-49df-9aff-5b84d3e682d8",
+    "Occurrence": "Monday Jan 9 2023",
     "title": "Incident",
     "headline_avherald": "China Express CRJ9 near Guiyang on Jan 6th 2023, loss of communication"
   },
   {
-    "Occurrence": "Sunday Jan  8th 2023",
+    "guid": "eaed6c1e-df3e-4834-99c0-3cca3a47e8ef",
+    "Occurrence": "Sunday Jan 8 2023",
     "title": "Incident",
     "headline_avherald": "Eastern Airways AT72 near Exeter on Jan 7th 2023, cracked windshield"
   },
   {
-    "Occurrence": "Saturday Jan  7th 2023",
+    "guid": "44c82ca0-4c04-4b59-b751-667ae58a6848",
+    "Occurrence": "Saturday Jan 7 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet Europe A319 near Naples on Jan 5th 2023, flight management computer failure"
   },
   {
-    "Occurrence": "Friday Jan  6th 2023",
+    "guid": "d5bd2a9a-1066-4889-8d25-2f0eeb9035ae",
+    "Occurrence": "Friday Jan 6 2023",
     "title": "Incident",
     "headline_avherald": "Swiss A320 at Zurich on Jan 6th 2023, smoke in cockpit and cabin"
   },
   {
-    "Occurrence": "Thursday Jan  5th 2023",
+    "guid": "bd5f93fe-4fb0-4853-b333-0641aaab855f",
+    "Occurrence": "Thursday Jan 5 2023",
     "title": "Incident",
     "headline_avherald": "Canada B772 over Atlantic Ocean on Dec 18th 2022, one flight crew and two cabin crew incapacitated"
   },
   {
-    "Occurrence": "Thursday Jan  5th 2023",
+    "guid": "487a5420-cb92-4455-952a-6abcfd516bb4",
+    "Occurrence": "Thursday Jan 5 2023",
     "title": "Incident",
     "headline_avherald": "Argentina B738 at Buenos Aires on Jan 2nd 2023, bird strike"
   },
   {
-    "Occurrence": "Wednesday Jan  4th 2023",
+    "guid": "ee41db14-555f-4451-9e14-af94d8be980f",
+    "Occurrence": "Wednesday Jan 4 2023",
     "title": "Incident",
     "headline_avherald": "Easyjet Europe A320 at Milan on Dec 28th 2022, rejected takeoff due to cargo door warning"
   },
   {
-    "Occurrence": "Tuesday Jan  3rd 2023",
+    "guid": "3cbd9e78-12db-44fc-a1fe-07a5cb7aeb9d",
+    "Occurrence": "Tuesday Jan 3 2023",
     "title": "Incident",
     "headline_avherald": "Indigo A21N at Delhi on Jan 3rd 2023, hydraulic failure"
   },
   {
-    "Occurrence": "Monday Jan  2nd 2023",
+    "guid": "45ab18d9-5399-416d-b635-3093c08da162",
+    "Occurrence": "Monday Jan 2 2023",
     "title": "Incident",
     "headline_avherald": "Central Mountain DH8A at Ft. McMurray on Dec 21st 2022, nose gear stuck in half retracted/extended position"
   },
   {
-    "Occurrence": "Sunday Jan  1st 2023",
+    "guid": "ac13b4fb-816a-45a2-ac65-93d97be8fc79",
+    "Occurrence": "Sunday Jan 1 2023",
     "title": "Incident",
     "headline_avherald": "Qatar B773 at Brisbane on Dec 31st 2022, flaps problem"
   }

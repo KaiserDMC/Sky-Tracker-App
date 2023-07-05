@@ -13,7 +13,7 @@ public class RunwayAirportSeeder
     public RunwayAirportSeeder()
     {
         var tempAirportCollection = new GenerateData().AirportCollection;
-        RunwayIds = _runwaySeeder.Runways.Select(r => r.Id).ToList();
+        RunwayIds = _runwaySeeder.Runways.Select(r => r.Id.ToString()).ToList();
 
         foreach (var airport in tempAirportCollection)
         {
@@ -22,7 +22,7 @@ public class RunwayAirportSeeder
             RunwayAirports.Add(new RunwayAirport
             {
                 AirportId = airport.IATA,
-                RunwayId = randomRunwayId
+                RunwayId = Guid.ParseExact(randomRunwayId, "D")
             });
         }
     }

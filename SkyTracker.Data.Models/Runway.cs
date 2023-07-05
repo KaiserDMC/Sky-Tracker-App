@@ -7,13 +7,8 @@ using static SkyTracker.Common.DataModelsValidationConstants.Runway;
 
 public class Runway
 {
-    public Runway()
-    {
-        this.Id = Guid.NewGuid().ToString();
-    }
-
     [Key]
-    public string Id { get; set; }
+    public Guid Id { get; set; }
 
     [Required]
     [RegularExpression(DesignatorRegexPattern)]

@@ -13,13 +13,6 @@ public class Flight
     [RegularExpression(FlightIdRegexPattern)]
     public string FlightId { get; set; } = null!;
 
-    //[Required]
-    //[MaxLength(AircraftIdLengthMax)]
-    //[RegularExpression(AircraftIdRegexPattern)]
-    //public string AircraftId { get; set; } = null!;
-    //[ForeignKey("AircraftId")]
-    //public Aircraft Aircraft { get; set; } = null!;
-
     [MaxLength(RegistrationLengthMax)]
     [RegularExpression(RegistrationRegexPattern)]
     public string? Registration { get; set; }

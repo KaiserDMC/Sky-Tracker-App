@@ -1,6 +1,6 @@
 ﻿namespace SkyTracker.Web.ViewModels.Herald;
 
-public class HeraldAllViewModel
+public class HeraldDetailsViewModel
 {
     public string OccurrenceId { get; set; }
 
