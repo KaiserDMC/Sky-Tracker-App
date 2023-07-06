@@ -13,4 +13,6 @@ public class AirportsAllViewModel
     public string? LocationCity { get; set; }
 
     public string? LocationCountry { get; set; }
+
+    public string? ImageUrl { get; set; }
 }

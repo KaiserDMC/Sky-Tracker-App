@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AircraftAllViewModel>
+
+@{
+    ViewBag.Title = "All Aircraft";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+
+<div class="row">
+    @foreach (var aircraft in Model)
+    {
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@aircraft.Registration</h5>
+                    <p class="card-text">Aircraft Type: @aircraft.Equipment</p>
+                    <a href="@Url.Action("GetDetailsAircraft", "Aircraft", new { aircraftId = aircraft.Id })" class="btn btn-primary">Aircraft Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

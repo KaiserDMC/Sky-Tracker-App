@@ -24,5 +24,9 @@ public class Airport
 
     public string? LocationCountry { get; set; }
 
+    public string ImagePathUrl { get; set; } = null!;
+
+    public bool IsDeleted { get; set; }
+
     public ICollection<RunwayAirport> RunwaysAirports { get; set; } = new List<RunwayAirport>();
 }

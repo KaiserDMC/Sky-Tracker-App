@@ -27,9 +27,4 @@
     <ProjectReference Include="..\SkyTracker.Web.ViewModels\SkyTracker.Web.ViewModels.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Aircraft\" />
-    <Folder Include="Views\Airlines\" />
-  </ItemGroup>
-
 </Project>

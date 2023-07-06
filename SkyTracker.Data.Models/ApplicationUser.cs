@@ -8,4 +8,6 @@ public class ApplicationUser : IdentityUser<Guid>
     {
         this.Id = Guid.NewGuid();
     }
+
+    public bool IsDeleted { get; set; }
 }

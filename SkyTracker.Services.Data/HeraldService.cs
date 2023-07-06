@@ -22,6 +22,7 @@ public class HeraldService : IHeraldService
     public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsAsync()
     {
         var heralds = await _dbContext.HeraldPosts
+            .Where(x => x.IsDeleted == false)
             .OrderByDescending(x => x.Occurrence)
             .Select(x => new HeraldAllViewModel
             {
@@ -38,6 +39,7 @@ public class HeraldService : IHeraldService
     public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsSortedByDateAscAsync()
     {
         var heralds = await _dbContext.HeraldPosts
+            .Where(x => x.IsDeleted == false)
             .OrderBy(x => x.Occurrence)
             .Select(x => new HeraldAllViewModel
             {
@@ -54,6 +56,7 @@ public class HeraldService : IHeraldService
     public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsSortedByTypeAscAsync()
     {
         var heraldsByTypeAsc = await _dbContext.HeraldPosts
+            .Where(x => x.IsDeleted == false)
              .Select(x => new HeraldAllViewModel
              {
                  OccurrenceId = x.Id.ToString(),
@@ -70,6 +73,7 @@ public class HeraldService : IHeraldService
     public async Task<IEnumerable<HeraldAllViewModel>> GetAllHeraldsSortedByTypeDescAsync()
     {
         var heraldsByTypeDesc = await _dbContext.HeraldPosts
+            .Where(x => x.IsDeleted == false)
             .Select(x => new HeraldAllViewModel
             {
                 OccurrenceId = x.Id.ToString(),
@@ -87,7 +91,7 @@ public class HeraldService : IHeraldService
     {
         // Retrieve the necessary data based on the occurrence ID and create an OccurrenceViewModel
         var occurrence = await _dbContext.HeraldPosts
-            .Where(x => x.Id.ToString() == occurrenceId)
+            .Where(x => x.Id.ToString() == occurrenceId && x.IsDeleted == false)
             .Select(x => new HeraldDetailsViewModel
             {
                 OccurrenceId = x.Id.ToString(),

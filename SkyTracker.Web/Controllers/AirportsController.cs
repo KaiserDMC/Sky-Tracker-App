@@ -1,9 +1,11 @@
 ﻿namespace SkyTracker.Web.Controllers;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SkyTracker.Services.Data.Interfaces;
 
+[Authorize]
 public class AirportsController : Controller
 {
     private readonly IAirportsService _airportsService;

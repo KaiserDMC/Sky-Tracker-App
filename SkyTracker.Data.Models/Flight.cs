@@ -44,5 +44,7 @@ public class Flight
     [RegularExpression(CodeIATA)]
     public string? Reserved { get; set; }
 
+    public bool IsDeleted { get; set; }
+
     public ICollection<FlightAircraft> FlightsAircraft { get; set; } = new HashSet<FlightAircraft>();
 }

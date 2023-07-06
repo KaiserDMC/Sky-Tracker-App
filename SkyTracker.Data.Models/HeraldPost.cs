@@ -23,4 +23,6 @@ public class HeraldPost
     [Required]
     [JsonProperty("headline_avherald")]
     public string Details { get; set; } = null!;
+
+    public bool IsDeleted { get; set; }
 }

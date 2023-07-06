@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkyTracker.Data;
 
@@ -11,9 +12,10 @@ using SkyTracker.Data;
 namespace SkyTracker.Data.Migrations
 {
     [DbContext(typeof(SkyTrackerDbContext))]
-    partial class SkyTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230706165634_SoftDelete-PictureUrl")]
+    partial class SoftDeletePictureUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +182,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Aircraft", (string)null);
+                    b.ToTable("Aircraft");
 
                     b.HasData(
                         new
@@ -254,7 +256,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("IATA");
 
-                    b.ToTable("Airports", (string)null);
+                    b.ToTable("Airports");
 
                     b.HasData(
                         new
@@ -514,7 +516,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("DepartureId");
 
-                    b.ToTable("Flights", (string)null);
+                    b.ToTable("Flights");
 
                     b.HasData(
                         new
@@ -1731,7 +1733,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("AircraftId");
 
-                    b.ToTable("FlightsAircraft", (string)null);
+                    b.ToTable("FlightsAircraft");
 
                     b.HasData(
                         new
@@ -2258,7 +2260,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HeraldPosts", (string)null);
+                    b.ToTable("HeraldPosts");
 
                     b.HasData(
                         new
@@ -3699,7 +3701,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Runways", (string)null);
+                    b.ToTable("Runways");
 
                     b.HasData(
                         new
@@ -4796,7 +4798,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("AirportId");
 
-                    b.ToTable("RunwaysAirports", (string)null);
+                    b.ToTable("RunwaysAirports");
 
                     b.HasData(
                         new

@@ -19,5 +19,9 @@ public class Aircraft
     [RegularExpression(EquipmentRegexPattern)]
     public string? Equipment { get; set; }
 
+    public string ImagePathUrl { get; set; } = null!;
+
+    public bool IsDeleted { get; set; }
+
     public ICollection<FlightAircraft> FlightsAircraft { get; set; } = new HashSet<FlightAircraft>();
 }

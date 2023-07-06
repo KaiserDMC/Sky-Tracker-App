@@ -25,5 +25,7 @@ public class Runway
 
     public string? SurfaceType { get; set; }
 
+    public bool IsDeleted { get; set; }
+
     public ICollection<RunwayAirport> RunwaysAirports { get; set; } = new List<RunwayAirport>();
 }

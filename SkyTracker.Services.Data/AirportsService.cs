@@ -18,6 +18,7 @@ public class AirportsService : IAirportsService
     public async Task<IEnumerable<AirportsAllViewModel>> GetAllAirportsAsync()
     {
         var airports = await _dbContext.Airports
+            .Where(a => a.IsDeleted == false)
             .OrderBy(a => a.IATA)
             .Select(a => new AirportsAllViewModel
             {
@@ -26,7 +27,8 @@ public class AirportsService : IAirportsService
                 CommonName = a.CommonName,
                 Elevation = a.Elevation,
                 LocationCity = a.LocationCity,
-                LocationCountry = a.LocationCountry
+                LocationCountry = a.LocationCountry,
+                ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), a.ImagePathUrl)
             })
             .ToListAsync();
 
@@ -36,6 +38,7 @@ public class AirportsService : IAirportsService
     public async Task<AirportsDetailsViewModel> GetAirportDetailsByIata(string iata)
     {
         var airport = await _dbContext.Airports
+            .Where(a => a.IsDeleted == false)
             .Include(a => a.RunwaysAirports)
             .ThenInclude(ra => ra.Runway)
             .FirstOrDefaultAsync(a => a.IATA == iata);
@@ -48,6 +51,7 @@ public class AirportsService : IAirportsService
             Elevation = airport.Elevation,
             LocationCity = airport.LocationCity,
             LocationCountry = airport.LocationCountry,
+            ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), airport.ImagePathUrl),
             Runway = airport.RunwaysAirports
                 .Select(ra => ra.Runway)
                 .Select(r => new AirportRunwayDetails()

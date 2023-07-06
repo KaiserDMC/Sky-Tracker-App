@@ -1,0 +1,36 @@
+﻿@model AircraftDetailsViewModel
+
+@{
+    ViewBag.Title = "Aircraft Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/@Model.ImageUrl" alt="aircraft-picture" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h2>@Model.Registration</h2>
+                    <p>Aircraft Type: @Model.Equipment</p>
+                    <p>Tracker Id: @Model.Id</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

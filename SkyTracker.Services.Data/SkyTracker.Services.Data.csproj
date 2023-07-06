@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SkyTracker.Common\SkyTracker.Common.csproj" />
     <ProjectReference Include="..\SkyTracker.Data.Models\SkyTracker.Data.Models.csproj" />
     <ProjectReference Include="..\SkyTracker.Data\SkyTracker.Data.csproj" />
