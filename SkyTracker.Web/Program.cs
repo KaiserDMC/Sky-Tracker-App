@@ -31,6 +31,17 @@ public class Program
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
         builder.Services.AddControllersWithViews();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(builder =>
+            {
+                builder
+                    .AllowAnyMethod()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            });
+        });
+
         builder.Services.ConfigureApplicationCookie(options =>
         {
             options.LoginPath = "/Identity/Account/Login";
@@ -60,6 +71,8 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        app.UseCors();
 
         app.UseAuthentication();
         app.UseAuthorization();

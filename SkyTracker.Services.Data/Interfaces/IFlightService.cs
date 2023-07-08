@@ -3,7 +3,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using SkyTracker.Web.ViewModels.Flight;
+using Web.ViewModels.Flight;
 
 public interface IFlightService
 {
@@ -14,4 +14,6 @@ public interface IFlightService
     Task<IEnumerable<FlightAllViewModel>> GetAllFlightsSortedByArpAscAsync();
 
     Task<IEnumerable<FlightAllViewModel>> GetAllFlightsSortedByArpDescAsync();
+
+    Task<FlightDetailsViewModel> GetFlightDetailsByIdAsync(string flightId);
 }

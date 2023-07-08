@@ -42,4 +42,11 @@ public class FlightController : Controller
 
         return View(flights);
     }
+
+    public async Task<IActionResult> GetDetailsFlight(string flightId)
+    {
+        var flight = await _flightService.GetFlightDetailsByIdAsync(flightId);
+
+        return View(flight);
+    }
 }

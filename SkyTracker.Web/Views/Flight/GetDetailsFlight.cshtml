@@ -1,0 +1,55 @@
+﻿@model FlightDetailsViewModel
+
+@{
+    ViewBag.Title = "Flight Details";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">Flight Id:</dt>
+                <dd class="col-sm-8">@Model.FlightId</dd>
+
+                <dt class="col-sm-4">A/C Registration:</dt>
+                <dd class="col-sm-8">@Model.Registration</dd>
+
+                <dt class="col-sm-4">A/C Type:</dt>
+                <dd class="col-sm-8">@Model.Equipment</dd>
+
+                <dt class="col-sm-4">Callsign:</dt>
+                <dd class="col-sm-8">@Model.Callsign</dd>
+
+                <dt class="col-sm-4">Flt Number:</dt>
+                <dd class="col-sm-8">@Model.FlightNumber</dd>
+
+                <dt class="col-sm-4">Departure Airport:</dt>
+                <dd class="col-sm-8">@Model.DepartureId</dd>
+
+                <dt class="col-sm-4">Arrival Airport:</dt>
+                <dd class="col-sm-8">@Model.ScheduledArrival</dd>
+
+                <dt class="col-sm-4">Actual Arrival:</dt>
+                <dd class="col-sm-8">@Model.RealArrival</dd>
+
+                <dt class="col-sm-4">Reserve Airport:</dt>
+                <dd class="col-sm-8">@Model.Reserved</dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <img src="~/@Model.Aircraft.ImagePathUrl" alt="Aircraft Image" class="img-thumbnail" style="max-width: 450px;">
+                <p>A/C TrackerId: @Model.Aircraft.Id</p>
+            </div>
+        </div>
+
+        <a asp-controller="Flight" asp-action="All" class="btn btn-info mb-2 w-100 p-3 fw-bold">Back to All Flights</a>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
