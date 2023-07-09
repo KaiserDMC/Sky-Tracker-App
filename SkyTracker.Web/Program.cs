@@ -1,15 +1,17 @@
 namespace SkyTracker.Web;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 using Data;
 using Data.Models;
 using SkyTracker.Services.Data;
 using SkyTracker.Services.Data.Interfaces;
+using static Common.UserRoleNames;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,7 @@ public class Program
             options.Password.RequireNonAlphanumeric = false;
             options.Password.RequireUppercase = false;
         })
+            .AddRoles<IdentityRole<Guid>>()
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
         builder.Services.AddControllersWithViews();
 
@@ -76,6 +79,31 @@ public class Program
 
         app.UseAuthentication();
         app.UseAuthorization();
+
+
+        // Add Admin role to admin@test.bg and User role to user@test.bg
+        // Default users that are created upon DB creation
+        using (var scope = app.Services.CreateScope())
+        {
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+
+            // Assign role to user if they don't have one
+            var user = userManager.FindByEmailAsync("user@test.bg").GetAwaiter().GetResult();
+            if (user != null && !userManager.IsInRoleAsync(user, UserRole).GetAwaiter().GetResult())
+            {
+                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(user);
+                userManager.AddToRoleAsync(user, UserRole).GetAwaiter().GetResult();
+            }
+
+            // Assign role to admin if they don't have one
+            var adminUser = userManager.FindByEmailAsync("admin@test.bg").GetAwaiter().GetResult();
+            if (adminUser != null && !userManager.IsInRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult())
+            {
+                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(adminUser);
+                userManager.AddToRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult();
+            }
+        }
 
         app.MapControllerRoute(
             name: "default",

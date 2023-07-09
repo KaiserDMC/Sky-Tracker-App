@@ -53,7 +53,6 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
         builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
 
-        // Runway and HeraldPost need to be commented out to after initial migration avoid seeding errors, as they use randomly generated data.
         builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
         builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 
@@ -62,6 +61,41 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
         builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
 
+        builder.ApplyConfiguration(new ApplicationUserConfiguration());
+
         base.OnModelCreating(builder);
+
+        SeedData(builder);
+    }
+
+    private void SeedData(ModelBuilder builder)
+    {
+        var adminUser = new ApplicationUser()
+        {
+            Id = Guid.NewGuid(),
+            UserName = "admin",
+            NormalizedUserName = "ADMIN",
+            Email = "admin@test.bg",
+            NormalizedEmail = "ADMIN@TEST.BG"
+        };
+
+        var passwordHasher = new PasswordHasher<ApplicationUser>();
+        adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, "admin");
+
+        builder.Entity<ApplicationUser>().HasData(adminUser);
+
+        var regularUser = new ApplicationUser()
+        {
+            Id = Guid.NewGuid(),
+            UserName = "user",
+            NormalizedUserName = "USER",
+            Email = "user@test.bg",
+            NormalizedEmail = "USER@TEST.BG"
+        };
+
+        var passwordHasherUser = new PasswordHasher<ApplicationUser>();
+        regularUser.PasswordHash = passwordHasherUser.HashPassword(regularUser, "user");
+
+        builder.Entity<ApplicationUser>().HasData(regularUser);
     }
 }

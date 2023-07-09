@@ -10,6 +10,11 @@
   <ItemGroup>
     <Folder Include="Herald\" />
     <Folder Include="Airports\" />
+    <Folder Include="User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkyTracker.Common\SkyTracker.Common.csproj" />
   </ItemGroup>
 
 </Project>
