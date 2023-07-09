@@ -23,6 +23,8 @@ public class UserController : Controller
         _signInManager = signInManager;
     }
 
+    public string ReturnUrl { get; set; }
+
     [HttpGet]
     public async Task<IActionResult> Register()
     {
@@ -70,21 +72,25 @@ public class UserController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Login()
+    public async Task<IActionResult> Login(string returnUrl = null)
     {
         if (User?.Identity?.IsAuthenticated ?? false)
         {
             Response.Redirect("../../Home/Index");
         }
 
-        LoginViewModel model = new LoginViewModel();
+        returnUrl ??= Url.Content("~/");
 
+        LoginViewModel model = new LoginViewModel();
+        ReturnUrl = returnUrl;
         return View(model);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(LoginViewModel model)
+    public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
     {
+        returnUrl ??= Url.Content("~/");
+
         if (!ModelState.IsValid)
         {
             return View(model);
@@ -98,6 +104,7 @@ public class UserController : Controller
 
             if (result.Succeeded)
             {
+                return LocalRedirect(returnUrl);
                 return RedirectToAction(nameof(HomeController.Index), "Home");
             }
 

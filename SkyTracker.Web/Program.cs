@@ -47,7 +47,7 @@ public class Program
 
         builder.Services.ConfigureApplicationCookie(options =>
         {
-            options.LoginPath = "/Identity/Account/Login";
+            options.LoginPath = "/User/Login";
         });
 
         builder.Services.AddScoped<IHeraldService, HeraldService>();

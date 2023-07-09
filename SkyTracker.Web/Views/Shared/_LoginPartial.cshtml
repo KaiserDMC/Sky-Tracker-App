@@ -8,8 +8,16 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin Panel</a>
+            </li>
+        }
+
         <li class="nav-item">
-            @* <a  class="nav-link text-dark" asp-area="" asp-controller="User" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>*@
+            Welcome, @User.Identity?.Name!
+           @* <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-page="/Account/Manage/Index" title="Manage">Welcome, @User.Identity?.Name!</a>*@
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-controller="User" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

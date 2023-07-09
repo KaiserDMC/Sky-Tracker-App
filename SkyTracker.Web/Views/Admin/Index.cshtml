@@ -1,0 +1,57 @@
+﻿@model List<AdminPanelViewModel>
+
+@{
+    ViewBag.Title = "Administrative Panel";
+}
+
+<h3>Administrative Panel</h3>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Administrative Options</h4>
+            <ul>
+                <li><a href="@Url.Action("Index", "Flight")">Flights</a></li>
+                <li><a href="@Url.Action("Index", "Aircraft")">Aircraft</a></li>
+                <li><a href="@Url.Action("Index", "Airport")">Airport</a></li>
+                <!-- Add more administrative options as needed -->
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h4>Flights</h4>
+            <p>
+                <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Flight</a>
+                <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+            </p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Flight Number</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var flight in Model[0].AllFlights)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selectedFlights" value="@flight.FlightId" />
+                            </td>
+                            <td>@flight.FlightNumber</td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Flight", new { id = flight.FlightId })">Edit</a> |
+                                <a href="@Url.Action("Delete", "Flight", new { id = flight.FlightId })">Delete</a>
+                            </td>
+                        </tr>
+                    }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
