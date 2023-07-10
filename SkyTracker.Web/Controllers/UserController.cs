@@ -1,4 +1,6 @@
-﻿namespace SkyTracker.Web.Controllers;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace SkyTracker.Web.Controllers;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +9,7 @@ using System.Threading;
 using ViewModels.User;
 using Data.Models;
 using static Common.UserRoleNames;
+using Microsoft.AspNetCore.Authentication;
 
 public class UserController : Controller
 {
@@ -25,8 +28,12 @@ public class UserController : Controller
 
     public string ReturnUrl { get; set; }
 
+    [TempData]
+    public string ErrorMessage { get; set; }
+
+
     [HttpGet]
-    public async Task<IActionResult> Register()
+    public async Task<IActionResult> Register(string returnUrl = null)
     {
         if (User?.Identity?.IsAuthenticated ?? false)
         {
@@ -35,12 +42,18 @@ public class UserController : Controller
 
         RegisterViewModel model = new RegisterViewModel();
 
+        ReturnUrl = returnUrl;
+
         return View(model);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Register(RegisterViewModel model)
+    public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
     {
+        returnUrl ??= Url.Content("~/");
+
+        ModelState.Remove("returnUrl");
+
         if (!ModelState.IsValid)
         {
             return View(model);
@@ -60,7 +73,7 @@ public class UserController : Controller
         {
             await _userManager.AddToRoleAsync(user, UserRole);
             await _signInManager.SignInAsync(user, isPersistent: false);
-            return RedirectToAction(nameof(Login));
+            return LocalRedirect(returnUrl);
         }
 
         foreach (var error in result.Errors)
@@ -79,10 +92,19 @@ public class UserController : Controller
             Response.Redirect("../../Home/Index");
         }
 
+        if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            ModelState.AddModelError(string.Empty, ErrorMessage);
+        }
+
         returnUrl ??= Url.Content("~/");
 
         LoginViewModel model = new LoginViewModel();
+
+        await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
         ReturnUrl = returnUrl;
+
         return View(model);
     }
 
@@ -90,6 +112,8 @@ public class UserController : Controller
     public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
     {
         returnUrl ??= Url.Content("~/");
+
+        ModelState.Remove("returnUrl");
 
         if (!ModelState.IsValid)
         {
@@ -105,7 +129,12 @@ public class UserController : Controller
             if (result.Succeeded)
             {
                 return LocalRedirect(returnUrl);
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+
+                return View(model);
             }
 
         }

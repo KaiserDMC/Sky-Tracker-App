@@ -1,0 +1,43 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
+@model X.PagedList.IPagedList<FlightAllViewModel>
+
+@{
+    ViewBag.Title = "Available flights";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Flight</a>
+    <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Flight Id</th>
+            <th>Registration</th>
+            <th>Equipment</th>
+            <th>Callsign</th>
+            <th>Departure Airport</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.FlightId">
+                <td>@item.FlightId</td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
+                <td>@item.Callsign</td>
+                <td>@item.DepartureId</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("FlightsPartial", new { page }), new PagedListRenderOptions { Display = PagedListDisplayMode.IfNeeded })
+</div>

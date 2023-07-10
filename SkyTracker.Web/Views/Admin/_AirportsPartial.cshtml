@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AirportsAllViewModel>
+
+@{
+    ViewBag.Title = "Available airports";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Airport</a>
+    <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>IATA</th>
+            <th>ICAO</th>
+            <th>Name</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.IATA">
+                <td>@item.CommonName</td>
+                <td>@item.IATA</td>
+                <td>@item.ICAO</td>
+                <td>@item.LocationCountry</td>
+            </tr>
+        }
+    </tbody>
+</table>

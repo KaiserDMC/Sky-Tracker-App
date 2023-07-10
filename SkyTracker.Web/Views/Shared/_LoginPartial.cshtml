@@ -16,8 +16,18 @@
         }
 
         <li class="nav-item">
-            Welcome, @User.Identity?.Name!
-           @* <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-page="/Account/Manage/Index" title="Manage">Welcome, @User.Identity?.Name!</a>*@
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Welcome, @User.Identity?.Name!</button>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    ...
+                </div>
+            </div>
+            @* <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-page="/Account/Manage/Index" title="Manage">Welcome, @User.Identity?.Name!</a>*@
         </li>
         <li class="nav-item">
             <form class="form-inline" asp-controller="User" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

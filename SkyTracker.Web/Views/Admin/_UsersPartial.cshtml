@@ -1,0 +1,32 @@
+﻿@model IEnumerable<UserViewModel>
+
+@{
+    ViewBag.Title = "Registered users";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Promote to Admin</a>
+    <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phonenumber</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.Id">
+                <td>@item.Username</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>

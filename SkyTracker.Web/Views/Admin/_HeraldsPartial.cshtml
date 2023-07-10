@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HeraldAllViewModel>
+
+@{
+    ViewBag.Title = "Logged heralds";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Herald</a>
+    <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Occurrence Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.OccurrenceId">
+                <td>@item.OccurrenceDate</td>
+                <td>@item.TypeOccurence</td>
+            </tr>
+        }
+    </tbody>
+</table>

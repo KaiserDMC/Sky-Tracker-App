@@ -54,6 +54,7 @@ public class Program
         builder.Services.AddScoped<IAircraftService, AircraftService>();
         builder.Services.AddScoped<IAirportsService, AirportsService>();
         builder.Services.AddScoped<IFlightService, FlightService>();
+        builder.Services.AddScoped<IAdminService, AdminService>();
 
         var app = builder.Build();
 

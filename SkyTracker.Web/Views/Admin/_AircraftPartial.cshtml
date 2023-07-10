@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AircraftAllViewModel>
+
+@{
+    ViewBag.Title = "Available aircraft";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Aircraft</a>
+    <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Aircraft Id</th>
+            <th>A/C Registration</th>
+            <th>A/C Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.Id">
+                <td>@item.Id</td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
+            </tr>
+        }
+    </tbody>
+</table>
