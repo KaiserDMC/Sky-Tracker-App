@@ -1,0 +1,65 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<HeraldAllViewModel>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Date of Occurrence</th>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr id="row-@item.OccurrenceId" class="@(GetRowColourClass(item.TypeOccurence))">
+                <td>@item.OccurrenceDate</td>
+                <td class="type-occurrence">@item.TypeOccurence</td>
+                <td>@item.Details</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    string GetRowColourClass(string typeOccurrence)
+    {
+        switch (typeOccurrence)
+        {
+            case "Crash":
+                return "table-danger";
+            case "Accident":
+                return "table-warning";
+            case "Report":
+                return "table-light";
+            case "News":
+                return "table-secondary";
+            default: //Incident
+                return "table-info";
+        }
+    }
+}
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        @{
+            // Render the pagination
+            var pagination = Html.PagedListPager(Model, page =>
+            {
+                if (page == 1)
+                    return Url.Action("All");
+                else
+                    return Url.Action("All", new { page, pageSize = Model.PageSize });
+            }, new PagedListRenderOptions
+            {
+                DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                ContainerDivClasses = new[] { "pagination" },
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" },
+            });
+
+            @Html.Raw(pagination)
+        }
+    </ul>
+</nav>

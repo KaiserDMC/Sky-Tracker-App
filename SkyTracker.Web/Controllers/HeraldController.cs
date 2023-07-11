@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SkyTracker.Services.Data.Interfaces;
+using ViewModels.Herald;
+
+using X.PagedList;
 
 [Authorize]
 public class HeraldController : Controller
@@ -16,35 +19,45 @@ public class HeraldController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> All()
+    public async Task<IActionResult> All(string sortType, int? page, int? pageSize)
     {
-        var heralds = await _heraldService.GetAllHeraldsAsync();
+        IEnumerable<HeraldAllViewModel>? heralds;
 
-        return View(heralds);
-    }
+        int pageNumber = page ?? 1;
+        int itemsPerPage = pageSize ?? 10;
 
-    [HttpGet]
-    public async Task<IActionResult> AllSortedHeraldByDateAsc()
-    {
-        var heralds = await _heraldService.GetAllHeraldsSortedByDateAscAsync();
+        switch (sortType)
+        {
+            case "date_asc":
+                heralds = await _heraldService.GetAllHeraldsSortedByDateAscAsync();
+                break;
+            case "type_asc":
+                heralds = await _heraldService.GetAllHeraldsSortedByTypeAscAsync();
+                break;
+            case "type_desc":
+                heralds = await _heraldService.GetAllHeraldsSortedByTypeDescAsync();
+                break;
+            default:
+                heralds = await _heraldService.GetAllHeraldsAsync();
+                break;
+        }
 
-        return View(heralds);
-    }
+        var totalItemCount = heralds.Count();
 
-    [HttpGet]
-    public async Task<IActionResult> AllSortedHeraldByTypeAsc()
-    {
-        var heralds = await _heraldService.GetAllHeraldsSortedByTypeAscAsync();
+        var totalPages = (int)Math.Ceiling((double)totalItemCount / itemsPerPage);
+        if (pageNumber > totalPages || itemsPerPage != pageSize)
+        {
+            pageNumber = 1;
+        }
 
-        return View(heralds);
-    }
+        var pagedHeralds = heralds.ToPagedList(pageNumber, itemsPerPage);
 
-    [HttpGet]
-    public async Task<IActionResult> AllSortedHeraldByTypeDesc()
-    {
-        var heralds = await _heraldService.GetAllHeraldsSortedByTypeDescAsync();
+        var updatedPagedList = new StaticPagedList<HeraldAllViewModel>(pagedHeralds, pagedHeralds.GetMetaData());
 
-        return View(heralds);
+        var updatedPagedListWithPageNumber = new StaticPagedList<HeraldAllViewModel>(
+            updatedPagedList, pageNumber, itemsPerPage, totalItemCount);
+
+        return View(updatedPagedListWithPageNumber);
     }
 
     [HttpGet]

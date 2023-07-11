@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
 using SkyTracker.Services.Data.Interfaces;
+using static Common.GeneralApplicationContants;
 
 using X.PagedList;
 
@@ -26,7 +27,7 @@ public class AdminController : Controller
     {
         var flights = await _adminService.GetFlightsAsync();
 
-        int pageSize = 25;
+        int pageSize = DefaultAdminListEntitiesPerPage;
 
         int pageNumber = (page ?? 1);
 
@@ -35,31 +36,56 @@ public class AdminController : Controller
         return PartialView("_FlightsPartial", pagedData);
     }
 
-    public async Task<IActionResult> AircraftPartial()
+    public async Task<IActionResult> AircraftPartial(int? page)
     {
         var aircraft = await _adminService.GetAircraftAsync();
 
-        return PartialView("_AircraftPartial", aircraft);
+        int pageSize = DefaultAdminListEntitiesPerPage;
+
+        int pageNumber = (page ?? 1);
+
+
+        var pagedData = aircraft.ToPagedList(pageNumber, pageSize);
+
+        return PartialView("_AircraftPartial", pagedData);
     }
 
-    public async Task<IActionResult> AirportsPartial()
+    public async Task<IActionResult> AirportsPartial(int? page)
     {
         var airports = await _adminService.GetAirportsAsync();
 
-        return PartialView("_AirportsPartial", airports);
+        int pageSize = DefaultAdminListEntitiesPerPage;
+
+        int pageNumber = (page ?? 1);
+
+        var pagedData = airports.ToPagedList(pageNumber, pageSize);
+
+        return PartialView("_AirportsPartial", pagedData);
     }
 
-    public async Task<IActionResult> HeraldsPartial()
+    public async Task<IActionResult> HeraldsPartial(int? page)
     {
         var heralds = await _adminService.GetHeraldsAsync();
 
-        return PartialView("_HeraldsPartial", heralds);
+        int pageSize = DefaultAdminListEntitiesPerPage;
+
+        int pageNumber = (page ?? 1);
+
+        var pagedData = heralds.ToPagedList(pageNumber, pageSize);
+
+        return PartialView("_HeraldsPartial", pagedData);
     }
 
-    public async Task<IActionResult> UsersPartial()
+    public async Task<IActionResult> UsersPartial(int? page)
     {
         var users = await _adminService.GetUsersAsync();
 
-        return PartialView("_UsersPartial", users);
+        int pageSize = DefaultAdminListEntitiesPerPage;
+
+        int pageNumber = (page ?? 1);
+
+        var pagedData = users.ToPagedList(pageNumber, pageSize);
+
+        return PartialView("_UsersPartial", pagedData);
     }
 }

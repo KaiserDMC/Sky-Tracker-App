@@ -1,4 +1,6 @@
-﻿@model IEnumerable<HeraldAllViewModel>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<HeraldAllViewModel>
 
 @{
     ViewBag.Title = "All current aviation heralds";
@@ -14,41 +16,60 @@
                 <label for="sortDropdown" class="input-group-text">Sort By:</label>
                 <select id="sortDropdown" class="form-select" onchange=" this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
                     <option value="">-- Select --</option>
-                    <option value="@Url.Action("AllSortedHeraldByDateAsc", "Herald")">Date Asc &#x2191</option>
+                    <option value="@Url.Action("All", "Herald", new {sortType = "date_asc"})">Date Asc &#x2191</option>
                     <option value="@Url.Action("All", "Herald")">Date Desc &#x2193</option>
-                    <option value="@Url.Action("AllSortedHeraldByTypeAsc", "Herald")">Type A-Z &#x2191;</option>
-                    <option value="@Url.Action("AllSortedHeraldByTypeDesc", "Herald")">Type Z-A &#x2193;</option>
+                    <option value="@Url.Action("All", "Herald", new {sortType = "type_asc"})">Type A-Z &#x2191;</option>
+                    <option value="@Url.Action("All", "Herald", new {sortType = "type_desc"})">Type Z-A &#x2193;</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mb-3 row justify-content-start">
+        <div class="col-3">
+            <div class="input-group">
+                <label for="pageSizeDropdown" class="input-group-text">Items Per Page:</label>
+
+                <select id="pageSizeDropdown" class="form-select" onchange="changePageSize(this.value)">
+                    <option value="">-- Select --</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                 </select>
             </div>
         </div>
     </div>
 </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Date of Occurence</th>
-            <th>Type</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in @Model)
-        {
-            <tr id="row-@item.OccurrenceId" class="@(GetRowColourClass(item.TypeOccurence))">
-                <td>@item.OccurrenceDate</td>
-                <td>@item.TypeOccurence</td>
-                <td>@item.Details</td>
-            </tr>
-        }
-    </tbody>
-</table>
+@Html.Partial("_HeraldsPaged", Model)
 
-@{
-    string GetRowColourClass(string typeOccurrence)
-    {
-        switch (typeOccurrence)
-        {
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    var currentPageSize = @Model.PageSize; // Set the initial selected page size value
+
+    function bindTableRowClickEvent() {
+        $('tr[id^="row-"]').click(function () {
+            var rowId = $(this).attr('id');
+            var occurrenceId = rowId.replace('row-', '');
+
+            window.location.href = '/Herald/GetDetails?occurrenceId=' + occurrenceId;
+        });
+    }
+
+    function applyRowColoring() {
+        $('tr[id^="row-"]').each(function () {
+            var typeOccurrence = $(this).find('.type-occurrence').text();
+            var rowColor = getRowColourClass(typeOccurrence);
+            $(this).addClass(rowColor);
+        });
+    }
+
+    function getRowColourClass(typeOccurrence) {
+        // Add your logic here to determine the row color class based on the typeOccurrence
+        // Example logic:
+        switch (typeOccurrence) {
             case "Crash":
                 return "table-danger";
             case "Accident":
@@ -61,18 +82,21 @@
                 return "table-info";
         }
     }
-}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-    $('tr[id^="row-"]').click(function () {
-        var rowId = $(this).attr('id');
-        var occurrenceId = rowId.replace('row-', '');
-
-        window.location.href = '/Herald/GetDetails?occurrenceId=' + occurrenceId;
+    $(document).ready(function () {
+        bindTableRowClickEvent();
+        applyRowColoring();
     });
+
+    function changePageSize(pageSize) {
+        currentPageSize = pageSize; // Update the current page size variable
+        var url = '@Url.Action("All", "Herald")';
+        url += "?page=1&pageSize=" + pageSize; // Redirect to the first page
+        window.location.href = url;
+    }
 </script>
+
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

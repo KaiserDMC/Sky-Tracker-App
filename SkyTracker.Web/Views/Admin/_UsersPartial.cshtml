@@ -1,5 +1,6 @@
-﻿@model IEnumerable<UserViewModel>
-
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<UserViewModel>
 @{
     ViewBag.Title = "Registered users";
 }
@@ -30,3 +31,20 @@
         }
     </tbody>
 </table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+
+        @Html.PagedListPager(Model, page => {
+        if (page == 1)
+        return Url.Action("UsersPartial");
+        else
+        return Url.Action("UsersPartial", new { page });
+        }, new PagedListRenderOptions {
+        DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+        ContainerDivClasses = new[] { "pagination" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+        })
+    </ul>
+</nav>

@@ -1,4 +1,6 @@
-﻿@model IEnumerable<FlightAllViewModel>
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<FlightAllViewModel>
 
 @{
     ViewBag.Title = "All previously flown flights";
@@ -15,49 +17,56 @@
                 <select id="sortDropdown" class="form-select" onchange=" this.options[this.selectedIndex].value && (window.location=this.options[this.selectedIndex].value);">
                     <option value="">-- Select --</option>
                     <option value="@Url.Action("All", "Flight")">FlightId Asc &#x2191</option>
-                    <option value="@Url.Action("AllSortedFlightByIdDesc", "Flight")">FlightId Desc &#x2193</option>
-                    <option value="@Url.Action("AllSortedFlightByArpAsc", "Flight")">Airport IATA &#x2191;</option>
-                    <option value="@Url.Action("AllSortedFlightByArpDesc", "Flight")">Airport IATA &#x2193;</option>
+                    <option value="@Url.Action("All", "Flight", new {sortType = "id_desc"})">FlightId Desc &#x2193</option>
+                    <option value="@Url.Action("All", "Flight", new {sortType = "arp_asc"})">Airport IATA &#x2191;</option>
+                    <option value="@Url.Action("All", "Flight", new {sortType = "arp_desc"})">Airport IATA &#x2193;</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mb-3 row justify-content-start">
+        <div class="col-3">
+            <div class="input-group">
+                <label for="pageSizeDropdown" class="input-group-text">Items Per Page:</label>
+
+                <select id="pageSizeDropdown" class="form-select" onchange="changePageSize(this.value)">
+                    <option value="">-- Select --</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                 </select>
             </div>
         </div>
     </div>
 </div>
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Flight Id</th>
-            <th>Registration</th>
-            <th>Equipment</th>
-            <th>Callsign</th>
-            <th>Departure Airport</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in @Model)
-        {
-            <tr id="row-@item.FlightId">
-                <td>@item.FlightId</td>
-                <td>@item.Registration</td>
-                <td>@item.Equipment</td>
-                <td>@item.Callsign</td>
-                <td>@item.DepartureId</td>
-            </tr>
-        }
-    </tbody>
-</table>
+@Html.Partial("_FlightsPaged", Model)
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-    $('tr[id^="row-"]').click(function () {
-        var rowId = $(this).attr('id');
-        var flightId = rowId.replace('row-', '');
+    function bindTableRowClickEvent() {
+        $('tr[id^="row-"]').click(function () {
+            var rowId = $(this).attr('id');
+            var flightId = rowId.replace('row-', '');
 
-        window.location.href = '/Flight/GetDetailsFlight?flightId=' + flightId;
+            window.location.href = '/Flight/GetDetailsFlight?flightId=' + flightId;
+        });
+    }
+
+    $(document).ready(function () {
+        bindTableRowClickEvent();
     });
+
+    function changePageSize(pageSize) {
+        var url = '@Url.Action("All", "Flight")';
+        url = url + "?page=1&pageSize=" + pageSize; // Redirect to the first page
+        window.location.href = url;
+    }
 </script>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
