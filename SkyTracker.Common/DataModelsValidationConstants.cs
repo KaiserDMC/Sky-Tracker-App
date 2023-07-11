@@ -19,9 +19,6 @@ public static class DataModelsValidationConstants
         public const int FlightIdLengthMax = 9;
         public const string FlightIdRegexPattern = @"[0-9]+$";
 
-        public const int AircraftIdLengthMax = 60;
-        public const string AircraftIdRegexPattern = @"[0-9]+$";
-
         public const int RegistrationLengthMax = 7;
         public const string RegistrationRegexPattern = @"[A-Z0-9]+$";
 

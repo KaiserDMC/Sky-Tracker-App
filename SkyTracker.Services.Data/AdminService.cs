@@ -1,4 +1,7 @@
-﻿namespace SkyTracker.Services.Data;
+﻿using SkyTracker.Common;
+using SkyTracker.Data.Models;
+
+namespace SkyTracker.Services.Data;
 
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
@@ -96,7 +99,7 @@ public class AdminService : IAdminService
         var users = await _dbContext.Users
             .Where(u => u.IsDeleted == false)
             .OrderBy(u => u.UserName)
-            .Select(u=> new UserViewModel()
+            .Select(u => new UserViewModel()
             {
                 Id = u.Id,
                 Username = u.UserName,
@@ -107,4 +110,44 @@ public class AdminService : IAdminService
 
         return users;
     }
+
+    public async Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync()
+    {
+        var airports =  await _dbContext.Airports
+            .Where(a => a.IsDeleted == false)
+            .Select(a => new AirportCollectionViewModel()
+            {
+                Id = a.IATA,
+                NameIATA = a.IATA,
+            })
+            .ToListAsync();
+
+        return airports;
+    }
+
+    public async Task AddFlightAsync(FlightFormModel model)
+    {
+        if (_dbContext.Flights.Where(f => f.FlightId == model.FlightId).Any())
+        {
+            model.Error = "Flight already exists.";
+            return;
+        }
+
+        Flight flight = new Flight()
+        {
+            FlightId = model.FlightId,
+            Registration = model.Registration,
+            Equipment = model.Equipment,
+            Callsign = model.Callsign,
+            FlightNumber = model.FlightNumber,
+            DepartureId = model.DepartureId,
+            ScheduledArrival = model.ScheduledArrival,
+            RealArrival = model.RealArrival,
+            Reserved = model.Reserved
+        };
+
+        await _dbContext.Flights.AddAsync(flight);
+        await _dbContext.SaveChangesAsync();
+    }
+
 }

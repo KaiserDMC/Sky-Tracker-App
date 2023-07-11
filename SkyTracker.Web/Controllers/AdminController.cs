@@ -1,8 +1,10 @@
 ﻿namespace SkyTracker.Web.Controllers;
 
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
+using ViewModels.Flight;
 using SkyTracker.Services.Data.Interfaces;
 using static Common.GeneralApplicationContants;
 
@@ -87,5 +89,46 @@ public class AdminController : Controller
         var pagedData = users.ToPagedList(pageNumber, pageSize);
 
         return PartialView("_UsersPartial", pagedData);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> AddFlight()
+    {
+        var airports = await _adminService.GetAirportsCollectionAsync();
+
+        FlightFormModel model = new FlightFormModel()
+        {
+            AirportListDeparture = airports,
+            AirportListArrival = airports,
+            AirportListActual = airports,
+            AirporListReserved = airports
+        };
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddFlight(FlightFormModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+        
+        try
+        {
+            await _adminService.AddFlightAsync(model);
+        }
+        catch
+        {
+            return BadRequest();
+        }
+
+        if (!string.IsNullOrEmpty(model.Error))
+        {
+            return View(model);
+        }
+
+        return RedirectToAction("Index", "Admin");
     }
 }
