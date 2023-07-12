@@ -25,4 +25,7 @@ public interface IAdminService
 
     Task EditFlightAsync(string flightId, FlightFormModel model);
 
+    Task DeleteFlightAsync(string[] flightIds);
+
+    Task<IEnumerable<FlightAllViewModel>> GetDeletedFlightsAsync();
 }

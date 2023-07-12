@@ -196,4 +196,37 @@ public class AdminService : IAdminService
 
         await _dbContext.SaveChangesAsync();
     }
+
+    public async Task DeleteFlightAsync(string[] flightIds)
+    {
+        var flightsToDelete = await _dbContext.Flights
+            .Where(f => f.IsDeleted == false)
+            .Where(f => flightIds.Contains(f.FlightId))
+            .ToListAsync();
+
+        foreach (var flight in flightsToDelete)
+        {
+            flight.IsDeleted = true;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<FlightAllViewModel>> GetDeletedFlightsAsync()
+    {
+        var deletedFlights = await _dbContext.Flights
+            .Where(f => f.IsDeleted == true)
+            .OrderBy(f => f.FlightId)
+            .Select(f => new FlightAllViewModel
+            {
+                FlightId = f.FlightId,
+                Registration = f.Registration,
+                Equipment = f.Equipment,
+                Callsign = f.Callsign,
+                DepartureId = f.DepartureId
+            })
+            .ToListAsync();
+
+        return deletedFlights;
+    }
 }

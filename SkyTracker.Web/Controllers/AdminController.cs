@@ -189,4 +189,35 @@ public class AdminController : Controller
 
         return RedirectToAction("Index", "Admin");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteFlight(string[] flightIds)
+    {
+        try
+        {
+            await _adminService.DeleteFlightAsync(flightIds);
+            return Json(new { success = true });
+        }
+        catch
+        {
+            return Json(new { success = false });
+        }
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DeletedHistoryFlights()
+    {
+        IEnumerable<FlightAllViewModel> deletedFlights;
+
+        try
+        {
+            deletedFlights =  await _adminService.GetDeletedFlightsAsync();
+        }
+        catch
+        {
+            return BadRequest();
+        }
+
+        return PartialView("_DeletedFlightsPartial", deletedFlights);
+    }
 }

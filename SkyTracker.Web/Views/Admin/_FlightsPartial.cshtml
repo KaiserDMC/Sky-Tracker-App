@@ -7,6 +7,7 @@
 <p>
     <a href="@Url.Action("AddFlight", "Admin")" class="btn btn-primary">Add Flight</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+    <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
 
 <table class="table table-striped">
@@ -40,22 +41,27 @@
 
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
+        @{
+            var pagination = @Html.PagedListPager(Model, page =>
+            {
+                if (page == 1)
+                    return Url.Action("FlightsPartial");
+                else
+                    return Url.Action("FlightsPartial", new { page });
+            }, new PagedListRenderOptions
+            {
+                DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                ContainerDivClasses = new[] { "pagination" },
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" },
+            });
 
-        @Html.PagedListPager(Model, page => {
-        if (page == 1)
-        return Url.Action("FlightsPartial");
-        else
-        return Url.Action("FlightsPartial", new { page });
-        }, new PagedListRenderOptions {
-        DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
-        ContainerDivClasses = new[] { "pagination" },
-        LiElementClasses = new[] { "page-item" },
-        PageClasses = new[] { "page-link" },
-        })
+            @Html.Raw(pagination)
+        }
     </ul>
 </nav>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -74,9 +80,9 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteRows", "Admin")',
+                    url: '@Url.Action("DeleteFlight", "Admin")',
                     type: 'POST',
-                    data: { ids: selectedIds },
+                    data: { flightIds: selectedIds },
                     success: function (result) {
                         if (result.success) {
                             selectedRows.closest('tr').remove();
@@ -90,5 +96,19 @@
                 });
             }
         });
+
+        $('#deletedHistory').click(function () {
+            $.ajax({
+                url: '@Url.Action("DeletedHistoryFlights", "Admin")',
+                type: 'GET',
+                success: function (result) {
+                    $('#partialViewContainer').html(result);
+                },
+                error: function () {
+                    alert('An error occurred while loading the deleted flights. Please try again.');
+                }
+            });
+        });
     });
 </script>
+

@@ -19,7 +19,6 @@
     </div>
 </div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
@@ -29,10 +28,16 @@
             type: 'GET',
             success: function (result) {
                 $('#partialViewContainer').html(result);
+
+                // Reapply necessary JavaScript and CSS initialization here if needed
             },
             error: function (xhr, status, error) {
                 // Handle error if necessary
             }
         });
     }
+
+    $(document).ready(function () {
+        // Remove the previous click event handling code
+    });
 </script>

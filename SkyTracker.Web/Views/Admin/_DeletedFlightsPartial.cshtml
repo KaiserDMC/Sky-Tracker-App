@@ -1,0 +1,42 @@
+﻿@model List<FlightAllViewModel>
+
+<button id="goBackToFlights" class="btn btn-primary">Go Back to Flights</button>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Flight Id</th>
+            <th>Registration</th>
+            <th>Equipment</th>
+            <th>Callsign</th>
+            <th>Departure Airport</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FlightId</td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
+                <td>@item.Callsign</td>
+                <td>@item.DepartureId</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle the click event of the "Go Back to Flights" button
+        $('#goBackToFlights').click(function () {
+            // Load the normal "Flights" partial view
+            loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")');
+        });
+    });
+</script>
