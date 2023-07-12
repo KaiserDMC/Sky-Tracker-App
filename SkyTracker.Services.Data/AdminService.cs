@@ -113,7 +113,7 @@ public class AdminService : IAdminService
 
     public async Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync()
     {
-        var airports =  await _dbContext.Airports
+        var airports = await _dbContext.Airports
             .Where(a => a.IsDeleted == false)
             .Select(a => new AirportCollectionViewModel()
             {
@@ -150,4 +150,50 @@ public class AdminService : IAdminService
         await _dbContext.SaveChangesAsync();
     }
 
+    public async Task<FlightFormModel> GetFlightbyIdAsync(string flightId)
+    {
+        var flightById = await _dbContext.Flights
+            .Where(f => f.IsDeleted == false)
+            .FirstOrDefaultAsync(f => f.FlightId == flightId);
+
+        if (flightById != null)
+        {
+            FlightFormModel flight = new FlightFormModel()
+            {
+                Registration = flightById.Registration,
+                Equipment = flightById.Equipment,
+                Callsign = flightById.Callsign,
+                FlightNumber = flightById.FlightNumber,
+                DepartureId = flightById.DepartureId,
+                ScheduledArrival = flightById.ScheduledArrival,
+                RealArrival = flightById.RealArrival,
+                Reserved = flightById.Reserved
+            };
+
+            return flight;
+        }
+
+        return null;
+    }
+
+    public async Task EditFlightAsync(string flightId, FlightFormModel model)
+    {
+        var flightToUpdate = await _dbContext.Flights
+            .Where(f => f.IsDeleted == false)
+            .FirstOrDefaultAsync(f => f.FlightId == flightId);
+
+        if (flightToUpdate != null)
+        {
+            flightToUpdate.Registration = model.Registration;
+            flightToUpdate.Equipment = model.Equipment;
+            flightToUpdate.Callsign = model.Callsign;
+            flightToUpdate.FlightNumber = model.FlightNumber;
+            flightToUpdate.DepartureId = model.DepartureId;
+            flightToUpdate.ScheduledArrival = model.ScheduledArrival;
+            flightToUpdate.RealArrival = model.RealArrival;
+            flightToUpdate.Reserved = model.Reserved;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
 }

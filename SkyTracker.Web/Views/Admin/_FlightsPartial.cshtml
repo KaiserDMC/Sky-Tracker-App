@@ -23,7 +23,12 @@
         @foreach (var item in @Model)
         {
             <tr id="row-@item.FlightId">
-                <td>@item.FlightId</td>
+                <td>
+                    <input type="checkbox" name="selectedRows" value="@item.FlightId" />
+                </td>
+                <td>
+                    <a href="@Url.Action("EditFlight", "Admin", new { flightId = item.FlightId })">@item.FlightId</a>
+                </td>
                 <td>@item.Registration</td>
                 <td>@item.Equipment</td>
                 <td>@item.Callsign</td>
@@ -49,3 +54,41 @@
         })
     </ul>
 </nav>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#deleteSelected').click(function () {
+            var selectedRows = $('input[name="selectedRows"]:checked');
+            var selectedIds = [];
+
+            selectedRows.each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                alert('Please select at least one row.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to delete the selected rows?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteRows", "Admin")',
+                    type: 'POST',
+                    data: { ids: selectedIds },
+                    success: function (result) {
+                        if (result.success) {
+                            selectedRows.closest('tr').remove();
+                        } else {
+                            alert('An error occurred while deleting the rows. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while deleting the rows. Please try again.');
+                    }
+                });
+            }
+        });
+    });
+</script>

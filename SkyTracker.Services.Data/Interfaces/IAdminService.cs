@@ -21,4 +21,8 @@ public interface IAdminService
 
     Task AddFlightAsync(FlightFormModel model);
 
+    Task<FlightFormModel> GetFlightbyIdAsync(string flightId);
+
+    Task EditFlightAsync(string flightId, FlightFormModel model);
+
 }

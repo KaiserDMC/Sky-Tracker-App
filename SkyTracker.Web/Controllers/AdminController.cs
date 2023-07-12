@@ -131,4 +131,62 @@ public class AdminController : Controller
 
         return RedirectToAction("Index", "Admin");
     }
+
+    [HttpGet]
+    public async Task<IActionResult> EditFlight(string flightId)
+    {
+        var airports = await _adminService.GetAirportsCollectionAsync();
+
+        var flight = await _adminService.GetFlightbyIdAsync(flightId);
+
+        flight.AirportListDeparture = airports;
+        flight.AirportListArrival = airports;
+        flight.AirportListActual = airports;
+        flight.AirporListReserved = airports;
+
+        return View(flight);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditFlight(string flightId, FlightFormModel model)
+    {
+        var airports = await _adminService.GetAirportsCollectionAsync();
+
+        var flight = await _adminService.GetFlightbyIdAsync(flightId);
+
+        flight.AirportListDeparture = airports;
+        flight.AirportListArrival = airports;
+        flight.AirportListActual = airports;
+        flight.AirporListReserved = airports;
+
+        model.AirportListDeparture = airports;
+        model.AirportListArrival = airports;
+        model.AirportListActual = airports;
+        model.AirporListReserved = airports;
+
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
+        flight.Registration = model.Registration;
+        flight.Equipment = model.Equipment;
+        flight.Callsign = model.Callsign;
+        flight.FlightNumber = model.FlightNumber;
+        flight.DepartureId = model.DepartureId;
+        flight.ScheduledArrival = model.ScheduledArrival;
+        flight.RealArrival = model.RealArrival;
+        flight.Reserved = model.Reserved;
+
+        try
+        {
+            await _adminService.EditFlightAsync(flightId, model);
+        }
+        catch
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction("Index", "Admin");
+    }
 }
