@@ -5,7 +5,7 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 <p>
-    <a href="@Url.Action("AddFlight", "Admin")" class="btn btn-primary">Add Flight</a>
+    <a href="@Url.Action("AddFlight", "Flight")" class="btn btn-primary">Add Flight</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
     <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
@@ -13,6 +13,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th></th>
             <th>Flight Id</th>
             <th>Registration</th>
             <th>Equipment</th>
@@ -28,7 +29,7 @@
                     <input type="checkbox" name="selectedRows" value="@item.FlightId" />
                 </td>
                 <td>
-                    <a href="@Url.Action("EditFlight", "Admin", new { flightId = item.FlightId })">@item.FlightId</a>
+                    <a href="@Url.Action("EditFlight", "Flight", new { flightId = item.FlightId })">@item.FlightId</a>
                 </td>
                 <td>@item.Registration</td>
                 <td>@item.Equipment</td>
@@ -80,7 +81,7 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteFlight", "Admin")',
+                    url: '@Url.Action("DeleteFlight", "Flight")',
                     type: 'POST',
                     data: { flightIds: selectedIds },
                     success: function (result) {
@@ -99,7 +100,7 @@
 
         $('#deletedHistory').click(function () {
             $.ajax({
-                url: '@Url.Action("DeletedHistoryFlights", "Admin")',
+                url: '@Url.Action("DeletedHistoryFlights", "Flight")',
                 type: 'GET',
                 success: function (result) {
                     $('#partialViewContainer').html(result);

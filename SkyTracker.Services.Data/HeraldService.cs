@@ -1,8 +1,9 @@
-﻿using System.Globalization;
-using Microsoft.AspNetCore.Mvc;
+﻿using SkyTracker.Data.Models;
+using SkyTracker.Web.ViewModels.Herald.Enums;
 
 namespace SkyTracker.Services.Data;
 
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
@@ -102,5 +103,110 @@ public class HeraldService : IHeraldService
             .FirstOrDefaultAsync();
 
         return occurrence;
+    }
+
+    public async Task<IEnumerable<HeraldTypeModel>> GetHeraldTypeAsync()
+    {
+        var heraldTypes = Enum.GetValues(typeof(HeraldType))
+            .Cast<HeraldType>()
+            .Select(x => new HeraldTypeModel
+            {
+                Id = (int)x,
+                Type = x,
+                Name = x.ToString()
+            })
+            .ToList();
+
+        return heraldTypes;
+    }
+
+    public async Task AddHeraldAsync(HeraldFormModel model)
+    {
+        if (_dbContext.HeraldPosts.Where(f=>f.Id == model.Id).Any())
+        {
+            model.Error = "Herald Post already exists.";
+            return;
+        }
+
+        HeraldPost herald = new HeraldPost()
+        {
+            Id = model.Id,
+            Occurrence = model.Occurrence,
+            TypeOccurence = model.TypeOccurrence,
+            Details = model.Details
+        };
+
+        await _dbContext.HeraldPosts.AddAsync(herald);
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<HeraldFormModel> GetHeraldbyIdAsync(string heraldId)
+    {
+        var heraldById = await _dbContext.HeraldPosts
+            .Where(h => h.IsDeleted == false)
+            .FirstOrDefaultAsync(h => h.Id.ToString() == heraldId);
+
+        if (heraldById != null)
+        {
+            HeraldFormModel herald = new HeraldFormModel()
+            {
+                Id = heraldById.Id,
+                Occurrence = heraldById.Occurrence,
+                TypeOccurrence = heraldById.TypeOccurence,
+                Details = heraldById.Details
+            };
+
+            return herald;
+        }
+
+        return null;
+    }
+
+    public async Task EditHeraldAsync(string heraldId, HeraldFormModel model)
+    {
+        var heraldToUpdate = await _dbContext.HeraldPosts
+            .Where(h => h.IsDeleted == false)
+            .FirstOrDefaultAsync(h => h.Id.ToString() == heraldId);
+
+        if (heraldToUpdate != null)
+        {
+            heraldToUpdate.Occurrence = model.Occurrence;
+            heraldToUpdate.TypeOccurence = model.TypeOccurrence;
+            heraldToUpdate.Details = model.Details;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeleteHeraldAsync(string[] heraldIds)
+    {
+        var heraldsToDelete = _dbContext.HeraldPosts
+            .Where(h => h.IsDeleted == false)
+            .Where(h => heraldIds.Contains(h.Id.ToString()))
+            .ToListAsync();
+
+        foreach (var herald in await heraldsToDelete)
+        {
+            herald.IsDeleted = true;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<HeraldAllViewModel>> GetDeletedHeraldsAsync()
+    {
+        var deletedHeralds = await _dbContext.HeraldPosts
+            .Where(h => h.IsDeleted == true)
+            .OrderByDescending(h=>h.Occurrence)
+            .Select(h=> new HeraldAllViewModel()
+            {
+                OccurrenceId = h.Id.ToString(),
+                OccurrenceDate = h.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
+                TypeOccurence = h.TypeOccurence,
+                Details = h.Details
+            })
+            .ToListAsync();
+
+        return deletedHeralds;
     }
 }

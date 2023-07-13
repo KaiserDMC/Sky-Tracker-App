@@ -50,5 +50,8 @@ public static class DataModelsValidationConstants
     public static class HeraldPost
     {
         public const string DateFormat = "yyyy-MM-dd";
+        public const string DateString = "yyyy-MM-dd";
+        public const int DetailsLengthMax = 1000;
+        public const int DetailsLengthMin = 10;
     }
 }

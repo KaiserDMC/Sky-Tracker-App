@@ -16,4 +16,16 @@ public interface IFlightService
     Task<IEnumerable<FlightAllViewModel>> GetAllFlightsSortedByArpDescAsync();
 
     Task<FlightDetailsViewModel> GetFlightDetailsByIdAsync(string flightId);
+
+    Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync();
+
+    Task AddFlightAsync(FlightFormModel model);
+
+    Task<FlightFormModel> GetFlightbyIdAsync(string flightId);
+
+    Task EditFlightAsync(string flightId, FlightFormModel model);
+
+    Task DeleteFlightAsync(string[] flightIds);
+
+    Task<IEnumerable<FlightAllViewModel>> GetDeletedFlightsAsync();
 }

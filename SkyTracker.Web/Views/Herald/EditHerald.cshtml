@@ -1,0 +1,44 @@
+﻿@model HeraldFormModel
+
+@{
+    ViewBag.Title = "Add Herald";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="EditHerald" asp-route-heraldId="@Model.Id" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Occurrence" class="form-label-add-edit">Occurrence</label>
+                <input asp-for="@Model.Occurrence" value="@Model.Occurrence" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Occurrence" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TypeOccurrence" class="form-label-add-edit">Occurence Type</label>
+                <select asp-for="@Model.TypeOccurrence" class="form-control" aria-required="true">
+                    <option value="">Select an airport</option>
+                    @foreach (var type in Model.HeraldTypes)
+                    {
+                        <option value="@type.Type">@type.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.TypeOccurrence" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Details" class="form-label-add-edit">Details</label>
+                <textarea asp-for="@Model.Details" class="form-control" aria-required="true" rows="10"></textarea>
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input class="btn btn-warning mb-2 w-100 p-3 fw-bold" type="submit" value="Edit Herald" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

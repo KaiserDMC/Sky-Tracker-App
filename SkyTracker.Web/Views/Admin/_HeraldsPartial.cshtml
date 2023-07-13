@@ -2,28 +2,33 @@
 @using X.PagedList.Web.Common;
 @model X.PagedList.IPagedList<HeraldAllViewModel>
 
-@{
-    ViewBag.Title = "Logged heralds";
-}
-
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 <p>
-    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Herald</a>
+    <a href="@Url.Action("AddHerald", "Herald")" class="btn btn-primary">Add Herald</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+    <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Date</th>
+            <th></th>
+            <th>Occurrence ID</th>
             <th>Occurrence Type</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in @Model)
         {
             <tr id="row-@item.OccurrenceId">
+                <td>
+                <input type="checkbox" name="selectedRows" value="@item.OccurrenceId" />
+                </td>
+                <td>
+                    <a href="@Url.Action("EditHerald", "Herald", new { heraldId = item.OccurrenceId })">@item.OccurrenceId</a>
+                </td>
                 <td>@item.OccurrenceDate</td>
                 <td>@item.TypeOccurence</td>
             </tr>
@@ -47,3 +52,55 @@
         })
     </ul>
 </nav>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#deleteSelected').click(function () {
+            var selectedRows = $('input[name="selectedRows"]:checked');
+            var selectedIds = [];
+
+            selectedRows.each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                alert('Please select at least one row.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to delete the selected rows?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteHerald", "Herald")',
+                    type: 'POST',
+                    data: { heraldIds: selectedIds },
+                    success: function (result) {
+                        if (result.success) {
+                            selectedRows.closest('tr').remove();
+                        } else {
+                            alert('An error occurred while deleting the rows. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while deleting the rows. Please try again.');
+                    }
+                });
+            }
+        });
+
+        $('#deletedHistory').click(function () {
+            $.ajax({
+                url: '@Url.Action("DeletedHistoryHeralds", "Herald")',
+                type: 'GET',
+                success: function (result) {
+                    $('#partialViewContainer').html(result);
+                },
+                error: function () {
+                    alert('An error occurred while loading the deleted flights. Please try again.');
+                }
+            });
+        });
+    });
+</script>

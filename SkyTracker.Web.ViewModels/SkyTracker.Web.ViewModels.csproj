@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Herald\" />
     <Folder Include="Airports\" />
+    <Folder Include="Herald\Enums\" />
     <Folder Include="User\" />
   </ItemGroup>
 

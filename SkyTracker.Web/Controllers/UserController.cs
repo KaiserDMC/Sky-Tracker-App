@@ -120,11 +120,11 @@ public class UserController : Controller
             return View(model);
         }
 
-        var user = await _userManager.FindByNameAsync(model.UserName);
+        var user = await _userManager.FindByNameAsync(model.Username);
 
         if (user != null)
         {
-            var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, lockoutOnFailure: false);
 
             if (result.Succeeded)
             {

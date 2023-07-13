@@ -17,4 +17,8 @@ public static class ErrorMessageStrings
         public const string CodeIATARegex = "IATA code comprises of 3 capital letters.";
     }
 
+    public static class Herald
+    {
+        public const string DetailsLength = "Details must be between 10 and 1000 symbols.";
+    }
 }

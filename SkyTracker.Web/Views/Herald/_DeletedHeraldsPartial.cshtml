@@ -1,0 +1,36 @@
+﻿@model List<HeraldAllViewModel>
+
+<button id="goBackToHeralds" class="btn btn-primary">Go Back to Heralds</button>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date of Occurrence</th>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OccurrenceId</td>
+                <td>@item.TypeOccurence</td>
+                <td>@item.Details</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#goBackToHeralds').click(function () {
+            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")');
+        });
+    });
+</script>

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 public class LoginViewModel
 {
     [Required]
-    public string UserName { get; set; } = null!;
+    public string Username { get; set; } = null!;
 
     [Required]
     [DataType(DataType.Password)]

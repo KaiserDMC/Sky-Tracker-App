@@ -38,10 +38,10 @@ public class FlightFormModel
     public string? ScheduledArrival { get; set; } = null!;
 
     [Display(Name = "Actual arrival airport IATA")]
-    public string? RealArrival { get; set; } = null!;
+    public string? RealArrival { get; set; } 
 
     [Display(Name = "Reserve airport IATA")]
-    public string? Reserved { get; set; } = null!;
+    public string? Reserved { get; set; }
 
     public string? Error { get; set; }
 
