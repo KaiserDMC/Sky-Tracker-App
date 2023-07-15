@@ -14,7 +14,11 @@ public class AirportsDetailsViewModel
 
     public string? LocationCountry { get; set; }
 
+    public string? Lat { get; set; }
+
+    public string? Long { get; set; }
+
     public AirportRunwayDetails? Runway { get; set; }
 
-    public string? ImageUrl { get; set; }
+    public string ImageUrl { get; set; } = null!;
 }

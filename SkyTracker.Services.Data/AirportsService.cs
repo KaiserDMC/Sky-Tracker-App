@@ -28,6 +28,8 @@ public class AirportsService : IAirportsService
                 Elevation = a.Elevation,
                 LocationCity = a.LocationCity,
                 LocationCountry = a.LocationCountry,
+                Lat = a.Lat,
+                Long = a.Long,
                 ImageUrl = a.ImagePathUrl
             })
             .ToListAsync();
@@ -51,6 +53,8 @@ public class AirportsService : IAirportsService
             Elevation = airport.Elevation,
             LocationCity = airport.LocationCity,
             LocationCountry = airport.LocationCountry,
+            Lat = airport.Lat,
+            Long = airport.Long,
             Runway = airport.RunwaysAirports
                 .Select(ra => ra.Runway)
                 .Select(r => new AirportRunwayDetails()
