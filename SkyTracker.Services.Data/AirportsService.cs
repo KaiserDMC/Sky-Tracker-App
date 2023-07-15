@@ -28,7 +28,7 @@ public class AirportsService : IAirportsService
                 Elevation = a.Elevation,
                 LocationCity = a.LocationCity,
                 LocationCountry = a.LocationCountry,
-                ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), a.ImagePathUrl)
+                ImageUrl = a.ImagePathUrl
             })
             .ToListAsync();
 
@@ -51,7 +51,6 @@ public class AirportsService : IAirportsService
             Elevation = airport.Elevation,
             LocationCity = airport.LocationCity,
             LocationCountry = airport.LocationCountry,
-            ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), airport.ImagePathUrl),
             Runway = airport.RunwaysAirports
                 .Select(ra => ra.Runway)
                 .Select(r => new AirportRunwayDetails()

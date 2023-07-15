@@ -1,6 +1,7 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
-using SampleData.DataGeneration;
+using SampleData;
+
 using Models;
 
 public class FlightAircraftSeeder

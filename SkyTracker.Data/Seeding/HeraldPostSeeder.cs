@@ -1,12 +1,10 @@
-﻿using System.Globalization;
+﻿namespace SkyTracker.Data.Seeding;
 
-namespace SkyTracker.Data.Seeding;
-
+using System.Globalization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 using Models;
-using Newtonsoft.Json.Linq;
-using System.Text.Json.Nodes;
 
 public class HeraldPostSeeder
 {
@@ -15,7 +13,7 @@ public class HeraldPostSeeder
         ICollection<HeraldPost>? heraldPosts;
 
         // Specify the folder name relative to the current directory
-        string relativePath = @"..\SkyTracker.Data\SampleData\modified_avherald.json";
+        string relativePath = @"..\SkyTracker.Data\DataGeneration\SampleData\modified_avherald.json";
         string fullPath = Path.GetFullPath(relativePath);
 
         string json = File.ReadAllText(fullPath);

@@ -2,7 +2,7 @@
 
 using Models;
 
-using SampleData.DataGeneration;
+using SampleData;
 
 public class FlightSeeder
 {

@@ -2,8 +2,8 @@
 
 using Newtonsoft.Json;
 
-using SkyTracker.Data.Models;
-using SkyTracker.Data.Seeding.DTOs;
+using Models;
+using DTOs;
 
 public class RunwaySeeder
 {
@@ -20,7 +20,7 @@ public class RunwaySeeder
 
 
         // Specify the folder name relative to the current directory
-        string relativePath = @"..\SkyTracker.Data\SampleData\modified_runway.json";
+        string relativePath = @"..\SkyTracker.Data\DataGeneration\SampleData\modified_runway.json";
         string fullPath = Path.GetFullPath(relativePath);
 
         string json = File.ReadAllText(fullPath);

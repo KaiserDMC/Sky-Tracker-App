@@ -53,6 +53,10 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
         builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
 
+        builder.Entity<Aircraft>()
+            .HasIndex(a => a.Registration)
+            .IsUnique();
+
         builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
         builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 

@@ -1,14 +1,17 @@
 ﻿namespace SkyTracker.Services.Data;
 
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Interfaces;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Azure.Storage.Blobs;
 
 using SkyTracker.Data;
-using SkyTracker.Web.ViewModels.Aircraft;
+using Web.ViewModels.Aircraft;
 
 public class AircraftService : IAircraftService
 {
@@ -27,8 +30,7 @@ public class AircraftService : IAircraftService
             {
                 Id = a.Id,
                 Registration = a.Registration,
-                Equipment = a.Equipment,
-                ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), a.ImagePathUrl)
+                Equipment = a.Equipment
             })
             .ToListAsync();
 
@@ -45,11 +47,9 @@ public class AircraftService : IAircraftService
         {
             Id = aircraft.Id,
             Registration = aircraft.Registration,
-            Equipment = aircraft.Equipment,
-            ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), aircraft.ImagePathUrl)
+            Equipment = aircraft.Equipment
         };
 
         return aircraftDetails;
     }
-
 }

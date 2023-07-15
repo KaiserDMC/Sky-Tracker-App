@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SkyTracker.Common\SkyTracker.Common.csproj" />
     <ProjectReference Include="..\SkyTracker.Data.Models\SkyTracker.Data.Models.csproj" />
     <ProjectReference Include="..\SkyTracker.Data\SkyTracker.Data.csproj" />

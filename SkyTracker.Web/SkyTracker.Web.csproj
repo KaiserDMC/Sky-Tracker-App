@@ -35,4 +35,10 @@
     <ProjectReference Include="..\SkyTracker.Web.ViewModels\SkyTracker.Web.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\azure\blob-aircraft\" />
+    <Folder Include="wwwroot\azure\blob-airports\" />
+    <Folder Include="wwwroot\azure\blob-stock\" />
+  </ItemGroup>
+
 </Project>

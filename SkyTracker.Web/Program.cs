@@ -2,6 +2,8 @@ namespace SkyTracker.Web;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Azure.Storage.Blobs;
+using Azure.Identity;
 
 using Data;
 using Data.Models;
@@ -55,6 +57,12 @@ public class Program
         builder.Services.AddScoped<IAirportsService, AirportsService>();
         builder.Services.AddScoped<IFlightService, FlightService>();
         builder.Services.AddScoped<IAdminService, AdminService>();
+
+        var blobServiceClient = new BlobServiceClient(
+            new Uri("https://skytrackerwebstorage.blob.core.windows.net"),
+            new DefaultAzureCredential());
+
+        builder.Services.AddSingleton(blobServiceClient);
 
         var app = builder.Build();
 

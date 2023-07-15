@@ -1,4 +1,6 @@
-﻿namespace SkyTracker.Data.SampleData.DataGeneration;
+﻿using Microsoft.Extensions.Configuration;
+
+namespace SkyTracker.Data.SampleData;
 
 using System.Globalization;
 
@@ -7,6 +9,8 @@ using CsvHelper;
 using Seeding;
 using Models;
 using Seeding.DTOs;
+using Microsoft.Extensions.Hosting;
+using static System.Net.WebRequestMethods;
 
 public class GenerateData
 {
@@ -21,9 +25,11 @@ public class GenerateData
 
     private void GenerateFlightAndAircraftData()
     {
-        string relativePath = @"..\SkyTracker.Data\SampleData\DataGeneration\20210723_flights.csv";
+        string relativePath = @"..\SkyTracker.Data\DataGeneration\SampleData\20210723_flights.csv";
         string fullPath = Path.GetFullPath(relativePath);
-#region Read CSV file and seed Flights, Aircraft and Airports
+
+        #region Read CSV file and seed Flights, Aircraft and Airports
+
         using (var reader = new StreamReader(fullPath))
         using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
         {
@@ -35,8 +41,8 @@ public class GenerateData
                 .Where(f =>
                             f.Equipment != null
                             && !f.Equipment.Contains("C1")
-                            && (f.ScheduledDeparture != f.RealArrival)
-                            && (f.ScheduledArrival == f.RealArrival)
+                            && f.ScheduledDeparture != f.RealArrival
+                            && f.ScheduledArrival == f.RealArrival
                             && !string.IsNullOrEmpty(f.Registration)
                             && !string.IsNullOrEmpty(f.Equipment)
                             && !string.IsNullOrEmpty(f.ScheduledDeparture)
@@ -93,19 +99,24 @@ public class GenerateData
                     IATA = f
                 })
                 .ToList();
-#endregion
 
-#region Seed Airport and Aircraft data and pictures
-            List<string> localPathsPictures = new List<string>();
-            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
-            string[] files = Directory.GetFiles(folderPath, "*.jpg");
+            #endregion
 
-            for (int i = 0; i < files.Length; i++)
-            {
-                string currentPath = Path.Combine(folderPath, files[i]);
+            #region Seed Airport and Aircraft data and pictures
 
-                localPathsPictures.Add(currentPath);
-            }
+            string containerNameAirportImages = "https://skytrackerwebstorage.blob.core.windows.net/airport-images/";
+            string containerNameAircraftImages = "https://skytrackerwebstorage.blob.core.windows.net/aircraft-images/";
+
+            //List<string> localPathsPictures = new List<string>();
+            //string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images");
+            //string[] files = Directory.GetFiles(folderPath, "*.jpg");
+
+            //for (int i = 0; i < files.Length; i++)
+            //{
+            //    string currentPath = Path.Combine(folderPath, files[i]);
+
+            //    localPathsPictures.Add(currentPath);
+            //}
 
             // This data seed replaces manual migration '20230705182832_Fix-AirportTable'
             airports[0].ICAO = "PANC";
@@ -113,101 +124,133 @@ public class GenerateData
             airports[0].Elevation = "151 ft";
             airports[0].LocationCity = "Anchorage";
             airports[0].LocationCountry = "United States";
-            airports[0].ImagePathUrl = localPathsPictures[0];
+            airports[0].Lat = "61.17722677876709";
+            airports[0].Long = "-149.99065401560944";
+            airports[0].ImagePathUrl = containerNameAirportImages + airports[0].IATA.ToLower() + ".jpg";
 
             airports[1].ICAO = "KBID";
             airports[1].CommonName = "Block Island State Airport";
             airports[1].Elevation = "109 ft";
             airports[1].LocationCity = "Block Island";
             airports[1].LocationCountry = "United States";
-            airports[1].ImagePathUrl = localPathsPictures[1];
+            airports[1].Lat = "41.16953985239386";
+            airports[1].Long = "-71.58052399948453";
+            airports[1].ImagePathUrl = containerNameAirportImages + airports[1].IATA.ToLower() + ".jpg";
 
             airports[2].ICAO = "KBUF";
             airports[2].CommonName = "Buffalo Niagara International Airport";
             airports[2].Elevation = "727 ft";
             airports[2].LocationCity = "Buffalo";
             airports[2].LocationCountry = "United States";
-            airports[2].ImagePathUrl = localPathsPictures[2];
+            airports[2].Lat = "42.93991008181565";
+            airports[2].Long = "-78.72959253365957";
+            airports[2].ImagePathUrl = containerNameAirportImages + airports[2].IATA.ToLower() + ".jpg";
 
             airports[3].ICAO = "PAEN";
             airports[3].CommonName = "Kenai Municipal Airport";
             airports[3].Elevation = "99 ft";
             airports[3].LocationCity = "Kenai";
             airports[3].LocationCountry = "United States";
-            airports[3].ImagePathUrl = localPathsPictures[3];
+            airports[3].Lat = "60.56511015321005";
+            airports[3].Long = "-151.2467758309837";
+            airports[3].ImagePathUrl = containerNameAirportImages + airports[3].IATA.ToLower() + ".jpg";
 
             airports[4].ICAO = "KGKT";
             airports[4].CommonName = "Gatlinburg-Pigeon Forge Airport";
             airports[4].Elevation = "1014 ft";
             airports[4].LocationCity = "Sevierville";
             airports[4].LocationCountry = "United States";
-            airports[4].ImagePathUrl = localPathsPictures[4];
+            airports[4].Lat = "35.860619136430515";
+            airports[4].Long = "-83.53895041673171";
+            airports[4].ImagePathUrl = containerNameAirportImages + airports[4].IATA.ToLower() + ".jpg";
 
             airports[5].ICAO = "KIAG";
             airports[5].CommonName = "Niagara Falls International Airport";
             airports[5].Elevation = "592 ft";
             airports[5].LocationCity = "Niagara Falls";
             airports[5].LocationCountry = "United States";
-            airports[5].ImagePathUrl = localPathsPictures[5];
+            airports[5].Lat = "43.10108184541733";
+            airports[5].Long = "-78.94098824714688";
+            airports[5].ImagePathUrl = containerNameAirportImages + airports[5].IATA.ToLower() + ".jpg";
 
             airports[6].ICAO = "TNCS";
             airports[6].CommonName = "Juancho E. Yrausquin Airport";
             airports[6].Elevation = "65 ft";
             airports[6].LocationCity = "Saba";
             airports[6].LocationCountry = "Netherlands";
-            airports[6].ImagePathUrl = localPathsPictures[6];
+            airports[6].Lat = "17.644854961462727";
+            airports[6].Long = "-63.22072830368736";
+            airports[6].ImagePathUrl = containerNameAirportImages + airports[6].IATA.ToLower() + ".jpg";
 
             airports[7].ICAO = "TFFJ";
             airports[7].CommonName = "St. Gean Gustaf III Airport";
             airports[7].Elevation = "49 ft";
             airports[7].LocationCity = "Gustavia";
             airports[7].LocationCountry = "France";
-            airports[7].ImagePathUrl = localPathsPictures[7];
+            airports[7].Lat = "17.904442214376015";
+            airports[7].Long = "-62.84499925950639";
+            airports[7].ImagePathUrl = containerNameAirportImages + airports[7].IATA.ToLower() + ".jpg";
 
             airports[8].ICAO = "TNCM";
             airports[8].CommonName = "Princess Juliana International Airport";
             airports[8].Elevation = "14 ft";
             airports[8].LocationCity = "Saint Martin";
             airports[8].LocationCountry = "Netherlands";
-            airports[8].ImagePathUrl = localPathsPictures[8];
+            airports[8].Lat = "18.044477115469203";
+            airports[8].Long = "-63.113348444162554";
+            airports[8].ImagePathUrl = containerNameAirportImages + airports[8].IATA.ToLower() + ".jpg";
 
             airports[9].ICAO = "KWST";
             airports[9].CommonName = "Westerly State Airport";
             airports[9].Elevation = "81 ft";
             airports[9].LocationCity = "Westerly";
             airports[9].LocationCountry = "United States";
-            airports[9].ImagePathUrl = localPathsPictures[9];
+            airports[9].Lat = "41.349309415701384";
+            airports[9].Long = "-71.80439788954519";
+            airports[9].ImagePathUrl = containerNameAirportImages + airports[9].IATA.ToLower() + ".jpg";
 
             airports[10].ICAO = "CYSN";
             airports[10].CommonName = "St. Catharines Niagara District Airport";
             airports[10].Elevation = "321 ft";
             airports[10].LocationCity = "Saint Catharines";
             airports[10].LocationCountry = "Canada";
-            airports[10].ImagePathUrl = localPathsPictures[10];
+            airports[10].Lat = "43.18947540625031";
+            airports[10].Long = "-79.17109808947245";
+            airports[10].ImagePathUrl = containerNameAirportImages + airports[10].IATA.ToLower() + ".jpg";
 
             airports[11].ICAO = "CYHM";
             airports[11].CommonName = "John C. Munro Hamilton International Airport";
             airports[11].Elevation = "780 ft";
             airports[11].LocationCity = "Hamilton";
             airports[11].LocationCountry = "Canada";
-            airports[11].ImagePathUrl = localPathsPictures[11];
+            airports[11].Lat = "43.172967809253116";
+            airports[11].Long = "-79.93176906063778";
+            airports[11].ImagePathUrl = containerNameAirportImages + airports[11].IATA.ToLower() + ".jpg";
 
             airports[12].ICAO = "CYKF";
             airports[12].CommonName = "Region of Waterloo International Airport";
             airports[12].Elevation = "1054 ft";
             airports[12].LocationCity = "Waterloo";
             airports[12].LocationCountry = "Canada";
-            airports[12].ImagePathUrl = localPathsPictures[12];
+            airports[12].Lat = "43.455977185677234";
+            airports[12].Long = "-80.3857616722722";
+            airports[12].ImagePathUrl = containerNameAirportImages + airports[12].IATA.ToLower() + ".jpg";
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < aircraft.Count; i++)
             {
-                aircraft[i].ImagePathUrl = localPathsPictures[i + 13];
-            }
-#endregion
+                string registration = aircraft[i].Registration.ToLower();
 
-            this.AircraftCollection = aircraft;
-            this.AirportCollection = airports;
-            this.FlightCollection = finalFlight;
+                if (aircraft.Any(a => a.Registration.ToLower() == registration))
+                {
+                    aircraft[i].ImagePathUrl = containerNameAircraftImages + registration + ".jpg";
+                }
+            }
+
+            #endregion
+
+            AircraftCollection = aircraft;
+            AirportCollection = airports;
+            FlightCollection = finalFlight;
         }
     }
 }

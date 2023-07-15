@@ -40,6 +40,7 @@ public static class DataModelsValidationConstants
         public const string CodeICAO = @"[A-Z]{4}$";
         public const string Name = @"[A-Z]+$";
         public const string Elev = @"[0-9]+ ft$";
+        public const string LatLongRegexPattern = @"^(-?\d+(\.\d+)?)$";
     }
 
     public static class Runway

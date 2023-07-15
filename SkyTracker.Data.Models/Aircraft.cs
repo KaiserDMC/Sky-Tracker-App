@@ -1,6 +1,7 @@
 ﻿namespace SkyTracker.Data.Models;
 
 using System.ComponentModel.DataAnnotations;
+
 using static SkyTracker.Common.DataModelsValidationConstants.Aircraft;
 
 public class Aircraft
@@ -11,9 +12,10 @@ public class Aircraft
     [RegularExpression(AircraftIdRegexPattern)]
     public string Id { get; set; } = null!;
 
+    [Required]
     [MaxLength(RegistrationLengthMax)]
     [RegularExpression(RegistrationRegexPattern)]
-    public string? Registration { get; set; }
+    public string Registration { get; set; } = null!;
 
     [MaxLength(EquipmentLengthMax)]
     [RegularExpression(EquipmentRegexPattern)]

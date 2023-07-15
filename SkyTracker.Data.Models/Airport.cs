@@ -24,7 +24,14 @@ public class Airport
 
     public string? LocationCountry { get; set; }
 
+    [Required]
     public string ImagePathUrl { get; set; } = null!;
+
+    [RegularExpression(LatLongRegexPattern)]
+    public string? Lat { get; set; }
+
+    [RegularExpression(LatLongRegexPattern)]
+    public string? Long { get; set; }
 
     public bool IsDeleted { get; set; }
 

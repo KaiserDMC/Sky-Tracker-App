@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
 using Models;
-using SampleData.DataGeneration;
+using SampleData;
 using Seeding;
 
 public class CollectionEntityConfiguration :
