@@ -3,6 +3,20 @@
     "mssql1": {
       "type": "mssql.local",
       "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "secrets1": {
+      "secretStore": null,
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/SkyTrackerWebVault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri"
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsSkyTrackerDbContextConn_379B6D6DA5",
+      "secretStore": "AzureKeyVault",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/skytrackerwebstorage",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
+      "dynamicId": null
     }
   }
 }
