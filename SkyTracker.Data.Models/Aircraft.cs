@@ -21,7 +21,7 @@ public class Aircraft
     [RegularExpression(EquipmentRegexPattern)]
     public string? Equipment { get; set; }
 
-    public string ImagePathUrl { get; set; } = null!;
+    public string? ImagePathUrl { get; set; }
 
     public bool IsDeleted { get; set; }
 

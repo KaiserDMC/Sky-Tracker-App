@@ -49,8 +49,7 @@ public class AdminService : IAdminService
             {
                 Id = a.Id,
                 Registration = a.Registration,
-                Equipment = a.Equipment,
-                ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), a.ImagePathUrl)
+                Equipment = a.Equipment
             })
             .ToListAsync();
 

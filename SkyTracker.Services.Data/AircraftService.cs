@@ -1,16 +1,12 @@
 ﻿namespace SkyTracker.Services.Data;
 
-
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 using Interfaces;
-
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Azure.Storage.Blobs;
-
 using SkyTracker.Data;
+using SkyTracker.Data.Models;
 using Web.ViewModels.Aircraft;
 
 public class AircraftService : IAircraftService
@@ -51,5 +47,105 @@ public class AircraftService : IAircraftService
         };
 
         return aircraftDetails;
+    }
+
+    public async Task<IEnumerable<FlightCollectionViewModel>> GetFlightsCollectionAsync()
+    {
+        var flights = await _dbContext.Flights
+            .Where(f => f.IsDeleted == false)
+            .Select(f => new FlightCollectionViewModel
+            {
+                FlightId = f.FlightId
+            })
+            .ToListAsync();
+
+        return flights;
+    }
+
+    public async Task AddAircraftAsync(AircraftFormModel model)
+    {
+        if (_dbContext.Aircraft.Where(a => a.Id == model.Id).Any())
+        {
+            model.Error = "Flight already exists.";
+            return;
+        }
+
+        Aircraft aircraft = new Aircraft
+        {
+            Id = model.Id,
+            Registration = model.Registration,
+            Equipment = model.Equipment,
+            ImagePathUrl = model.ImagePathUrl
+        };
+
+        _dbContext.Aircraft.Add(aircraft);
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<AircraftFormModel> GetAircraftbyIdAsync(string aircraftId)
+    {
+        var aircraftById = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == false)
+            .FirstOrDefaultAsync(a => a.Id == aircraftId);
+
+        if (aircraftById != null)
+        {
+            AircraftFormModel aircraft = new AircraftFormModel()
+            {
+                Id = aircraftById.Id,
+                Registration = aircraftById.Registration,
+                Equipment = aircraftById.Equipment,
+                ImagePathUrl = aircraftById.ImagePathUrl
+            };
+
+            return aircraft;
+        }
+
+        return null;
+    }
+
+    public async Task EditAircraftAsync(string aircraftId, AircraftFormModel model)
+    {
+        var aircraftToUpdate = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == false)
+            .FirstOrDefaultAsync(a => a.Id == aircraftId);
+
+        if (aircraftToUpdate != null)
+        {
+            aircraftToUpdate.Registration = model.Registration;
+            aircraftToUpdate.Equipment = model.Equipment;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeleteAircraftAsync(string[] aircraftIds)
+    {
+        var aircraftToDelete = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == false)
+            .Where(a => aircraftIds.Contains(a.Id))
+            .ToListAsync();
+
+        foreach (var aircraft in aircraftToDelete)
+        {
+            aircraft.IsDeleted = true;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<AircraftAllViewModel>> GetDeletedAircraftAsync()
+    {
+        var aircraft = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == true)
+            .Select(a => new AircraftAllViewModel
+            {
+                Id = a.Id,
+                Registration = a.Registration,
+                Equipment = a.Equipment
+            })
+            .ToListAsync();
+
+        return aircraft;
     }
 }

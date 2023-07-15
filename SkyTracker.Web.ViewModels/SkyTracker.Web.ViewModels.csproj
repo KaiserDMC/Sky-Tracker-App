@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SkyTracker.Common\SkyTracker.Common.csproj" />
+    <ProjectReference Include="..\SkyTracker.Data.Models\SkyTracker.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

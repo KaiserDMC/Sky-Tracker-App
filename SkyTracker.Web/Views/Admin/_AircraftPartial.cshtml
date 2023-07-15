@@ -2,20 +2,19 @@
 @using X.PagedList.Web.Common;
 @model X.PagedList.IPagedList<AircraftAllViewModel>
 
-@{
-    ViewBag.Title = "Available aircraft";
-}
-
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
+
 <p>
-    <a href="@Url.Action("Create", "Flight")" class="btn btn-primary">Add Aircraft</a>
+    <a href="@Url.Action("AddAircraft", "Aircraft")" class="btn btn-primary">Add Aircraft</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
+    <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
 
 <table class="table table-striped">
     <thead>
         <tr>
+            <th></th>
             <th>Aircraft Id</th>
             <th>A/C Registration</th>
             <th>A/C Type</th>
@@ -25,7 +24,12 @@
         @foreach (var item in @Model)
         {
             <tr id="row-@item.Id">
-                <td>@item.Id</td>
+                <td>
+                    <input type="checkbox" name="selectedRows" value="@item.Id" />
+                </td>
+                <td> 
+                    <a href="@Url.Action("EditAircraft", "Aircraft", new { aircraftId = item.Id })">@item.Id</a>
+                </td>
                 <td>@item.Registration</td>
                 <td>@item.Equipment</td>
             </tr>
@@ -35,17 +39,73 @@
 
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
+        @{
+            var pagination = @Html.PagedListPager(Model, page =>
+            {
+                if (page == 1)
+                    return Url.Action("AircraftPartial");
+                else
+                    return Url.Action("AircraftPartial", new { page });
+            }, new PagedListRenderOptions
+            {
+                DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                ContainerDivClasses = new[] { "pagination" },
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" },
+            });
 
-        @Html.PagedListPager(Model, page => {
-        if (page == 1)
-        return Url.Action("AircraftPartial");
-        else
-        return Url.Action("AircraftPartial", new { page });
-        }, new PagedListRenderOptions {
-        DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
-        ContainerDivClasses = new[] { "pagination" },
-        LiElementClasses = new[] { "page-item" },
-        PageClasses = new[] { "page-link" },
-        })
+            @Html.Raw(pagination)
+        }
     </ul>
 </nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#deleteSelected').click(function () {
+            var selectedRows = $('input[name="selectedRows"]:checked');
+            var selectedIds = [];
+
+            selectedRows.each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                alert('Please select at least one row.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to delete the selected rows?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteAircraft", "Aircraft")',
+                    type: 'POST',
+                    data: { aircraftIds: selectedIds },
+                    success: function (result) {
+                        if (result.success) {
+                            selectedRows.closest('tr').remove();
+                        } else {
+                            alert('An error occurred while deleting the rows. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while deleting the rows. Please try again.');
+                    }
+                });
+            }
+        });
+
+        $('#deletedHistory').click(function () {
+            $.ajax({
+                url: '@Url.Action("DeletedHistoryAircraft", "Aircraft")',
+                type: 'GET',
+                success: function (result) {
+                    $('#partialViewContainer').html(result);
+                },
+                error: function () {
+                    alert('An error occurred while loading the deleted aircraft. Please try again.');
+                }
+            });
+        });
+    });
+</script>
