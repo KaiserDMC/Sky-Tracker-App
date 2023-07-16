@@ -8,8 +8,6 @@ public interface IAircraftService
 
     Task<AircraftDetailsViewModel> GetAircraftDetailsByIdAsync(string aircraftId);
 
-    Task<IEnumerable<FlightCollectionViewModel>> GetFlightsCollectionAsync();
-
     Task AddAircraftAsync(AircraftFormModel model);
 
     Task<AircraftFormModel> GetAircraftbyIdAsync(string aircraftId);

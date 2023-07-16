@@ -1,0 +1,75 @@
+﻿@model AirportFormModel
+
+@{
+    ViewBag.Title = "Edit an Airport";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="AddAirport" asp-route-aircraftId="@Model.IATA" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="@Model.ICAO" class="form-label-add-edit">ICAO Code</label>
+                <input asp-for="@Model.ICAO" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.ICAO" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.CommonName" class="form-label-add-edit">Airport Name</label>
+                <input asp-for="@Model.CommonName" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.CommonName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Elevation" class="form-label-add-edit">Elevation</label>
+                <input asp-for="@Model.Elevation" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.Elevation" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.LocationCity" class="form-label-add-edit">City</label>
+                <input asp-for="@Model.LocationCity" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.LocationCity" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.LocationCountry" class="form-label-add-edit">Country</label>
+                <input asp-for="@Model.LocationCountry" class="form-control" aria-required="false" />
+                <span asp-validation-for="@Model.LocationCountry" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Lat" class="form-label-add-edit">Geo Latitude</label>
+                <input asp-for="@Model.Lat" class="form-control" aria-required="false">
+                <span asp-validation-for="@Model.Lat" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Long" class="form-label-add-edit">Geo Longitude</label>
+                <input asp-for="@Model.Long" class="form-control" aria-required="false">
+                <span asp-validation-for="@Model.Long" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.RunwayId" class="form-label-add-edit">Airport Runway</label>
+                <select asp-for="@Model.RunwayId" class="form-control" aria-required="false">
+                    <option value="">Select available runway</option>
+                    @foreach (var runway in Model.Runways)
+                    {
+                        <option value="@runway.Id">@runway.RunwayDesignatorOne</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.RunwayId" class="text-danger"></span>
+            </div>
+            <<div class="col-md-4">
+                <div class="mb-3">
+                    <input class="form-control mb-2" type="file" name="file" id="file" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <input type="hidden" asp-for="@Model.IATA" />
+                <input class="btn btn-warning mb-2 w-100 p-3 fw-bold" type="submit" value="Edit Airport" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -49,19 +49,6 @@ public class AircraftService : IAircraftService
         return aircraftDetails;
     }
 
-    public async Task<IEnumerable<FlightCollectionViewModel>> GetFlightsCollectionAsync()
-    {
-        var flights = await _dbContext.Flights
-            .Where(f => f.IsDeleted == false)
-            .Select(f => new FlightCollectionViewModel
-            {
-                FlightId = f.FlightId
-            })
-            .ToListAsync();
-
-        return flights;
-    }
-
     public async Task AddAircraftAsync(AircraftFormModel model)
     {
         if (_dbContext.Aircraft.Where(a => a.Id == model.Id).Any())
@@ -114,6 +101,7 @@ public class AircraftService : IAircraftService
         {
             aircraftToUpdate.Registration = model.Registration;
             aircraftToUpdate.Equipment = model.Equipment;
+            aircraftToUpdate.ImagePathUrl = model.ImagePathUrl;
         }
 
         await _dbContext.SaveChangesAsync();

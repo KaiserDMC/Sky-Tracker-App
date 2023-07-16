@@ -38,8 +38,11 @@ public static class DataModelsValidationConstants
     {
         public const string CodeIATA = @"[A-Z]{3}$";
         public const string CodeICAO = @"[A-Z]{4}$";
-        public const string Name = @"[A-Z]+$";
+        public const string Name = @"[A-Za-z ]+$";
+        public const int NameLengthMax = 150;
         public const string Elev = @"[0-9]+ ft$";
+        public const int CityLengthMax = 150;
+        public const int CountryLengthMax = 150;
         public const string LatLongRegexPattern = @"^(-?\d+(\.\d+)?)$";
     }
 

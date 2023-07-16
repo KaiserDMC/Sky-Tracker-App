@@ -68,8 +68,7 @@ public class AdminService : IAdminService
                 CommonName = a.CommonName,
                 Elevation = a.Elevation,
                 LocationCity = a.LocationCity,
-                LocationCountry = a.LocationCountry,
-                ImageUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), a.ImagePathUrl)
+                LocationCountry = a.LocationCountry
             })
             .ToListAsync();
 

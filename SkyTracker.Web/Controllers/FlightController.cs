@@ -7,7 +7,6 @@ using ViewModels.Flight;
 using SkyTracker.Services.Data.Interfaces;
 
 using X.PagedList;
-using SkyTracker.Services.Data;
 
 [Authorize]
 public class FlightController : Controller

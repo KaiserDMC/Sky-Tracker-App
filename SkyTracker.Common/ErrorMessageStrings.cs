@@ -21,4 +21,16 @@ public static class ErrorMessageStrings
     {
         public const string DetailsLength = "Details must be between 10 and 1000 symbols.";
     }
+
+    public static class Airport
+    {
+        public const string IATALength = "IATA code comprises of 3 capital letters.";
+        public const string ICAOLength = "ICAO code comprises of 4 capital letters.";
+        public const string CommonNameLength = "Common name cannot be more than 150 symbols.";
+        public const string ElevRegex = "Elevation has to be in the following syntax: \"number ft\"";
+
+        public const string CityLength = "Common name cannot be more than 150 symbols.";
+        public const string CountryLength = "Common name cannot be more than 150 symbols.";
+
+    }
 }

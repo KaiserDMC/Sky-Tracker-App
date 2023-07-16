@@ -1,5 +1,38 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<AircraftAllViewModel>
+
+<button id="goBackToAircraft" class="btn btn-primary">Go Back to Aircraft</button>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Aircraft Id</th>
+            <th>A/C Registration</th>
+            <th>A/C Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle the click event of the "Go Back to Flights" button
+        $('#goBackToAircraft').click(function () {
+            // Load the normal "Flights" partial view
+            loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")');
+        });
+    });
+</script>
