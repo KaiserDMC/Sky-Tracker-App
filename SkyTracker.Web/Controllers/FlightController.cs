@@ -72,9 +72,11 @@ public class FlightController : Controller
     public async Task<IActionResult> AddFlight()
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
+        var aircraft = await _flightService.GetAircraftsCollectionAsync();
 
         FlightFormModel model = new FlightFormModel()
         {
+            AircraftList = aircraft,
             AirportListDeparture = airports,
             AirportListArrival = airports,
             AirportListActual = airports,
@@ -115,9 +117,11 @@ public class FlightController : Controller
     public async Task<IActionResult> EditFlight(string flightId)
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
+        var aircraft = await _flightService.GetAircraftsCollectionAsync();
 
         var flight = await _flightService.GetFlightbyIdAsync(flightId);
 
+        flight.AircraftList = aircraft;
         flight.AirportListDeparture = airports;
         flight.AirportListArrival = airports;
         flight.AirportListActual = airports;
@@ -131,9 +135,11 @@ public class FlightController : Controller
     public async Task<IActionResult> EditFlight(string flightId, FlightFormModel model)
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
+        var aircraft = await _flightService.GetAircraftsCollectionAsync();
 
         var flight = await _flightService.GetFlightbyIdAsync(flightId);
 
+        flight.AircraftList = aircraft;
         flight.AirportListDeparture = airports;
         flight.AirportListArrival = airports;
         flight.AirportListActual = airports;

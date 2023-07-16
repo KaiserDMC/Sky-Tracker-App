@@ -139,7 +139,7 @@ public class FlightService : IFlightService
         return flightDetails;
     }
 
-      public async Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync()
+    public async Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync()
     {
         var airports = await _dbContext.Airports
             .Where(a => a.IsDeleted == false)
@@ -153,9 +153,24 @@ public class FlightService : IFlightService
         return airports;
     }
 
+    public async Task<IEnumerable<AircraftCollectionViewModel>> GetAircraftsCollectionAsync()
+    {
+        var aircraft = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == false)
+            .Select(a => new AircraftCollectionViewModel()
+            {
+                Id = a.Id,
+                Registration = a.Registration,
+                Equipment = a.Equipment,
+            })
+            .ToListAsync();
+
+        return aircraft;
+    }
+
     public async Task AddFlightAsync(FlightFormModel model)
     {
-        if (_dbContext.Flights.Where(f => f.FlightId == model.FlightId).Any() )
+        if (_dbContext.Flights.Where(f => f.FlightId == model.FlightId).Any())
         {
             model.Error = "Flight already exists.";
             return;
@@ -174,7 +189,14 @@ public class FlightService : IFlightService
             Reserved = model.Reserved
         };
 
+        var flightAircraft = new FlightAircraft()
+        {
+            FlightId = flight.FlightId,
+            AircraftId = _dbContext.Aircraft.Where(a => a.Registration == model.Registration).Select(a => a.Id).FirstOrDefault()
+        };
+
         await _dbContext.Flights.AddAsync(flight);
+        await _dbContext.FlightsAircraft.AddAsync(flightAircraft);
         await _dbContext.SaveChangesAsync();
     }
 
@@ -210,6 +232,18 @@ public class FlightService : IFlightService
             .Where(f => f.IsDeleted == false)
             .FirstOrDefaultAsync(f => f.FlightId == flightId);
 
+        var currentAircraftFlight = await _dbContext.FlightsAircraft
+            .Where(f => f.Flight == flightToUpdate)
+            .FirstOrDefaultAsync();
+
+        _dbContext.FlightsAircraft.Remove(currentAircraftFlight);
+
+        var newAircraftFlight = new FlightAircraft()
+        {
+            FlightId = flightToUpdate.FlightId,
+            AircraftId = _dbContext.Aircraft.Where(a => a.Registration == model.Registration).Select(a => a.Id).FirstOrDefault()
+        };
+
         if (flightToUpdate != null)
         {
             flightToUpdate.Registration = model.Registration;
@@ -220,6 +254,7 @@ public class FlightService : IFlightService
             flightToUpdate.ScheduledArrival = model.ScheduledArrival;
             flightToUpdate.RealArrival = model.RealArrival;
             flightToUpdate.Reserved = model.Reserved;
+            flightToUpdate.FlightsAircraft.Add(newAircraftFlight);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -230,11 +265,18 @@ public class FlightService : IFlightService
         var flightsToDelete = await _dbContext.Flights
             .Where(f => f.IsDeleted == false)
             .Where(f => flightIds.Contains(f.FlightId))
+            .Include(f => f.FlightsAircraft)
             .ToListAsync();
 
         foreach (var flight in flightsToDelete)
         {
             flight.IsDeleted = true;
+
+            var currentAircraftFlight = await _dbContext.FlightsAircraft
+                .Where(f => f.Flight == flight)
+                .FirstOrDefaultAsync();
+
+            _dbContext.FlightsAircraft.Remove(currentAircraftFlight);
         }
 
         await _dbContext.SaveChangesAsync();

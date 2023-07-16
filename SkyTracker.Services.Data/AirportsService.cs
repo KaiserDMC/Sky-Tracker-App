@@ -120,6 +120,7 @@ public class AirportsService : IAirportsService
     {
         var airportById = await _dbContext.Airports
             .Where(a => a.IsDeleted == false)
+            .Include(r => r.RunwaysAirports)
             .FirstOrDefaultAsync(a => a.IATA == iata);
 
         if (airportById != null)
@@ -135,8 +136,7 @@ public class AirportsService : IAirportsService
                 Lat = airportById.Lat,
                 Long = airportById.Long,
                 ImagePathUrl = airportById.ImagePathUrl,
-                RunwayId = airportById.RunwaysAirports
-                    .Select(ra => ra.RunwayId.ToString())
+                RunwayId = airportById.RunwaysAirports.Select(ra => ra.RunwayId.ToString())
                     .FirstOrDefault()
             };
 
@@ -152,6 +152,23 @@ public class AirportsService : IAirportsService
             .Where(a => a.IsDeleted == false)
             .FirstOrDefaultAsync(a => a.IATA == iata);
 
+        var runway = await _dbContext.Runways
+            .Where(r => r.IsDeleted == false)
+            .FirstOrDefaultAsync(r => r.RunwayDesignatorOne == model.RunwayId);
+
+        var currentRunway = await _dbContext.RunwaysAirports
+            .FirstOrDefaultAsync(ra => ra.AirportId == airportToUpdate.IATA);
+
+        airportToUpdate.RunwaysAirports.Remove(currentRunway);
+
+        var airportRunway = new RunwayAirport()
+        {
+            AirportId = airportToUpdate.IATA,
+            Airport = airportToUpdate,
+            RunwayId = runway.Id,
+            Runway = runway
+        };
+
         if (airportToUpdate != null)
         {
             airportToUpdate.IATA = model.IATA;
@@ -163,9 +180,7 @@ public class AirportsService : IAirportsService
             airportToUpdate.Lat = model.Lat;
             airportToUpdate.Long = model.Long;
             airportToUpdate.ImagePathUrl = model.ImagePathUrl;
-            airportToUpdate.RunwaysAirports
-                .Select(ra => ra.RunwayId.ToString() == model.RunwayId)
-                .FirstOrDefault();
+            airportToUpdate.RunwaysAirports.Add(airportRunway);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -176,11 +191,18 @@ public class AirportsService : IAirportsService
         var airportsToDelete = await _dbContext.Airports
             .Where(a => a.IsDeleted == false)
             .Where(a => iataCodes.Contains(a.IATA))
+            .Include(ra => ra.RunwaysAirports)
             .ToListAsync();
 
+        
         foreach (var airport in airportsToDelete)
         {
             airport.IsDeleted = true;
+
+            var currentRunway = await _dbContext.RunwaysAirports
+                .FirstOrDefaultAsync(ra => ra.AirportId == airport.IATA);
+
+            airport.RunwaysAirports.Remove(currentRunway);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -221,9 +243,12 @@ public class AirportsService : IAirportsService
         var airportRunway = new RunwayAirport()
         {
             AirportId = airport.IATA,
-            RunwayId = runway.Id
+            Airport = airport,
+            RunwayId = runway.Id,
+            Runway = runway
         };
 
         await _dbContext.RunwaysAirports.AddAsync(airportRunway);
+        await _dbContext.SaveChangesAsync();
     }
 }

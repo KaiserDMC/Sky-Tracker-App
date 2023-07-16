@@ -19,6 +19,8 @@ public interface IFlightService
 
     Task<IEnumerable<AirportCollectionViewModel>> GetAirportsCollectionAsync();
 
+    Task<IEnumerable<AircraftCollectionViewModel>> GetAircraftsCollectionAsync();
+
     Task AddFlightAsync(FlightFormModel model);
 
     Task<FlightFormModel> GetFlightbyIdAsync(string flightId);

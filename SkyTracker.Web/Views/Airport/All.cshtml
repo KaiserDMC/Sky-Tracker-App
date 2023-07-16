@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-center" >@airport.CommonName</h5>
                     <p class="card-text">IATA Code: @airport.IATA, ICAO Code: @airport.ICAO</p>
-                    <a href="@Url.Action("GetDetailsAirport", "Airports", new { iata = airport.IATA })" class="btn btn-primary">Airport Details</a>
+                    <a href="@Url.Action("GetDetailsAirport", "Airport", new { iata = airport.IATA })" class="btn btn-primary">Airport Details</a>
                 </div>
             </div>
         </div>

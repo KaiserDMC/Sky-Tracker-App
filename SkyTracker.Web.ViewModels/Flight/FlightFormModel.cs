@@ -44,6 +44,8 @@ public class FlightFormModel
     public string? Reserved { get; set; }
 
     public string? Error { get; set; }
+    
+    public IEnumerable<AircraftCollectionViewModel> AircraftList { get; set; } = new List<AircraftCollectionViewModel>();
 
     public IEnumerable<AirportCollectionViewModel> AirportListDeparture { get; set; } = new List<AirportCollectionViewModel>();
     public IEnumerable<AirportCollectionViewModel>? AirportListArrival { get; set; } = new List<AirportCollectionViewModel>();

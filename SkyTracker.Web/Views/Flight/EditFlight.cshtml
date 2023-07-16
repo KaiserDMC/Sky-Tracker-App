@@ -7,18 +7,29 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
-
 <div class="row">
     <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
         <form asp-action="EditFlight" asp-route-flightId="@Model.FlightId" method="post">
             <div class="mb-3">
-                <label asp-for="@Model.Registration" class="form-label-add-edit">Registration</label>
-                <input asp-for="@Model.Registration" class="form-control" aria-required="false" />
+                <label asp-for="@Model.Registration" class="form-label-add-edit">A/C Registration</label>
+                <select asp-for="@Model.Registration" class="form-control" aria-required="true">
+                    <option value="">Select an aircraft</option>
+                    @foreach (var aircraft in Model.AircraftList)
+                    {
+                        <option value="@aircraft.Registration">@aircraft.Registration</option>
+                    }
+                </select>
                 <span asp-validation-for="@Model.Registration" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.Equipment" class="form-label-add-edit">A/C Type</label>
-                <input asp-for="@Model.Equipment" class="form-control" aria-required="false" />
+                <select asp-for="@Model.Equipment" class="form-control" aria-required="false">
+                    <option value="">Select type of aircraft</option>
+                    @foreach (var aircraft in Model.AircraftList)
+                    {
+                        <option value="@aircraft.Equipment">@aircraft.Equipment</option>
+                    }
+                </select>
                 <span asp-validation-for="@Model.Equipment" class="text-danger"></span>
             </div>
             <div class="mb-3">

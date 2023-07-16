@@ -8,9 +8,9 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Name</th>
             <th>IATA</th>
             <th>ICAO</th>
-            <th>Name</th>
             <th>Country</th>
         </tr>
     </thead>
@@ -32,7 +32,7 @@
 <script>
     $(document).ready(function () {
         // Handle the click event of the "Go Back to Flights" button
-        $('#goBackToFlights').click(function () {
+        $('#goBackToAirports').click(function () {
             // Load the normal "Flights" partial view
             loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")');
         });

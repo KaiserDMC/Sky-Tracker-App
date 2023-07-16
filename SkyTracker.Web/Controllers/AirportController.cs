@@ -130,14 +130,11 @@ public class AirportController : Controller
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> EditAirport(string iata)
     {
-        var airport = await _airportsService.GetAirportDetailsByIata(iata);
+        var airport = await _airportsService.GetAirportbyIataAsync(iata);
 
         var runways = await _airportsService.GetRunwaysCollectionAsync();
 
-        AirportFormModel model = new AirportFormModel
-        {
-            Runways = runways
-        };
+        airport.Runways = runways;
 
         BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(AirportImagesContainerName);
         BlobClient blob = blobAirport.GetBlobClient(airport.IATA.ToLower() + ".jpg");
@@ -147,10 +144,10 @@ public class AirportController : Controller
             string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, airport.IATA.ToLower() + ".jpg");
 
             await DownloadBlobToFileAsync(blob, localPath);
-            airport.ImageUrl = localPath;
+            airport.ImagePathUrl = localPath;
         }
 
-        return View(model);
+        return View(airport);
     }
 
     [HttpPost]
@@ -159,7 +156,7 @@ public class AirportController : Controller
     {
         var runways = await _airportsService.GetRunwaysCollectionAsync();
 
-        var airport = await _airportsService.GetAirportDetailsByIata(iata);
+        var airport = await _airportsService.GetAirportbyIataAsync(iata);
 
         model.Runways = runways;
 
