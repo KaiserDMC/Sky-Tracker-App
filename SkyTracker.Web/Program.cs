@@ -95,7 +95,6 @@ public class Program
         using (var scope = app.Services.CreateScope())
         {
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
 
             // Assign role to user if they don't have one
             var user = userManager.FindByEmailAsync("user@test.bg").GetAwaiter().GetResult();

@@ -1,26 +1,32 @@
-﻿using SkyTracker.Common;
-using SkyTracker.Data.Models;
+﻿namespace SkyTracker.Services.Data;
 
-namespace SkyTracker.Services.Data;
-
-using Microsoft.EntityFrameworkCore;
 using System.Globalization;
+
+using Interfaces;
+
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+using SkyTracker.Data;
+using SkyTracker.Data.Models;
 
 using Web.ViewModels.Aircraft;
 using Web.ViewModels.Airports;
+using Web.ViewModels.Flight;
 using Web.ViewModels.Herald;
 using Web.ViewModels.User;
-using Web.ViewModels.Flight;
-using Interfaces;
-using SkyTracker.Data;
+
+using static SkyTracker.Common.UserRoleNames;
 
 public class AdminService : IAdminService
 {
     private readonly SkyTrackerDbContext _dbContext;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public AdminService(SkyTrackerDbContext dbContext)
+    public AdminService(SkyTrackerDbContext dbContext, UserManager<ApplicationUser> userManager)
     {
         _dbContext = dbContext;
+        _userManager = userManager;
     }
 
     public async Task<IEnumerable<FlightAllViewModel>> GetFlightsAsync()
@@ -97,15 +103,29 @@ public class AdminService : IAdminService
         var users = await _dbContext.Users
             .Where(u => u.IsDeleted == false)
             .OrderBy(u => u.UserName)
-            .Select(u => new UserViewModel()
-            {
-                Id = u.Id,
-                Username = u.UserName,
-                Email = u.Email,
-                PhoneNumber = u.PhoneNumber,
-            })
             .ToListAsync();
 
-        return users;
+        var nonAdminUsersViewModels = new List<UserViewModel>();
+
+        foreach (var user in users)
+        {
+            if (!await IsUserInRoleAsync(user, AdminRole))
+            {
+                nonAdminUsersViewModels.Add(new UserViewModel()
+                {
+                    Id = user.Id,
+                    Username = user.UserName,
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber
+                });
+            }
+        }
+
+        return nonAdminUsersViewModels;
+    }
+
+    private async Task<bool> IsUserInRoleAsync(ApplicationUser user, string role)
+    {
+        return await _userManager.IsInRoleAsync(user, role);
     }
 }
