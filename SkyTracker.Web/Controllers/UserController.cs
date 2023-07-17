@@ -1,13 +1,15 @@
 ﻿namespace SkyTracker.Web.Controllers;
 
-using Microsoft.AspNetCore.Authorization;
+using System.Threading;
+
+using Data.Models;
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading;
 
 using ViewModels.User;
-using Data.Models;
+
 using static Common.UserRoleNames;
 
 public class UserController : Controller
@@ -148,22 +150,5 @@ public class UserController : Controller
         await _signInManager.SignOutAsync();
 
         return RedirectToAction(nameof(HomeController.Index), "Home");
-    }
-
-    [HttpPost]
-    [Authorize(Roles = "Admin")]
-    public async Task<IActionResult> Promote(string[] userIds)
-    {
-        foreach (var userId in userIds)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user != null)
-            {
-                await _userManager.AddToRoleAsync(user, AdminRole);
-            }
-        }
-
-        return RedirectToAction("Index", "Admin");
     }
 }

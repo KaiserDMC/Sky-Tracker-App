@@ -1,0 +1,110 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+@model X.PagedList.IPagedList<UserViewModel>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<p>
+    <button id="goBackToUsersList" class="btn btn-primary">Back to Users</button>
+    <button id="demoteSelected" class="btn btn-danger">Demote Selected</button>
+</p>
+
+<div id="adminListContainer">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Phonenumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+                <tr id="row-@item.Id">
+                    <td><input type="checkbox" name="selectedUsers" value="@item.Id" /></td>
+                    <td>@item.Username</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+
+        @Html.PagedListPager(Model, page => {
+        if (page == 1)
+        return Url.Action("AdminsListPartial");
+        else
+        return Url.Action("AdminsListPartial", new { page });
+        }, new PagedListRenderOptions {
+        DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+        ContainerDivClasses = new[] { "pagination" },
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-link" },
+        })
+    </ul>
+</nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    function loadPartialViewOnClick(url) {
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (result) {
+                $('#partialViewContainer').html(result);
+
+                // Reapply necessary JavaScript and CSS initialization here if needed
+            },
+            error: function (xhr, status, error) {
+                // Handle error if necessary
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('#demoteSelected').click(function () {
+            var selectedUsers = $('input[name="selectedUsers"]:checked');
+            var selectedIds = [];
+
+            selectedUsers.each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                alert('Please select at least one user.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to demote the selected users?')) {
+                $.ajax({
+                    url: '@Url.Action("Demote", "UserManagement")',
+                    type: 'POST',
+                    data: { userIds: selectedIds },
+                    success: function (result) {
+                        if (result.success) {
+                            selectedUsers.closest('tr').remove();
+                        } else {
+                            alert('An error occurred while demoting the users. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while demoting the users. Please try again.');
+                    }
+                });
+            }
+        });
+
+        $('#goBackToUsersList').click(function () {
+            // Load the normal "Admins" partial view
+            loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")');
+        });
+    });
+</script>

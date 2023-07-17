@@ -14,9 +14,6 @@ using Web.ViewModels.Aircraft;
 using Web.ViewModels.Airports;
 using Web.ViewModels.Flight;
 using Web.ViewModels.Herald;
-using Web.ViewModels.User;
-
-using static SkyTracker.Common.UserRoleNames;
 
 public class AdminService : IAdminService
 {
@@ -96,36 +93,5 @@ public class AdminService : IAdminService
             .ToListAsync();
 
         return heralds;
-    }
-
-    public async Task<IEnumerable<UserViewModel>> GetUsersAsync()
-    {
-        var users = await _dbContext.Users
-            .Where(u => u.IsDeleted == false)
-            .OrderBy(u => u.UserName)
-            .ToListAsync();
-
-        var nonAdminUsersViewModels = new List<UserViewModel>();
-
-        foreach (var user in users)
-        {
-            if (!await IsUserInRoleAsync(user, AdminRole))
-            {
-                nonAdminUsersViewModels.Add(new UserViewModel()
-                {
-                    Id = user.Id,
-                    Username = user.UserName,
-                    Email = user.Email,
-                    PhoneNumber = user.PhoneNumber
-                });
-            }
-        }
-
-        return nonAdminUsersViewModels;
-    }
-
-    private async Task<bool> IsUserInRoleAsync(ApplicationUser user, string role)
-    {
-        return await _userManager.IsInRoleAsync(user, role);
     }
 }

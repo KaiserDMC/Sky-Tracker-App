@@ -57,6 +57,7 @@ public class Program
         builder.Services.AddScoped<IAirportsService, AirportsService>();
         builder.Services.AddScoped<IFlightService, FlightService>();
         builder.Services.AddScoped<IAdminService, AdminService>();
+        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),

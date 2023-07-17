@@ -15,6 +15,4 @@ public interface IAdminService
     Task<IEnumerable<AirportsAllViewModel>> GetAirportsAsync();
 
     Task<IEnumerable<HeraldAllViewModel>> GetHeraldsAsync();
-
-    Task<IEnumerable<UserViewModel>> GetUsersAsync();
 }

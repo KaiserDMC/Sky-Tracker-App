@@ -1,14 +1,13 @@
 ﻿namespace SkyTracker.Web.Controllers;
 
-
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-using ViewModels.Flight;
 using SkyTracker.Services.Data.Interfaces;
-using static Common.GeneralApplicationContants;
 
 using X.PagedList;
+
+using static Common.GeneralApplicationContants;
 
 [Authorize(Roles = "Admin")]
 public class AdminController : Controller
@@ -76,18 +75,5 @@ public class AdminController : Controller
         var pagedData = heralds.ToPagedList(pageNumber, pageSize);
 
         return PartialView("_HeraldsPartial", pagedData);
-    }
-
-    public async Task<IActionResult> UsersPartial(int? page)
-    {
-        var users = await _adminService.GetUsersAsync();
-
-        int pageSize = DefaultAdminListEntitiesPerPage;
-
-        int pageNumber = (page ?? 1);
-
-        var pagedData = users.ToPagedList(pageNumber, pageSize);
-
-        return PartialView("_UsersPartial", pagedData);
     }
 }
