@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Airport\" />
     <Folder Include="Herald\Enums\" />
+    <Folder Include="Radar\" />
     <Folder Include="User\" />
   </ItemGroup>
 

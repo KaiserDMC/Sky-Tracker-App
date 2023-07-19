@@ -1,11 +1,171 @@
-﻿@{
+﻿@model FlightAndAirportData
+
+@{
     ViewBag.title = "Flight Radar";
 }
 
 <h3 class="text-center">@ViewBag.Title</h3>
 <hr />
 
-<iframe width="100%"
-        height="700"
-        src="~/html/index.html" title="map">
-</iframe>
+<div style="display: flex">
+    <div style="width: 20%">
+        @Html.Partial("_FlightTablePartial", Model.Flights)
+    </div>
+
+    <div style="width: 80%">
+        <div id="map" style="height: 700px;"></div>
+    </div>
+</div>
+
+
+<script>
+    // Convert the Razor model to a JavaScript variable.
+    var airportLocations = @Html.Raw(Json.Serialize(Model.Airports));
+    var map;
+    var displayedFlightPath = null;
+
+    function initMap() {
+
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 23.825716288660082, lng: -89.12079528143671 },
+            zoom: 2,
+            mapId: "e7851d2154fc3e57"
+        });
+
+        // Set LatLng and title text for the markers. The first marker (Gulf of Mexico)
+        // receives the initial focus when tab is pressed. Use arrow keys to
+        // move between markers; press tab again to cycle through the map controls.
+        //const infoWindow = new google.maps.InfoWindow();
+
+        // Create the markers using the tourStops data.
+        airportLocations.forEach((airport, i) => {
+            const position = { lat: parseFloat(airport.latitude), lng: parseFloat(airport.longitude) };
+            const marker = new google.maps.Marker({
+                position,
+                map,
+                label: {
+                    text: airport.iata + '/' + airport.icao,
+                    color: "#ffffff",
+                    fontSize: "11px",
+                    fontWeight: "bold"
+                },
+                optimized: false,
+            });
+
+            const contentString = `
+                                    <div>
+                                        <strong>Airport:</strong> ${airport.name} <br>
+                                        <strong>Lat/Long:</strong> ${airport.latitude}, ${airport.longitude}
+                                    </div>
+                                `;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+
+            // Add a click listener for each marker, and set up the info window.
+            marker.addListener("click", () => {
+                infoWindow.close();
+                infoWindow.open(marker.getMap(), marker);
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const tableRows = document.querySelectorAll("tr[data-flight-id]");
+
+        tableRows.forEach((row) => {
+            row.addEventListener("click", async (event) => {
+                const flightId = event.currentTarget.dataset.flightId;
+                try {
+                    const flightData = await loadFlightData(flightId);
+                    // Toggle the flight path display
+                    toggleFlightPath(flightData);
+                } catch (error) {
+                    console.error("Error loading flight data:", error);
+                }
+            });
+        });
+    });
+
+    async function loadFlightData(flightId) {
+        try {
+            const response = await fetch(`/html/flight-path/${flightId}.json`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch flight data.");
+            }
+            const flightData = await response.json();
+            return flightData;
+        } catch (error) {
+            console.error("Error fetching flight data:", error);
+            throw error;
+        }
+    }
+
+    function displayFlightPath(flightData) {
+        // Your code to display the flight path on the map (using a Polyline)
+
+        const flightPathLatLng = [];
+
+        if (!map || !(map instanceof google.maps.Map)) {
+            console.error("Invalid map instance. Please check if the map is initialized properly.");
+            return;
+        }
+
+        // Convert JSON data to LatLng objects and add to the array
+        flightData.forEach((coordinate) => {
+            const latLng = new google.maps.LatLng(coordinate.lat, coordinate.long);
+            flightPathLatLng.push(latLng);
+        });
+
+        // Create the flight path (Polyline) using the flightPathLatLng array
+        const flightPath = new google.maps.Polyline({
+            path: flightPathLatLng,
+            geodesic: true,
+            strokeColor: "#FF0000", // Red color for the flight path
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+        });
+
+        // Add the flight path to the map
+        flightPath.setMap(map);
+    }
+
+    function toggleFlightPath(flightData) {
+        
+        // If the flight path is currently displayed, remove it from the map
+        if (displayedFlightPath) {
+            displayedFlightPath.setMap(null);
+            displayedFlightPath = null;
+
+            // Reset to default map view
+            map.setCenter({ lat: 23.825716288660082, lng: -89.12079528143671 });
+            map.setZoom(2);
+        } else {
+            // If the flight path is not displayed, create and display it
+            const flightPathLatLng = [];
+            flightData.forEach((coordinate) => {
+                const latLng = new google.maps.LatLng(coordinate.lat, coordinate.long);
+                flightPathLatLng.push(latLng);
+            });
+
+            displayedFlightPath = new google.maps.Polyline({
+                path: flightPathLatLng,
+                geodesic: true,
+                strokeColor: "#FF0000", // Red color for the flight path
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+                map: map, // Add the Polyline to the map
+            });
+
+            // Zoom the map to fit the flight path
+            const bounds = new google.maps.LatLngBounds();
+            flightPathLatLng.forEach((latLng) => {
+                bounds.extend(latLng);
+            });
+            map.fitBounds(bounds);
+        }
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9BfxZGM4X0KnGyXmRymrrs8eocXLUK0&callback=initMap" async defer></script>

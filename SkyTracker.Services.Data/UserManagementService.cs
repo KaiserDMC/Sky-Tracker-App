@@ -64,13 +64,13 @@ public class UserManagementService : IUserManagementService
             .OrderBy(u => u.UserName)
             .ToListAsync();
 
-        var AdminUsersViewModels = new List<UserViewModel>();
+        var adminUsersViewModels = new List<UserViewModel>();
 
         foreach (var user in users)
         {
             if (await IsUserInRoleAsync(user, AdminRole))
             {
-                AdminUsersViewModels.Add(new UserViewModel()
+                adminUsersViewModels.Add(new UserViewModel()
                 {
                     Id = user.Id,
                     Username = user.UserName,
@@ -80,7 +80,7 @@ public class UserManagementService : IUserManagementService
             }
         }
 
-        return AdminUsersViewModels;
+        return adminUsersViewModels;
     }
 
     public async Task<IEnumerable<UserViewModel>> GetLockedUsersAsync()

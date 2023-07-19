@@ -38,24 +38,26 @@ public class Program
 
         builder.Services.AddCors(options =>
         {
-            options.AddDefaultPolicy(builder =>
+            options.AddDefaultPolicy(corsPolicyBuilder =>
             {
-                builder
-                    .AllowAnyMethod()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin();
+                corsPolicyBuilder
+                    .WithMethods("GET", "POST", "PUT", "DELETE")
+                    .WithOrigins("https://maps.googleapis.com", "https://skytrackerwebstorage.blob.core.windows.net")
+                    .AllowAnyHeader();
             });
         });
 
         builder.Services.ConfigureApplicationCookie(options =>
         {
             options.LoginPath = "/User/Login";
+            options.LogoutPath = "/User/Logout";
         });
 
         builder.Services.AddScoped<IHeraldService, HeraldService>();
         builder.Services.AddScoped<IAircraftService, AircraftService>();
         builder.Services.AddScoped<IAirportsService, AirportsService>();
         builder.Services.AddScoped<IFlightService, FlightService>();
+        builder.Services.AddScoped<IRadarService, RadarService>();
         builder.Services.AddScoped<IAdminService, AdminService>();
         builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 

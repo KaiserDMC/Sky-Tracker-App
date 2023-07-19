@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FlightViewModel>
+
+<table class="table table-bordered table-striped table-hover">
+    <caption>Flight Information</caption>
+    <thead class="thead-dark">
+        <tr>
+            <th>Flight ID</th>
+            <th>A/C Type</th>
+            <th>Departure</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in Model)
+        {
+            <tr data-flight-id="@flight.FlightId">
+                <td>@flight.FlightId</td>
+                <td>@flight.Equipment</td>
+                <td>@flight.DepartureAirport</td>
+            </tr>
+        }
+    </tbody>
+</table>
