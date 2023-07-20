@@ -43,8 +43,8 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li> 
-                        
+                        </li>
+
                         @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                         {
                             <li class="nav-item">
@@ -65,6 +65,20 @@
         </main>
     </div>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffCanvas" aria-labelledby="settingsOffCanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="settingsOffCanvasLabel">Account Settings</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="AccountManagement" asp-action="EmailChange">Change Email</a></p>
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="AccountManagement" asp-action="PasswordChange">Change Password</a></p>
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="AccountManagement" asp-action="PhoneNumberChange">Change Phone</a></p>
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="AccountManagement" asp-action="DownloadPersonalData">Download Personal Data</a></p>
+            <p><a class="nav-link text-dark" asp-area="" asp-controller="AccountManagement" asp-action="DeletePersonalData">Delete Personal Data</a></p>
+        </div>
+    </div>
+
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; @DateTime.Now.Year - Sky Tracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -74,5 +88,19 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        // Get the profile trigger container element
+        const profileTriggerContainer = document.getElementById('profileTriggerContainer');
+
+        // Get the off-canvas element
+        const offCanvasElement = new bootstrap.Offcanvas(document.getElementById('settingsOffCanvas'));
+
+        // Add an event listener to the profile trigger container
+        profileTriggerContainer.addEventListener('click', () => {
+            offCanvasElement.show();
+        });
+    </script>
 </body>
 </html>
+

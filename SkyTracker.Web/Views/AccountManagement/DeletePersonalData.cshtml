@@ -1,0 +1,21 @@
+﻿@model DeletePersonalDataModel
+
+@{
+    ViewBag.Title = "Delete Personal Data";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>
+    This action will permanently delete all your personal data and terminate your account.
+    To proceed with the deletion, type '<strong>DELETE</strong>' in the box below:
+</p>
+
+<form asp-action="DeletePersonalData" method="post">
+    <div class="form-group">
+        <label asp-for="Confirmation"></label>
+        <input asp-for="Confirmation" class="form-control" />
+        <span asp-validation-for="Confirmation" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete My Data</button>
+</form>

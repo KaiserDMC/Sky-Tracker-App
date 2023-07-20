@@ -14,4 +14,7 @@ public static class GeneralApplicationContants
 
     public const string StockImagesContainerName = "stock-images";
     public static readonly string StockImagesBlobRelativePath = Path.Combine("azure", "blob-stock");
+
+    public const string ProfileImagesContainerName = "profile-images";
+    public static readonly string ProfileImagesBlobRelativePath = Path.Combine("azure", "blob-profile");
 }

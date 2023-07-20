@@ -1,0 +1,39 @@
+﻿@model PhoneNumberChangeModel
+
+@{
+    ViewBag.Title = "Add or Change your phone number";
+}
+
+<h1>@ViewBag.Title</h1>
+
+
+@if (Model.CurrentPhoneNumber != null)
+{
+    <div>
+        <p>Your current phone number: @Model.CurrentPhoneNumber</p>
+        <hr />
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PhoneNumberChange">
+            @if (Model.CurrentPhoneNumber != null)
+            {
+                <div class="form-floating">
+                    <input asp-for="NewPhoneNumber" class="form-control" autocomplete="off" />
+                    <label asp-for="NewPhoneNumber">New Phone Number</label>
+                </div>
+            }
+            else
+            {
+                <div class="form-floating">
+                    <input asp-for="NewPhoneNumber" class="form-control" autocomplete="off" />
+                    <label asp-for="NewPhoneNumber">Phone Number</label>
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary mt-2">Save Changes</button>
+        </form>
+    </div>
+</div>

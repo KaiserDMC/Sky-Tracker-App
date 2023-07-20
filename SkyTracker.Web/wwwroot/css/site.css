@@ -21,3 +21,29 @@ body {
 .container {
   color: black;
 }
+
+/* Off-Canvas styling */
+.offcanvas-header {
+    background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
+}
+
+.offcanvas-body {
+    background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
+}
+
+/* Off-Canvas button alignment */
+#profileTriggerContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+    #profileTriggerContainer img {
+        margin-right: 5px;
+    }
+
+    #profileTriggerContainer:hover {
+        outline: 2px solid rgba(15, 30, 198, 0.35);
+        border-radius: 7px;
+    }

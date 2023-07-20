@@ -8,7 +8,11 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        @* <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-page="/Account/Manage/Index" title="Manage">Welcome, @User.Identity?.Name!</a>*@
+        <div id="profileTriggerContainer">
+            <img src="@UserManager.GetUserAsync(User).Result.ProfilePictureUrl" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
+            @User.Identity?.Name
+        </div>
+
         <li class="nav-item">
             <form class="form-inline" asp-controller="User" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
@@ -25,3 +29,5 @@
         </li>
     }
 </ul>
+
+

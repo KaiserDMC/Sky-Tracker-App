@@ -39,6 +39,7 @@
     <Folder Include="wwwroot\azure\blob-aircraft\" />
     <Folder Include="wwwroot\azure\blob-airports\" />
     <Folder Include="wwwroot\azure\blob-stock\" />
+    <Folder Include="wwwroot\azure\blob-profile\" />
     <Folder Include="wwwroot\temp\" />
   </ItemGroup>
 
