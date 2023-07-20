@@ -7,15 +7,23 @@ using ViewModels.Flight;
 using SkyTracker.Services.Data.Interfaces;
 
 using X.PagedList;
+using Azure.Storage.Blobs;
+using static Common.GeneralApplicationContants;
+using static Configuration.DownloadBlob;
+using static Configuration.UploadBlob;
 
 [Authorize]
 public class FlightController : Controller
 {
     private readonly IFlightService _flightService;
+    private readonly BlobServiceClient _blobServiceClient;
+    private readonly IWebHostEnvironment _hostingEnvironment;
 
-    public FlightController(IFlightService flightService)
+    public FlightController(IFlightService flightService, BlobServiceClient blobServiceClient, IWebHostEnvironment hostingEnvironment)
     {
         _flightService = flightService;
+        _blobServiceClient = blobServiceClient;
+        _hostingEnvironment = hostingEnvironment;
     }
 
     public async Task<IActionResult> All(string sortType, int? page, int? pageSize)
@@ -63,6 +71,29 @@ public class FlightController : Controller
     public async Task<IActionResult> GetDetailsFlight(string flightId)
     {
         var flight = await _flightService.GetFlightDetailsByIdAsync(flightId);
+
+        BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(AircraftImagesContainerName);
+
+        BlobClient blob = blobAircraft.GetBlobClient(flight.Aircraft.Registration?.ToLower() + ".jpg");
+
+        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, flight.Aircraft.Registration?.ToLower() + ".jpg");
+
+        if (await blob.ExistsAsync())
+        {
+            await DownloadBlobToFileAsync(blob, localPath);
+
+            flight.Aircraft.ImagePathUrl = Path.Combine(AircraftImagesBlobRelativePath, flight.Aircraft.Registration?.ToLower() + ".jpg");
+        }
+        else
+        {
+            blobAircraft = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
+            blob = blobAircraft.GetBlobClient("stock-aircraft-img" + ".png");
+            localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
+
+            await DownloadBlobToFileAsync(blob, localPath);
+
+            flight.Aircraft.ImagePathUrl = Path.Combine(StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
+        }
 
         return View(flight);
     }

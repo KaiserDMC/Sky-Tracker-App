@@ -6,5 +6,5 @@ public class FlightAircraftDetails
     public string? Registration { get; set; }
     public string? Equipment { get; set; }
 
-    public string ImagePathUrl { get; set; } = null!;
+    public string? ImagePathUrl { get; set; }
 }

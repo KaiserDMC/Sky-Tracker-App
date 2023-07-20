@@ -131,7 +131,8 @@ public class FlightService : IFlightService
                     .Select(x => new FlightAircraftDetails()
                     {
                         Id = x.Id,
-                        ImagePathUrl = Path.GetRelativePath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot"), x.ImagePathUrl)
+                        Registration = x.Registration,
+                        ImagePathUrl = x.ImagePathUrl
                     })
                 .FirstOrDefault()
         };
