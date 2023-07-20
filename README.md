@@ -5,9 +5,13 @@
 [![GitHub issues](https://img.shields.io/github/issues/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/issues)
 [![GitHub forks](https://img.shields.io/github/forks/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/network)
 
-![Sky Tracker App Banner](./SkyTracker.Web/wwwroot/favicon.ico)
+<p align="center">
+  <img src="./SkyTracker.Web/wwwroot/favicon.ico" alt="Sky Tracker App Banner">
+</p>
+
 
 Sky Tracker App is a comprehensive flight, aircraft and airport tracking application that allows users to monitor flights, view aircraft details, and explore aviation data, i.e. incident reports, airport information and many more.  
+
 Whether you're an aviation enthusiast, a frequent traveler, or just curious about air traffic, Sky Tracker App provides you with a visually appealing and user-friendly interface to access a wealth of flight-related information.
 
 ## Features
@@ -22,7 +26,14 @@ Whether you're an aviation enthusiast, a frequent traveler, or just curious abou
 
 ## Supporting Apps
 
-Check out our [Sky-Tracker-SupportingApps](https://github.com/KaiserDMC/Sky-Tracker-SupportingApps) repository, which contains a collection of console applications for data generation/simulation.
+<p align="center">
+  <a href="https://github.com/KaiserDMC/Sky-Tracker-SupportingApps" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 4px;">
+    Check out our Sky-Tracker-SupportingApps repository
+  </a>
+</p>
+
+The Sky-Tracker-SupportingApps repository contains a collection of console applications for data generation, simulation, and more.  
+
 These apps complement the main Sky Tracker App and were used for converting the massive data into readable json files.
 
 ## Contributing
