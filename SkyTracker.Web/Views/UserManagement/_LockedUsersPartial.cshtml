@@ -39,9 +39,9 @@
 
         @Html.PagedListPager(Model, page => {
         if (page == 1)
-        return Url.Action("AdminsListPartial");
+        return Url.Action("ModeratorListPartial");
         else
-        return Url.Action("AdminsListPartial", new { page });
+        return Url.Action("ModeratorListPartial", new { page });
         }, new PagedListRenderOptions {
         DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
         ContainerDivClasses = new[] { "pagination" },

@@ -38,9 +38,9 @@ public class UserManagementController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> AdminsListPartial(int? page)
+    public async Task<IActionResult> ModeratorListPartial(int? page)
     {
-        var users = await _userManagementService.GetAdminUsersAsync(HttpContext);
+        var users = await _userManagementService.GetModeratorUsersAsync();
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
@@ -48,7 +48,7 @@ public class UserManagementController : Controller
 
         var pagedData = users.ToPagedList(pageNumber, pageSize);
 
-        return PartialView("_AdminsListPartial", pagedData);
+        return PartialView("_ModeratorListPartial", pagedData);
     }
 
     [HttpPost]
@@ -60,7 +60,7 @@ public class UserManagementController : Controller
 
             if (user != null)
             {
-                await _userManager.AddToRoleAsync(user, AdminRole);
+                await _userManager.AddToRoleAsync(user, ModeratorRole);
             }
         }
 
@@ -76,7 +76,7 @@ public class UserManagementController : Controller
 
             if (user != null)
             {
-                await _userManager.RemoveFromRoleAsync(user, AdminRole);
+                await _userManager.RemoveFromRoleAsync(user, ModeratorRole);
             }
         }
 

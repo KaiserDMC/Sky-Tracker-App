@@ -68,7 +68,7 @@ public class FlightController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddFlight()
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
@@ -87,7 +87,7 @@ public class FlightController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddFlight(FlightFormModel model)
     {
         if (!ModelState.IsValid)
@@ -113,7 +113,7 @@ public class FlightController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditFlight(string flightId)
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
@@ -131,7 +131,7 @@ public class FlightController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditFlight(string flightId, FlightFormModel model)
     {
         var airports = await _flightService.GetAirportsCollectionAsync();
@@ -177,7 +177,7 @@ public class FlightController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeleteFlight(string[] flightIds)
     {
         try
@@ -192,7 +192,7 @@ public class FlightController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeletedHistoryFlights()
     {
         IEnumerable<FlightAllViewModel> deletedFlights;

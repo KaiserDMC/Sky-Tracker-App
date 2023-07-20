@@ -4,6 +4,7 @@ using System.Threading;
 
 using Data.Models;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using ViewModels.User;
 
 using static Common.UserRoleNames;
 
+[AllowAnonymous]
 public class UserController : Controller
 {
     private readonly SignInManager<ApplicationUser> _signInManager;

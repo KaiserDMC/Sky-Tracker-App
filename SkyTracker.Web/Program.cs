@@ -93,19 +93,11 @@ public class Program
         app.UseAuthorization();
 
 
-        // Add Admin role to admin@test.bg and User role to user@test.bg
+        // Add Admin role to admin@test.bg, Moderator role to moderator@test.bg and User role to user@test.bg
         // Default users that are created upon DB creation
         using (var scope = app.Services.CreateScope())
         {
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-            // Assign role to user if they don't have one
-            var user = userManager.FindByEmailAsync("user@test.bg").GetAwaiter().GetResult();
-            if (user != null && !userManager.IsInRoleAsync(user, UserRole).GetAwaiter().GetResult())
-            {
-                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(user);
-                userManager.AddToRoleAsync(user, UserRole).GetAwaiter().GetResult();
-            }
 
             // Assign role to admin if they don't have one
             var adminUser = userManager.FindByEmailAsync("admin@test.bg").GetAwaiter().GetResult();
@@ -113,6 +105,22 @@ public class Program
             {
                 var newSecurityStamp = await userManager.UpdateSecurityStampAsync(adminUser);
                 userManager.AddToRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult();
+            }
+
+            // Assign role to moderator if they don't have one
+            var moderatorUser = userManager.FindByEmailAsync("moderator@test.bg").GetAwaiter().GetResult();
+            if (moderatorUser != null && !userManager.IsInRoleAsync(moderatorUser, ModeratorRole).GetAwaiter().GetResult())
+            {
+                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(moderatorUser);
+                userManager.AddToRoleAsync(moderatorUser, ModeratorRole).GetAwaiter().GetResult();
+            }
+
+            // Assign role to user if they don't have one
+            var user = userManager.FindByEmailAsync("user@test.bg").GetAwaiter().GetResult();
+            if (user != null && !userManager.IsInRoleAsync(user, UserRole).GetAwaiter().GetResult())
+            {
+                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(user);
+                userManager.AddToRoleAsync(user, UserRole).GetAwaiter().GetResult();
             }
         }
 

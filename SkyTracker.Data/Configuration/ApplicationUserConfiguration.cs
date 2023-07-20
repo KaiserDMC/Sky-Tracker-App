@@ -12,6 +12,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<IdentityRol
     {
         builder.HasData(
             new IdentityRole<Guid> { Id = Guid.NewGuid(), Name = AdminRole, NormalizedName = AdminRole.ToUpper() },
+            new IdentityRole<Guid> { Id = Guid.NewGuid(), Name = ModeratorRole, NormalizedName = ModeratorRole.ToUpper() },
             new IdentityRole<Guid> { Id = Guid.NewGuid(), Name = UserRole, NormalizedName = UserRole.ToUpper() }
         );
     }

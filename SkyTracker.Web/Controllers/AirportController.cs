@@ -66,7 +66,7 @@ public class AirportController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddAirport()
     {
         var runways = await _airportsService.GetRunwaysCollectionAsync();
@@ -80,7 +80,7 @@ public class AirportController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddAirport(AirportFormModel model)
     {
         if (!ModelState.IsValid)
@@ -127,7 +127,7 @@ public class AirportController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditAirport(string iata)
     {
         var airport = await _airportsService.GetAirportbyIataAsync(iata);
@@ -151,7 +151,7 @@ public class AirportController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditAirport(string iata, AirportFormModel model)
     {
         var runways = await _airportsService.GetRunwaysCollectionAsync();
@@ -208,7 +208,7 @@ public class AirportController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeleteAirport(string[] iataCodes)
     {
         try
@@ -223,7 +223,7 @@ public class AirportController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeletedHistoryAirports()
     {
         IEnumerable<AirportsAllViewModel> deletedAirports;

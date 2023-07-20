@@ -9,7 +9,7 @@ using X.PagedList;
 
 using static Common.GeneralApplicationContants;
 
-[Authorize(Roles = "Admin")]
+[Authorize(Roles = "Admin, Moderator")]
 public class AdminController : Controller
 {
     private readonly IAdminService _adminService;

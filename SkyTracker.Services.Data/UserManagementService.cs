@@ -39,7 +39,7 @@ public class UserManagementService : IUserManagementService
 
         foreach (var user in users)
         {
-            if (!await IsUserInRoleAsync(user, AdminRole))
+            if (!await IsUserInRoleAsync(user, AdminRole) && !await IsUserInRoleAsync(user, ModeratorRole))
             {
                 nonAdminUsersViewModels.Add(new UserViewModel()
                 {
@@ -54,13 +54,10 @@ public class UserManagementService : IUserManagementService
         return nonAdminUsersViewModels;
     }
 
-    public async Task<IEnumerable<UserViewModel>> GetAdminUsersAsync(HttpContext httpContext)
+    public async Task<IEnumerable<UserViewModel>> GetModeratorUsersAsync()
     {
-        var currentUserId = httpContext.User.GetId();
-
         var users = await _dbContext.Users
             .Where(u => u.IsDeleted == false)
-            .Where(u => u.Id.ToString() != currentUserId)
             .OrderBy(u => u.UserName)
             .ToListAsync();
 
@@ -68,7 +65,7 @@ public class UserManagementService : IUserManagementService
 
         foreach (var user in users)
         {
-            if (await IsUserInRoleAsync(user, AdminRole))
+            if (await IsUserInRoleAsync(user, ModeratorRole))
             {
                 adminUsersViewModels.Add(new UserViewModel()
                 {

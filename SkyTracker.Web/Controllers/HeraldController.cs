@@ -70,7 +70,7 @@ public class HeraldController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddHerald()
     {
         var types = await _heraldService.GetHeraldTypeAsync();
@@ -84,7 +84,7 @@ public class HeraldController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddHerald(HeraldFormModel model)
     {
         if (!ModelState.IsValid)
@@ -118,7 +118,7 @@ public class HeraldController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditHerald(string heraldId)
     {
         var heraldTypes = await _heraldService.GetHeraldTypeAsync();
@@ -131,7 +131,7 @@ public class HeraldController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditHerald(string heraldId, HeraldFormModel model)
     {
         var heraldTypes = await _heraldService.GetHeraldTypeAsync();
@@ -162,7 +162,7 @@ public class HeraldController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeleteHerald(string[] heraldIds)
     {
         try
@@ -177,7 +177,7 @@ public class HeraldController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeletedHistoryHeralds()
     {
         IEnumerable<HeraldAllViewModel> deletedHeralds;

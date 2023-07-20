@@ -5,16 +5,18 @@
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-primary" style="text-decoration:none">Administrative Options</button>
+                <button type="button" class="list-group-item list-group-item-primary" style="text-decoration:none">Moderation Actions</button>
                 <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin" )')">Flight Management</button>
                 <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")')">Aircraft Management</button>
                 <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")')">Airport Management</button>
                 <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")')">Herald Management</button>
-                <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")')">User Management</button>
+                @if (User.IsInRole("Admin"))
+                {
+                    <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")')">User Management</button>
+                }
             </div>
         </div>
         <div id="partialViewContainer" class="col-md-9">
-
         </div>
     </div>
 </div>

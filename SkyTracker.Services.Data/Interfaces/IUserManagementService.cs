@@ -8,7 +8,7 @@ public interface IUserManagementService
 {
     Task<IEnumerable<UserViewModel>> GetCommonUsersAsync();
 
-    Task<IEnumerable<UserViewModel>> GetAdminUsersAsync(HttpContext httpContext);
+    Task<IEnumerable<UserViewModel>> GetModeratorUsersAsync();
 
     Task<IEnumerable<UserViewModel>> GetLockedUsersAsync();
 }

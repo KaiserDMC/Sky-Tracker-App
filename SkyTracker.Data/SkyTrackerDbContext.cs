@@ -88,6 +88,21 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
         builder.Entity<ApplicationUser>().HasData(adminUser);
 
+        
+        var moderatorUser = new ApplicationUser()
+        {
+            Id = Guid.NewGuid(),
+            UserName = "moderator",
+            NormalizedUserName = "MODERATOR",
+            Email = "moderator@test.bg",
+            NormalizedEmail = "MODERATOR@TEST.BG"
+        };
+
+        var passwordHasherModerator = new PasswordHasher<ApplicationUser>();
+        moderatorUser.PasswordHash = passwordHasherModerator.HashPassword(moderatorUser, "moderator");
+
+        builder.Entity<ApplicationUser>().HasData(moderatorUser);
+
         var regularUser = new ApplicationUser()
         {
             Id = Guid.NewGuid(),

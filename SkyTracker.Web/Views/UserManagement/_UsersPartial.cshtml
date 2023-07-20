@@ -5,8 +5,8 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
-    <button id="promoteSelected" class="btn btn-primary">Promote to Admin</button>
-    <button id="goToAdminsList" class="btn btn-light">List of Current Admins</button>
+    <button id="promoteSelected" class="btn btn-primary">Promote to Moderator</button>
+    <button id="goToModeratorList" class="btn btn-light">List of Current Moderators</button>
     <button id="lockOutSelected" class="btn btn-warning">Lockout Selected</button>
     <button id="goToLockedOutList" class="btn btn-light">List of Locked Users</button>
 </p>
@@ -89,9 +89,8 @@
             }
         });
 
-        $('#goToAdminsList').click(function () {
-            // Load the normal "Admins" partial view
-            loadPartialViewOnClick('@Url.Action("AdminsListPartial", "UserManagement")');
+        $('#goToModeratorList').click(function () {
+            loadPartialViewOnClick('@Url.Action("ModeratorListPartial", "UserManagement")');
         });
 
         $('#lockOutSelected').click(function () {

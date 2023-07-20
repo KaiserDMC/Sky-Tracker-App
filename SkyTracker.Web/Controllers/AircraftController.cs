@@ -67,7 +67,7 @@ public class AircraftController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddAircraft()
     {
         AircraftFormModel aircraft = new AircraftFormModel();
@@ -76,7 +76,7 @@ public class AircraftController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> AddAircraft(AircraftFormModel model)
     {
         if (!ModelState.IsValid)
@@ -122,7 +122,7 @@ public class AircraftController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditAircraft(string aircraftId)
     {
         var aircraft = await _aircraftService.GetAircraftbyIdAsync(aircraftId);
@@ -142,7 +142,7 @@ public class AircraftController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> EditAircraft(string aircraftId, AircraftFormModel model)
     {
         var aircraft = await _aircraftService.GetAircraftbyIdAsync(aircraftId);
@@ -188,7 +188,7 @@ public class AircraftController : Controller
     }
 
     [HttpPost]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeleteAircraft(string[] aircraftIds)
     {
         try
@@ -203,7 +203,7 @@ public class AircraftController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public async Task<IActionResult> DeletedHistoryAircraft()
     {
         IEnumerable<AircraftAllViewModel> deletedAircraft;
