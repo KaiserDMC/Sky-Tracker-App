@@ -17,7 +17,6 @@
     </div>
 </div>
 
-
 <script>
     // Convert the Razor model to a JavaScript variable.
     var airportLocations = @Html.Raw(Json.Serialize(Model.Airports));
@@ -53,11 +52,11 @@
             });
 
             const contentString = `
-                                    <div>
-                                        <strong>Airport:</strong> ${airport.name} <br>
-                                        <strong>Lat/Long:</strong> ${airport.latitude}, ${airport.longitude}
-                                    </div>
-                                `;
+                                            <div>
+                                                <strong>Airport:</strong> ${airport.name} <br>
+                                                <strong>Lat/Long:</strong> ${airport.latitude}, ${airport.longitude}
+                                            </div>
+                                        `;
 
             const infoWindow = new google.maps.InfoWindow({
                 content: contentString,
@@ -132,7 +131,7 @@
     }
 
     function toggleFlightPath(flightData) {
-        
+
         // If the flight path is currently displayed, remove it from the map
         if (displayedFlightPath) {
             displayedFlightPath.setMap(null);
