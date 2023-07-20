@@ -38,7 +38,8 @@ These apps complement the main Sky Tracker App and were used for converting the 
 
 ## Contributing
 
-Currently community contributions are closed! However, user feedback is highly appreciated. If you find any issues or have ideas for improvements, please feel free to [open an issue](https://github.com/KaiserDMC/Sky-Tracker-App/issues) or [submit a pull request](https://github.com/KaiserDMC/Sky-Tracker-App/pulls). 
+Currently community contributions are closed! However, user feedback is highly appreciated.  
+If you find any issues or have ideas for improvements, please feel free to [open an issue](https://github.com/KaiserDMC/Sky-Tracker-App/issues) or [submit a pull request](https://github.com/KaiserDMC/Sky-Tracker-App/pulls). 
 
 ## License
 
@@ -50,4 +51,5 @@ We would like to thank FlightRadar24 for providing us with the needed flight dat
 
 ---
 
-Thank you for using Sky Tracker App! We hope you enjoy tracking flights and exploring the fascinating world of aviation.
+Thank you for using Sky Tracker App!  
+We hope you enjoy tracking flights and exploring the fascinating world of aviation.
