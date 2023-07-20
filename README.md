@@ -1,13 +1,13 @@
 # Sky Tracker App
 
-[![GitHub license](https://img.shields.io/github/license/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/issues)
 [![GitHub forks](https://img.shields.io/github/forks/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/network)
 
-![Sky Tracker App Banner](./SkyTracker.Web/wwwroot/your-banner.ico)
+![Sky Tracker App Banner](./SkyTracker.Web/wwwroot/favicon.ico)
 
-Sky Tracker App is a comprehensive flight, aircraft and airport tracking application that allows users to monitor flights, view aircraft details, and explore aviation data, i.e. incident reports, airport information and many more. 
+Sky Tracker App is a comprehensive flight, aircraft and airport tracking application that allows users to monitor flights, view aircraft details, and explore aviation data, i.e. incident reports, airport information and many more.  
 Whether you're an aviation enthusiast, a frequent traveler, or just curious about air traffic, Sky Tracker App provides you with a visually appealing and user-friendly interface to access a wealth of flight-related information.
 
 ## Features
