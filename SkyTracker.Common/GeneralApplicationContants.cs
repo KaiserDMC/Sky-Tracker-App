@@ -17,4 +17,7 @@ public static class GeneralApplicationContants
 
     public const string ProfileImagesContainerName = "profile-images";
     public static readonly string ProfileImagesBlobRelativePath = Path.Combine("azure", "blob-profile");
+
+    public const string DevAndTestingAdminEmail = "admin@sky-tracker.info";
+    public const string DevAndTestingModeratorEmail = "moderator@sky-tracker.info";
 }

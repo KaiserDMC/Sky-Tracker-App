@@ -1,23 +1,26 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:16441",
-      "sslPort": 44393
-    }
-  },
   "profiles": {
     "Sky_Tracker": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7236;http://localhost:5141",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "VaultUri": "https://skytrackerwebvault.vault.azure.net/",
         "AZURE_USERNAME": "krifod@students.softuni.bg"
-      }
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7236;http://localhost:5141"
+    },
+    "Sky_Tracker_Test": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Test",
+        "VaultUri": "https://skytrackerwebvault.vault.azure.net/",
+        "AZURE_USERNAME": "krifod@students.softuni.bg"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7237;http://localhost:5142"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -27,6 +30,14 @@
         "VaultUri": "https://skytrackerwebvault.vault.azure.net/",
         "AZURE_USERNAME": "krifod@students.softuni.bg"
       }
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:16441",
+      "sslPort": 44393
     }
   }
 }

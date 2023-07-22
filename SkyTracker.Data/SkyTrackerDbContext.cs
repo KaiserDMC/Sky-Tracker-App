@@ -79,8 +79,8 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             Id = Guid.NewGuid(),
             UserName = "admin",
             NormalizedUserName = "ADMIN",
-            Email = "admin@test.bg",
-            NormalizedEmail = "ADMIN@TEST.BG"
+            Email = "admin@sky-tracker.info",
+            NormalizedEmail = "ADMIN@SKY-TRACKER.INFO"
         };
 
         var passwordHasher = new PasswordHasher<ApplicationUser>();
@@ -94,27 +94,13 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             Id = Guid.NewGuid(),
             UserName = "moderator",
             NormalizedUserName = "MODERATOR",
-            Email = "moderator@test.bg",
-            NormalizedEmail = "MODERATOR@TEST.BG"
+            Email = "moderator@sky-tracker.info",
+            NormalizedEmail = "MODERATOR@SKY-TRACKER.INFO"
         };
 
         var passwordHasherModerator = new PasswordHasher<ApplicationUser>();
         moderatorUser.PasswordHash = passwordHasherModerator.HashPassword(moderatorUser, "moderator");
 
         builder.Entity<ApplicationUser>().HasData(moderatorUser);
-
-        var regularUser = new ApplicationUser()
-        {
-            Id = Guid.NewGuid(),
-            UserName = "user",
-            NormalizedUserName = "USER",
-            Email = "user@test.bg",
-            NormalizedEmail = "USER@TEST.BG"
-        };
-
-        var passwordHasherUser = new PasswordHasher<ApplicationUser>();
-        regularUser.PasswordHash = passwordHasherUser.HashPassword(regularUser, "user");
-
-        builder.Entity<ApplicationUser>().HasData(regularUser);
     }
 }

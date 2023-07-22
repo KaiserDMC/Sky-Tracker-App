@@ -1,3 +1,5 @@
+using SkyTracker.Web.Infrastructure.Extensions;
+
 namespace SkyTracker.Web;
 
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using Data.Models;
 using SkyTracker.Services.Data;
 using SkyTracker.Services.Data.Interfaces;
 using static Common.UserRoleNames;
+using static Common.GeneralApplicationContants;
 
 public class Program
 {
@@ -27,10 +30,11 @@ public class Program
 
         builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         {
-            options.SignIn.RequireConfirmedAccount = false;
-            options.Password.RequireDigit = false;
-            options.Password.RequireNonAlphanumeric = false;
-            options.Password.RequireUppercase = false;
+            options.SignIn.RequireConfirmedAccount = builder.Configuration.GetValue<bool>("Idetity:SignIn:RequireConfirmedAccount");
+            options.Password.RequireLowercase = builder.Configuration.GetValue<bool>("Idetity:Password:RequireLowercase");
+            options.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Idetity:Password:RequireUppercase");
+            options.Password.RequireNonAlphanumeric = builder.Configuration.GetValue<bool>("Idetity:Password:RequireNonAlphanumeric");
+            options.Password.RequireDigit = builder.Configuration.GetValue<bool>("Idetity:Password:RequireDigit");
         })
             .AddRoles<IdentityRole<Guid>>()
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
@@ -52,14 +56,9 @@ public class Program
             options.LoginPath = "/User/Login";
             options.LogoutPath = "/User/Logout";
         });
-
-        builder.Services.AddScoped<IHeraldService, HeraldService>();
-        builder.Services.AddScoped<IAircraftService, AircraftService>();
-        builder.Services.AddScoped<IAirportsService, AirportsService>();
-        builder.Services.AddScoped<IFlightService, FlightService>();
-        builder.Services.AddScoped<IRadarService, RadarService>();
-        builder.Services.AddScoped<IAdminService, AdminService>();
-        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
+        
+        // Add application services.
+        builder.Services.AddApplicationServices(typeof(IHeraldService));
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),
@@ -70,7 +69,7 @@ public class Program
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
+        if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Test"))
         {
             app.UseMigrationsEndPoint();
             app.UseDeveloperExceptionPage();
@@ -92,36 +91,11 @@ public class Program
         app.UseAuthentication();
         app.UseAuthorization();
 
-
-        // Add Admin role to admin@test.bg, Moderator role to moderator@test.bg and User role to user@test.bg
-        // Default users that are created upon DB creation
-        using (var scope = app.Services.CreateScope())
+        // Give administrator and moderator role to previously seeded users.
+        if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Test"))
         {
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-            // Assign role to admin if they don't have one
-            var adminUser = userManager.FindByEmailAsync("admin@test.bg").GetAwaiter().GetResult();
-            if (adminUser != null && !userManager.IsInRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult())
-            {
-                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(adminUser);
-                userManager.AddToRoleAsync(adminUser, AdminRole).GetAwaiter().GetResult();
-            }
-
-            // Assign role to moderator if they don't have one
-            var moderatorUser = userManager.FindByEmailAsync("moderator@test.bg").GetAwaiter().GetResult();
-            if (moderatorUser != null && !userManager.IsInRoleAsync(moderatorUser, ModeratorRole).GetAwaiter().GetResult())
-            {
-                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(moderatorUser);
-                userManager.AddToRoleAsync(moderatorUser, ModeratorRole).GetAwaiter().GetResult();
-            }
-
-            // Assign role to user if they don't have one
-            var user = userManager.FindByEmailAsync("user@test.bg").GetAwaiter().GetResult();
-            if (user != null && !userManager.IsInRoleAsync(user, UserRole).GetAwaiter().GetResult())
-            {
-                var newSecurityStamp = await userManager.UpdateSecurityStampAsync(user);
-                userManager.AddToRoleAsync(user, UserRole).GetAwaiter().GetResult();
-            }
+            app.SeedAdministrator(DevAndTestingAdminEmail);
+            app.SeedModerator(DevAndTestingModeratorEmail);
         }
 
         app.MapControllerRoute(
