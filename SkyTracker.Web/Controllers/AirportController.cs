@@ -4,6 +4,7 @@ using System.Drawing;
 using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 using Configuration;
 using ViewModels.Airports;
@@ -38,27 +39,18 @@ public class AirportController : Controller
     {
         var airport = await _airportsService.GetAirportDetailsByIata(iata);
 
-        BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(AirportImagesContainerName);
+        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AirportImagesBlobRelativePath, airport.IATA.ToLower());
 
-        BlobClient blob = blobAirport.GetBlobClient(airport.IATA.ToLower() + ".jpg");
-
-        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AirportImagesBlobRelativePath, airport.IATA.ToLower() + ".jpg");
-
-
-        if (await blob.ExistsAsync())
+        if (System.IO.File.Exists(Path.ChangeExtension(localPath, ".jpg")))
         {
-            await DownloadBlob.DownloadBlobToFileAsync(blob, localPath);
-
             airport.ImageUrl = Path.Combine(AirportImagesBlobRelativePath, airport.IATA.ToLower() + ".jpg");
+        }
+        else if (System.IO.File.Exists(Path.ChangeExtension(localPath, ".png")))
+        {
+            airport.ImageUrl = Path.Combine(AirportImagesBlobRelativePath, airport.IATA.ToLower() + ".png");
         }
         else
         {
-            blobAirport = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-            blob = blobAirport.GetBlobClient("stock-airport-img" + ".png");
-            localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-airport-img" + ".png");
-
-            await DownloadBlob.DownloadBlobToFileAsync(blob, localPath);
-
             airport.ImageUrl = Path.Combine(StockImagesBlobRelativePath, "stock-airport-img" + ".png");
         }
 
@@ -90,17 +82,11 @@ public class AirportController : Controller
 
         try
         {
-            var picturePath = await UploadPicture();
+            var form = await Request.ReadFormAsync();
+            var picturePath = await ImageHelper.UploadAirportPicture(form.Files.FirstOrDefault(), model.IATA, _hostingEnvironment.WebRootPath);
 
             if (string.IsNullOrEmpty(picturePath))
             {
-                BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-                BlobClient blob = blobAirport.GetBlobClient("stock-airport-img" + ".png");
-
-                string localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-airport-img" + ".png");
-
-                await DownloadBlobToFileAsync(blob, localPath);
-
                 model.ImagePathUrl = Path.Combine(StockImagesBlobRelativePath, "stock-airport-img" + ".png");
             }
             else
@@ -108,6 +94,10 @@ public class AirportController : Controller
                 BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(AirportImagesContainerName);
 
                 await UploadFromFileAsync(blobAirport, picturePath);
+
+                model.ImagePathUrl = Path.Combine(AirportImagesBlobRelativePath, model.IATA.ToLower() + ".jpg");
+
+                ImageHelper.SynchronizeAirportImages(_hostingEnvironment.WebRootPath, model.IATA.ToLower());
             }
 
             await _airportsService.AddAirportAsync(model);
@@ -135,17 +125,6 @@ public class AirportController : Controller
         var runways = await _airportsService.GetRunwaysCollectionAsync();
 
         airport.Runways = runways;
-
-        BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(AirportImagesContainerName);
-        BlobClient blob = blobAirport.GetBlobClient(airport.IATA.ToLower() + ".jpg");
-
-        if (await blob.ExistsAsync())
-        {
-            string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, airport.IATA.ToLower() + ".jpg");
-
-            await DownloadBlobToFileAsync(blob, localPath);
-            airport.ImagePathUrl = localPath;
-        }
 
         return View(airport);
     }
@@ -176,25 +155,22 @@ public class AirportController : Controller
 
         try
         {
-            var picturePath = await UploadPicture();
+            var form = await Request.ReadFormAsync();
+            var picturePath = await ImageHelper.UploadAirportPicture(form.Files.FirstOrDefault(), model.IATA, _hostingEnvironment.WebRootPath);
 
-            if (string.IsNullOrEmpty(picturePath))
-            {
-                BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-                BlobClient blob = blobAirport.GetBlobClient("stock-airport-img" + ".png");
-
-                string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AirportImagesBlobRelativePath,
-                    "stock-airport-img" + ".png");
-
-                await DownloadBlobToFileAsync(blob, localPath);
-
-                model.ImagePathUrl = Path.Combine(StockImagesBlobRelativePath, "stock-airport-img" + ".png");
-            }
-            else
+            if (!string.IsNullOrEmpty(picturePath))
             {
                 BlobContainerClient blobAirport = _blobServiceClient.GetBlobContainerClient(AirportImagesContainerName);
 
                 await UploadFromFileAsync(blobAirport, picturePath);
+
+                model.ImagePathUrl = Path.Combine(AirportImagesBlobRelativePath, airport.IATA.ToLower() + ".jpg");
+
+                ImageHelper.SynchronizeAirportImages(_hostingEnvironment.WebRootPath, model.IATA.ToLower());
+            }
+            else
+            {
+                model.ImagePathUrl = airport.ImagePathUrl;
             }
 
             await _airportsService.EditAirportAsync(iata, model);
@@ -214,6 +190,8 @@ public class AirportController : Controller
         try
         {
             await _airportsService.DeleteAirportAsync(iataCodes);
+            await ImageHelper.DeleteAirportImages(_hostingEnvironment.WebRootPath, iataCodes);
+
             return Json(new { success = true });
         }
         catch
@@ -237,45 +215,5 @@ public class AirportController : Controller
         }
 
         return PartialView("_DeletedAirportsPartial", deletedAirports);
-    }
-
-    private async Task<string> UploadPicture()
-    {
-        //Reads the form data from the request body.
-        var form = await Request.ReadFormAsync();
-
-        if (form.Files.Count == 0)
-        {
-            return string.Empty;
-        }
-
-        //Gets the first file and saves it to the specified path.
-        var file = form.Files.First();
-        var iata = form["IATA"].ToString().ToLower();
-        var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "temp", iata + ".jpg");
-
-        Image image = Image.FromStream(file.OpenReadStream(), true, true);
-
-        Bitmap newImage = new Bitmap(image);
-        SaveFileLocal(filePath, newImage);
-
-        return filePath;
-    }
-
-    private static void SaveFileLocal(string filePath, Bitmap newImage)
-    {
-        using (var stream = new MemoryStream())
-        {
-            newImage.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            var imageBytes = stream.ToArray();
-
-            //Save the file to the local folder
-            using (var str = new FileStream(
-                       filePath, FileMode.Create, FileAccess.Write, FileShare.Write, 4096))
-            {
-                str.Write(imageBytes, 0, imageBytes.Length);
-            }
-        }
     }
 }

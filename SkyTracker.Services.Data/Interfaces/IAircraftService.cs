@@ -14,6 +14,8 @@ public interface IAircraftService
 
     Task EditAircraftAsync(string aircraftId, AircraftFormModel model);
 
+    Task<List<string>> GetAircraftPictureIdsAsync(string[] aircraftIds);
+
     Task DeleteAircraftAsync(string[] aircraftIds);
 
     Task<IEnumerable<AircraftAllViewModel>> GetDeletedAircraftAsync();

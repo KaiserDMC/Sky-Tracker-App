@@ -1,4 +1,6 @@
-﻿namespace SkyTracker.Services.Data;
+﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
+
+namespace SkyTracker.Services.Data;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -105,6 +107,17 @@ public class AircraftService : IAircraftService
         }
 
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<List<string>> GetAircraftPictureIdsAsync(string[] aircraftIds)
+    {
+        var aircraftRegistrations = await _dbContext.Aircraft
+            .Where(a => a.IsDeleted == false)
+            .Where(a => aircraftIds.Contains(a.Id))
+            .Select(a => a.Registration)
+            .ToListAsync();
+
+        return aircraftRegistrations;
     }
 
     public async Task DeleteAircraftAsync(string[] aircraftIds)

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using SkyTracker.Services.Data.Interfaces;
+using SkyTracker.Web.Configuration;
 
 using ViewModels.Aircraft;
 
@@ -40,26 +41,18 @@ public class AircraftController : Controller
     {
         var aircraft = await _aircraftService.GetAircraftDetailsByIdAsync(aircraftId);
 
-        BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(AircraftImagesContainerName);
+        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, aircraft.Registration.ToLower());
 
-        BlobClient blob = blobAircraft.GetBlobClient(aircraft.Registration.ToLower() + ".jpg");
-
-        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, aircraft.Registration.ToLower() + ".jpg");
-
-        if (await blob.ExistsAsync())
+        if (System.IO.File.Exists(Path.ChangeExtension(localPath, ".jpg")))
         {
-            await DownloadBlobToFileAsync(blob, localPath);
-
             aircraft.ImageUrl = Path.Combine(AircraftImagesBlobRelativePath, aircraft.Registration.ToLower() + ".jpg");
+        }
+        else if (System.IO.File.Exists(Path.ChangeExtension(localPath, ".png")))
+        {
+            aircraft.ImageUrl = Path.Combine(AircraftImagesBlobRelativePath, aircraft.Registration.ToLower() + ".png");
         }
         else
         {
-            blobAircraft = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-            blob = blobAircraft.GetBlobClient("stock-aircraft-img" + ".png");
-            localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
-
-            await DownloadBlobToFileAsync(blob, localPath);
-
             aircraft.ImageUrl = Path.Combine(StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
         }
 
@@ -86,17 +79,11 @@ public class AircraftController : Controller
 
         try
         {
-            var picturePath = await UploadPicture();
+            var form = await Request.ReadFormAsync();
+            var picturePath = await ImageHelper.UploadAircraftPicture(form.Files.FirstOrDefault(), model.Registration, _hostingEnvironment.WebRootPath);
 
             if (string.IsNullOrEmpty(picturePath))
             {
-                BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-                BlobClient blob = blobAircraft.GetBlobClient("stock-aircraft-img" + ".png");
-
-                string localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
-
-                await DownloadBlobToFileAsync(blob, localPath);
-
                 model.ImagePathUrl = Path.Combine(StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
             }
             else
@@ -104,6 +91,10 @@ public class AircraftController : Controller
                 BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(AircraftImagesContainerName);
 
                 await UploadFromFileAsync(blobAircraft, picturePath);
+
+                model.ImagePathUrl = Path.Combine(AircraftImagesBlobRelativePath, model.Registration.ToLower() + ".jpg");
+
+                ImageHelper.SynchronizeAircraftImages(_hostingEnvironment.WebRootPath, model.Registration.ToLower());
             }
 
             await _aircraftService.AddAircraftAsync(model);
@@ -127,17 +118,6 @@ public class AircraftController : Controller
     {
         var aircraft = await _aircraftService.GetAircraftbyIdAsync(aircraftId);
 
-        BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(AircraftImagesContainerName);
-        BlobClient blob = blobAircraft.GetBlobClient(aircraft.Registration.ToLower() + ".jpg");
-
-        if (await blob.ExistsAsync())
-        {
-            string localPath = Path.Combine(_hostingEnvironment.WebRootPath, AircraftImagesBlobRelativePath, aircraft.Registration.ToLower() + ".jpg");
-
-            await DownloadBlobToFileAsync(blob, localPath);
-            aircraft.ImagePathUrl = localPath;
-        }
-
         return View(aircraft);
     }
 
@@ -157,24 +137,22 @@ public class AircraftController : Controller
 
         try
         {
-            var picturePath = await UploadPicture();
+            var form = await Request.ReadFormAsync();
+            var picturePath = await ImageHelper.UploadAircraftPicture(form.Files.FirstOrDefault(), model.Registration, _hostingEnvironment.WebRootPath);
 
-            if (string.IsNullOrEmpty(picturePath))
-            {
-                BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-                BlobClient blob = blobAircraft.GetBlobClient("stock-aircraft-img" + ".png");
-
-                string localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
-
-                await DownloadBlobToFileAsync(blob, localPath);
-
-                model.ImagePathUrl = Path.Combine(StockImagesBlobRelativePath, "stock-aircraft-img" + ".png");
-            }
-            else
+            if (!string.IsNullOrEmpty(picturePath))
             {
                 BlobContainerClient blobAircraft = _blobServiceClient.GetBlobContainerClient(AircraftImagesContainerName);
 
                 await UploadFromFileAsync(blobAircraft, picturePath);
+
+                model.ImagePathUrl = Path.Combine(AircraftImagesBlobRelativePath, model.Registration.ToLower() + ".jpg");
+
+                ImageHelper.SynchronizeAircraftImages(_hostingEnvironment.WebRootPath, model.Registration.ToLower());
+            }
+            else
+            {
+                model.ImagePathUrl = aircraft.ImagePathUrl;
             }
 
             await _aircraftService.EditAircraftAsync(aircraftId, model);
@@ -193,7 +171,12 @@ public class AircraftController : Controller
     {
         try
         {
+            var picturesToDelete = await _aircraftService.GetAircraftPictureIdsAsync(aircraftIds);
+
             await _aircraftService.DeleteAircraftAsync(aircraftIds);
+
+            await ImageHelper.DeleteAircraftImages(_hostingEnvironment.WebRootPath, picturesToDelete.ToArray());
+
             return Json(new { success = true });
         }
         catch
@@ -216,48 +199,7 @@ public class AircraftController : Controller
         {
             return BadRequest();
         }
-
-
+        
         return PartialView("_DeletedAircraftPartial", deletedAircraft);
-    }
-
-    private async Task<string> UploadPicture()
-    {
-        //Reads the form data from the request body.
-        var form = await Request.ReadFormAsync();
-
-        if (form.Files.Count == 0)
-        {
-            return string.Empty;
-        }
-
-        //Gets the first file and saves it to the specified path.
-        var file = form.Files.First();
-        var registration = form["Registration"].ToString().ToLower();
-        var filePath = Path.Combine(_hostingEnvironment.WebRootPath, "temp", registration + ".jpg");
-
-        Image image = Image.FromStream(file.OpenReadStream(), true, true);
-
-        Bitmap newImage = new Bitmap(image);
-        SaveFileLocal(filePath, newImage);
-
-        return filePath;
-    }
-
-    private static void SaveFileLocal(string filePath, Bitmap newImage)
-    {
-        using (var stream = new MemoryStream())
-        {
-            newImage.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            var imageBytes = stream.ToArray();
-
-            //Save the file to the local folder
-            using (var str = new FileStream(
-                       filePath, FileMode.Create, FileAccess.Write, FileShare.Write, 4096))
-            {
-                str.Write(imageBytes, 0, imageBytes.Length);
-            }
-        }
     }
 }

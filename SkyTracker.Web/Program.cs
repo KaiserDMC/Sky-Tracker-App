@@ -1,18 +1,19 @@
-using SkyTracker.Web.Infrastructure.Extensions;
-
 namespace SkyTracker.Web;
 
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Azure.Storage.Blobs;
 using Azure.Identity;
+using Azure.Storage.Blobs;
 
 using Data;
 using Data.Models;
-using SkyTracker.Services.Data;
+
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
+using Infrastructure.Extensions;
 using SkyTracker.Services.Data.Interfaces;
-using static Common.UserRoleNames;
+
 using static Common.GeneralApplicationContants;
+using SkyTracker.Web.Configuration;
 
 public class Program
 {
@@ -67,6 +68,10 @@ public class Program
         builder.Services.AddSingleton(blobServiceClient);
 
         var app = builder.Build();
+
+        await GetImageData.GetImageDataFromAzureAsync(blobServiceClient, app.Environment);
+
+        ImageHelper.Initialize(blobServiceClient);
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Test"))
