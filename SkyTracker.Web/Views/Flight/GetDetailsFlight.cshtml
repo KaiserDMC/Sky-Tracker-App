@@ -7,46 +7,51 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<style>
+    .custom-dt-dd {
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-6 mb-5">
+        <div class="card text-center">
             <dl class="row">
-                <dt class="col-sm-4">Flight Id:</dt>
-                <dd class="col-sm-8">@Model.FlightId</dd>
-
-                <dt class="col-sm-4">A/C Registration:</dt>
-                <dd class="col-sm-8">@Model.Registration</dd>
-
-                <dt class="col-sm-4">A/C Type:</dt>
-                <dd class="col-sm-8">@Model.Equipment</dd>
-
-                <dt class="col-sm-4">Callsign:</dt>
-                <dd class="col-sm-8">@Model.Callsign</dd>
-
-                <dt class="col-sm-4">Flt Number:</dt>
-                <dd class="col-sm-8">@Model.FlightNumber</dd>
-
-                <dt class="col-sm-4">Departure Airport:</dt>
-                <dd class="col-sm-8">@Model.DepartureId</dd>
-
-                <dt class="col-sm-4">Arrival Airport:</dt>
-                <dd class="col-sm-8">@Model.ScheduledArrival</dd>
-
-                <dt class="col-sm-4">Actual Arrival:</dt>
-                <dd class="col-sm-8">@Model.RealArrival</dd>
-
-                <dt class="col-sm-4">Reserve Airport:</dt>
-                <dd class="col-sm-8">@Model.Reserved</dd>
+                <div class="col-sm-6">
+                    <dt class="custom-dt-dd" style="padding-top:10px">Flight Id:</dt>
+                    <dt class="custom-dt-dd">A/C Registration:</dt>
+                    <dt class="custom-dt-dd">A/C Type:</dt>
+                    <dt class="custom-dt-dd">Callsign:</dt>
+                    <dt class="custom-dt-dd">Flt Number:</dt>
+                    <dt class="custom-dt-dd">Departure Airport:</dt>
+                    <dt class="custom-dt-dd">Arrival Airport:</dt>
+                    <dt class="custom-dt-dd">Actual Arrival:</dt>
+                    <dt class="custom-dt-dd">Reserve Airport:</dt>
+                </div>
+                <div class="col-sm-6">
+                    <dd class="custom-dt-dd" style="padding-top:10px">@Model.FlightId</dd>
+                    <dd class="custom-dt-dd">@Model.Registration</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.Equipment) ? Model.Equipment : "-_-")</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.Callsign) ? Model.Callsign : "-_-")</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.FlightNumber) ? Model.FlightNumber : "-_-")</dd>
+                    <dd class="custom-dt-dd">@Model.DepartureId</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.ScheduledArrival) ? Model.ScheduledArrival : "-_-")</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.RealArrival) ? Model.RealArrival : "-_-")l</dd>
+                    <dd class="custom-dt-dd">@(!string.IsNullOrEmpty(Model.Reserved) ? Model.Reserved : "-_-")</dd>
+                </div>
             </dl>
         </div>
-        <div class="col-md-6">
-            <div class="text-center">
-                <img src="~/@Model.Aircraft.ImagePathUrl" alt="Aircraft Image" class="img-thumbnail" style="max-width: 450px;">
-                <p>A/C TrackerId: @Model.Aircraft.Id</p>
-            </div>
-        </div>
 
-        <a asp-controller="Flight" asp-action="All" class="btn btn-info mb-2 w-100 p-3 fw-bold">Back to All Flights</a>
+        <div class="d-flex justify-content-center text-center" style="padding-top: 15px">
+            <a asp-controller="Flight" asp-action="All" class="btn btn-secondary btn-rounded w-50">Back to All Flights</a>
+        </div>
+    </div>
+
+    <div class="col-md-6 d-flex">
+        <div class="text-center">
+            <img src="~/@Model.Aircraft.ImagePathUrl" alt="Aircraft Image" class="img-thumbnail" style="max-width: 500px;">
+            <p class="fw-bold">A/C TrackerId: @Model.Aircraft.Id</p>
+        </div>
     </div>
 </div>
 

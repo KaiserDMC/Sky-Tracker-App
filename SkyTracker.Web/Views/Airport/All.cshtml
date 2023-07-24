@@ -11,12 +11,15 @@
 <div class="row">
     @foreach (var airport in Model)
     {
-        <div class="col-md-4">
+        <div class="col-md-4 mb-2">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title text-center" >@airport.CommonName</h5>
+                    <p rows="2" class="card-title text-center fw-bold" style="font-size:1.1rem">@airport.CommonName</p>
                     <p class="card-text">IATA Code: @airport.IATA, ICAO Code: @airport.ICAO</p>
-                    <a href="@Url.Action("GetDetailsAirport", "Airport", new { iata = airport.IATA })" class="btn btn-primary">Airport Details</a>
+
+                    <div class="d-flex justify-content-center text-center">
+                        <a href="@Url.Action("GetDetailsAirport", "Airport", new { iata = airport.IATA })" class="btn btn-primary btn-rounded w-50">Airport Details</a>
+                    </div>
                 </div>
             </div>
         </div>

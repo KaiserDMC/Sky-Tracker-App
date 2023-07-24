@@ -1873,25 +1873,25 @@ namespace SkyTracker.Data.Migrations
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2");
 
-            migrationBuilder.InsertData(
-                table: "RunwaysAirports",
-                columns: new[] { "AirportId", "RunwayId" },
-                values: new object[,]
-                {
-                    { "ANC", "1bdefbbc-1ab7-478c-af84-052ac66235b8" },
-                    { "WST", "1bdefbbc-1ab7-478c-af84-052ac66235b8" },
-                    { "ENA", "2c509f31-28f2-4431-968c-53596d98116c" },
-                    { "SAB", "2c509f31-28f2-4431-968c-53596d98116c" },
-                    { "IAG", "6ba984d8-644c-4d42-9909-4c1e76f1bf67" },
-                    { "BUF", "875682aa-ff3f-4f8e-8e06-3529b271895c" },
-                    { "SXM", "a4247cd5-1475-4771-a703-e79fbb092108" },
-                    { "YKF", "aa639864-465e-4d50-8baf-b55615bfa3f4" },
-                    { "YCM", "aacabf09-804f-4c32-ba81-38db7c476134" },
-                    { "BID", "b2a93364-116d-419c-999c-492596ecba6f" },
-                    { "GKT", "b9eba418-353c-49fd-b69e-f0ffb38a4d81" },
-                    { "YHM", "bc4a64f8-4bbf-4222-a11d-d938099c32a1" },
-                    { "SBH", "f97199aa-7ddb-4e17-9e6f-24dfc488c3c7" }
-                });
+            //migrationBuilder.InsertData(
+            //    table: "RunwaysAirports",
+            //    columns: new[] { "AirportId", "RunwayId" },
+            //    values: new object[,]
+            //    {
+            //        { "ANC", "1bdefbbc-1ab7-478c-af84-052ac66235b8" },
+            //        { "WST", "1bdefbbc-1ab7-478c-af84-052ac66235b8" },
+            //        { "ENA", "2c509f31-28f2-4431-968c-53596d98116c" },
+            //        { "SAB", "2c509f31-28f2-4431-968c-53596d98116c" },
+            //        { "IAG", "6ba984d8-644c-4d42-9909-4c1e76f1bf67" },
+            //        { "BUF", "875682aa-ff3f-4f8e-8e06-3529b271895c" },
+            //        { "SXM", "a4247cd5-1475-4771-a703-e79fbb092108" },
+            //        { "YKF", "aa639864-465e-4d50-8baf-b55615bfa3f4" },
+            //        { "YCM", "aacabf09-804f-4c32-ba81-38db7c476134" },
+            //        { "BID", "b2a93364-116d-419c-999c-492596ecba6f" },
+            //        { "GKT", "b9eba418-353c-49fd-b69e-f0ffb38a4d81" },
+            //        { "YHM", "bc4a64f8-4bbf-4222-a11d-d938099c32a1" },
+            //        { "SBH", "f97199aa-7ddb-4e17-9e6f-24dfc488c3c7" }
+            //    });
         }
     }
 }

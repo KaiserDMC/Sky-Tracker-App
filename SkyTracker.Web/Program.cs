@@ -14,6 +14,7 @@ using SkyTracker.Services.Data.Interfaces;
 
 using static Common.GeneralApplicationContants;
 using SkyTracker.Web.Configuration;
+using SkyTracker.Services.Data;
 
 public class Program
 {
@@ -59,7 +60,14 @@ public class Program
         });
         
         // Add application services.
-        builder.Services.AddApplicationServices(typeof(IHeraldService));
+        //builder.Services.AddApplicationServices(typeof(IHeraldService));
+        builder.Services.AddScoped<IHeraldService, HeraldService>();
+        builder.Services.AddScoped<IAircraftService, AircraftService>();
+        builder.Services.AddScoped<IAirportsService, AirportsService>();
+        builder.Services.AddScoped<IFlightService, FlightService>();
+        builder.Services.AddScoped<IRadarService, RadarService>();
+        builder.Services.AddScoped<IAdminService, AdminService>();
+        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),

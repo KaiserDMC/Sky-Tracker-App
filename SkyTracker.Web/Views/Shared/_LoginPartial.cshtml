@@ -9,8 +9,16 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <div id="profileTriggerContainer">
-            <img src="@UserManager.GetUserAsync(User).Result.ProfilePictureUrl" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
-            @User.Identity?.Name
+            @if (string.IsNullOrEmpty(UserManager.GetUserAsync(User).Result.ProfilePictureUrl))
+            {
+                <img src="~/azure/blob-stock/stock-profile-img.png" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
+                @User.Identity?.Name
+            }
+            else
+            {
+                <img src="@UserManager.GetUserAsync(User).Result.ProfilePictureUrl" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
+                @User.Identity?.Name
+            }
         </div>
 
         <li class="nav-item">

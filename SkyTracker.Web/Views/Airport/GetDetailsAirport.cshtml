@@ -8,26 +8,34 @@
 <hr />
 
 <div class="row">
-    <div class="card w-100">
-        <img class="block" id="@Model.IATA" src="~/@Model.ImageUrl" alt="airport-picture" style="height:40%;" />
-
-        <div class="card-body">
-            <h3 class="card-title text-center"><span class="fw-bold">@Model.CommonName</span></h3>
-            <p class="mb-0"><span class="fw-bold">Elevation: </span>@Model.Elevation</p>
-            <p class="mb-0"><span class="fw-bold">Location: </span>@Model.LocationCity, @Model.LocationCountry</p>
-            <p class="mb-0"><span class="fw-bold">Coordinates: </span>@Model.Lat, @Model.Long</p>
-            <p class="mb-0"><span class="fw-bold">IATA: </span>@Model.IATA</p>
-            <p class="mb-0"><span class="fw-bold">ICAO: </span>@Model.ICAO</p>
+    <div class="col-md-6 d-flex justify-content-start" style="border:2px solid darkgrey; padding-right: 0px; padding-left: 0px;">
+        <div class="card">
+            <img class="block" id="@Model.IATA" src="~/@Model.ImageUrl" alt="airport-picture" style="height:auto;" />
         </div>
+    </div>
 
-        <div class="card-body">
-            <h3 class="card-title text-center"><span class="fw-bold">Runway Characteristics</span></h3>
-            <p class="mb-0"><span class="fw-bold">Runways: </span>@Model.Runway.RunwayDesignatorOne &#47; @Model.Runway.RunwayDesignatorTwo</p>
-            <p class="mb-0"><span class="fw-bold">Dimensions: </span> Length @Model.Runway.Length [m], Width @Model.Runway.Width <span class="font-italic">[m]</span></p>
-            <p class="mb-0"><span class="fw-bold">Surface: </span>@Model.Runway.SurfaceType</p>
+    <div class="col-md-6 d-flex" style="border:2px solid darkgrey; padding-right: 0px; padding-left: 0px;">
+        <div class="card w-100">
+            <div class="card-body">
+                <h3 class="card-title text-center"><span class="fw-bold">@Model.CommonName</span></h3>
+                <p class="mb-0"><span class="fw-bold">Elevation: </span>@Model.Elevation</p>
+                <p class="mb-0"><span class="fw-bold">Location: </span>@Model.LocationCity, @Model.LocationCountry</p>
+                <p class="mb-0"><span class="fw-bold">Coordinates: </span>@Model.Lat, @Model.Long</p>
+                <p class="mb-0"><span class="fw-bold">IATA: </span>@Model.IATA</p>
+                <p class="mb-0"><span class="fw-bold">ICAO: </span>@Model.ICAO</p>
+            </div>
+
+            <div class="card-body">
+                <h3 class="card-title text-center"><span class="fw-bold">Runway Characteristics</span></h3>
+                <p class="mb-0"><span class="fw-bold">Runways: </span>@Model.Runway.RunwayDesignatorOne &#47; @Model.Runway.RunwayDesignatorTwo</p>
+                <p class="mb-0"><span class="fw-bold">Dimensions: </span> Length @Model.Runway.Length [m], Width @Model.Runway.Width <span class="font-italic">[m]</span></p>
+                <p class="mb-0"><span class="fw-bold">Surface: </span>@Model.Runway.SurfaceType</p>
+            </div>
+
+            <div class="d-flex justify-content-center text-center">
+                <a asp-controller="Airport" asp-action="All" class="btn btn-secondary btn-rounded w-50">Back to All Airports</a>
+            </div>
         </div>
-
-        <a asp-controller="Airport" asp-action="All" class="btn btn-info mb-2 w-100 p-3 fw-bold">Back to All Airports</a>
     </div>
 </div>
 

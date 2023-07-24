@@ -1,17 +1,13 @@
 ﻿namespace SkyTracker.Services.Data;
 
-using System.Security.Claims;
-
 using Interfaces;
 
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
 
-using Web.Infrastructure.Extensions;
 using Web.ViewModels.User;
 
 using static Common.UserRoleNames;

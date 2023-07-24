@@ -11,12 +11,15 @@
 <div class="row">
     @foreach (var aircraft in Model)
     {
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 mb-2">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title text-center">@aircraft.Registration</h5>
+                    <h5 class="card-title text-center fw-bold">@aircraft.Registration</h5>
                     <p class="card-text">Aircraft Type: @aircraft.Equipment</p>
-                    <a href="@Url.Action("GetDetailsAircraft", "Aircraft", new { aircraftId = aircraft.Id })" class="btn btn-primary">Aircraft Details</a>
+
+                    <div class="d-flex justify-content-center text-center">
+                        <a href="@Url.Action("GetDetailsAircraft", "Aircraft", new { aircraftId = aircraft.Id })" class="btn btn-primary btn-rounded w-50">Aircraft Details</a>
+                    </div>
                 </div>
             </div>
         </div>

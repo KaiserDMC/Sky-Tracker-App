@@ -123,6 +123,14 @@ public class AirportsService : IAirportsService
             .Include(r => r.RunwaysAirports)
             .FirstOrDefaultAsync(a => a.IATA == iata);
 
+        var runwayId = airportById.RunwaysAirports
+            .Select(ra => ra.RunwayId)
+            .FirstOrDefault();
+
+        var runwayDesignator = _dbContext.Runways
+            .Where(r => r.IsDeleted == false)
+            .FirstOrDefault(r => r.Id == runwayId)!.RunwayDesignatorOne;
+
         if (airportById != null)
         {
             var airport = new AirportFormModel
@@ -136,8 +144,7 @@ public class AirportsService : IAirportsService
                 Lat = airportById.Lat,
                 Long = airportById.Long,
                 ImagePathUrl = airportById.ImagePathUrl,
-                RunwayId = airportById.RunwaysAirports.Select(ra => ra.RunwayId.ToString())
-                    .FirstOrDefault()
+                RunwayId = runwayDesignator
             };
 
             return airport;
@@ -194,7 +201,7 @@ public class AirportsService : IAirportsService
             .Include(ra => ra.RunwaysAirports)
             .ToListAsync();
 
-        
+
         foreach (var airport in airportsToDelete)
         {
             airport.IsDeleted = true;
