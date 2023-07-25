@@ -1,6 +1,11 @@
-﻿namespace SkyTracker.Web.Controllers;
+﻿using SkyTracker.Web.Configuration;
 
+namespace SkyTracker.Web.Controllers;
+
+using System.Runtime.ConstrainedExecution;
 using System.Text;
+
+using Azure.Storage.Blobs;
 
 using Data.Models;
 
@@ -12,21 +17,92 @@ using Newtonsoft.Json;
 
 using ViewModels.AccountManagement;
 
+using static Common.GeneralApplicationContants;
+using static Configuration.DownloadBlob;
+using static Configuration.UploadBlob;
+
 [Authorize]
 public class AccountManagementController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
+    private readonly BlobServiceClient _blobServiceClient;
+    private readonly IWebHostEnvironment _hostingEnvironment;
 
-    public AccountManagementController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+    public AccountManagementController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, BlobServiceClient blobServiceClient, IWebHostEnvironment hostingEnvironment)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _blobServiceClient = blobServiceClient;
+        _hostingEnvironment = hostingEnvironment;
     }
 
     [TempData]
     public string StatusMessage { get; set; }
 
+    [HttpGet]
+    public async Task<IActionResult> ProfileDisplay()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+            return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+        }
+
+        ProfileDisplayModel model = new ProfileDisplayModel()
+        {
+            UserId = user.Id.ToString(),
+            Username = user.UserName,
+            Email = user.Email,
+            PhoneNumber = user.PhoneNumber,
+            ProfilePictureUrl = user.ProfilePictureUrl
+        };
+
+        return View(model);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UploadProfilePicture()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user == null)
+        {
+            return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+        }
+
+        try
+        {
+            var form = await Request.ReadFormAsync();
+            var picturePath = await ImageHelper.UploadProfilePicture(form.Files.FirstOrDefault(), user.UserName,
+                _hostingEnvironment.WebRootPath);
+
+            if (string.IsNullOrEmpty(picturePath))
+            {
+                user.ProfilePictureUrl = Path.Combine(StockImagesBlobRelativePath, "stock-profile-img" + ".png");
+            }
+            else
+            {
+                BlobContainerClient blobProfilePictures =
+                    _blobServiceClient.GetBlobContainerClient(ProfileImagesContainerName);
+
+                await UploadFromFileAsync(blobProfilePictures, picturePath);
+                user.ProfilePictureUrl = Path.Combine(ProfileImagesBlobRelativePath, user.UserName.ToLower() + ".jpg");
+
+                ImageHelper.SynchronizeProfileImages(_hostingEnvironment.WebRootPath, user.UserName.ToLower());
+            }
+
+            await _userManager.UpdateAsync(user);
+        }
+        catch
+        {
+            return BadRequest();
+        }
+
+        return RedirectToAction("ProfileDisplay", "AccountManagement");
+    }
 
     [HttpGet]
     public async Task<IActionResult> PasswordChange()

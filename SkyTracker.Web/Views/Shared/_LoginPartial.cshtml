@@ -16,7 +16,7 @@
             }
             else
             {
-                <img src="@UserManager.GetUserAsync(User).Result.ProfilePictureUrl" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
+                <img src="~/azure/blob-profile/@(UserManager.GetUserAsync(User).Result.UserName.ToLower() + ".jpg")" alt="" width="24" height="24" class="d-inline-block align-text-top rounded-circle">
                 @User.Identity?.Name
             }
         </div>

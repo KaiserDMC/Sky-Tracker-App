@@ -1,16 +1,29 @@
-﻿@{
+﻿@model IndexViewModel
+
+@{
     ViewData["Title"] = "Home";
 }
 
 @if (ViewBag.StatusMessage != null)
 {
     <div class="alert alert-warning">
-        @ViewBag.StatusMessage
+        @Model.StatusMessage
     </div>
 }
-
 <div class="text-center">
     <h1 class="display-4">Welcome to Sky Tracker&#8482;</h1>
+</div>
 
-    <img src="~/logo/svalbard.jpg" height="700px" width="auto"/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 d-flex">
+            <div class="text-center">
+                <img src="~/logo/svalbard.jpg" height="auto" width="90%" />
+            </div>
+        </div>
+        <div class="col-md-2 d-flex justify-content-end" style="margin-left:0px>
+
+            @await Html.PartialAsync("_HeraldNewsPartial", Model.NewsItems)
+        </div>
+    </div>
 </div>

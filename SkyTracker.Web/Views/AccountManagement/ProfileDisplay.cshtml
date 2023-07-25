@@ -1,0 +1,99 @@
+﻿@model ProfileDisplayModel
+
+@using Microsoft.AspNetCore.Identity
+@using System.IO;
+@using SkyTracker.Data.Models
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<style>
+    .card-img-top {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                @if (@Model.ProfilePictureUrl != null)
+                                {
+                                    <img src="~/@Model.ProfilePictureUrl" alt="" class="card-img-top">
+                                }
+                                else
+                                {
+                                    <img src="~/azure/blob-stock/stock-profile-img.png" alt="" class="card-img-top">
+                                }
+                            </div>
+                            <h5 class="text-center">@Model.Username</h5>
+                            <h6 class="text-center">@Model.Email</h6>
+                        </div>
+                        <div class="about">
+                            <div class="d-flex justify-content-center text-center">
+                                <p><a class="btn btn-secondary btn-rounded w-100" asp-area="" asp-controller="AccountManagement" asp-action="DownloadPersonalData">Download Personal Data</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters" style="margin-bottom: 15px;">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-3 text-primary text-center" style="font-size:x-large">Personal Details</h6>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label asp-for="@Model.UserId" class="fw-bold"></label>
+                                <p>@Model.UserId</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label asp-for="@Model.Username" class="fw-bold"></label>
+                                <p>@Model.Username</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label asp-for="@Model.Email" class="fw-bold"></label>
+                                <p>@Model.Email</p>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label asp-for="@Model.PhoneNumber" class="fw-bold"></label>
+                                <p>@Model.PhoneNumber</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gutters">
+                        <form asp-area="" asp-controller="AccountManagement" asp-action="UploadProfilePicture" method="post" enctype="multipart/form-data">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="mb-3">
+                                    <input class="form-control mb-2" type="file" name="file" id="file" />
+                                    <button type="submit" class="btn btn-primary">Upload Picture</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

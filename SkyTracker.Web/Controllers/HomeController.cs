@@ -1,4 +1,6 @@
-﻿namespace SkyTracker.Web.Controllers;
+﻿using SkyTracker.Services.Data.Interfaces;
+
+namespace SkyTracker.Web.Controllers;
 
 using System.Diagnostics;
 
@@ -8,8 +10,11 @@ using ViewModels.Home;
 
 public class HomeController : Controller
 {
-    public HomeController()
+    private readonly IHomeService _homeService;
+
+    public HomeController(IHomeService homeService)
     {
+        _homeService = homeService;
     }
 
     public IActionResult Index()
@@ -21,7 +26,15 @@ public class HomeController : Controller
             ViewBag.StatusMessage = statusMessage;
         }
 
-        return View();
+        var heraldNews = GetLatestHeraldNewsAsync().GetAwaiter().GetResult();
+        
+        var viewModel = new IndexViewModel
+        {
+            StatusMessage = statusMessage,
+            NewsItems = heraldNews
+        };
+
+        return View(viewModel);
     }
 
     public IActionResult Privacy()
@@ -33,5 +46,12 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    private async Task<IEnumerable<HeraldNewsModel>> GetLatestHeraldNewsAsync()
+    {
+        var heraldNews = await _homeService.GetLatestHeraldNewsAsync();
+
+        return heraldNews;
     }
 }

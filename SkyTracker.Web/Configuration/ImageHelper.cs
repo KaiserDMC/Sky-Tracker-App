@@ -57,6 +57,25 @@ public static class ImageHelper
         return filePath;
     }
 
+    public static async Task<string> UploadProfilePicture(IFormFile file, string username, string webRootPath)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return string.Empty;
+        }
+
+        var filePath = Path.Combine(webRootPath, "temp", username.ToLower() + ".jpg");
+
+        using (var image = Image.FromStream(file.OpenReadStream(), true, true))
+
+        using (var newImage = new Bitmap(image))
+        {
+            SaveFileLocal(filePath, newImage);
+        }
+
+        return filePath;
+    }
+
     public static void SaveFileLocal(string filePath, Bitmap newImage)
     {
         using (var stream = new MemoryStream())
@@ -85,6 +104,23 @@ public static class ImageHelper
         BlobClient blob = blobAirport.GetBlobClient(airportIata.ToLower() + ".jpg");
 
         string downloadPath = Path.Combine(webRootPath, AirportImagesBlobRelativePath, airportIata.ToLower() + ".jpg");
+
+        DownloadBlob.DownloadBlobToFileAsync(blob, downloadPath).Wait();
+    }
+
+    public static void SynchronizeProfileImages(string webRootPath, string username)
+    {
+        string localPath = Path.Combine(webRootPath, "temp", username.ToLower() + ".jpg");
+
+        if (File.Exists(localPath))
+        {
+            File.Delete(localPath);
+        }
+
+        BlobContainerClient blobProfilePictures = _blobServiceClient.GetBlobContainerClient(ProfileImagesContainerName);
+        BlobClient blob = blobProfilePictures.GetBlobClient(username.ToLower() + ".jpg");
+
+        string downloadPath = Path.Combine(webRootPath, ProfileImagesBlobRelativePath, username.ToLower() + ".jpg");
 
         DownloadBlob.DownloadBlobToFileAsync(blob, downloadPath).Wait();
     }

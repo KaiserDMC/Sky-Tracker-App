@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HeraldNewsModel>
+
+<div class="news-banner">
+    <div class="table-responsive">
+        <p class="fw-bold d-flex flex-lg-wrap text-center align-content-center" style="max-width: 160px;">Sky Tracker&#8482;'s latest events</p>
+        <table class="table table-hover" id="newsTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var heraldNews in Model)
+                {
+                    <tr data-url="@Url.Action("GetDetails", "Herald", new { occurrenceId = heraldNews.OccurrenceId })">
+                        <td>@heraldNews.OccurrenceDate</td>
+                        <td>@heraldNews.TypeOccurence</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center text-center w-100">
+            <a asp-controller="Herald" asp-action="All" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="border:none;text-decoration:underline;">All Herald News</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const rows = document.querySelectorAll("#newsTable tbody tr");
+    rows.forEach(row => {
+        row.addEventListener("click", function () {
+            const url = row.dataset.url;
+            window.location.href = url;
+        });
+    });
+</script>
