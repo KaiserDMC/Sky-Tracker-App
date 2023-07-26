@@ -26,7 +26,7 @@
                 <td>
                     <input type="checkbox" name="selectedRows" value="@item.Id" />
                 </td>
-                <td> 
+                <td>
                     <a href="@Url.Action("EditAircraft", "Aircraft", new { aircraftId = item.Id })">@item.Id</a>
                 </td>
                 <td>@item.Registration</td>
@@ -36,16 +36,17 @@
     </tbody>
 </table>
 
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-        @{
-            var pagination = @Html.PagedListPager(Model, page =>
-            {
-                if (page == 1)
-                    return Url.Action("AircraftPartial");
-                else
-                    return Url.Action("AircraftPartial", new { page });
-            }, new PagedListRenderOptions
+<div id="paginationContainer" data-url="@Url.Action("AircraftPartial", "Admin")">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            @{
+                var pagination = @Html.PagedListPager(Model, page =>
+                {
+                    if (page == 1)
+                        return Url.Action("AircraftPartial");
+                    else
+                        return Url.Action("AircraftPartial", new { page });
+                }, new PagedListRenderOptions
             {
                 DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
                 ContainerDivClasses = new[] { "pagination" },
@@ -53,10 +54,11 @@
                 PageClasses = new[] { "page-link" },
             });
 
-            @Html.Raw(pagination)
-        }
-    </ul>
-</nav>
+                @Html.Raw(pagination)
+            }
+        </ul>
+    </nav>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

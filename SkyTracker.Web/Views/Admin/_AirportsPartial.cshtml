@@ -28,9 +28,9 @@
                     <input type="checkbox" name="selectedRows" value="@item.IATA" />
                 </td>
                 <td>
-                <a href="@Url.Action("EditAirport", "Airport", new { iata = item.IATA })">@item.IATA</a>
+                    <a href="@Url.Action("EditAirport", "Airport", new { iata = item.IATA })">@item.IATA</a>
                 </td>
-                <td>@item.ICAO</td> 
+                <td>@item.ICAO</td>
                 <td>@item.CommonName</td>
                 <td>@item.LocationCountry</td>
             </tr>
@@ -38,22 +38,24 @@
     </tbody>
 </table>
 
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
+<div id="paginationContainer" data-url="@Url.Action("AirportsPartial", "Admin")">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
 
-        @Html.PagedListPager(Model, page => {
-        if (page == 1)
-        return Url.Action("AirportsPartial");
-        else
-        return Url.Action("AirportsPartial", new { page });
-        }, new PagedListRenderOptions {
-        DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
-        ContainerDivClasses = new[] { "pagination" },
-        LiElementClasses = new[] { "page-item" },
-        PageClasses = new[] { "page-link" },
-        })
-    </ul>
-</nav>
+            @Html.PagedListPager(Model, page => {
+            if (page == 1)
+            return Url.Action("AirportsPartial");
+            else
+            return Url.Action("AirportsPartial", new { page });
+            }, new PagedListRenderOptions {
+            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+            ContainerDivClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            })
+        </ul>
+    </nav>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 

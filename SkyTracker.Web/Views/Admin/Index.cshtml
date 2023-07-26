@@ -1,4 +1,8 @@
-﻿<h3 class="text-center">Administrative Panel</h3>
+﻿@{
+    ViewBag.Title = "Administrative Panel";
+}
+
+<h3 class="text-center">@ViewBag.Title</h3>
 <hr />
 
 <div class="container">
@@ -6,13 +10,14 @@
         <div class="col-md-3">
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-primary" style="text-decoration:none">Moderation Actions</button>
-                <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")')">Flight Management</button>
-                <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")')">Aircraft Management</button>
-                <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")')">Airport Management</button>
-                <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")')">Herald Management</button>
+                <button id="btnFlights" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")')">Flight Management</button>
+                <button id="btnAircraft" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")')">Aircraft Management</button>
+                <button id="btnAirports" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")')">Airport Management</button>
+                <button id="btnHeralds" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")')">Herald Management</button>
+
                 @if (User.IsInRole("Admin"))
                 {
-                    <button type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")')">User Management</button>
+                    <button id="btnUserManagement" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")')">User Management</button>
                 }
             </div>
         </div>
@@ -25,6 +30,7 @@
 
 <script>
     function loadPartialViewOnClick(url) {
+        console.log('loadPartialViewOnClick called with URL:', url);
         $.ajax({
             url: url,
             type: 'GET',
@@ -39,7 +45,40 @@
         });
     }
 
+    function loadPagination() {
+        console.log('loadPagination called');
+        $(document).on('click', '.pagination a', function (e) {
+            e.preventDefault();
+            var container = $(this).closest('[data-url]');
+            var url = container.data('url');
+            var page = $(this).attr('href').split('page=')[1];
+
+            loadPartialViewOnClick(url + (page ? '?page=' + page : ''));
+        });
+    }
+
     $(document).ready(function () {
-        // Remove the previous click event handling code
+        console.log('Document ready called');
+        loadPagination();
+
+        $('#btnFlights').click(function () {
+            loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")');
+        });
+
+        $('#btnAircraft').click(function () {
+            loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")');
+        });
+
+        $('#btnAirports').click(function () {
+            loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")');
+        });
+
+        $('#btnHeralds').click(function () {
+            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")');
+        });
+
+        $('#btnUserManagement').click(function () {
+            loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")');
+        });
     });
 </script>

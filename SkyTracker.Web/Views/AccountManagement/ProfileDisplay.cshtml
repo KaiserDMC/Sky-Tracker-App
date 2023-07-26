@@ -25,7 +25,7 @@
                     <div class="account-settings">
                         <div class="user-profile">
                             <div class="user-avatar">
-                                @if (@Model.ProfilePictureUrl != null)
+                                @if (!string.IsNullOrEmpty(@Model.ProfilePictureUrl))
                                 {
                                     <img src="~/@Model.ProfilePictureUrl" alt="" class="card-img-top">
                                 }
