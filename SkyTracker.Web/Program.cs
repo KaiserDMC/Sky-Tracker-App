@@ -12,9 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Infrastructure.Extensions;
 using SkyTracker.Services.Data.Interfaces;
 
-using static Common.GeneralApplicationContants;
-using SkyTracker.Web.Configuration;
+using Configuration;
 using SkyTracker.Services.Data;
+using static Common.GeneralApplicationContants;
 
 public class Program
 {
@@ -58,17 +58,9 @@ public class Program
             options.LoginPath = "/User/Login";
             options.LogoutPath = "/User/Logout";
         });
-        
+
         // Add application services.
-        //builder.Services.AddApplicationServices(typeof(IHeraldService));
-        builder.Services.AddScoped<IHeraldService, HeraldService>();
-        builder.Services.AddScoped<IAircraftService, AircraftService>();
-        builder.Services.AddScoped<IAirportsService, AirportsService>();
-        builder.Services.AddScoped<IFlightService, FlightService>();
-        builder.Services.AddScoped<IRadarService, RadarService>();
-        builder.Services.AddScoped<IAdminService, AdminService>();
-        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
-        builder.Services.AddScoped<IHomeService, HomeService>();
+        builder.Services.AddApplicationServices(typeof(IHomeService));
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),
@@ -91,7 +83,8 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
+            
             app.UseHsts();
         }
 

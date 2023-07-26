@@ -1,11 +1,11 @@
 ﻿namespace SkyTracker.Web.ViewModels.AccountManagement;
 
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
+using static Common.ErrorMessageStrings.PersonalData;
 
 public class DeletePersonalDataModel
 {
-    [Required(ErrorMessage = "Please type 'DELETE' to confirm.")]
+    [Required(ErrorMessage = PersonalDataMessage)]
     [Display(Name = "Confirmation")]
-    public string Confirmation { get; set; }
+    public string Confirmation { get; set; } = null!;
 }

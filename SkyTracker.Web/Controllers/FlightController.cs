@@ -30,8 +30,8 @@ public class FlightController : Controller
     {
         IEnumerable<FlightAllViewModel> flights;
 
-        int pageNumber = page ?? 1;
-        int itemsPerPage = pageSize ?? 10;
+        int pageNumber = page ?? DefaultStartPagePagination;
+        int itemsPerPage = pageSize ?? DefaultListEntitiesPerPage;
 
         switch (sortType)
         {

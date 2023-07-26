@@ -14,6 +14,7 @@ public class HeraldFormModel
     public DateTime Occurrence { get; set; }
 
     [Required]
+    [Display(Name = "Type of occurrence")]
     public string TypeOccurrence { get; set; } = null!;
 
     [Required]

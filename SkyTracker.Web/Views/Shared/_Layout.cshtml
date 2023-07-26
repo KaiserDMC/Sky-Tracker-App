@@ -45,13 +45,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-
-                        @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
-                        {
-                            <li class="nav-item">
-                                <a href="@Url.Action("Index", "Admin")" class="btn btn-outline-danger">Administrative Panel</a>
-                            </li>
-                        }
                     </ul>
 
                 </div>
@@ -59,7 +52,7 @@
                 {
                     <a href="@Url.Action("Index", "Admin")">
                         <button type="button" class="btn btn-outline-danger btn-floating" data-mdb-ripple-color="dark" style="margin-right: 10px;">
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-plane-departure"></i>
                         </button>
                     </a>
                 }

@@ -2,6 +2,6 @@
 
 public class FlightAndAirportData
 {
-    public IEnumerable<FlightViewModel> Flights { get; set; }
-    public IEnumerable<AirportGeoDataViewModel> Airports { get; set; }
+    public IEnumerable<FlightViewModel> Flights { get; set; } = new List<FlightViewModel>();
+    public IEnumerable<AirportGeoDataViewModel> Airports { get; set; } = new List<AirportGeoDataViewModel>();
 }

@@ -21,6 +21,7 @@ public class DownloadFromAzureStorage
         await DownloadDataAircraft();
         await DownloadDataProfile();
         await DownloadDataStock();
+        await DownloadDataErrors();
     }
 
     private async Task DownloadDataAirport()
@@ -96,6 +97,26 @@ public class DownloadFromAzureStorage
                 stockBlobName);
 
             BlobClient blob = blobStockImages.GetBlobClient(stockBlobName);
+
+            if (await blob.ExistsAsync())
+            {
+                await DownloadBlob.DownloadBlobToFileAsync(blob, localPath);
+            }
+        }
+    }
+
+    private async Task DownloadDataErrors()
+    {
+        BlobContainerClient blobErrorImages = _blobServiceClient.GetBlobContainerClient(ErrorImagesContainerName);
+
+        await foreach (var stockBlobItem in blobErrorImages.GetBlobsAsync())
+        {
+            string stockBlobName = stockBlobItem.Name;
+
+            string localPath = Path.Combine(_hostingEnvironment.WebRootPath, ErrorImagesBlobRelativePath,
+                stockBlobName);
+
+            BlobClient blob = blobErrorImages.GetBlobClient(stockBlobName);
 
             if (await blob.ExistsAsync())
             {

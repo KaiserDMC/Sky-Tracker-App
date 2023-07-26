@@ -18,8 +18,7 @@
 
 <div class="row">
     <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        ﻿@using (Html.BeginForm("AddAircraft", "Aircraft", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
+        <form asp-action="AddAircraft" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label asp-for="@Model.Id" class="form-label-add-edit">A/C ID</label>
                 <input asp-for="@Model.Id" class="form-control" aria-required="true" />
@@ -45,7 +44,7 @@
             <div class="mb-3">
                 <input class="btn btn-warning mb-2 w-100 p-3 fw-bold" type="submit" value="Add Aircraft" />
             </div>
-        }
+        </form>
     </div>
 </div>
 

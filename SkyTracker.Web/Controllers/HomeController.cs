@@ -41,17 +41,23 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
     private async Task<IEnumerable<HeraldNewsModel>> GetLatestHeraldNewsAsync()
     {
         var heraldNews = await _homeService.GetLatestHeraldNewsAsync();
 
         return heraldNews;
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public async Task<IActionResult> Error(int statusCode)
+    {
+        return statusCode switch
+        {
+            400 => View("Error400"),
+            401 => View("Error401"),
+            404 => View("Error404"),
+            500 => View("Error500"),
+            _ => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier })
+        };
     }
 }

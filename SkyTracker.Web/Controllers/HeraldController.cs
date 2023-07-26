@@ -8,6 +8,7 @@ using SkyTracker.Services.Data.Interfaces;
 using ViewModels.Herald;
 
 using X.PagedList;
+using static Common.GeneralApplicationContants;
 
 [Authorize]
 public class HeraldController : Controller
@@ -24,8 +25,8 @@ public class HeraldController : Controller
     {
         IEnumerable<HeraldAllViewModel>? heralds;
 
-        int pageNumber = page ?? 1;
-        int itemsPerPage = pageSize ?? 10;
+        int pageNumber = page ?? DefaultStartPagePagination;
+        int itemsPerPage = pageSize ?? DefaultListEntitiesPerPage;
 
         switch (sortType)
         {

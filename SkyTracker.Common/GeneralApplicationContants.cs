@@ -4,6 +4,10 @@ using System.IO;
 
 public static class GeneralApplicationContants
 {
+    public const int DefaultStartPagePagination = 1;
+    
+    public const int DefaultListEntitiesPerPage = 10;
+
     public const int DefaultAdminListEntitiesPerPage = 10;
 
     public const string AircraftImagesContainerName = "aircraft-images";
@@ -17,6 +21,9 @@ public static class GeneralApplicationContants
 
     public const string ProfileImagesContainerName = "profile-images";
     public static readonly string ProfileImagesBlobRelativePath = Path.Combine("azure", "blob-profile");
+
+    public const string ErrorImagesContainerName = "error-images";
+    public static readonly string ErrorImagesBlobRelativePath = Path.Combine("azure", "blob-error");
 
     public const string DevAndTestingAdminEmail = "admin@sky-tracker.info";
     public const string DevAndTestingModeratorEmail = "moderator@sky-tracker.info";

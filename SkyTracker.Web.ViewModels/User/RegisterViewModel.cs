@@ -1,10 +1,15 @@
 ﻿namespace SkyTracker.Web.ViewModels.User;
 
 using System.ComponentModel.DataAnnotations;
+using static Common.DataModelsValidationConstants.UserCheck;
+using static Common.DataModelsValidationConstants.Password;
+using static Common.ErrorMessageStrings.UserCheck;
 
 public class RegisterViewModel
 {
     [Required]
+    [StringLength(UsernameLengthMax, MinimumLength = UsernameLengthMin, ErrorMessage = UsernameLengthError )]
+    [RegularExpression(UsernameRegexPattern, ErrorMessage = UsernameRegexError)]
     [Display(Name = "Username")]
     public string UserName { get; set; } = null!;
 
@@ -14,13 +19,13 @@ public class RegisterViewModel
     public string Email { get; set; } = null!;
 
     [Required]
-    [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+    [StringLength(PasswordLengthMax, MinimumLength = PasswordLengthMin, ErrorMessage = PasswordLengthError)]
     [DataType(DataType.Password)]
     [Display(Name = "Password")]
     public string Password { get; set; } = null!;
 
     [DataType(DataType.Password)]
     [Display(Name = "Confirm password")]
-    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    [Compare("Password", ErrorMessage = PasswordConfirmationError)]
     public string ConfirmPassword { get; set; } = null!;
 }

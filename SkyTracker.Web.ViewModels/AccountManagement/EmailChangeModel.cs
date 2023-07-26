@@ -7,5 +7,5 @@ public class EmailChangeModel
     [Required]
     [EmailAddress]
     [Display(Name = "New email")]
-    public string NewEmail { get; set; }
+    public string NewEmail { get; set; } = null!;
 }

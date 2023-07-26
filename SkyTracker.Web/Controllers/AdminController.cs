@@ -30,7 +30,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = (page ?? DefaultStartPagePagination);
 
         var pagedData = flights.ToPagedList(pageNumber, pageSize);
 
@@ -43,7 +43,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = (page ?? DefaultStartPagePagination);
 
 
         var pagedData = aircraft.ToPagedList(pageNumber, pageSize);
@@ -57,7 +57,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = (page ?? DefaultStartPagePagination);
 
         var pagedData = airports.ToPagedList(pageNumber, pageSize);
 
@@ -70,7 +70,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = (page ?? DefaultStartPagePagination);
 
         var pagedData = heralds.ToPagedList(pageNumber, pageSize);
 
