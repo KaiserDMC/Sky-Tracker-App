@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AirportsAllViewModel>
+
+@if (Model != null)
+{
+    <h3>Airports Search Results</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IATA</th>
+                <th>ICAO</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var airport in Model)
+            {
+                <tr>
+                    <td>@airport.IATA</td>
+                    <td>@airport.ICAO</td>
+                    <td>@airport.CommonName</td>
+                    <td>@airport.LocationCity</td>
+                    <td>@airport.LocationCountry</td>
+                    <td>@airport.Lat</td>
+                    <td>@airport.Long</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Airports found.</p>
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FlightAllViewModel>
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Flight Id</th>
+                <th>A/C Reg</th>
+                <th>A/C Type</th>
+                <th>Flt Number</th>
+                <th>Departure Airport</th>
+                <th>Arrival Airport</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="row-@item.FlightId">
+                    <td>@item.FlightId</td>
+                    <td>@item.Registration</td>
+                    <td>@item.Equipment</td>
+                    <td>@item.FlightNumber</td>
+                    <td>@item.DepartureId</td>
+                    <td>@item.ScheduledArrival</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Flights found.</p>
+}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function bindTableRowClickEvent() {
+            $('tr[id^="row-"]').click(function () {
+                var rowId = $(this).attr('id');
+                var flightId = rowId.replace('row-', '');
+
+                window.location.href = '/Flight/GetDetailsFlight?flightId=' + flightId;
+            });
+        }
+
+        $(document).ready(function () {
+            bindTableRowClickEvent();
+        });
+    </script>

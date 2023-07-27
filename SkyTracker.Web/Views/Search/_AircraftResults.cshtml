@@ -1,0 +1,29 @@
+﻿@model IEnumerable<AircraftAllViewModel>
+
+@if (Model != null)
+{
+    <h3>Aircraft Search Results</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>A/C Id</th>
+                <th>A/C Registration</th>
+                <th>A/C Equipment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var aircraft in Model)
+            {
+                <tr>
+                    <td>@aircraft.Id</td>
+                    <td>@aircraft.Registration</td>
+                    <td>@aircraft.Equipment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No Aircraft found.</p>
+}
