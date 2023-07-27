@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/issues)
 [![GitHub forks](https://img.shields.io/github/forks/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/network)
-[![Repo size](https://img.shields.io/github/repo-size/KaiserDMC/Sky-Tracker-App)]
+![Repo size](https://img.shields.io/github/repo-size/KaiserDMC/Sky-Tracker-App)
 
 <p align="center">
   <img src="./SkyTracker.Web/wwwroot/favicon.ico" alt="Sky Tracker App Banner">
