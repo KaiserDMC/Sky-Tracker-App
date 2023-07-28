@@ -8,7 +8,7 @@
 <hr />
 
 <div class="row mb-3">
-    <div class="col col-6">
+    <div class="col col-12">
         <div class="input-group">
             <input type="text" id="searchInput" class="form-control" placeholder="Search">
             <button class="btn btn-primary" onclick="searchDB()">Search</button>
@@ -19,9 +19,9 @@
 
 <div class="row mb-3">
     <div class="col col-12">
-        <button id="showFormAircraft" class="btn btn-info">Search Aircraft</button>
-        <button id="showFormAirports" class="btn btn-info">Search Airports</button>
-        <button id="showFormFlights" class="btn btn-info">Search Flights</button>
+        <button id="showFormAircraft" class="btn btn-outline-success btn-sm">Search Aircraft</button>
+        <button id="showFormAirports" class="btn btn-outline-success btn-sm">Search Airports</button>
+        <button id="showFormFlights" class="btn btn-outline-success btn-sm">Search Flights</button>
     </div>
 </div>
 
@@ -29,28 +29,28 @@
     <input type="hidden" id="query" name="query" value="">
     <input type="hidden" id="modelType" name="modelType" value="">
     <input type="hidden" id="properties" name="properties" value="">
-    
+
     <div id="aircraftCheckboxes" style="display: none;">
-        <label><input type="checkbox" id="aircraftId" name="aircraftId" value="aircraftId" /> A/C Id</label>
-        <label><input type="checkbox" id="aircraftRegistration" name="aircraftRegistration" value="aircraftRegistration" /> A/C Registration</label>
-        <label><input type="checkbox" id="aircraftEquipment" name="aircraftEquipment" value="aircraftEquipment" /> A/C Type</label>
+        <label><input type="radio" name="property" id="aircraftId" value="aircraftId" /> A/C Id</label>
+        <label><input type="radio" name="property" id="aircraftRegistration" value="aircraftRegistration" /> A/C Registration</label>
+        <label><input type="radio" name="property" id="aircraftEquipment" value="aircraftEquipment" /> A/C Type</label>
     </div>
 
     <div id="airportCheckboxes" style="display: none;">
-        <label><input type="checkbox" id="airportIata" name="airportIata" value="airportIata" /> IATA</label>
-        <label><input type="checkbox" id="airportIcao" name="airportIcao" value="airportIcao" /> ICAO</label>
-        <label><input type="checkbox" id="airportName" name="airportName" value="airportName" /> Name</label>
-        <label><input type="checkbox" id="airportCity" name="airportCity" value="airportCity" /> City</label>
-        <label><input type="checkbox" id="airportCountry" name="airportCountry" value="airportCountry" /> Country</label>
+        <label><input type="radio" name="property" id="airportIata" value="airportIata" /> IATA</label>
+        <label><input type="radio" name="property" id="airportIcao" value="airportIcao" /> ICAO</label>
+        <label><input type="radio" name="property" id="airportName" value="airportName" /> Name</label>
+        <label><input type="radio" name="property" id="airportCity" value="airportCity" /> City</label>
+        <label><input type="radio" name="property" id="airportCountry" value="airportCountry" /> Country</label>
     </div>
 
     <div id="flightCheckboxes" style="display: none;">
-        <label><input type="checkbox" id="flightId" name="flightId" value="flightId" /> Flight Id</label>
-        <label><input type="checkbox" id="flightRegistration" name="flightRegistration" value="flightRegistration" /> A/C Registration</label>
-        <label><input type="checkbox" id="flightEquipment" name="flightEquipment" value="flightEquipment" /> A/C Type</label>
-        <label><input type="checkbox" id="flightNumber" name="flightNumber" value="flightNumber" /> Flight Number</label>
-        <label><input type="checkbox" id="flightDeparture" name="flightDeparture" value="flightDeparture" /> Departure Airport</label>
-        <label><input type="checkbox" id="flightArrival" name="flightArrival" value="flightArrival" /> Arrival Airport</label>
+        <label><input type="checkbox" id="flightId" value="flightId" /> Flight Id</label>
+        <label><input type="checkbox" id="flightRegistration" value="flightRegistration" /> A/C Registration</label>
+        <label><input type="checkbox" id="flightEquipment" value="flightEquipment" /> A/C Type</label>
+        <label><input type="checkbox" id="flightNumber" value="flightNumber" /> Flight Number</label>
+        <label><input type="checkbox" id="flightDeparture" value="flightDeparture" /> Departure Airport</label>
+        <label><input type="checkbox" id="flightArrival" value="flightArrival" /> Arrival Airport</label>
     </div>
 </form>
 
@@ -74,7 +74,7 @@ else if (ViewBag.FlightResults != null && ViewBag.ModelType == "flights")
 }
 else
 {
-    <p>No results found.</p>
+    <h3 class="text-center">No results found.</h3>
 }
 
 @section Scripts {
@@ -111,28 +111,60 @@ else
             return null; // Default to null if none of the checkboxes are visible
         }
 
+        function getSelectedProperties() {
+            var selectedProperties = [];
+            var checkboxInputs = document.querySelectorAll('input[type="checkbox"]:checked');
+            var selectedRadio = document.querySelector('input[type="radio"][name="property"]:checked');
+
+            if (selectedRadio) {
+                selectedProperties.push(selectedRadio.value);
+            }
+
+            checkboxInputs.forEach(checkbox => {
+                selectedProperties.push(checkbox.value);
+            });
+
+            return selectedProperties;
+        }
+
         function searchDB() {
             var searchValue = document.getElementById("searchInput").value;
             var modelType = getModelType();
+            var selectedProperties = getSelectedProperties();
 
-            if (modelType) {
-                var properties = getSelectedProperties(); // Get the selected properties
+            if (modelType && selectedProperties.length > 0) {
                 var form = document.getElementById("searchForm");
                 form.action = "/Search/IndexSearch";
                 form.method = "GET";
+
+                // Set the values for query, modelType, and properties
                 form.querySelector("#query").value = searchValue;
                 form.querySelector("#modelType").value = modelType;
-                form.querySelector("#properties").value = properties;
+                form.querySelector("#properties").value = selectedProperties.join(",");
+
+                // Remove the 'property' parameter to prevent duplication
+                form.querySelectorAll('input[name="property"]').forEach(input => {
+                    input.removeAttribute('name');
+                });
 
                 form.submit(); // Submit the form
+            } else {
+                // Display an alert to the user
+                alert("Please select at least one property to search.");
             }
         }
 
-        function getSelectedProperties() {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            var properties = Array.from(checkboxes).map(checkbox => checkbox.value);
-            return properties.join(","); // Combine selected properties as comma-separated string
-        }
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('click', function () {
+                // Uncheck all other radio buttons in the same group
+                var groupName = this.getAttribute('name');
+                document.querySelectorAll('input[type="radio"][name="' + groupName + '"]').forEach(rb => {
+                    if (rb !== this) {
+                        rb.checked = false;
+                    }
+                });
+            });
+        });
 
         function clearSearch() {
             document.getElementById("searchInput").value = "";
@@ -140,36 +172,3 @@ else
         }
     </script>
 }
-
-@*<a id="sort-link-user" class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = " ", page = 1})" role="button" style="color:wheat;  background-color:#284564">By Author</a>
-<input id="user-input" type="text" placeholder="Enter user" />
-
-<script>
-    document.getElementById('user-input').addEventListener('input', function () {
-        var sort = this.value;
-        var link = document.getElementById('sort-link-user');
-        var href = link.getAttribute('href');
-        href = href.replace(/sort=.*?(&|$)/, 'sort=' + encodeURIComponent(sort) + '$1');
-        link.setAttribute('href', href);
-    });
-</script>*@
-
-@*
-<div class="text-center row">
-    @foreach (var book in Model)
-    {
-        <div class="card col-4" style="width: 20rem; ">
-            <img class="card-img-top" style="width: 18rem; max-height: 288px;"
-                 src="@book.ImageUrl" alt="Book Image">
-            <div class="card-body">
-
-                <h5 class="card-title mt-1">@book.Title</h5>
-                <p class="mb-0">Author: @book.Author</p>
-                <p class="mb-0">Rating: @book.Rating</p>
-                <p>Category: @book.Category</p>
-            </div>
-
-
-        </div>
-    }
-</div>*@

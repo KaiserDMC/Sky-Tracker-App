@@ -1,29 +1,40 @@
 ﻿@model IEnumerable<AircraftAllViewModel>
 
-@if (Model != null)
-{
-    <h3>Aircraft Search Results</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>A/C Id</th>
-                <th>A/C Registration</th>
-                <th>A/C Equipment</th>
+<h3 class="text-center">Aircraft Search Results: @Model.Count()</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>A/C Id</th>
+            <th>A/C Registration</th>
+            <th>A/C Equipment</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var aircraft in Model)
+        {
+            <tr id="row-@aircraft.Id">
+                <td>@aircraft.Id</td>
+                <td>@aircraft.Registration</td>
+                <td>@aircraft.Equipment</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var aircraft in Model)
-            {
-                <tr>
-                    <td>@aircraft.Id</td>
-                    <td>@aircraft.Registration</td>
-                    <td>@aircraft.Equipment</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <p>No Aircraft found.</p>
-}
+        }
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    function bindTableRowClickEvent() {
+        $('tr[id^="row-"]').click(function () {
+            var rowId = $(this).attr('id');
+            var aircraftId = rowId.replace('row-', '');
+
+            window.location.href = '/Aircraft/GetDetailsAircraft?aircraftId=' + aircraftId;
+        });
+    }
+
+    $(document).ready(function () {
+        bindTableRowClickEvent();
+    });
+</script>
