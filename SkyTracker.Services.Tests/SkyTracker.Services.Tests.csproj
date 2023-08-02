@@ -21,4 +21,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SkyTracker.Data.Models\SkyTracker.Data.Models.csproj" />
+    <ProjectReference Include="..\SkyTracker.Data\SkyTracker.Data.csproj" />
+    <ProjectReference Include="..\SkyTracker.Services.Data\SkyTracker.Services.Data.csproj" />
+  </ItemGroup>
+
 </Project>

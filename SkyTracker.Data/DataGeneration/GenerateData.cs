@@ -1,16 +1,13 @@
-﻿using Microsoft.Extensions.Configuration;
-
-namespace SkyTracker.Data.SampleData;
+﻿namespace SkyTracker.Data.SampleData;
 
 using System.Globalization;
 
 using CsvHelper;
 
-using Seeding;
 using Models;
+
 using Seeding.DTOs;
-using Microsoft.Extensions.Hosting;
-using static System.Net.WebRequestMethods;
+
 
 public class GenerateData
 {
@@ -25,8 +22,17 @@ public class GenerateData
 
     private void GenerateFlightAndAircraftData()
     {
-        string relativePath = @"..\SkyTracker.Data\DataGeneration\SampleData\20210723_flights.csv";
-        string fullPath = Path.GetFullPath(relativePath);
+        string projectName = "_Sky-Tracker-info";
+        string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        string projectPath = currentDirectory;
+
+        while (Path.GetFileName(projectPath) != projectName)
+        {
+            projectPath = Directory.GetParent(projectPath).FullName;
+        }
+
+        string relativePath = Path.Combine("SkyTracker.Data", "DataGeneration", "SampleData", "20210723_flights.csv");
+        string fullPath = Path.Combine(projectPath, relativePath);
 
         #region Read CSV file and seed Flights, Aircraft and Airports
 

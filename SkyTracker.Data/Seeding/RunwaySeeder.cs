@@ -8,6 +8,7 @@ using DTOs;
 public class RunwaySeeder
 {
     public ICollection<Runway> Runways = new List<Runway>();
+
     public RunwaySeeder()
     {
         Runways = GenerateRunways();
@@ -18,10 +19,18 @@ public class RunwaySeeder
         ICollection<RunwaySeedDto>? runwaysDto = new List<RunwaySeedDto>();
         string[] surfaceTypes = new string[] { "Asphalt", "Concrete", "Grass", "Gravel", "Dirt", "Sand" };
 
-
         // Specify the folder name relative to the current directory
-        string relativePath = @"..\SkyTracker.Data\DataGeneration\SampleData\modified_runway.json";
-        string fullPath = Path.GetFullPath(relativePath);
+        string projectName = "_Sky-Tracker-info";
+        string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        string projectPath = currentDirectory;
+
+        while (Path.GetFileName(projectPath) != projectName)
+        {
+            projectPath = Directory.GetParent(projectPath).FullName;
+        }
+
+        string relativePath = Path.Combine("SkyTracker.Data", "DataGeneration", "SampleData", "modified_runway.json");
+        string fullPath = Path.Combine(projectPath, relativePath);
 
         string json = File.ReadAllText(fullPath);
 
