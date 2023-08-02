@@ -97,6 +97,7 @@ public class AirportsService : IAirportsService
         if (_dbContext.Airports.Any(a => a.IATA == model.IATA))
         {
             model.Error = "Airport with this IATA code already exists.";
+            return;
         }
 
         Airport airport = new Airport
@@ -123,16 +124,16 @@ public class AirportsService : IAirportsService
             .Include(r => r.RunwaysAirports)
             .FirstOrDefaultAsync(a => a.IATA == iata);
 
-        var runwayId = airportById.RunwaysAirports
-            .Select(ra => ra.RunwayId)
-            .FirstOrDefault();
-
-        var runwayDesignator = _dbContext.Runways
-            .Where(r => r.IsDeleted == false)
-            .FirstOrDefault(r => r.Id == runwayId)!.RunwayDesignatorOne;
-
         if (airportById != null)
         {
+            var runwayId = airportById.RunwaysAirports
+                .Select(ra => ra.RunwayId)
+                .FirstOrDefault();
+
+            var runwayDesignator = _dbContext.Runways
+                .Where(r => r.IsDeleted == false)
+                .FirstOrDefault(r => r.Id == runwayId)!.RunwayDesignatorOne;
+
             var airport = new AirportFormModel
             {
                 IATA = airportById.IATA,
@@ -156,29 +157,15 @@ public class AirportsService : IAirportsService
     public async Task EditAirportAsync(string iata, AirportFormModel model)
     {
         var airportToUpdate = await _dbContext.Airports
-            .Where(a => a.IsDeleted == false)
-            .FirstOrDefaultAsync(a => a.IATA == iata);
+            .Where(a => a.IsDeleted == false && a.IATA == iata)
+            .FirstOrDefaultAsync();
 
         var runway = await _dbContext.Runways
-            .Where(r => r.IsDeleted == false)
-            .FirstOrDefaultAsync(r => r.RunwayDesignatorOne == model.RunwayId);
+            .Where(r => r.IsDeleted == false && r.RunwayDesignatorOne == model.RunwayId)
+            .FirstOrDefaultAsync();
 
-        var currentRunway = await _dbContext.RunwaysAirports
-            .FirstOrDefaultAsync(ra => ra.AirportId == airportToUpdate.IATA);
-
-        airportToUpdate.RunwaysAirports.Remove(currentRunway);
-
-        var airportRunway = new RunwayAirport()
+        if (airportToUpdate != null && runway != null)
         {
-            AirportId = airportToUpdate.IATA,
-            Airport = airportToUpdate,
-            RunwayId = runway.Id,
-            Runway = runway
-        };
-
-        if (airportToUpdate != null)
-        {
-            airportToUpdate.IATA = model.IATA;
             airportToUpdate.ICAO = model.ICAO;
             airportToUpdate.CommonName = model.CommonName;
             airportToUpdate.Elevation = model.Elevation;
@@ -187,10 +174,24 @@ public class AirportsService : IAirportsService
             airportToUpdate.Lat = model.Lat;
             airportToUpdate.Long = model.Long;
             airportToUpdate.ImagePathUrl = model.ImagePathUrl;
-            airportToUpdate.RunwaysAirports.Add(airportRunway);
-        }
 
-        await _dbContext.SaveChangesAsync();
+            var currentRunway = await _dbContext.RunwaysAirports
+                .FirstOrDefaultAsync(ra => ra.AirportId == airportToUpdate.IATA);
+
+            airportToUpdate.RunwaysAirports.Remove(currentRunway);
+
+            var airportRunway = new RunwayAirport()
+            {
+                AirportId = airportToUpdate.IATA,
+                Airport = airportToUpdate,
+                RunwayId = runway.Id,
+                Runway = runway
+            };
+
+            airportToUpdate.RunwaysAirports.Add(airportRunway);
+
+            await _dbContext.SaveChangesAsync();
+        }
     }
 
     public async Task DeleteAirportAsync(string[] iataCodes)

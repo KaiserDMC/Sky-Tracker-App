@@ -1,11 +1,11 @@
-﻿using SkyTracker.Web.ViewModels.Flight;
+﻿namespace SkyTracker.Services.Data;
 
-namespace SkyTracker.Services.Data;
+using Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
-using Interfaces;
+
 using Web.ViewModels.Radar;
 
 public class RadarService : IRadarService

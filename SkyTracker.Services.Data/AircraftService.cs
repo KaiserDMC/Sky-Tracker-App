@@ -41,14 +41,19 @@ public class AircraftService : IAircraftService
             .Where(a => a.IsDeleted == false)
             .FirstOrDefaultAsync(a => a.Id == aircraftId);
 
-        var aircraftDetails = new AircraftDetailsViewModel
+        if (aircraft != null)
         {
-            Id = aircraft.Id,
-            Registration = aircraft.Registration,
-            Equipment = aircraft.Equipment
-        };
+            var aircraftDetails = new AircraftDetailsViewModel
+            {
+                Id = aircraft.Id,
+                Registration = aircraft.Registration,
+                Equipment = aircraft.Equipment
+            };
 
-        return aircraftDetails;
+            return aircraftDetails;
+        }
+
+        return null;
     }
 
     public async Task AddAircraftAsync(AircraftFormModel model)
