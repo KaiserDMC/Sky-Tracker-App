@@ -1,4 +1,5 @@
-﻿using SkyTracker.Services.Data.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using SkyTracker.Services.Data.Interfaces;
 
 namespace SkyTracker.Web.Controllers;
 
@@ -17,16 +18,18 @@ public class HomeController : Controller
         _homeService = homeService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var statusMessage = TempData["StatusMessage"] as string;
+        var tempData = ControllerContext.HttpContext.Items["__ControllerTempData"] as TempDataDictionary;
+
+        var statusMessage = tempData["StatusMessage"] as string;
 
         if (!string.IsNullOrEmpty(statusMessage))
         {
             ViewBag.StatusMessage = statusMessage;
         }
 
-        var heraldNews = GetLatestHeraldNewsAsync().GetAwaiter().GetResult();
+        var heraldNews = await GetLatestHeraldNewsAsync();
         
         var viewModel = new IndexViewModel
         {
@@ -41,6 +44,7 @@ public class HomeController : Controller
     {
         return View();
     }
+
     private async Task<IEnumerable<HeraldNewsModel>> GetLatestHeraldNewsAsync()
     {
         var heraldNews = await _homeService.GetLatestHeraldNewsAsync();

@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkyTracker.Services.Tests",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5B2E7A5E-81AA-4262-BD25-85312DA359B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTracker.Controllers.Tests", "SkyTracker.Controllers.Tests\SkyTracker.Controllers.Tests.csproj", "{1D318C91-2430-45DB-9DFA-F9D44B51F381}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{2DBAD796-3E33-466D-AEE0-91AFD3DD2BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DBAD796-3E33-466D-AEE0-91AFD3DD2BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DBAD796-3E33-466D-AEE0-91AFD3DD2BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D318C91-2430-45DB-9DFA-F9D44B51F381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D318C91-2430-45DB-9DFA-F9D44B51F381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D318C91-2430-45DB-9DFA-F9D44B51F381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D318C91-2430-45DB-9DFA-F9D44B51F381}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +83,7 @@ Global
 		{5DA39BEC-0E40-4AC4-90E2-EF0DBD45ACA8} = {3C798761-B2B4-4474-9567-03E148B66D98}
 		{77C06917-D5AB-4E3F-B8CB-79E3A4BC813B} = {3C798761-B2B4-4474-9567-03E148B66D98}
 		{2DBAD796-3E33-466D-AEE0-91AFD3DD2BDE} = {5B2E7A5E-81AA-4262-BD25-85312DA359B7}
+		{1D318C91-2430-45DB-9DFA-F9D44B51F381} = {5B2E7A5E-81AA-4262-BD25-85312DA359B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8341A571-380D-436C-B53C-AB906E672906}

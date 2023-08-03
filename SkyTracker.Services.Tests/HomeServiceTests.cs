@@ -41,7 +41,7 @@ public class HomeServiceTests
     }
 
     [Test]
-    public async Task GetLatestHeraldNewsAsync_ShouldReturnLatestHeraldNews()
+    public async Task GetLatestHeraldNewsAsync_ShouldWork_ReturnLatestHeraldNews()
     {
         var result = await _homeService.GetLatestHeraldNewsAsync();
 

@@ -1,11 +1,10 @@
-﻿using SkyTracker.Web.Configuration;
+﻿namespace SkyTracker.Web.Controllers;
 
-namespace SkyTracker.Web.Controllers;
-
-using System.Runtime.ConstrainedExecution;
 using System.Text;
 
 using Azure.Storage.Blobs;
+
+using Configuration;
 
 using Data.Models;
 
@@ -18,7 +17,6 @@ using Newtonsoft.Json;
 using ViewModels.AccountManagement;
 
 using static Common.GeneralApplicationContants;
-using static Configuration.DownloadBlob;
 using static Configuration.UploadBlob;
 
 [Authorize]
