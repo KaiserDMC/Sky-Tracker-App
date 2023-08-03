@@ -95,7 +95,8 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             UserName = "moderator",
             NormalizedUserName = "MODERATOR",
             Email = "moderator@sky-tracker.info",
-            NormalizedEmail = "MODERATOR@SKY-TRACKER.INFO"
+            NormalizedEmail = "MODERATOR@SKY-TRACKER.INFO",
+            LockoutEnabled = true
         };
 
         var passwordHasherModerator = new PasswordHasher<ApplicationUser>();

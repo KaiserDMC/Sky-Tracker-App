@@ -3,14 +3,11 @@
 using Data;
 using Data.Interfaces;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using Moq;
-
 using SkyTracker.Data;
-using SkyTracker.Data.Models;
 
+using static TestDatabaseSeed;
 
 public class RadarServiceTests
 {
@@ -29,11 +26,8 @@ public class RadarServiceTests
         this._dbContext = new SkyTrackerDbContext(options);
 
         this._dbContext.Database.EnsureCreated();
-
-        var userManagerMock = new Mock<TestUserManager>(Mock.Of<IUserStore<ApplicationUser>>(), null, null, null, null, null, null, null, null);
-
-        var testDatabaseSeed = new TestDatabaseSeed(userManagerMock.Object);
-        testDatabaseSeed.SeedDatabase(this._dbContext);
+        
+        SeedDatabase(this._dbContext);
 
         this._radarService = new RadarService(this._dbContext);
     }

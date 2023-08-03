@@ -5,15 +5,13 @@ using System.Globalization;
 using Data;
 using Data.Interfaces;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using Moq;
-
 using SkyTracker.Data;
-using SkyTracker.Data.Models;
-using SkyTracker.Web.ViewModels.Herald.Enums;
-using SkyTracker.Web.ViewModels.Herald;
+using Web.ViewModels.Herald;
+using Web.ViewModels.Herald.Enums;
+
+using static TestDatabaseSeed;
 
 public class HeraldServiceTests
 {
@@ -33,10 +31,7 @@ public class HeraldServiceTests
 
         this._dbContext.Database.EnsureCreated();
 
-        var userManagerMock = new Mock<TestUserManager>(Mock.Of<IUserStore<ApplicationUser>>(), null, null, null, null, null, null, null, null);
-
-        var testDatabaseSeed = new TestDatabaseSeed(userManagerMock.Object);
-        testDatabaseSeed.SeedDatabase(this._dbContext);
+        SeedDatabase(this._dbContext);
 
         this._heraldService = new HeraldService(this._dbContext);
     }
@@ -237,6 +232,16 @@ public class HeraldServiceTests
     }
 
     [Test]
+    public async Task DeleteFlightAsync_ShouldThrow_NonExistingHeraldNotDeleted()
+    {
+        var heraldIdsToDelete = new string[] { "11111111", "22222222" };
+
+        await _heraldService.DeleteHeraldAsync(heraldIdsToDelete);
+
+        Assert.IsFalse(_dbContext.HeraldPosts.Any(a => a.IsDeleted));
+    }
+
+    [Test]
     public async Task GetDeletedHeraldsAsync_ShouldWork_ReturnDeletedHeraldCollection()
     {
         var existingHeralds = await _dbContext.HeraldPosts.Take(2).ToListAsync();
@@ -249,6 +254,6 @@ public class HeraldServiceTests
 
         Assert.NotNull(result);
         Assert.IsTrue(result.Any());
-        Assert.AreEqual(2, result.Count());
+        Assert.AreEqual(heraldIdsToDelete.Length, result.Count());
     }
 }

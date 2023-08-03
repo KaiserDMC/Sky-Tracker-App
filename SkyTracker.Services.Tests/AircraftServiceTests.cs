@@ -3,14 +3,14 @@
 using Data;
 using Data.Interfaces;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
-using Moq;
 
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
+
 using Web.ViewModels.Aircraft;
+
+using static TestDatabaseSeed;
 
 public class AircraftServiceTests
 {
@@ -30,10 +30,7 @@ public class AircraftServiceTests
 
         this._dbContext.Database.EnsureCreated();
 
-        var userManagerMock = new Mock<TestUserManager>(Mock.Of<IUserStore<ApplicationUser>>(), null, null, null, null, null, null, null, null);
-
-        var testDatabaseSeed = new TestDatabaseSeed(userManagerMock.Object);
-        testDatabaseSeed.SeedDatabase(this._dbContext);
+        SeedDatabase(this._dbContext);
 
         this._aircraftService = new AircraftService(this._dbContext);
     }

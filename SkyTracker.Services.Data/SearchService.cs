@@ -43,6 +43,10 @@ public class SearchService : ISearchService
         {
             queryable = queryable.Where(a => a.Registration.Contains(query) || a.Equipment.Contains(query) || a.Id.Contains(query));
         }
+        else
+        {
+            return null;
+        }
 
         return await queryable.Select(a => new AircraftAllViewModel
         {
@@ -82,6 +86,10 @@ public class SearchService : ISearchService
         {
             queryable = queryable.Where(a => a.IATA.Contains(query) || a.ICAO.Contains(query) || a.CommonName.Contains(query) || a.LocationCity.Contains(query) || a.LocationCountry.Contains(query));
         }
+        else
+        {
+            return null;
+        }
 
         return await queryable.Select(a => new AirportsAllViewModel
         {
@@ -100,20 +108,25 @@ public class SearchService : ISearchService
     {
         IQueryable<Flight> queryable = _dbContext.Flights.AsQueryable();
 
-       var separatedQuery = query.Split(' ');
+        var separatedQuery = query.Split(' ');
 
-       foreach (string queryPart in separatedQuery)
-       {
-           var localQueryPart = queryPart; // Create a local variable for closure
-           queryable = queryable.Where(f =>
-               f.FlightId.Contains(localQueryPart) ||
-               f.Registration.Contains(localQueryPart) ||
-               f.Equipment.Contains(localQueryPart) ||
-               f.FlightNumber.Contains(localQueryPart) ||
-               f.DepartureId.Contains(localQueryPart) ||
-               f.ScheduledArrival.Contains(localQueryPart)
-           );
-       }
+        if (string.IsNullOrEmpty(query) || properties.Length == 0)
+        {
+            return null;
+        }
+
+        foreach (string queryPart in separatedQuery)
+        {
+            var localQueryPart = queryPart; // Create a local variable for closure
+            queryable = queryable.Where(f =>
+                f.FlightId.Contains(localQueryPart) ||
+                f.Registration.Contains(localQueryPart) ||
+                f.Equipment.Contains(localQueryPart) ||
+                f.FlightNumber.Contains(localQueryPart) ||
+                f.DepartureId.Contains(localQueryPart) ||
+                f.ScheduledArrival.Contains(localQueryPart)
+            );
+        }
 
         foreach (string property in properties)
         {
@@ -151,6 +164,6 @@ public class SearchService : ISearchService
             ScheduledArrival = f.ScheduledArrival,
             RealArrival = f.RealArrival,
             Reserved = f.Reserved
-        }).ToListAsync();;
+        }).ToListAsync(); ;
     }
 }
