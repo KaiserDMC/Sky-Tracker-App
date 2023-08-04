@@ -21,8 +21,12 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         var tempData = ControllerContext.HttpContext.Items["__ControllerTempData"] as TempDataDictionary;
-
-        var statusMessage = tempData["StatusMessage"] as string;
+        var statusMessage = String.Empty;
+        
+        if (tempData != null)
+        {
+            statusMessage = tempData["StatusMessage"] as string;
+        }
 
         if (!string.IsNullOrEmpty(statusMessage))
         {

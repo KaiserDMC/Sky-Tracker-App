@@ -2,8 +2,6 @@
 
 using System.Threading;
 
-using Azure.Storage.Blobs;
-
 using Data.Models;
 
 using Microsoft.AspNetCore.Authentication;
@@ -13,9 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using ViewModels.User;
 
-using static Common.GeneralApplicationContants;
 using static Common.UserRoleNames;
-using static Configuration.DownloadBlob;
 
 [AllowAnonymous]
 public class UserController : Controller
@@ -23,18 +19,14 @@ public class UserController : Controller
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUserStore<ApplicationUser> _userStore;
-    private readonly BlobServiceClient _blobServiceClient;
-    private readonly IWebHostEnvironment _hostingEnvironment;
 
     public UserController(UserManager<ApplicationUser> userManager,
         IUserStore<ApplicationUser> userStore,
-        SignInManager<ApplicationUser> signInManager, BlobServiceClient blobServiceClient, IWebHostEnvironment hostingEnvironment)
+        SignInManager<ApplicationUser> signInManager)
     {
         _userManager = userManager;
         _userStore = userStore;
         _signInManager = signInManager;
-        _blobServiceClient = blobServiceClient;
-        _hostingEnvironment = hostingEnvironment;
     }
 
     public string? ReturnUrl { get; set; }
@@ -70,23 +62,10 @@ public class UserController : Controller
             return View(model);
         }
 
-        BlobContainerClient blobUser = _blobServiceClient.GetBlobContainerClient(StockImagesContainerName);
-        BlobClient blob = blobUser.GetBlobClient("stock-profile-img" + ".png");
-
-        string localPath = Path.Combine(_hostingEnvironment.WebRootPath, StockImagesBlobRelativePath, "stock-profile-img" + ".png");
-
-        if (await blob.ExistsAsync())
-        {
-            await DownloadBlobToFileAsync(blob, localPath);
-
-            localPath = Path.Combine(StockImagesBlobRelativePath, "stock-profile-img" + ".png");
-        }
-
         var user = new ApplicationUser()
         {
             UserName = model.UserName,
-            Email = model.Email,
-            ProfilePictureUrl = localPath
+            Email = model.Email
         };
 
         var result = await _userManager.CreateAsync(user, model.Password);
