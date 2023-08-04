@@ -5,7 +5,7 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
-    <a href="@Url.Action("AddFlight", "Flight")" class="btn btn-primary">Add Flight</a>
+    <a href="@Url.Action("AddFlight", "Flight", new {area = ""})" class="btn btn-primary">Add Flight</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
     <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
@@ -29,7 +29,7 @@
                     <input type="checkbox" name="selectedRows" value="@item.FlightId" />
                 </td>
                 <td>
-                    <a href="@Url.Action("EditFlight", "Flight", new { flightId = item.FlightId })">@item.FlightId</a>
+                    <a href="@Url.Action("EditFlight", "Flight", new { area = "", flightId = item.FlightId })">@item.FlightId</a>
                 </td>
                 <td>@item.Registration</td>
                 <td>@item.Equipment</td>
@@ -40,7 +40,7 @@
     </tbody>
 </table>
 
-<div id="paginationContainer" data-url="@Url.Action("FlightsPartial", "Admin")">
+<div id="paginationContainer" data-url="@Url.Action("FlightsPartial", "AdminPanel", new {area = "Admin"})">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             @{
@@ -83,7 +83,7 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteFlight", "Flight")',
+                    url: '@Url.Action("DeleteFlight", "Flight", new {area = ""})',
                     type: 'POST',
                     data: { flightIds: selectedIds },
                     success: function (result) {
@@ -102,7 +102,7 @@
 
         $('#deletedHistory').click(function () {
             $.ajax({
-                url: '@Url.Action("DeletedHistoryFlights", "Flight")',
+                url: '@Url.Action("DeletedHistoryFlights", "Flight", new {area = ""})',
                 type: 'GET',
                 success: function (result) {
                     $('#partialViewContainer').html(result);

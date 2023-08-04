@@ -1,16 +1,19 @@
-﻿namespace SkyTracker.Web.Controllers;
+﻿namespace SkyTracker.Web.Areas.Admin.Controllers;
+
+using Data.Models;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-using Data.Models;
-using SkyTracker.Services.Data.Interfaces;
+using Services.Interfaces;
+
 using X.PagedList;
 
 using static Common.GeneralApplicationContants;
 using static Common.UserRoleNames;
 
+[Area("Admin")]
 [Authorize(Roles = "Admin")]
 public class UserManagementController : Controller
 {
@@ -30,7 +33,7 @@ public class UserManagementController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = page ?? 1;
 
         var pagedData = users.ToPagedList(pageNumber, pageSize);
 
@@ -44,7 +47,7 @@ public class UserManagementController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = page ?? 1;
 
         var pagedData = users.ToPagedList(pageNumber, pageSize);
 
@@ -107,7 +110,7 @@ public class UserManagementController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? 1);
+        int pageNumber = page ?? 1;
 
         var pagedData = users.ToPagedList(pageNumber, pageSize);
 

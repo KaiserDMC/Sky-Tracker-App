@@ -1,10 +1,9 @@
-﻿namespace SkyTracker.Services.Data.Interfaces;
+﻿namespace SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
-using Web.ViewModels.Herald;
-using Web.ViewModels.Aircraft;
-using Web.ViewModels.Airports;
-using Web.ViewModels.Flight;
-using Web.ViewModels.User;
+using ViewModels.Aircraft;
+using ViewModels.Airports;
+using ViewModels.Flight;
+using ViewModels.Herald;
 
 public interface IAdminService
 {

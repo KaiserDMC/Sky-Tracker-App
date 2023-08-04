@@ -53,7 +53,7 @@
                 </div>
                 @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                 {
-                    <a href="@Url.Action("Index", "Admin")">
+                    <a href="@Url.Action("Index", "AdminPanel", new {area = "Admin"})">
                         <button type="button" class="btn btn-outline-danger btn-floating" data-mdb-ripple-color="dark" style="margin-right: 10px;">
                             <i class="fas fa-plane-departure"></i>
                         </button>

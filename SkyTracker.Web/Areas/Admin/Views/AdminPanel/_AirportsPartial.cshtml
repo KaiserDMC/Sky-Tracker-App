@@ -1,11 +1,11 @@
 ﻿@using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
-@model X.PagedList.IPagedList<HeraldAllViewModel>
+@model X.PagedList.IPagedList<AirportsAllViewModel>
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
-    <a href="@Url.Action("AddHerald", "Herald")" class="btn btn-primary">Add Herald</a>
+    <a href="@Url.Action("AddAirport", "Airport", new {area = ""})" class="btn btn-primary">Add Airport</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
     <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
@@ -14,37 +14,39 @@
     <thead>
         <tr>
             <th></th>
-            <th>Occurrence ID</th>
-            <th>Occurrence Type</th>
-            <th>Date</th>
+            <th>IATA</th>
+            <th>ICAO</th>
+            <th>Name</th>
+            <th>Country</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in @Model)
         {
-            <tr id="row-@item.OccurrenceId">
+            <tr id="row-@item.IATA">
                 <td>
-                    <input type="checkbox" name="selectedRows" value="@item.OccurrenceId" />
+                    <input type="checkbox" name="selectedRows" value="@item.IATA" />
                 </td>
                 <td>
-                    <a href="@Url.Action("EditHerald", "Herald", new { heraldId = item.OccurrenceId })">@item.OccurrenceId</a>
+                    <a href="@Url.Action("EditAirport", "Airport", new { area = "", iata = item.IATA })">@item.IATA</a>
                 </td>
-                <td>@item.OccurrenceDate</td>
-                <td>@item.TypeOccurence</td>
+                <td>@item.ICAO</td>
+                <td>@item.CommonName</td>
+                <td>@item.LocationCountry</td>
             </tr>
         }
     </tbody>
 </table>
 
-<div id="paginationContainer" data-url="@Url.Action("HeraldsPartial", "Admin")">
+<div id="paginationContainer" data-url="@Url.Action("AirportsPartial", "AdminPanel", new {area = "Admin"})">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
 
             @Html.PagedListPager(Model, page => {
             if (page == 1)
-            return Url.Action("HeraldsPartial");
+            return Url.Action("AirportsPartial");
             else
-            return Url.Action("HeraldsPartial", new { page });
+            return Url.Action("AirportsPartial", new { page });
             }, new PagedListRenderOptions {
             DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
             ContainerDivClasses = new[] { "pagination" },
@@ -74,9 +76,9 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteHerald", "Herald")',
+                    url: '@Url.Action("DeleteAirport", "Airport", new {area = ""})',
                     type: 'POST',
-                    data: { heraldIds: selectedIds },
+                    data: { iataCodes: selectedIds },
                     success: function (result) {
                         if (result.success) {
                             selectedRows.closest('tr').remove();
@@ -93,13 +95,13 @@
 
         $('#deletedHistory').click(function () {
             $.ajax({
-                url: '@Url.Action("DeletedHistoryHeralds", "Herald")',
+                url: '@Url.Action("DeletedHistoryAirports", "Airport", new {area = ""})',
                 type: 'GET',
                 success: function (result) {
                     $('#partialViewContainer').html(result);
                 },
                 error: function () {
-                    alert('An error occurred while loading the deleted heralds. Please try again.');
+                    alert('An error occurred while loading the deleted airports. Please try again.');
                 }
             });
         });

@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using SkyTracker.Services.Data.Interfaces;
-
-namespace SkyTracker.Web.Controllers;
+﻿namespace SkyTracker.Web.Controllers;
 
 using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
+using SkyTracker.Services.Data.Interfaces;
 
 using ViewModels.Home;
+using static Common.UserRoleNames;
 
 public class HomeController : Controller
 {
@@ -20,6 +21,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
+        if (this.User.IsInRole(AdminRole))
+        {
+            return this.RedirectToAction("Index", "AdminPanel", new { Area = AdminRole });
+        }
+
         var tempData = ControllerContext.HttpContext.Items["__ControllerTempData"] as TempDataDictionary;
         var statusMessage = String.Empty;
         

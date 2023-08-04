@@ -1,20 +1,19 @@
-﻿namespace SkyTracker.Web.Controllers;
+﻿namespace SkyTracker.Web.Areas.Admin.Controllers;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-using SkyTracker.Services.Data.Interfaces;
-
+using Services.Interfaces;
 using X.PagedList;
 
 using static Common.GeneralApplicationContants;
 
+[Area("Admin")]
 [Authorize(Roles = "Admin, Moderator")]
-public class AdminController : Controller
+public class AdminPanelController : Controller
 {
     private readonly IAdminService _adminService;
 
-    public AdminController(IAdminService adminService)
+    public AdminPanelController(IAdminService adminService)
     {
         _adminService = adminService;
     }
@@ -30,7 +29,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? DefaultStartPagePagination);
+        int pageNumber = page ?? DefaultStartPagePagination;
 
         var pagedData = flights.ToPagedList(pageNumber, pageSize);
 
@@ -43,7 +42,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? DefaultStartPagePagination);
+        int pageNumber = page ?? DefaultStartPagePagination;
 
 
         var pagedData = aircraft.ToPagedList(pageNumber, pageSize);
@@ -57,7 +56,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? DefaultStartPagePagination);
+        int pageNumber = page ?? DefaultStartPagePagination;
 
         var pagedData = airports.ToPagedList(pageNumber, pageSize);
 
@@ -70,7 +69,7 @@ public class AdminController : Controller
 
         int pageSize = DefaultAdminListEntitiesPerPage;
 
-        int pageNumber = (page ?? DefaultStartPagePagination);
+        int pageNumber = page ?? DefaultStartPagePagination;
 
         var pagedData = heralds.ToPagedList(pageNumber, pageSize);
 

@@ -1,11 +1,11 @@
 ﻿@using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
-@model X.PagedList.IPagedList<AirportsAllViewModel>
+@model X.PagedList.IPagedList<AircraftAllViewModel>
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
-    <a href="@Url.Action("AddAirport", "Airport")" class="btn btn-primary">Add Airport</a>
+    <a href="@Url.Action("AddAircraft", "Aircraft", new {area = ""})" class="btn btn-primary">Add Aircraft</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
     <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
@@ -14,45 +14,48 @@
     <thead>
         <tr>
             <th></th>
-            <th>IATA</th>
-            <th>ICAO</th>
-            <th>Name</th>
-            <th>Country</th>
+            <th>Aircraft Id</th>
+            <th>A/C Registration</th>
+            <th>A/C Type</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in @Model)
         {
-            <tr id="row-@item.IATA">
+            <tr id="row-@item.Id">
                 <td>
-                    <input type="checkbox" name="selectedRows" value="@item.IATA" />
+                    <input type="checkbox" name="selectedRows" value="@item.Id" />
                 </td>
                 <td>
-                    <a href="@Url.Action("EditAirport", "Airport", new { iata = item.IATA })">@item.IATA</a>
+                    <a href="@Url.Action("EditAircraft", "Aircraft", new { area = "", aircraftId = item.Id })">@item.Id</a>
                 </td>
-                <td>@item.ICAO</td>
-                <td>@item.CommonName</td>
-                <td>@item.LocationCountry</td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
             </tr>
         }
     </tbody>
 </table>
 
-<div id="paginationContainer" data-url="@Url.Action("AirportsPartial", "Admin")">
+<div id="paginationContainer" data-url="@Url.Action("AircraftPartial", "AdminPanel", new { area = "Admin" })">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
+            @{
+                var pagination = @Html.PagedListPager(Model, page =>
+                {
+                    if (page == 1)
+                        return Url.Action("AircraftPartial");
+                    else
+                        return Url.Action("AircraftPartial", new { page });
+                }, new PagedListRenderOptions
+            {
+                DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+                ContainerDivClasses = new[] { "pagination" },
+                LiElementClasses = new[] { "page-item" },
+                PageClasses = new[] { "page-link" },
+            });
 
-            @Html.PagedListPager(Model, page => {
-            if (page == 1)
-            return Url.Action("AirportsPartial");
-            else
-            return Url.Action("AirportsPartial", new { page });
-            }, new PagedListRenderOptions {
-            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
-            ContainerDivClasses = new[] { "pagination" },
-            LiElementClasses = new[] { "page-item" },
-            PageClasses = new[] { "page-link" },
-            })
+                @Html.Raw(pagination)
+            }
         </ul>
     </nav>
 </div>
@@ -76,9 +79,9 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteAirport", "Airport")',
+                    url: '@Url.Action("DeleteAircraft", "Aircraft", new {area = ""})',
                     type: 'POST',
-                    data: { iataCodes: selectedIds },
+                    data: { aircraftIds: selectedIds },
                     success: function (result) {
                         if (result.success) {
                             selectedRows.closest('tr').remove();
@@ -95,13 +98,13 @@
 
         $('#deletedHistory').click(function () {
             $.ajax({
-                url: '@Url.Action("DeletedHistoryAirports", "Airport")',
+                url: '@Url.Action("DeletedHistoryAircraft", "Aircraft", new {area = ""})',
                 type: 'GET',
                 success: function (result) {
                     $('#partialViewContainer').html(result);
                 },
                 error: function () {
-                    alert('An error occurred while loading the deleted airports. Please try again.');
+                    alert('An error occurred while loading the deleted aircraft. Please try again.');
                 }
             });
         });

@@ -1,8 +1,6 @@
-﻿namespace SkyTracker.Services.Data.Interfaces;
+﻿namespace SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
-using Microsoft.AspNetCore.Http;
-
-using Web.ViewModels.User;
+using ViewModels.User;
 
 public interface IUserManagementService
 {

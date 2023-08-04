@@ -1,16 +1,18 @@
 ﻿namespace SkyTracker.Web.Controllers;
 
+using Azure.Storage.Blobs;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-using ViewModels.Flight;
 using SkyTracker.Services.Data.Interfaces;
 
+using ViewModels.Flight;
+
 using X.PagedList;
-using Azure.Storage.Blobs;
+
 using static Common.GeneralApplicationContants;
 using static Configuration.DownloadBlob;
-using static Configuration.UploadBlob;
 
 [Authorize]
 public class FlightController : Controller

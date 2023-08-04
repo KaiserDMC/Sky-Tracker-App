@@ -1,14 +1,14 @@
-﻿namespace SkyTracker.Services.Data;
+﻿namespace SkyTracker.Web.Areas.Admin.Services;
+
+using Data;
+using Data.Models;
 
 using Interfaces;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using SkyTracker.Data;
-using SkyTracker.Data.Models;
-
-using Web.ViewModels.User;
+using ViewModels.User;
 
 using static Common.UserRoleNames;
 

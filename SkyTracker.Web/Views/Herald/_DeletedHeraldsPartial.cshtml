@@ -30,7 +30,7 @@
 <script>
     $(document).ready(function () {
         $('#goBackToHeralds').click(function () {
-            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "AdminPanel", new {area = "Admin"})');
         });
     });
 </script>

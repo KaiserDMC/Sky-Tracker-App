@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="Airport\" />
     <Folder Include="Herald\Enums\" />
     <Folder Include="Radar\" />

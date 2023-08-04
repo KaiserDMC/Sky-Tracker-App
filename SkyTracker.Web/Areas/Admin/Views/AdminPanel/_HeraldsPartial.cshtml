@@ -1,11 +1,11 @@
 ﻿@using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
-@model X.PagedList.IPagedList<AircraftAllViewModel>
+@model X.PagedList.IPagedList<HeraldAllViewModel>
 
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
-    <a href="@Url.Action("AddAircraft", "Aircraft")" class="btn btn-primary">Add Aircraft</a>
+    <a href="@Url.Action("AddHerald", "Herald", new {area = ""})" class="btn btn-primary">Add Herald</a>
     <button id="deleteSelected" class="btn btn-danger">Delete Selected</button>
     <button id="deletedHistory" class="btn btn-secondary">Deleted History</button>
 </p>
@@ -14,48 +14,43 @@
     <thead>
         <tr>
             <th></th>
-            <th>Aircraft Id</th>
-            <th>A/C Registration</th>
-            <th>A/C Type</th>
+            <th>Occurrence ID</th>
+            <th>Occurrence Type</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in @Model)
         {
-            <tr id="row-@item.Id">
+            <tr id="row-@item.OccurrenceId">
                 <td>
-                    <input type="checkbox" name="selectedRows" value="@item.Id" />
+                    <input type="checkbox" name="selectedRows" value="@item.OccurrenceId" />
                 </td>
                 <td>
-                    <a href="@Url.Action("EditAircraft", "Aircraft", new { aircraftId = item.Id })">@item.Id</a>
+                    <a href="@Url.Action("EditHerald", "Herald", new { area = "", heraldId = item.OccurrenceId })">@item.OccurrenceId</a>
                 </td>
-                <td>@item.Registration</td>
-                <td>@item.Equipment</td>
+                <td>@item.OccurrenceDate</td>
+                <td>@item.TypeOccurence</td>
             </tr>
         }
     </tbody>
 </table>
 
-<div id="paginationContainer" data-url="@Url.Action("AircraftPartial", "Admin")">
+<div id="paginationContainer" data-url="@Url.Action("HeraldsPartial", "AdminPanel", new {area = "Admin"})">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-            @{
-                var pagination = @Html.PagedListPager(Model, page =>
-                {
-                    if (page == 1)
-                        return Url.Action("AircraftPartial");
-                    else
-                        return Url.Action("AircraftPartial", new { page });
-                }, new PagedListRenderOptions
-            {
-                DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
-                ContainerDivClasses = new[] { "pagination" },
-                LiElementClasses = new[] { "page-item" },
-                PageClasses = new[] { "page-link" },
-            });
 
-                @Html.Raw(pagination)
-            }
+            @Html.PagedListPager(Model, page => {
+            if (page == 1)
+            return Url.Action("HeraldsPartial");
+            else
+            return Url.Action("HeraldsPartial", new { page });
+            }, new PagedListRenderOptions {
+            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+            ContainerDivClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            })
         </ul>
     </nav>
 </div>
@@ -79,9 +74,9 @@
 
             if (confirm('Are you sure you want to delete the selected rows?')) {
                 $.ajax({
-                    url: '@Url.Action("DeleteAircraft", "Aircraft")',
+                    url: '@Url.Action("DeleteHerald", "Herald", new {area = ""})',
                     type: 'POST',
-                    data: { aircraftIds: selectedIds },
+                    data: { heraldIds: selectedIds },
                     success: function (result) {
                         if (result.success) {
                             selectedRows.closest('tr').remove();
@@ -98,13 +93,13 @@
 
         $('#deletedHistory').click(function () {
             $.ajax({
-                url: '@Url.Action("DeletedHistoryAircraft", "Aircraft")',
+                url: '@Url.Action("DeletedHistoryHeralds", "Herald", new {area = ""})',
                 type: 'GET',
                 success: function (result) {
                     $('#partialViewContainer').html(result);
                 },
                 error: function () {
-                    alert('An error occurred while loading the deleted aircraft. Please try again.');
+                    alert('An error occurred while loading the deleted heralds. Please try again.');
                 }
             });
         });

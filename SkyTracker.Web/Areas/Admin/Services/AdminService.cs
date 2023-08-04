@@ -1,29 +1,25 @@
-﻿namespace SkyTracker.Services.Data;
+﻿namespace SkyTracker.Web.Areas.Admin.Services;
 
 using System.Globalization;
 
+using Data;
+
 using Interfaces;
 
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using SkyTracker.Data;
-using SkyTracker.Data.Models;
-
-using Web.ViewModels.Aircraft;
-using Web.ViewModels.Airports;
-using Web.ViewModels.Flight;
-using Web.ViewModels.Herald;
+using ViewModels.Aircraft;
+using ViewModels.Airports;
+using ViewModels.Flight;
+using ViewModels.Herald;
 
 public class AdminService : IAdminService
 {
     private readonly SkyTrackerDbContext _dbContext;
-    private readonly UserManager<ApplicationUser> _userManager;
 
-    public AdminService(SkyTrackerDbContext dbContext, UserManager<ApplicationUser> userManager)
+    public AdminService(SkyTrackerDbContext dbContext)
     {
         _dbContext = dbContext;
-        _userManager = userManager;
     }
 
     public async Task<IEnumerable<FlightAllViewModel>> GetFlightsAsync()

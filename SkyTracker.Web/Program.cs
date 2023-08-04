@@ -1,3 +1,6 @@
+using SkyTracker.Web.Areas.Admin.Services;
+using SkyTracker.Web.Areas.Admin.Services.Interfaces;
+
 namespace SkyTracker.Web;
 
 using Azure.Identity;
@@ -57,10 +60,13 @@ public class Program
         {
             options.LoginPath = "/User/Login";
             options.LogoutPath = "/User/Logout";
+            options.AccessDeniedPath = "/Home/Error/401";
         });
 
         // Add application services.
         builder.Services.AddApplicationServices(typeof(IHomeService));
+        builder.Services.AddScoped<IAdminService, AdminService>();
+        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),
@@ -82,7 +88,7 @@ public class Program
         }
         else
         {
-            app.UseExceptionHandler("/Home/Error");
+            app.UseExceptionHandler("/Home/Error/500");
             app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
             
             app.UseHsts();

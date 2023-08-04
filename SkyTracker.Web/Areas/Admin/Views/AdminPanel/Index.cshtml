@@ -10,14 +10,14 @@
         <div class="col-md-3">
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-primary" style="text-decoration:none">Moderation Actions</button>
-                <button id="btnFlights" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")')">Flight Management</button>
-                <button id="btnAircraft" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")')">Aircraft Management</button>
-                <button id="btnAirports" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")')">Airport Management</button>
-                <button id="btnHeralds" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")')">Herald Management</button>
+                <button id="btnFlights" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("FlightsPartial", "AdminPanel", new { area = "Admin" })')">Flight Management</button>
+                <button id="btnAircraft" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AircraftPartial", "AdminPanel", new { area = "Admin" })')">Aircraft Management</button>
+                <button id="btnAirports" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("AirportsPartial", "AdminPanel", new { area = "Admin" })')">Airport Management</button>
+                <button id="btnHeralds" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("HeraldsPartial", "AdminPanel", new { area = "Admin" })')">Herald Management</button>
 
                 @if (User.IsInRole("Admin"))
                 {
-                    <button id="btnUserManagement" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")')">User Management</button>
+                    <button id="btnUserManagement" type="button" class="list-group-item list-group-item-dark" style="text-decoration:none" onclick="loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement", new {area = "Admin"})')">User Management</button>
                 }
             </div>
         </div>
@@ -62,23 +62,23 @@
         loadPagination();
 
         $('#btnFlights').click(function () {
-            loadPartialViewOnClick('@Url.Action("FlightsPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("FlightsPartial", "AdminPanel", new { area = "Admin" })');
         });
 
         $('#btnAircraft').click(function () {
-            loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("AircraftPartial", "AdminPanel", new { area = "Admin" })');
         });
 
         $('#btnAirports').click(function () {
-            loadPartialViewOnClick('@Url.Action("AirportsPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("AirportsPartial", "AdminPanel", new { area = "Admin" })');
         });
 
         $('#btnHeralds').click(function () {
-            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("HeraldsPartial", "AdminPanel", new { area = "Admin" })');
         });
 
         $('#btnUserManagement').click(function () {
-            loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement")');
+            loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement", new {area = "Admin"})');
         });
     });
 </script>

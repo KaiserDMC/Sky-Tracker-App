@@ -32,7 +32,7 @@
         // Handle the click event of the "Go Back to Flights" button
         $('#goBackToAircraft').click(function () {
             // Load the normal "Flights" partial view
-            loadPartialViewOnClick('@Url.Action("AircraftPartial", "Admin")');
+            loadPartialViewOnClick('@Url.Action("AircraftPartial", "AdminPanel", new {area = "Admin"})');
         });
     });
 </script>
