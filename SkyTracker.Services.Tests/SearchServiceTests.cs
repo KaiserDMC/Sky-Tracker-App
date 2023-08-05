@@ -11,7 +11,6 @@ using static TestDatabaseSeed;
 
 public class SearchServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private ISearchService _searchService;

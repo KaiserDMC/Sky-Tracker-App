@@ -15,7 +15,6 @@ using static TestDatabaseSeed;
 
 public class HeraldServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IHeraldService _heraldService;

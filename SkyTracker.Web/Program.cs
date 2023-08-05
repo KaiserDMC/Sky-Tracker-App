@@ -65,8 +65,7 @@ public class Program
 
         // Add application services.
         builder.Services.AddApplicationServices(typeof(IHomeService));
-        builder.Services.AddScoped<IAdminService, AdminService>();
-        builder.Services.AddScoped<IUserManagementService, UserManagementService>();
+        builder.Services.AddApplicationServices(typeof(IAdminService));
 
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),

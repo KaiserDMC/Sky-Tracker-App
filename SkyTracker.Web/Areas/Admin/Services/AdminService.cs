@@ -1,4 +1,7 @@
-﻿namespace SkyTracker.Web.Areas.Admin.Services;
+﻿using Microsoft.AspNetCore.Identity;
+using SkyTracker.Data.Models;
+
+namespace SkyTracker.Web.Areas.Admin.Services;
 
 using System.Globalization;
 

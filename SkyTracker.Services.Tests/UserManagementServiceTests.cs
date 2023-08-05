@@ -1,8 +1,5 @@
 ﻿namespace SkyTracker.Services.Tests;
 
-using Data;
-using Data.Interfaces;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,14 +7,15 @@ using Moq;
 
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
+using SkyTracker.Web.Areas.Admin.Services;
+using SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
-using static TestDatabaseSeed;
 using static Common.GeneralApplicationContants;
 using static Common.UserRoleNames;
+using static TestDatabaseSeed;
 
 public class UserManagementServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private Mock<UserManager<ApplicationUser>> _userManagerMock;
     private SkyTrackerDbContext _dbContext;
 

@@ -11,7 +11,6 @@ using static TestDatabaseSeed;
 
 public class RadarServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IRadarService _radarService;

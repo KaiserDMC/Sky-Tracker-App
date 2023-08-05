@@ -13,7 +13,6 @@ using static TestDatabaseSeed;
 
 public class HomeServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IHomeService _homeService;

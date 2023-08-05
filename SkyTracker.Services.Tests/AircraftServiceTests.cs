@@ -14,7 +14,6 @@ using static TestDatabaseSeed;
 
 public class AircraftServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IAircraftService _aircraftService;

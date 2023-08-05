@@ -2,16 +2,14 @@
 
 using System.Globalization;
 
-using Data;
-using Data.Interfaces;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 using Moq;
 
 using SkyTracker.Data;
-using SkyTracker.Data.Models;
+using SkyTracker.Web.Areas.Admin.Services;
+using SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
 using Web.ViewModels.Aircraft;
 using Web.ViewModels.Airports;
@@ -23,8 +21,6 @@ using static TestDatabaseSeed;
 
 public class AdminServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
-    private Mock<UserManager<ApplicationUser>> _userManagerMock;
     private SkyTrackerDbContext _dbContext;
 
     private IAdminService _adminService;
@@ -41,9 +37,8 @@ public class AdminServiceTests
         this._dbContext.Database.EnsureCreated();
 
         SeedDatabase(this._dbContext);
-        _userManagerMock = MockUserManager<ApplicationUser>();
 
-        this._adminService = new AdminService(this._dbContext, _userManagerMock.Object);
+        this._adminService = new AdminService(this._dbContext);
     }
 
     [TearDown]

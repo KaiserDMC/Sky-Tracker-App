@@ -13,7 +13,6 @@ using static TestDatabaseSeed;
 
 public class AirportsServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IAirportsService _airportsService;

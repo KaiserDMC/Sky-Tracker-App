@@ -1,7 +1,4 @@
-﻿using SkyTracker.Data.Models;
-using SkyTracker.Web.ViewModels.Flight;
-
-namespace SkyTracker.Services.Tests;
+﻿namespace SkyTracker.Services.Tests;
 
 using Data;
 using Data.Interfaces;
@@ -9,12 +6,12 @@ using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
+using Web.ViewModels.Flight;
 
 using static TestDatabaseSeed;
 
 public class FlightServiceTests
 {
-    private DbContextOptions<SkyTrackerDbContext> _dbContextOptions;
     private SkyTrackerDbContext _dbContext;
 
     private IFlightService _flightService;
