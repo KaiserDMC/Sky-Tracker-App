@@ -22,6 +22,17 @@
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:7237;http://localhost:5142"
     },
+    "Sky_Tracker_Prod": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production",
+        "VaultUri": "https://skytrackerwebvault.vault.azure.net/",
+        "AZURE_USERNAME": "krifod@students.softuni.bg"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7238;http://localhost:5143"
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
@@ -31,7 +42,7 @@
         "AZURE_USERNAME": "krifod@students.softuni.bg"
       }
     }
-  },
+  },  
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,

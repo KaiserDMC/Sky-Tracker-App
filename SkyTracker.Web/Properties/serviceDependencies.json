@@ -12,6 +12,11 @@
       "type": "storage",
       "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
       "dynamicId": null
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
+      "dynamicId": null
     }
   }
 }

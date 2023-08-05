@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="appsettings.Production.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
     <PackageReference Include="Azure.Identity" Version="1.6.0" />
     <PackageReference Include="Azure.Storage.Blobs" Version="12.13.1" />
@@ -42,6 +46,10 @@
     <Folder Include="wwwroot\azure\blob-profile\" />
     <Folder Include="wwwroot\azure\blob-error\" />
     <Folder Include="wwwroot\temp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.Production.json" />
   </ItemGroup>
 
 </Project>

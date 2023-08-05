@@ -17,6 +17,14 @@
       "type": "storage.azure",
       "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
       "dynamicId": null
+    },
+    "mssql2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsSkyTrackerDbContextConn_4BA4B06060",
+      "secretStore": "AzureKeyVault",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/skytracker-prod/databases/skytracker-prod",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
+      "dynamicId": null
     }
   }
 }
