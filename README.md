@@ -115,7 +115,7 @@ When using Development or Test Environments, the following users are automatical
 ### Database Diagram
 
 <p align="center">
-  <img src="" alt="Sky Tracker Db Placeholder">
+  <img src="./SkyTracker.Web/wwwroot/static-images/sky-tracker-db.png" alt="Sky Tracker Db Placeholder">
 </p>
 
 ## License
