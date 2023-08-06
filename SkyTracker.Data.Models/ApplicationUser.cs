@@ -11,5 +11,7 @@ public class ApplicationUser : IdentityUser<Guid>
 
     public bool IsDeleted { get; set; }
 
+    public string? OriginalUsername { get; set; }
+
     public string? ProfilePictureUrl { get; set; }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 using ViewModels.User;
 
@@ -127,12 +128,6 @@ public class UserController : Controller
 
         if (user != null)
         {
-            if (user.IsDeleted)
-            {
-                ModelState.AddModelError(string.Empty, "Your account has been deleted. Please contact support for assistance.");
-                return View(model);
-            }
-
             var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, false, lockoutOnFailure: false);
 
             if (result.Succeeded)
@@ -146,6 +141,16 @@ public class UserController : Controller
                 return View(model);
             }
 
+        }
+        else
+        {
+            var userByOriginalUsername = await _userManager.Users.SingleOrDefaultAsync(u => u.OriginalUsername == model.Username);
+
+            if (userByOriginalUsername != null && userByOriginalUsername.IsDeleted)
+            {
+                ModelState.AddModelError(string.Empty, "Your account has been deleted. Please contact support for assistance.");
+                return View(model);
+            }
         }
 
         ModelState.AddModelError(string.Empty, "Invalid login attempt.");

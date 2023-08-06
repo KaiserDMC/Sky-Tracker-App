@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkyTracker.Data;
 
@@ -11,9 +12,10 @@ using SkyTracker.Data;
 namespace SkyTracker.Data.Migrations
 {
     [DbContext(typeof(SkyTrackerDbContext))]
-    partial class SkyTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230806064206_AppUser-SoftDelete-Modif")]
+    partial class AppUserSoftDeleteModif
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

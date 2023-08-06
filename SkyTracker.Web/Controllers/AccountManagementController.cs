@@ -365,7 +365,7 @@ public class AccountManagementController : Controller
             return View(model);
         }
 
-        user.IsDeleted = true;
+        await AnonymizeAndDeleteUser(user);
 
         var updateResult = await _userManager.UpdateAsync(user);
 
@@ -382,5 +382,24 @@ public class AccountManagementController : Controller
         await _signInManager.SignOutAsync();
 
         return RedirectToAction("Index", "Home");
+    }
+
+    private async Task AnonymizeAndDeleteUser(ApplicationUser user)
+    {
+        var anonymizedUserName = "Anonymized_" + Guid.NewGuid().ToString();
+
+        user.OriginalUsername = user.UserName;
+
+        await _userManager.SetUserNameAsync(user, anonymizedUserName);
+        await _userManager.SetEmailAsync(user, null);
+        await _userManager.SetPhoneNumberAsync(user, null);
+        await _userManager.UpdateSecurityStampAsync(user);
+
+        user.ProfilePictureUrl = null;
+        user.PasswordHash = null;
+
+        user.IsDeleted = true;
+
+        await _userManager.UpdateAsync(user);
     }
 }
