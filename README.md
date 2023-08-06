@@ -10,6 +10,7 @@
   <img src="./SkyTracker.Web/wwwroot/favicon.ico" alt="Sky Tracker App Banner">
 </p>
 
+## Introduction 
 
 Sky Tracker App is a comprehensive flight, aircraft and airport tracking application that allows users to monitor flights, view aircraft details, and explore aviation data, i.e. incident reports, airport information and many more.  
 
@@ -24,6 +25,7 @@ Whether you're an aviation enthusiast, a frequent traveler, or just curious abou
 - Additional data layers like airport information.
 - User-friendly and responsive design for seamless usage.
 - Full control of your user data.
+- Easy data manipulation from our Administrative Panel
 
 ## Supporting Apps
 
@@ -46,11 +48,73 @@ If you find any issues or have ideas for improvements, please feel free to [open
 
 Sky Tracker App is open-source software licensed under the [MIT License](LICENSE).
 
+## Technical Specifications
+
+### Used Technologies
+
+- .NET Core 6.0
+- ASP.NET Core
+- Entity Framework Core
+- MS SQL Server
+- Azure Cloud
+- Docker
+- HTML, CSS, Bootstrap
+- JavaScript
+- Font Awesome
+- NUnit
+- Moq
+
+### Environment and Database Setup
+
+Sky Tracker App uses total of 3 environments:
+- Development - this is where most of the app's functionality was created
+  - Utilizes MS SQL Server (ver. 13.00.4001) - LocalDB setup 
+    - Login Credentials via **Windows Credentials**
+  - Started from *Visual Studio* via **Sky_Tracker** option
+- Test
+  - Utilizes MS SQL Server (ver. 15.00.4316) - Remote host setup via Docker Containers
+    - Login Credentials via:
+      - user: SA
+      - password: ***
+  - Started from *Visual Studio* via **Sky_Tracker_Test** option
+- Production
+  - Utilizes MS SQL Server - Remote host setup via Microsoft Azure Services
+    - Login Credentials via **Azure account** or:
+      - user: SkyTrackerProdAdmin
+      - password: ***
+    - Started from *Visual Studio* via **Sky_Tracker_Prod** option
+
+**NB!** All environments have the same initial database.  
+The Production version is also *Published* using once again *Microsoft Azure* and can be accessed via:
+
+<p align="center">
+  <a href="https://sky-tracker.info" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 4px;">
+    Sky Tracker Website
+  </a>
+</p>
+
+### User Setup
+
+When using Development or Test Environments, the following users are automatically seeded:
+- Moderator - can Add, Edit and Delete models, but cannot manage users, can be stripped from role or banned
+  - user: moderator
+  - pass: moderator
+- Administrator - equals owner, can manage everything, cannot lose role or be banned
+  - user: admin
+  - pass: admin
+
+### Database Diagram
+
+<p align="center">
+  <img src="" alt="Sky Tracker Db Placeholder">
+</p>
+
 ## Acknowledgments
 
-We would like to thank FlightRadar24 for providing us with the needed flight data.
+We would like to extend our gratitude to @[FlightRadar24](https://github.com/Flightradar24) for providing us with 
+the needed flight data.
 
 ---
 
-Thank you for using Sky Tracker App!  
+Thank you for using our Sky Tracker App!  
 We hope you enjoy tracking flights and exploring the fascinating world of aviation.

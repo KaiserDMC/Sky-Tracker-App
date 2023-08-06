@@ -1,22 +1,21 @@
-using SkyTracker.Web.Areas.Admin.Services;
-using SkyTracker.Web.Areas.Admin.Services.Interfaces;
-
 namespace SkyTracker.Web;
 
 using Azure.Identity;
 using Azure.Storage.Blobs;
 
+using Configuration;
+
 using Data;
 using Data.Models;
+
+using Infrastructure.Extensions;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-using Infrastructure.Extensions;
 using SkyTracker.Services.Data.Interfaces;
+using SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
-using Configuration;
-using SkyTracker.Services.Data;
 using static Common.GeneralApplicationContants;
 
 public class Program
