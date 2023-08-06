@@ -42,11 +42,7 @@ These apps complement the main Sky Tracker App and were used for converting the 
 ## Contributing
 
 Currently community contributions are closed! However, user feedback is highly appreciated.  
-If you find any issues or have ideas for improvements, please feel free to [open an issue](https://github.com/KaiserDMC/Sky-Tracker-App/issues) or [submit a pull request](https://github.com/KaiserDMC/Sky-Tracker-App/pulls). 
-
-## License
-
-Sky Tracker App is open-source software licensed under the [MIT License](LICENSE).
+If you find any issues or have ideas for improvements, please feel free to [open an issue](https://github.com/KaiserDMC/Sky-Tracker-App/issues) or [submit a pull request](https://github.com/KaiserDMC/Sky-Tracker-App/pulls).
 
 ## Technical Specifications
 
@@ -55,11 +51,16 @@ Sky Tracker App is open-source software licensed under the [MIT License](LICENSE
 - .NET Core 6.0
 - ASP.NET Core
 - Entity Framework Core
-- MS SQL Server
-- Azure Cloud
-- Docker
+- MS SQL Server -> Development environment database
+- Azure Cloud -> 
+  - Blob Storage for pictures
+  - SQL Server for Production database
+  - SQL Database for Production environment
+  - Key Vault
+- Google Map API -> *Radar*, map functionality
+- Docker -> Test environment database
 - HTML, CSS, Bootstrap
-- JavaScript
+- JavaScript -> *Radar*, map functionality and more user-friendly interface
 - Font Awesome
 - NUnit
 - Moq
@@ -93,6 +94,14 @@ The Production version is also *Published* using once again *Microsoft Azure* an
   </a>
 </p>
 
+**NB!** Google Map API key is restricted to specific IP addresses, i.e. the *Radar* page will *ONLY* work from
+the *Production* webpage linked above or localhost environment, when the latter is ran by the creator of the project.
+
+**NB!** Azure Blob Storage used for picture storage will work for visualization on any machine or setup.  
+However, in order to Add, Edit or Remove pictures one must use the *Production* webpage (does not have users with the 
+necessary level of access, e.g. moderator/admin) or one must be authorized as *Azure Storage Content Manager*, currently only
+the app developer.
+
 ### User Setup
 
 When using Development or Test Environments, the following users are automatically seeded:
@@ -108,6 +117,10 @@ When using Development or Test Environments, the following users are automatical
 <p align="center">
   <img src="" alt="Sky Tracker Db Placeholder">
 </p>
+
+## License
+
+Sky Tracker App is open-source software licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
