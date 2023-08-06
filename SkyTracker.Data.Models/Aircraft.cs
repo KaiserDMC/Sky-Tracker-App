@@ -25,5 +25,9 @@ public class Aircraft
 
     public bool IsDeleted { get; set; }
 
+    public bool IsTotaled { get; set; }
+
     public ICollection<FlightAircraft> FlightsAircraft { get; set; } = new HashSet<FlightAircraft>();
+
+    public ICollection<HeraldPost> AircraftRelatedHeralds { get; set; } = new HashSet<HeraldPost>();
 }

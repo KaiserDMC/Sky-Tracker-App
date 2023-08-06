@@ -1,8 +1,10 @@
 ﻿namespace SkyTracker.Data.Models;
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using Newtonsoft.Json;
+
 using static SkyTracker.Common.DataModelsValidationConstants.HeraldPost;
 
 public class HeraldPost
@@ -23,6 +25,10 @@ public class HeraldPost
     [Required]
     [JsonProperty("headline_avherald")]
     public string Details { get; set; } = null!;
+
+    [ForeignKey(nameof(Aircraft))]
+    public string? AircraftId { get; set; }
+    public Aircraft? Aircraft { get; set; }
 
     public bool IsDeleted { get; set; }
 }

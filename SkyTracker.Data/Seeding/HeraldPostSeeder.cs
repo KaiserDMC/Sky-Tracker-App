@@ -1,10 +1,13 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
 using System.Globalization;
+
+using Models;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-using Models;
+using SampleData;
 
 public class HeraldPostSeeder
 {
@@ -45,6 +48,21 @@ public class HeraldPostSeeder
 
         heraldPosts = JsonConvert.DeserializeObject<HashSet<HeraldPost>>(json);
 
+        // Add AircraftId to some Heralds on random principle
+
+        var tempAircraftCollection = new GenerateData().AircraftCollection;
+
+        foreach (var aircraft in tempAircraftCollection)
+        {
+            var randomHeraldPostId = heraldPosts.ElementAt(new Random().Next(0, heraldPosts.Count())).Id;
+
+            var randomHeraldPost = heraldPosts.FirstOrDefault(hp => hp.Id == randomHeraldPostId);
+
+            aircraft.AircraftRelatedHeralds.Add(randomHeraldPost!);
+
+            heraldPosts.Where(hp => hp.Id == randomHeraldPostId).FirstOrDefault().AircraftId = aircraft.Id;
+        }
+        
         return heraldPosts.ToArray();
     }
 }
