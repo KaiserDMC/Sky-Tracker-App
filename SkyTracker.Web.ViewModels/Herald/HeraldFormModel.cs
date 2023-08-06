@@ -2,6 +2,8 @@
 
 using System.ComponentModel.DataAnnotations;
 
+using Flight;
+
 using static Common.DataModelsValidationConstants.HeraldPost;
 using static Common.ErrorMessageStrings.Herald;
 
@@ -23,5 +25,9 @@ public class HeraldFormModel
 
     public string? Error { get; set; }
 
+    public string? AircraftId { get; set; }
+
     public IEnumerable<HeraldTypeModel> HeraldTypes { get; set; } = new List<HeraldTypeModel>();
+
+    public IEnumerable<AircraftCollectionViewModel> AircraftHeralds { get; set; } = new List<AircraftCollectionViewModel>();
 }

@@ -199,4 +199,38 @@ public class AircraftController : Controller
         
         return PartialView("_DeletedAircraftPartial", deletedAircraft);
     }
+
+    [HttpPost]
+    [Authorize(Roles = "Admin, Moderator")]
+    public async Task<IActionResult> RepairAircraft(string[] aircraftIds)
+    {
+        try
+        {
+            await _aircraftService.RepairAircraftAsync(aircraftIds);
+
+            return Json(new { success = true });
+        }
+        catch
+        {
+            return Json(new { success = false });
+        }
+    }
+
+    [HttpGet]
+    [Authorize(Roles = "Admin, Moderator")]
+    public async Task<IActionResult> TotaledAircraft()
+    {
+        IEnumerable<AircraftAllViewModel> totaledAircraft;
+
+        try
+        {
+            totaledAircraft = await _aircraftService.GetTotaledAircraftAsync();
+        }
+        catch
+        {
+            return BadRequest();
+        }
+        
+        return PartialView("_TotaledAircraftPartial", totaledAircraft);
+    }
 }

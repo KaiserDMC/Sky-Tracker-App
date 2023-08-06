@@ -23,4 +23,6 @@ public class AircraftFormModel
     public string? ImagePathUrl { get; set; }
 
     public string? Error { get; set; }
+
+    public bool IsTotaled { get; set; }
 }

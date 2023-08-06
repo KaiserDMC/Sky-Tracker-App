@@ -1,0 +1,72 @@
+﻿@model IEnumerable<AircraftAllViewModel>
+
+<button id="goBackToAircraft" class="btn btn-secondary">Go Back to Aircraft</button>
+<button id="repairSelected" class="btn btn-danger">Repair Selected</button>
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Aircraft Id</th>
+            <th>A/C Registration</th>
+            <th>A/C Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="row-@item.Id">
+                <td><input type="checkbox" name="selectedAircraft" value="@item.Id" /></td>
+                <td>@item.Registration</td>
+                <td>@item.Equipment</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Handle the click event of the "Go Back to Flights" button
+        $('#goBackToAircraft').click(function () {
+            // Load the normal "Flights" partial view
+            loadPartialViewOnClick('@Url.Action("AircraftPartial", "AdminPanel", new {area = "Admin"})');
+        });
+
+        $('#repairSelected').click(function () {
+            var selectedUsers = $('input[name="selectedAircraft"]:checked');
+            var selectedIds = [];
+
+            selectedUsers.each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            if (selectedIds.length === 0) {
+                alert('Please select at least one aircraft.');
+                return;
+            }
+
+            if (confirm('Are you sure you want to repair the selected aircraft?')) {
+                $.ajax({
+                    url: '@Url.Action("RepairAircraft", "Aircraft", new {area = ""})',
+                    type: 'POST',
+                    data: { aircraftIds: selectedIds },
+                    success: function (result) {
+                        if (result.success) {
+                            selectedUsers.closest('tr').remove();
+                        } else {
+                            alert('An error occurred while repairing the aircraft. Please try again.');
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while repairing the aircraft. Please try again.');
+                    }
+                });
+            }
+        });
+
+    });
+</script>

@@ -17,6 +17,8 @@ public interface IHeraldService
 
     Task<IEnumerable<HeraldTypeModel>> GetHeraldTypeAsync();
 
+    Task<IEnumerable<AircraftCollectionViewModel>> GetAircraftForHerald();
+
     Task AddHeraldAsync(HeraldFormModel model);
 
     Task<HeraldFormModel> GetHeraldbyIdAsync(string heraldId);

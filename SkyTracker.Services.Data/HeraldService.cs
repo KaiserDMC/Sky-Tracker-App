@@ -1,4 +1,5 @@
 ﻿using SkyTracker.Data.Models;
+using SkyTracker.Web.ViewModels.Flight;
 using SkyTracker.Web.ViewModels.Herald.Enums;
 
 namespace SkyTracker.Services.Data;
@@ -99,6 +100,7 @@ public class HeraldService : IHeraldService
                 OccurrenceDate = x.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
                 TypeOccurence = x.TypeOccurence,
                 Details = x.Details,
+                AircraftId = x.AircraftId == null ? null : x.AircraftId.ToString()
             })
             .FirstOrDefaultAsync();
 
@@ -120,6 +122,20 @@ public class HeraldService : IHeraldService
         return heraldTypes;
     }
 
+    public async Task<IEnumerable<AircraftCollectionViewModel>> GetAircraftForHerald()
+    {
+        var aircraftCollection = await _dbContext.Aircraft
+            .Where(x => x.IsDeleted == false)
+            .Select(x => new AircraftCollectionViewModel
+            {
+                Id = x.Id.ToString(),
+                Registration = x.Registration
+            })
+            .ToListAsync();
+
+        return aircraftCollection;
+    }
+
     public async Task AddHeraldAsync(HeraldFormModel model)
     {
         if (_dbContext.HeraldPosts.Where(f=>f.Id == model.Id).Any())
@@ -133,8 +149,21 @@ public class HeraldService : IHeraldService
             Id = model.Id,
             Occurrence = model.Occurrence,
             TypeOccurence = model.TypeOccurrence,
-            Details = model.Details
+            Details = model.Details,
+            AircraftId = model.AircraftId == null ? null : model.AircraftId.ToString()
         };
+
+        if (herald.AircraftId != null && herald.TypeOccurence == "Crash")
+        {
+            var aircraft = await _dbContext.Aircraft
+                .Where(x => x.Id == herald.AircraftId)
+                .FirstOrDefaultAsync();
+
+            if (aircraft != null)
+            {
+                aircraft.IsTotaled = true;
+            }
+        }
 
         await _dbContext.HeraldPosts.AddAsync(herald);
         await _dbContext.SaveChangesAsync();
@@ -153,7 +182,8 @@ public class HeraldService : IHeraldService
                 Id = heraldById.Id,
                 Occurrence = heraldById.Occurrence,
                 TypeOccurrence = heraldById.TypeOccurence,
-                Details = heraldById.Details
+                Details = heraldById.Details,
+                AircraftId = heraldById.AircraftId
             };
 
             return herald;
@@ -173,6 +203,19 @@ public class HeraldService : IHeraldService
             heraldToUpdate.Occurrence = model.Occurrence;
             heraldToUpdate.TypeOccurence = model.TypeOccurrence;
             heraldToUpdate.Details = model.Details;
+            heraldToUpdate.AircraftId = model.AircraftId;
+        }
+
+        if (heraldToUpdate.AircraftId != null && heraldToUpdate.TypeOccurence == "Crash")
+        {
+            var aircraft = await _dbContext.Aircraft
+                .Where(x => x.Id == heraldToUpdate.AircraftId)
+                .FirstOrDefaultAsync();
+
+            if (aircraft != null)
+            {
+                aircraft.IsTotaled = true;
+            }
         }
 
         await _dbContext.SaveChangesAsync();

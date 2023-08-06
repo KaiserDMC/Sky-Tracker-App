@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using SkyTracker.Data.Models;
-
-namespace SkyTracker.Web.Areas.Admin.Services;
+﻿namespace SkyTracker.Web.Areas.Admin.Services;
 
 using System.Globalization;
 
@@ -46,7 +43,7 @@ public class AdminService : IAdminService
     public async Task<IEnumerable<AircraftAllViewModel>> GetAircraftAsync()
     {
         var aircraft = await _dbContext.Aircraft
-            .Where(a => a.IsDeleted == false)
+            .Where(a => a.IsDeleted == false && a.IsTotaled == false)
             .Select(a => new AircraftAllViewModel
             {
                 Id = a.Id,

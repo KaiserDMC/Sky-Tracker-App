@@ -38,6 +38,7 @@ public class AircraftService : IAircraftService
     public async Task<AircraftDetailsViewModel> GetAircraftDetailsByIdAsync(string aircraftId)
     {
         var aircraft = await _dbContext.Aircraft
+            .Include(a => a.AircraftRelatedHeralds)
             .Where(a => a.IsDeleted == false)
             .FirstOrDefaultAsync(a => a.Id == aircraftId);
 
@@ -47,7 +48,11 @@ public class AircraftService : IAircraftService
             {
                 Id = aircraft.Id,
                 Registration = aircraft.Registration,
-                Equipment = aircraft.Equipment
+                Equipment = aircraft.Equipment,
+                IsTotaled = aircraft.IsTotaled,
+                Herald = aircraft.AircraftRelatedHeralds
+                    .Select(h => h.Id.ToString())
+                    .FirstOrDefault()
             };
 
             return aircraftDetails;
@@ -89,7 +94,8 @@ public class AircraftService : IAircraftService
                 Id = aircraftById.Id,
                 Registration = aircraftById.Registration,
                 Equipment = aircraftById.Equipment,
-                ImagePathUrl = aircraftById.ImagePathUrl
+                ImagePathUrl = aircraftById.ImagePathUrl,
+                IsTotaled = aircraftById.IsTotaled
             };
 
             return aircraft;
@@ -144,6 +150,36 @@ public class AircraftService : IAircraftService
     {
         var aircraft = await _dbContext.Aircraft
             .Where(a => a.IsDeleted == true)
+            .Select(a => new AircraftAllViewModel
+            {
+                Id = a.Id,
+                Registration = a.Registration,
+                Equipment = a.Equipment
+            })
+            .ToListAsync();
+
+        return aircraft;
+    }
+
+    public async Task RepairAircraftAsync(string[] aircraftIds)
+    {
+        var aircraftToRepair = await _dbContext.Aircraft
+            .Where(a => a.IsTotaled == true)
+            .Where(a => aircraftIds.Contains(a.Id))
+            .ToListAsync();
+
+        foreach (var aircraft in aircraftToRepair)
+        {
+            aircraft.IsTotaled = false;
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<IEnumerable<AircraftAllViewModel>> GetTotaledAircraftAsync()
+    {
+        var aircraft = await _dbContext.Aircraft
+            .Where(a => a.IsTotaled == true)
             .Select(a => new AircraftAllViewModel
             {
                 Id = a.Id,

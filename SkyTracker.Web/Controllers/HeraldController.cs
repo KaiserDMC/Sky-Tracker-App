@@ -76,9 +76,12 @@ public class HeraldController : Controller
     {
         var types = await _heraldService.GetHeraldTypeAsync();
 
+        var aircraftCollection = await _heraldService.GetAircraftForHerald();
+
         HeraldFormModel model = new HeraldFormModel
         {
-            HeraldTypes = types
+            HeraldTypes = types,
+            AircraftHeralds = aircraftCollection
         };
 
         return View(model);
@@ -91,6 +94,7 @@ public class HeraldController : Controller
         if (!ModelState.IsValid)
         {
             model.HeraldTypes = await _heraldService.GetHeraldTypeAsync();
+            model.AircraftHeralds = await _heraldService.GetAircraftForHerald();
 
             return View(model);
         }
@@ -115,7 +119,7 @@ public class HeraldController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "Admin");
+        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
     }
 
     [HttpGet]
@@ -124,9 +128,12 @@ public class HeraldController : Controller
     {
         var heraldTypes = await _heraldService.GetHeraldTypeAsync();
 
+        var aircraftCollection = await _heraldService.GetAircraftForHerald();
+
         var herald = await _heraldService.GetHeraldbyIdAsync(heraldId);
 
         herald.HeraldTypes = heraldTypes;
+        herald.AircraftHeralds = aircraftCollection;
 
         return View(herald);
     }
@@ -137,9 +144,12 @@ public class HeraldController : Controller
     {
         var heraldTypes = await _heraldService.GetHeraldTypeAsync();
 
+        var aircraftCollection = await _heraldService.GetAircraftForHerald();
+
         var herald = await _heraldService.GetHeraldbyIdAsync(heraldId);
 
         herald.HeraldTypes = heraldTypes;
+        herald.AircraftHeralds = aircraftCollection;
 
         if (!ModelState.IsValid)
         {
@@ -149,6 +159,7 @@ public class HeraldController : Controller
         herald.Occurrence = model.Occurrence;
         herald.TypeOccurrence = model.TypeOccurrence;
         herald.Details = model.Details;
+        herald.AircraftId = model.AircraftId;
 
         try
         {
@@ -159,7 +170,7 @@ public class HeraldController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "Admin");
+        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
     }
 
     [HttpPost]

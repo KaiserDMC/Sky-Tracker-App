@@ -157,7 +157,7 @@ public class FlightService : IFlightService
     public async Task<IEnumerable<AircraftCollectionViewModel>> GetAircraftsCollectionAsync()
     {
         var aircraft = await _dbContext.Aircraft
-            .Where(a => a.IsDeleted == false)
+            .Where(a => a.IsDeleted == false && a.IsTotaled == false)
             .Select(a => new AircraftCollectionViewModel()
             {
                 Id = a.Id,

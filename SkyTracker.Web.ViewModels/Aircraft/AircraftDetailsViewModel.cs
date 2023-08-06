@@ -9,4 +9,8 @@ public class AircraftDetailsViewModel
     public string? Equipment { get; set; }
 
     public string ImageUrl { get; set; } = null!;
+
+    public bool IsTotaled { get; set; }
+
+    public string? Herald { get; set; }
 }

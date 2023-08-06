@@ -9,4 +9,6 @@ public class HeraldDetailsViewModel
     public string TypeOccurence { get; set; } = null!;
 
     public string Details { get; set; } = null!;
+
+    public string? AircraftId { get; set; }
 }

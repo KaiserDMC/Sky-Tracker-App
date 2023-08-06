@@ -19,4 +19,8 @@ public interface IAircraftService
     Task DeleteAircraftAsync(string[] aircraftIds);
 
     Task<IEnumerable<AircraftAllViewModel>> GetDeletedAircraftAsync();
+
+    Task RepairAircraftAsync(string[] aircraftIds);
+
+    Task<IEnumerable<AircraftAllViewModel>> GetTotaledAircraftAsync();
 }
