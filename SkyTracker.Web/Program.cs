@@ -33,14 +33,14 @@ public class Program
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
         // Password requirements for Identity.
-        // Take from appsettings.json.
         builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         {
-            options.SignIn.RequireConfirmedAccount = builder.Configuration.GetValue<bool>("Idetity:SignIn:RequireConfirmedAccount");
-            options.Password.RequireLowercase = builder.Configuration.GetValue<bool>("Idetity:Password:RequireLowercase");
-            options.Password.RequireUppercase = builder.Configuration.GetValue<bool>("Idetity:Password:RequireUppercase");
-            options.Password.RequireNonAlphanumeric = builder.Configuration.GetValue<bool>("Idetity:Password:RequireNonAlphanumeric");
-            options.Password.RequireDigit = builder.Configuration.GetValue<bool>("Idetity:Password:RequireDigit");
+            options.SignIn.RequireConfirmedAccount = false;
+            options.Password.RequiredLength = 6;
+            options.Password.RequireLowercase = true;
+            options.Password.RequireUppercase = true;
+            options.Password.RequireNonAlphanumeric = true;
+            options.Password.RequireDigit = true;
         })
             .AddRoles<IdentityRole<Guid>>()
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
@@ -53,7 +53,8 @@ public class Program
             {
                 corsPolicyBuilder
                     .WithMethods("GET", "POST", "PUT", "DELETE")
-                    .WithOrigins("https://maps.googleapis.com", "https://skytrackerwebstorage.blob.core.windows.net")
+                    .WithOrigins("https://maps.googleapis.com", "https://skytrackerwebstorage.blob.core.windows.net",
+                        "https://js.monitor.azure.com", "https://swedencentral-0.in.applicationinsights.azure.com")
                     .AllowAnyHeader();
             });
         });
@@ -93,7 +94,7 @@ public class Program
         {
             app.UseExceptionHandler("/Home/Error/500");
             app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
-            
+
             app.UseHsts();
         }
 

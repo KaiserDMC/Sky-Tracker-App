@@ -209,7 +209,7 @@ namespace SkyTracker.Data.Migrations
                     b.HasIndex("Registration")
                         .IsUnique();
 
-                    b.ToTable("Aircraft");
+                    b.ToTable("Aircraft", (string)null);
 
                     b.HasData(
                         new
@@ -288,7 +288,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("IATA");
 
-                    b.ToTable("Airports");
+                    b.ToTable("Airports", (string)null);
 
                     b.HasData(
                         new
@@ -601,7 +601,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("DepartureId");
 
-                    b.ToTable("Flights");
+                    b.ToTable("Flights", (string)null);
 
                     b.HasData(
                         new
@@ -1818,7 +1818,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("AircraftId");
 
-                    b.ToTable("FlightsAircraft");
+                    b.ToTable("FlightsAircraft", (string)null);
 
                     b.HasData(
                         new
@@ -2350,7 +2350,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("AircraftId");
 
-                    b.ToTable("HeraldPosts");
+                    b.ToTable("HeraldPosts", (string)null);
 
                     b.HasData(
                         new
@@ -3796,7 +3796,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Runways");
+                    b.ToTable("Runways", (string)null);
 
                     b.HasData(
                         new
@@ -4893,7 +4893,7 @@ namespace SkyTracker.Data.Migrations
 
                     b.HasIndex("AirportId");
 
-                    b.ToTable("RunwaysAirports");
+                    b.ToTable("RunwaysAirports", (string)null);
 
                     b.HasData(
                         new

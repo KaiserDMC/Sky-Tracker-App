@@ -10,20 +10,20 @@
       "type": "secrets.keyVault",
       "connectionId": "VaultUri"
     },
-    "storage1": {
-      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsSkyTrackerDbContextConn_379B6D6DA5",
-      "secretStore": "AzureKeyVault",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/skytrackerwebstorage",
-      "type": "storage.azure",
-      "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
-      "dynamicId": null
-    },
     "mssql2": {
       "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/ConnectionStringsSkyTrackerDbContextConn_4BA4B06060",
       "secretStore": "AzureKeyVault",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/skytracker-prod/databases/skytracker-prod",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:SkyTrackerDbContextConnection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ServiceLinker/locations/swedencentral/connectors/blob_436D850D2B",
+      "secretStore": "AzureKeyVault",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/skytrackerwebstorage",
+      "type": "storage.azure",
+      "connectionId": "blob",
       "dynamicId": null
     }
   }

@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/SkyTrackerWeb/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsDefaultConnection_7DBE17AC78",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/skytracker-prod/databases/skytracker-prod",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultConnection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/SkyTrackerWeb/providers/Microsoft.ServiceLinker/linkers/blob_436D850D2B, /subscriptions/64677033-4ba7-4d74-aeee-1f1b43801391/resourceGroups/skytrackerwebstorageResourceGroup/providers/Microsoft.Web/sites/SkyTrackerWeb/providers/Microsoft.ServiceLinker/linkers/blob_89EE1E0AB5",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/skytrackerwebstorage",
+      "type": "storage.azure",
+      "connectionId": "blob",
+      "dynamicId": null
+    },
+    "secrets2": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/SkyTrackerWeb/providers/Microsoft.ServiceLinker/linkers/VaultUri_19F9BC55FF",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/SkyTrackerWebVault",
+      "type": "secrets.keyVault",
+      "connectionId": "VaultUri",
+      "dynamicId": null
+    }
+  }
+}

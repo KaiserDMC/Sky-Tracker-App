@@ -52,29 +52,29 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             .HasKey(fa => new { fa.FlightId, fa.AircraftId });
         });
 
-        var collectionEntityConfiguration = new CollectionEntityConfiguration();
+        //var collectionEntityConfiguration = new CollectionEntityConfiguration();
 
-        builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
-        builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
-        builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
 
-        builder.Entity<Aircraft>()
-            .HasIndex(a => a.Registration)
-            .IsUnique();
+        //builder.Entity<Aircraft>()
+        //    .HasIndex(a => a.Registration)
+        //    .IsUnique();
 
-        builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
-        builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+        //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 
-        var mappingEntityConfiguration = new MappingEntityConfiguration();
+        //var mappingEntityConfiguration = new MappingEntityConfiguration();
 
-        builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
-        builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
+        //builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
+        //builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
 
         builder.ApplyConfiguration(new ApplicationUserConfiguration());
 
         base.OnModelCreating(builder);
 
-        SeedData(builder);
+        //SeedData(builder);
     }
 
     // Seed admin and moderator users and their data for later usage in Development or Test environments
