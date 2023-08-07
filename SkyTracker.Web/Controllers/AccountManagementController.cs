@@ -20,6 +20,7 @@ using static Common.GeneralApplicationContants;
 using static Configuration.UploadBlob;
 
 [Authorize]
+[AutoValidateAntiforgeryToken]
 public class AccountManagementController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
@@ -61,7 +62,6 @@ public class AccountManagementController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> UploadProfilePicture()
     {
         var user = await _userManager.GetUserAsync(User);
@@ -111,7 +111,6 @@ public class AccountManagementController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> PasswordChange(PasswordChangeModel model)
     {
         if (!ModelState.IsValid)
@@ -166,7 +165,6 @@ public class AccountManagementController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> EmailChange(EmailChangeModel model)
     {
         var user = await _userManager.GetUserAsync(User);
@@ -220,7 +218,6 @@ public class AccountManagementController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> PhoneNumberChange(PhoneNumberChangeModel model)
     {
         var user = await _userManager.GetUserAsync(User);
@@ -344,7 +341,6 @@ public class AccountManagementController : Controller
     }
 
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeletePersonalData(DeletePersonalDataModel model)
     {
         var user = await _userManager.GetUserAsync(User);

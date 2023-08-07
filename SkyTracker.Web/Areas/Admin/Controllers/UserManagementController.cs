@@ -15,6 +15,7 @@ using static Common.UserRoleNames;
 
 [Area("Admin")]
 [Authorize(Roles = "Admin")]
+[AutoValidateAntiforgeryToken]
 public class UserManagementController : Controller
 {
     private readonly IUserManagementService _userManagementService;

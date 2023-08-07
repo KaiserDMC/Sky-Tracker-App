@@ -106,7 +106,7 @@ public class AircraftController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "Admin");
+        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
     }
 
     [HttpGet]
@@ -159,7 +159,7 @@ public class AircraftController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "Admin");
+        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
     }
 
     [HttpPost]
