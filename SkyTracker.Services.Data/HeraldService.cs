@@ -91,7 +91,6 @@ public class HeraldService : IHeraldService
 
     public async Task<HeraldDetailsViewModel> GetDetailsById(string occurrenceId)
     {
-        // Retrieve the necessary data based on the occurrence ID and create an OccurrenceViewModel
         var occurrence = await _dbContext.HeraldPosts
             .Where(x => x.Id.ToString() == occurrenceId && x.IsDeleted == false)
             .Select(x => new HeraldDetailsViewModel

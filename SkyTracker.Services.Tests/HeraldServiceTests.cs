@@ -106,6 +106,7 @@ public class HeraldServiceTests
         Assert.AreEqual(existingHerald.Occurrence.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture), result.OccurrenceDate);
         Assert.AreEqual(existingHerald.TypeOccurence, result.TypeOccurence);
         Assert.AreEqual(existingHerald.Details, result.Details);
+        Assert.AreEqual(existingHerald.AircraftId, result.AircraftId);
     }
 
     [Test]
@@ -122,11 +123,14 @@ public class HeraldServiceTests
     [Test]
     public async Task AddHeraldAsync_ShouldWork_AddNewHerald()
     {
+        var aircraft = await _dbContext.Aircraft.FirstOrDefaultAsync();
+
         var model = new HeraldFormModel
         {
             Id = Guid.NewGuid(),
             Occurrence = DateTime.UtcNow,
             TypeOccurrence = HeraldType.Incident.ToString(),
+            AircraftId = aircraft.Id,
             Details = "Test details"
         };
 
@@ -141,7 +145,42 @@ public class HeraldServiceTests
         Assert.AreEqual(model.Id, addedHerald.Id);
         Assert.AreEqual(model.Occurrence, addedHerald.Occurrence);
         Assert.AreEqual(model.TypeOccurrence, addedHerald.TypeOccurence);
+        Assert.AreEqual(model.AircraftId, addedHerald.AircraftId);
         Assert.AreEqual(model.Details, addedHerald.Details);
+    }
+
+    
+    [Test]
+    public async Task AddHeraldAsync_ShouldWork_AddNewHeraldCrashedAircraft()
+    {
+        var aircraft = await _dbContext.Aircraft.FirstOrDefaultAsync();
+
+        var model = new HeraldFormModel
+        {
+            Id = Guid.NewGuid(),
+            Occurrence = DateTime.UtcNow,
+            TypeOccurrence = HeraldType.Crash.ToString(),
+            AircraftId = aircraft.Id,
+            Details = "Test details"
+        };
+
+        await _heraldService.AddHeraldAsync(model);
+
+        Assert.IsNull(model.Error);
+
+        var addedHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync(h => h.Id == model.Id);
+
+        Assert.NotNull(addedHerald);
+
+        Assert.AreEqual(model.Id, addedHerald.Id);
+        Assert.AreEqual(model.Occurrence, addedHerald.Occurrence);
+        Assert.AreEqual(model.TypeOccurrence, addedHerald.TypeOccurence);
+        Assert.AreEqual(model.AircraftId, addedHerald.AircraftId);
+        Assert.AreEqual(model.Details, addedHerald.Details);
+
+        var aircraftCrashed = await _dbContext.Aircraft.FirstOrDefaultAsync(a => a.Id == aircraft.Id);
+        Assert.NotNull(aircraftCrashed);
+        Assert.AreEqual(true, aircraftCrashed.IsTotaled);
     }
 
     [Test]
@@ -186,6 +225,7 @@ public class HeraldServiceTests
         Assert.AreEqual(existingHerald.Id, result.Id);
         Assert.AreEqual(existingHerald.Occurrence, result.Occurrence);
         Assert.AreEqual(existingHerald.TypeOccurence, result.TypeOccurrence);
+        Assert.AreEqual(existingHerald.AircraftId, result.AircraftId);
         Assert.AreEqual(existingHerald.Details, result.Details);
     }
 
@@ -193,24 +233,57 @@ public class HeraldServiceTests
     public async Task EditHeraldAsync_ShouldWork_UpdateHerald()
     {
         var existingHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync();
+        var aircraft = await _dbContext.Aircraft.FirstOrDefaultAsync();
 
         var updatedModel = new HeraldFormModel
         {
             Id = existingHerald.Id,
             Occurrence = DateTime.UtcNow,
             TypeOccurrence = HeraldType.Accident.ToString(),
+            AircraftId = aircraft.Id,
             Details = "Updated details"
         };
 
         await _heraldService.EditHeraldAsync(existingHerald.Id.ToString(), updatedModel);
-
 
         var updatedHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync(h => h.Id == existingHerald.Id);
         Assert.NotNull(updatedHerald);
 
         Assert.AreEqual(updatedModel.Occurrence, updatedHerald.Occurrence);
         Assert.AreEqual(updatedModel.TypeOccurrence, updatedHerald.TypeOccurence);
+        Assert.AreEqual(updatedModel.AircraftId, updatedHerald.AircraftId);
         Assert.AreEqual(updatedModel.Details, updatedHerald.Details);
+    }
+
+    
+    [Test]
+    public async Task EditHeraldAsync_ShouldWork_UpdateHeraldCrashedAircraft()
+    {
+        var existingHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync();
+        var aircraft = await _dbContext.Aircraft.FirstOrDefaultAsync();
+
+        var updatedModel = new HeraldFormModel
+        {
+            Id = existingHerald.Id,
+            Occurrence = DateTime.UtcNow,
+            TypeOccurrence = HeraldType.Crash.ToString(),
+            AircraftId = aircraft.Id,
+            Details = "Updated details"
+        };
+
+        await _heraldService.EditHeraldAsync(existingHerald.Id.ToString(), updatedModel);
+
+        var updatedHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync(h => h.Id == existingHerald.Id);
+        Assert.NotNull(updatedHerald);
+
+        Assert.AreEqual(updatedModel.Occurrence, updatedHerald.Occurrence);
+        Assert.AreEqual(updatedModel.TypeOccurrence, updatedHerald.TypeOccurence);
+        Assert.AreEqual(updatedModel.AircraftId, updatedHerald.AircraftId);
+        Assert.AreEqual(updatedModel.Details, updatedHerald.Details);
+
+        var aircraftCrashed = await _dbContext.Aircraft.FirstOrDefaultAsync(a => a.Id == aircraft.Id);
+        Assert.NotNull(aircraftCrashed);
+        Assert.AreEqual(true, aircraftCrashed.IsTotaled);
     }
 
     [Test]

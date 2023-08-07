@@ -143,6 +143,7 @@ public class AircraftServiceTests
         Assert.AreEqual("10594670", aircraft.Id);
         Assert.AreEqual("N206MP", aircraft.Registration);
         Assert.AreEqual("B06", aircraft.Equipment);
+        Assert.AreEqual(false, aircraft.IsTotaled);
     }
 
     [Test]
@@ -276,7 +277,7 @@ public class AircraftServiceTests
         var aircraftIdsToDelete = new string[] { "11111111", "22222222" };
 
         await _aircraftService.DeleteAircraftAsync(aircraftIdsToDelete);
-        
+
         Assert.IsTrue(_dbContext.Aircraft.Any(a => a.IsDeleted));
         Assert.AreEqual(2, _aircraftService.GetDeletedAircraftAsync().Result.Count());
     }
@@ -284,7 +285,7 @@ public class AircraftServiceTests
     [Test]
     public async Task DeleteAircraftAsync_ShouldThrow_NonExistingAircraftNotDeleted()
     {
-       var aircraftIdsToDelete = new string[] { "11111111", "22222222" };
+        var aircraftIdsToDelete = new string[] { "11111111", "22222222" };
 
         await _aircraftService.DeleteAircraftAsync(aircraftIdsToDelete);
 
@@ -306,12 +307,65 @@ public class AircraftServiceTests
 
         deletedAircraft.IsDeleted = true;
         await _dbContext.SaveChangesAsync();
-        
+
         var aircraft = await this._aircraftService.GetDeletedAircraftAsync();
 
         Assert.AreEqual(1, aircraft.Count());
         Assert.AreEqual("22222222", aircraft.First().Id);
         Assert.AreEqual("XYZ789", aircraft.First().Registration);
         Assert.AreEqual("Equipment2", aircraft.First().Equipment);
+    }
+
+    [Test]
+    public async Task RepairAircraftAsync_ShouldWork_RepairTotaledAircraft()
+    {
+        var totaledAircraft = new Aircraft
+        {
+            Id = "22222222",
+            Registration = "XYZ789",
+            Equipment = "Equipment2",
+            IsTotaled = true
+        };
+
+        _dbContext.Aircraft.Add(totaledAircraft);
+        await _dbContext.SaveChangesAsync();
+
+        var aircraftIdsToRepair = new string[] { "22222222" };
+
+        Assert.IsTrue(await _dbContext.Aircraft.Where(a => a.Id == totaledAircraft.Id).Select(a => a.IsTotaled).FirstOrDefaultAsync());
+
+        await _aircraftService.RepairAircraftAsync(aircraftIdsToRepair);
+
+        foreach (var aircraftId in aircraftIdsToRepair)
+        {
+            var repairedAircraft = await _dbContext.Aircraft.FirstOrDefaultAsync(a => a.Id == aircraftId);
+
+            Assert.IsFalse(repairedAircraft.IsTotaled);
+        }
+    }
+
+    [Test]
+    public async Task GetTotaledAircraftAsync_ShouldWork_ReturnTotaledAircraft()
+    {
+        var totaledAircraft = new Aircraft
+        {
+            Id = "22222222",
+            Registration = "XYZ789",
+            Equipment = "Equipment2",
+            IsTotaled = true
+        };
+
+        _dbContext.Aircraft.Add(totaledAircraft);
+        await _dbContext.SaveChangesAsync();
+
+        var allTotaledAircraft = await _aircraftService.GetTotaledAircraftAsync();
+
+        Assert.IsNotNull(allTotaledAircraft);
+
+        Assert.AreEqual(1, allTotaledAircraft.Count());
+        Assert.AreEqual("22222222", allTotaledAircraft.First().Id);
+        Assert.AreEqual("XYZ789", allTotaledAircraft.First().Registration);
+        Assert.AreEqual("Equipment2", allTotaledAircraft.First().Equipment);
+        Assert.AreEqual(true, totaledAircraft.IsTotaled);
     }
 }
