@@ -24,7 +24,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
+        // Connection string for SQL Database.
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
         builder.Services.AddDbContext<SkyTrackerDbContext>(options =>
@@ -32,6 +32,8 @@ public class Program
 
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+        // Password requirements for Identity.
+        // Take from appsettings.json.
         builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         {
             options.SignIn.RequireConfirmedAccount = builder.Configuration.GetValue<bool>("Idetity:SignIn:RequireConfirmedAccount");
@@ -44,6 +46,7 @@ public class Program
             .AddEntityFrameworkStores<SkyTrackerDbContext>();
         builder.Services.AddControllersWithViews();
 
+        // Configure CORS policy.
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(corsPolicyBuilder =>
@@ -66,6 +69,7 @@ public class Program
         builder.Services.AddApplicationServices(typeof(IHomeService));
         builder.Services.AddApplicationServices(typeof(IAdminService));
 
+        // Add Azure Blob Storage.
         var blobServiceClient = new BlobServiceClient(
             new Uri("https://skytrackerwebstorage.blob.core.windows.net"),
             new DefaultAzureCredential());
@@ -74,6 +78,7 @@ public class Program
 
         var app = builder.Build();
 
+        // Get image data from Azure Blob Storage.
         await GetImageData.GetImageDataFromAzureAsync(blobServiceClient, app.Environment);
 
         ImageHelper.Initialize(blobServiceClient);
@@ -109,6 +114,7 @@ public class Program
             app.SeedModerator(DevAndTestingModeratorEmail);
         }
 
+        // Add Admin area routing.
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
@@ -122,6 +128,6 @@ public class Program
 
         app.MapRazorPages();
 
-        app.Run();
+        await app.RunAsync();
     }
 }

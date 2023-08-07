@@ -34,6 +34,7 @@
     </table>
 </div>
 
+@*Pagination with X.PagedList*@
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
 
@@ -54,21 +55,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+// Load partial view on click
     function loadPartialViewOnClick(url) {
         $.ajax({
             url: url,
             type: 'GET',
             success: function (result) {
                 $('#partialViewContainer').html(result);
-
-                // Reapply necessary JavaScript and CSS initialization here if needed
             },
             error: function (xhr, status, error) {
-                // Handle error if necessary
             }
         });
     }
 
+    // Demote selected users
     $(document).ready(function () {
         $('#demoteSelected').click(function () {
             var selectedUsers = $('input[name="selectedUsers"]:checked');
@@ -102,8 +102,9 @@
             }
         });
 
+        // Go back to the normal "Users" partial view
         $('#goBackToUsersList').click(function () {
-            // Load the normal "Admins" partial view
+            // Load the normal "Users" partial view
             loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement", new {area = "Admin"})');
         });
     });

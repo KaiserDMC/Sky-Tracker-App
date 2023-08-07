@@ -12,6 +12,10 @@ using Web.ViewModels.Aircraft;
 
 using static TestDatabaseSeed;
 
+/// <summary>
+/// Aircraft Service Unit Tests using InMemoryDatabase
+/// </summary>
+
 public class AircraftServiceTests
 {
     private SkyTrackerDbContext _dbContext;

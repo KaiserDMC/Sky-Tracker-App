@@ -14,6 +14,10 @@ using static Common.GeneralApplicationContants;
 using static Common.UserRoleNames;
 using static TestDatabaseSeed;
 
+/// <summary>
+/// User Management Service Unit Tests using InMemoryDatabase and Moq
+/// </summary>
+
 public class UserManagementServiceTests
 {
     private Mock<UserManager<ApplicationUser>> _userManagerMock;

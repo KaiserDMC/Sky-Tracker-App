@@ -11,11 +11,15 @@ using Microsoft.AspNetCore.Mvc;
 
 using SkyTracker.Services.Data.Interfaces;
 
-using ViewModels.Airports;
+using ViewModels.Airport;
 
 using static Common.GeneralApplicationContants;
+using static Common.UserRoleNames;
 using static Configuration.UploadBlob;
 
+/// <summary>
+/// Airport Controller. Used for managing airports.
+/// </summary>
 
 [Authorize]
 public class AirportController : Controller
@@ -23,7 +27,6 @@ public class AirportController : Controller
     private readonly IAirportsService _airportsService;
     private readonly BlobServiceClient _blobServiceClient;
     private readonly IWebHostEnvironment _hostingEnvironment;
-
 
     public AirportController(IAirportsService airportsService, BlobServiceClient blobServiceClient, IWebHostEnvironment hostingEnvironment)
     {
@@ -117,7 +120,7 @@ public class AirportController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpGet]
@@ -184,7 +187,7 @@ public class AirportController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpPost]

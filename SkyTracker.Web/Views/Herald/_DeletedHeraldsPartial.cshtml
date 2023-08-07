@@ -28,8 +28,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+    // Handle the click event of the "Go Back to Heralds" button
     $(document).ready(function () {
         $('#goBackToHeralds').click(function () {
+            // Load the normal "Heralds" partial view
             loadPartialViewOnClick('@Url.Action("HeraldsPartial", "AdminPanel", new {area = "Admin"})');
         });
     });

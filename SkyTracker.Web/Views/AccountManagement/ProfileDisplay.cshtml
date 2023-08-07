@@ -91,7 +91,7 @@
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
                                 <div class="mb-3">
                                     <input class="form-control mb-2" type="file" name="file" id="file" />
-                                    <button type="submit" class="btn btn-primary">Upload Picture</button>
+                                    <button type="submit" id="uploadButton" class="btn btn-primary">Upload Picture</button>
                                 </div>
                             </div>
                         </form>
@@ -101,3 +101,21 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('file');
+            const uploadButton = document.getElementById('uploadButton');
+
+            fileInput.addEventListener('change', function () {
+                uploadButton.disabled = !fileInput.files.length;
+            });
+
+            // Initialize the disabled state on page load
+            uploadButton.disabled = !fileInput.files.length;
+        });
+    </script>
+}

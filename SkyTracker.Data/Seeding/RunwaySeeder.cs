@@ -1,9 +1,16 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
-using Newtonsoft.Json;
+using DTOs;
 
 using Models;
-using DTOs;
+
+using Newtonsoft.Json;
+
+/// <summary>
+/// This class is used to seed the database with runway entries.
+/// It generates a collection of runways from a JSON file ("modified_runway.json").
+/// Randomly assigns surface type, length and width to each runway. Based on predefined values and/or formulas.
+/// </summary>
 
 public class RunwaySeeder
 {
@@ -16,7 +23,7 @@ public class RunwaySeeder
 
     private ICollection<Runway> GenerateRunways()
     {
-        ICollection<RunwaySeedDto>? runwaysDto = new List<RunwaySeedDto>();
+        ICollection<RunwaySeedDto>? runwaysDto;
         string[] surfaceTypes = new string[] { "Asphalt", "Concrete", "Grass", "Gravel", "Dirt", "Sand" };
 
         // Specify the folder name relative to the current directory
@@ -37,6 +44,7 @@ public class RunwaySeeder
         runwaysDto = JsonConvert.DeserializeObject<List<RunwaySeedDto>>(json);
 
         if (runwaysDto != null)
+        {
             foreach (var runwayDto in runwaysDto)
             {
                 Runway runway = new()
@@ -51,6 +59,7 @@ public class RunwaySeeder
 
                 Runways.Add(runway);
             }
+        }
 
         return Runways.ToArray();
     }

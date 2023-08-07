@@ -5,8 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using static SkyTracker.Common.DataModelsValidationConstants.Flight;
 
+/// <summary>
+/// This class represents a flight entity in the database.
+/// </summary>
+
 public class Flight
 {
+    // Flight id used from the provided csv file. As EF Core was not happy with PrincipleKey and ForeignKey attributes between Aircraft and Flight entities.
     [Key]
     [Required]
     [MaxLength(FlightIdLengthMax)]

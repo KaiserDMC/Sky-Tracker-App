@@ -8,10 +8,15 @@ using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
+
 using Web.ViewModels.Herald;
 using Web.ViewModels.Herald.Enums;
 
 using static TestDatabaseSeed;
+
+/// <summary>
+/// Herald Service Unit Tests using InMemoryDatabase
+/// </summary>
 
 public class HeraldServiceTests
 {
@@ -48,7 +53,7 @@ public class HeraldServiceTests
 
         Assert.NotNull(result);
         Assert.IsTrue(result.Any());
-        
+
         var sortedByDateDescending = result.OrderByDescending(x => DateTime.ParseExact(x.OccurrenceDate, "dd-MM-yyyy", CultureInfo.InvariantCulture));
         Assert.IsTrue(result.SequenceEqual(sortedByDateDescending));
         Assert.AreEqual(176, result.Count());
@@ -61,7 +66,7 @@ public class HeraldServiceTests
 
         Assert.NotNull(result);
         Assert.IsTrue(result.Any());
-        
+
         var sortedByDateAscending = result.OrderBy(x => DateTime.ParseExact(x.OccurrenceDate, "dd-MM-yyyy", CultureInfo.InvariantCulture)).ToList();
         Assert.IsTrue(result.SequenceEqual(sortedByDateAscending));
         Assert.AreEqual(176, result.Count());
@@ -73,7 +78,7 @@ public class HeraldServiceTests
         var result = await _heraldService.GetAllHeraldsSortedByTypeAscAsync();
 
         Assert.NotNull(result);
-        Assert.IsTrue(result.Any()); 
+        Assert.IsTrue(result.Any());
 
         var sortedByTypeAscending = result.OrderBy(x => x.TypeOccurence);
         Assert.IsTrue(result.SequenceEqual(sortedByTypeAscending));
@@ -86,7 +91,7 @@ public class HeraldServiceTests
         var result = await _heraldService.GetAllHeraldsSortedByTypeDescAsync();
 
         Assert.NotNull(result);
-        Assert.IsTrue(result.Any()); 
+        Assert.IsTrue(result.Any());
 
         var sortedByTypeDescending = result.OrderByDescending(x => x.TypeOccurence);
         Assert.IsTrue(result.SequenceEqual(sortedByTypeDescending));
@@ -149,7 +154,7 @@ public class HeraldServiceTests
         Assert.AreEqual(model.Details, addedHerald.Details);
     }
 
-    
+
     [Test]
     public async Task AddHeraldAsync_ShouldWork_AddNewHeraldCrashedAircraft()
     {
@@ -255,7 +260,7 @@ public class HeraldServiceTests
         Assert.AreEqual(updatedModel.Details, updatedHerald.Details);
     }
 
-    
+
     [Test]
     public async Task EditHeraldAsync_ShouldWork_UpdateHeraldCrashedAircraft()
     {

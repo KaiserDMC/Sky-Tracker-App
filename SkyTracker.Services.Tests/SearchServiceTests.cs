@@ -9,6 +9,10 @@ using SkyTracker.Data;
 
 using static TestDatabaseSeed;
 
+/// <summary>
+/// Search Service Unit Tests using InMemoryDatabase
+/// </summary>
+
 public class SearchServiceTests
 {
     private SkyTrackerDbContext _dbContext;
@@ -64,7 +68,7 @@ public class SearchServiceTests
         Assert.AreEqual(1, result.Count());
         Assert.AreEqual(query, result.First().Registration);
     }
-    
+
     [Test]
     public async Task SearchAircraftAsync_ValidQuery_Equipment_ShouldReturnResults()
     {

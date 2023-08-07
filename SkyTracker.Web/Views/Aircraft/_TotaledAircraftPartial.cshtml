@@ -30,12 +30,13 @@
 
 <script>
     $(document).ready(function () {
-        // Handle the click event of the "Go Back to Flights" button
+        // Handle the click event of the "Go Back to Aircraft" button
         $('#goBackToAircraft').click(function () {
-            // Load the normal "Flights" partial view
+            // Load the normal "Aircraft" partial view
             loadPartialViewOnClick('@Url.Action("AircraftPartial", "AdminPanel", new {area = "Admin"})');
         });
 
+        // Repair aircraft functionality
         $('#repairSelected').click(function () {
             var selectedUsers = $('input[name="selectedAircraft"]:checked');
             var selectedIds = [];

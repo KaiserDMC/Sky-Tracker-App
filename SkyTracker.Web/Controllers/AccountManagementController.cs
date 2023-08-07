@@ -19,6 +19,10 @@ using ViewModels.AccountManagement;
 using static Common.GeneralApplicationContants;
 using static Configuration.UploadBlob;
 
+/// <summary>
+/// Account Management Controller. Used by the user to alter his profile.
+/// </summary>
+
 [Authorize]
 [AutoValidateAntiforgeryToken]
 public class AccountManagementController : Controller

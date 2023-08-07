@@ -29,6 +29,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+    // Load partial view on button click
     function loadPartialViewOnClick(url) {
         console.log('loadPartialViewOnClick called with URL:', url);
         $.ajax({
@@ -36,15 +37,13 @@
             type: 'GET',
             success: function (result) {
                 $('#partialViewContainer').html(result);
-
-                // Reapply necessary JavaScript and CSS initialization here if needed
             },
             error: function (xhr, status, error) {
-                // Handle error if necessary
             }
         });
     }
 
+    // Load partial view on pagination click
     function loadPagination() {
         console.log('loadPagination called');
         $(document).on('click', '.pagination a', function (e) {
@@ -57,6 +56,7 @@
         });
     }
 
+    // Load partials based on selected button
     $(document).ready(function () {
         console.log('Document ready called');
         loadPagination();

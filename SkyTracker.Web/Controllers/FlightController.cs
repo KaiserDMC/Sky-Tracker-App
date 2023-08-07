@@ -12,7 +12,12 @@ using ViewModels.Flight;
 using X.PagedList;
 
 using static Common.GeneralApplicationContants;
+using static Common.UserRoleNames;
 using static Configuration.DownloadBlob;
+
+/// <summary>
+/// Flight Controller. Used for Flight related actions.
+/// </summary>
 
 [Authorize]
 public class FlightController : Controller
@@ -142,7 +147,7 @@ public class FlightController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new {area = AdminRole});
     }
 
     [HttpGet]
@@ -206,7 +211,7 @@ public class FlightController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new {area = AdminRole});
     }
 
     [HttpPost]

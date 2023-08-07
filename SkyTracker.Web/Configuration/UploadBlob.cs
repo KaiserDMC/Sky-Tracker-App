@@ -2,6 +2,10 @@
 
 using Azure.Storage.Blobs;
 
+/// <summary>
+/// Uploads a file to a blob container.
+/// </summary>
+
 public static class UploadBlob
 {
     public static async Task UploadFromFileAsync(BlobContainerClient containerClient, string localFilePath)

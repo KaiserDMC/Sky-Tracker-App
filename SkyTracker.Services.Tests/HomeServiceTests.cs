@@ -11,6 +11,10 @@ using SkyTracker.Data;
 
 using static TestDatabaseSeed;
 
+/// <summary>
+/// Home Service Unit Tests using InMemoryDatabase. Tests the Herald News functionality.
+/// </summary>
+
 public class HomeServiceTests
 {
     private SkyTrackerDbContext _dbContext;

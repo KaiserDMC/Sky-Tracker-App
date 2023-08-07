@@ -8,6 +8,7 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+        @*Off-canvas trigger and user profile picture in miniature*@
         <div id="profileTriggerContainer">
             @if (string.IsNullOrEmpty(UserManager.GetUserAsync(User).Result.ProfilePictureUrl))
             {
@@ -37,5 +38,3 @@
         </li>
     }
 </ul>
-
-

@@ -2,6 +2,11 @@
 
 using CsvHelper.Configuration.Attributes;
 
+/// <summary>
+/// DTO for the Flight entity.
+/// CSV helper used to map the CSV file to the DTO.
+/// </summary>
+
 public class FlightSeedDto
 {
     [Name("flight_id")]

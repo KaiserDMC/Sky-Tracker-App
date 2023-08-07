@@ -17,6 +17,7 @@
     </div>
 </div>
 
+@*Buttons that actively hide and show the radio or checkboxes for "properties" of the search*@
 <div class="row mb-3">
     <div class="col col-12">
         <button id="showFormAircraft" class="btn btn-outline-success btn-sm">Search Aircraft</button>
@@ -25,6 +26,7 @@
     </div>
 </div>
 
+@*Various "properties" to help filter and narrow down the search*@
 <form id="searchForm" style="display: none;">
     <input type="hidden" id="query" name="query" value="">
     <input type="hidden" id="modelType" name="modelType" value="">
@@ -54,6 +56,7 @@
     </div>
 </form>
 
+@*Results of the search*@
 @if (ViewBag.AircraftResults != null && ViewBag.ModelType == "aircraft")
 {
     <div id="aircraftResults" style="display: block;">
@@ -79,6 +82,7 @@ else
 
 @section Scripts {
     <script>
+        // Show the search form boxes when a button is clicked
         $('#showFormAircraft').click(function () {
             $('#aircraftCheckboxes').show();
             $('#airportCheckboxes').hide();
@@ -100,6 +104,7 @@ else
             $('#searchForm').slideDown();
         });
 
+        // Depending on which "property" is visible, the search will be performed on that entity type
         function getModelType() {
             if ($('#aircraftCheckboxes').is(':visible')) {
                 return 'aircraft';
@@ -111,15 +116,18 @@ else
             return null; // Default to null if none of the checkboxes are visible
         }
 
+        // Get the selected properties from the checkboxes/radio buttons
         function getSelectedProperties() {
             var selectedProperties = [];
             var checkboxInputs = document.querySelectorAll('input[type="checkbox"]:checked');
             var selectedRadio = document.querySelector('input[type="radio"][name="property"]:checked');
 
+            // Radio buttons are mutually exclusive, so only one can be selected
             if (selectedRadio) {
                 selectedProperties.push(selectedRadio.value);
             }
 
+            // Checkboxes can have multiple selections
             checkboxInputs.forEach(checkbox => {
                 selectedProperties.push(checkbox.value);
             });
@@ -127,11 +135,13 @@ else
             return selectedProperties;
         }
 
+        // Submit the form to the SearchController
         function searchDB() {
             var searchValue = document.getElementById("searchInput").value;
             var modelType = getModelType();
             var selectedProperties = getSelectedProperties();
 
+            // Only submit the form if a modelType and at least one property is selected
             if (modelType && selectedProperties.length > 0) {
                 var form = document.getElementById("searchForm");
                 form.action = "/Search/IndexSearch";
@@ -154,6 +164,7 @@ else
             }
         }
 
+        // Uncheck all other radio buttons in the same group when one is clicked
         document.querySelectorAll('input[type="radio"]').forEach(radio => {
             radio.addEventListener('click', function () {
                 // Uncheck all other radio buttons in the same group
@@ -166,6 +177,7 @@ else
             });
         });
 
+        // Clear the search input and reload the page
         function clearSearch() {
             document.getElementById("searchInput").value = "";
             window.location.href = "/Search/IndexSearch";

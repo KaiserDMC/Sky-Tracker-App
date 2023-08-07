@@ -1,14 +1,20 @@
 ﻿namespace SkyTracker.Services.Data;
 
+using Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 
-using Interfaces;
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
 
 using Web.ViewModels.Aircraft;
-using Web.ViewModels.Airports;
+using Web.ViewModels.Airport;
 using Web.ViewModels.Flight;
+
+/// <summary>
+/// Search Service is used to query the database and provide search results for: Aircraft, Airports and Flights.
+/// The query includes a "search parameter" and certain properties chosen from a radio or checkbox button.
+/// </summary>
 
 public class SearchService : ISearchService
 {

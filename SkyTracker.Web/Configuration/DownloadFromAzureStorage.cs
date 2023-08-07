@@ -4,6 +4,11 @@ using Azure.Storage.Blobs;
 
 using static Common.GeneralApplicationContants;
 
+/// <summary>
+/// Download all images from Azure Storage to local storage.
+/// Used only once on application start to download all images from Azure Storage to local storage.
+/// </summary>
+
 public class DownloadFromAzureStorage
 {
     private readonly BlobServiceClient _blobServiceClient;

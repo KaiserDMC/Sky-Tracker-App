@@ -1,5 +1,9 @@
 ﻿namespace SkyTracker.Common;
 
+/// <summary>
+/// Constants for error messages.
+/// </summary>
+
 public static class ErrorMessageStrings
 {
     public static class Aircraft

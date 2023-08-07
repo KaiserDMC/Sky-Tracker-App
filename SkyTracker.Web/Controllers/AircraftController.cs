@@ -11,7 +11,12 @@ using Configuration;
 using ViewModels.Aircraft;
 
 using static Common.GeneralApplicationContants;
+using static Common.UserRoleNames;
 using static Configuration.UploadBlob;
+
+/// <summary>
+/// Aircraft Controller. Used for managing aircrafts.
+/// </summary>
 
 [Authorize]
 public class AircraftController : Controller
@@ -106,7 +111,7 @@ public class AircraftController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpGet]
@@ -159,7 +164,7 @@ public class AircraftController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpPost]
@@ -196,7 +201,7 @@ public class AircraftController : Controller
         {
             return BadRequest();
         }
-        
+
         return PartialView("_DeletedAircraftPartial", deletedAircraft);
     }
 
@@ -230,7 +235,7 @@ public class AircraftController : Controller
         {
             return BadRequest();
         }
-        
+
         return PartialView("_TotaledAircraftPartial", totaledAircraft);
     }
 }

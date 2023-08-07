@@ -9,9 +9,13 @@ using Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 using ViewModels.Aircraft;
-using ViewModels.Airports;
+using ViewModels.Airport;
 using ViewModels.Flight;
 using ViewModels.Herald;
+
+/// <summary>
+/// Admin Service used for Admin Controller, visualizations and no data manipulations.
+/// </summary>
 
 public class AdminService : IAdminService
 {

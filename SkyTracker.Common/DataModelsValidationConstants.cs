@@ -1,5 +1,9 @@
 ﻿namespace SkyTracker.Common;
 
+/// <summary>
+/// Constants and regular expressions for data model validations.
+/// </summary>
+
 public static class DataModelsValidationConstants
 {
     public static class Aircraft

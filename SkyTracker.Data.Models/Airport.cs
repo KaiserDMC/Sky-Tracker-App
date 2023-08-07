@@ -4,8 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 using static SkyTracker.Common.DataModelsValidationConstants.Airport;
 
+/// <summary>
+/// This class represents the Airport entity.
+/// </summary>
+
 public class Airport
 {
+    // IATA used as id instead of GUID to make the relationships easier. IATA codes are unique and governed by IATA.
     [Key]
     [Required]
     [RegularExpression(CodeIATA)]

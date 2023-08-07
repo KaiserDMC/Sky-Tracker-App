@@ -1,7 +1,7 @@
 ﻿namespace SkyTracker.Services.Data.Interfaces;
 
 using Web.ViewModels.Aircraft;
-using Web.ViewModels.Airports;
+using Web.ViewModels.Airport;
 using Web.ViewModels.Flight;
 
 public interface ISearchService

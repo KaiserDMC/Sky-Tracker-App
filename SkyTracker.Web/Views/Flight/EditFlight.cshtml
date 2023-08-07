@@ -97,17 +97,18 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#registrationDropdown").change(function () {
-            var selectedRegistration = $(this).val();
-            var selectedEquipment = $(this).find("option:selected").data("equipment");
-
-            $("#equipmentDropdown").val(selectedEquipment);
-        });
-    });
-</script>
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // This script is used to populate the equipment dropdown based on the registration dropdown
+        $(document).ready(function () {
+            $("#registrationDropdown").change(function () {
+                var selectedRegistration = $(this).val();
+                var selectedEquipment = $(this).find("option:selected").data("equipment");
+
+                $("#equipmentDropdown").val(selectedEquipment);
+            });
+        });
+    </script>
 }

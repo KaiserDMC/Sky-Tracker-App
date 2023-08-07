@@ -1,23 +1,27 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
+using DataGeneration;
+
 using Models;
 
-using SampleData;
+/// <summary>
+/// This class is used to seed the RunwayAirport mapping table in the database.
+/// </summary>
 
 public class RunwayAirportSeeder
 {
     public ICollection<RunwayAirport> RunwayAirports = new List<RunwayAirport>();
-    private ICollection<string> RunwayIds = new HashSet<string>();
-    private readonly RunwaySeeder _runwaySeeder = new RunwaySeeder();
+    private ICollection<string> _runwayIds;
+    private readonly RunwaySeeder _runwaySeeder = new();
 
     public RunwayAirportSeeder()
     {
         var tempAirportCollection = new GenerateData().AirportCollection;
-        RunwayIds = _runwaySeeder.Runways.Select(r => r.Id.ToString()).ToList();
+        _runwayIds = _runwaySeeder.Runways.Select(r => r.Id.ToString()).ToList();
 
         foreach (var airport in tempAirportCollection)
         {
-            var randomRunwayId = RunwayIds.ElementAt(new Random().Next(0, RunwayIds.Count));
+            var randomRunwayId = _runwayIds.ElementAt(new Random().Next(0, _runwayIds.Count));
 
             RunwayAirports.Add(new RunwayAirport
             {

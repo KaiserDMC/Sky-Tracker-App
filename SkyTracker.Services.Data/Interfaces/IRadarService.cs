@@ -1,7 +1,5 @@
 ﻿namespace SkyTracker.Services.Data.Interfaces;
 
-using SkyTracker.Web.ViewModels.Flight;
-
 using Web.ViewModels.Radar;
 
 public interface IRadarService

@@ -13,6 +13,10 @@ using X.PagedList;
 using static Common.GeneralApplicationContants;
 using static Common.UserRoleNames;
 
+/// <summary>
+/// User Management Controller. Give the ability to Admin to manage users.
+/// </summary>
+
 [Area("Admin")]
 [Authorize(Roles = "Admin")]
 [AutoValidateAntiforgeryToken]

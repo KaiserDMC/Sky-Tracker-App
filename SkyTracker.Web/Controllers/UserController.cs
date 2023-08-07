@@ -14,6 +14,10 @@ using ViewModels.User;
 
 using static Common.UserRoleNames;
 
+/// <summary>
+/// User Controller. Used for handling user registration, login and logout.
+/// </summary>
+
 [AllowAnonymous]
 public class UserController : Controller
 {
@@ -21,9 +25,7 @@ public class UserController : Controller
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUserStore<ApplicationUser> _userStore;
 
-    public UserController(UserManager<ApplicationUser> userManager,
-        IUserStore<ApplicationUser> userStore,
-        SignInManager<ApplicationUser> signInManager)
+    public UserController(UserManager<ApplicationUser> userManager, IUserStore<ApplicationUser> userStore, SignInManager<ApplicationUser> signInManager)
     {
         _userManager = userManager;
         _userStore = userStore;
@@ -134,13 +136,18 @@ public class UserController : Controller
             {
                 return LocalRedirect(returnUrl);
             }
+            else if (result.IsLockedOut)
+            {
+                ModelState.AddModelError(string.Empty, "Your account has been locked. Please contact administrator for assistance.");
+
+                return View(model);
+            }
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 
                 return View(model);
             }
-
         }
         else
         {

@@ -2,8 +2,14 @@
 
 using System.IO;
 
+/// <summary>
+/// General application constants.
+/// </summary>
+
 public static class GeneralApplicationContants
 {
+    public const string YearCreated = "2023";
+
     public const int DefaultStartPagePagination = 1;
     
     public const int DefaultListEntitiesPerPage = 10;

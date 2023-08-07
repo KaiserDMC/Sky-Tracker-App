@@ -3,6 +3,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+/// <summary>
+/// This class represents the mapping between the Runway and Airport entities.
+/// </summary>
+
 public class RunwayAirport
 {
     [Required,ForeignKey(nameof(Runway))]

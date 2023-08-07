@@ -9,6 +9,10 @@ using SkyTracker.Data;
 
 using static TestDatabaseSeed;
 
+/// <summary>
+/// Radar Service Unit Tests using InMemoryDatabase
+/// </summary>
+
 public class RadarServiceTests
 {
     private SkyTrackerDbContext _dbContext;
@@ -25,7 +29,7 @@ public class RadarServiceTests
         this._dbContext = new SkyTrackerDbContext(options);
 
         this._dbContext.Database.EnsureCreated();
-        
+
         SeedDatabase(this._dbContext);
 
         this._radarService = new RadarService(this._dbContext);

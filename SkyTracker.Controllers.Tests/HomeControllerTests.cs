@@ -11,6 +11,10 @@ using SkyTracker.Web.Controllers;
 
 using Web.ViewModels.Home;
 
+/// <summary>
+/// Home Controller Unit Tests using Moq
+/// </summary>
+
 public class HomeControllerTests
 {
     private HomeController _homeController;

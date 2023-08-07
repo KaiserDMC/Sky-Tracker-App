@@ -1,4 +1,4 @@
-﻿namespace SkyTracker.Web.ViewModels.Airports;
+﻿namespace SkyTracker.Web.ViewModels.Airport;
 
 using System.ComponentModel.DataAnnotations;
 

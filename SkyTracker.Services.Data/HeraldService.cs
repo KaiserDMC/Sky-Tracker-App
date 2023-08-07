@@ -1,16 +1,21 @@
-﻿using SkyTracker.Data.Models;
-using SkyTracker.Web.ViewModels.Flight;
-using SkyTracker.Web.ViewModels.Herald.Enums;
-
-namespace SkyTracker.Services.Data;
+﻿namespace SkyTracker.Services.Data;
 
 using System.Globalization;
+
+using Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
-using Interfaces;
-using Web.ViewModels.Herald;
+using SkyTracker.Data.Models;
 
+using Web.ViewModels.Flight;
+using Web.ViewModels.Herald;
+using Web.ViewModels.Herald.Enums;
+
+/// <summary>
+/// Herald Service used for CRUD operations on HeraldPost entity.
+/// </summary>
 
 public class HeraldService : IHeraldService
 {
@@ -137,7 +142,7 @@ public class HeraldService : IHeraldService
 
     public async Task AddHeraldAsync(HeraldFormModel model)
     {
-        if (_dbContext.HeraldPosts.Where(f=>f.Id == model.Id).Any())
+        if (_dbContext.HeraldPosts.Any(f => f.Id == model.Id))
         {
             model.Error = "Herald Post already exists.";
             return;

@@ -1,10 +1,16 @@
 ﻿namespace SkyTracker.Data.Configuration;
 
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+using Models;
 
 using Seeding;
-using Models;
+
+/// <summary>
+/// This configuration class is used to seed the database's mapping tables.
+/// These tables define the relationships between Flight -> Aircraft and Airport -> Runway
+/// </summary>
 
 public class MappingEntityConfiguration : IEntityTypeConfiguration<FlightAircraft>, IEntityTypeConfiguration<RunwayAirport>
 {

@@ -1,8 +1,6 @@
 ﻿namespace SkyTracker.Services.Data.Interfaces;
 
-using Microsoft.AspNetCore.Mvc;
-
-using SkyTracker.Web.ViewModels.Flight;
+using Web.ViewModels.Flight;
 
 using Web.ViewModels.Herald;
 

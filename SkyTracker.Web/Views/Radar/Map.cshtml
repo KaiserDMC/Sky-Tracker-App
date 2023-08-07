@@ -24,7 +24,7 @@
     var displayedFlightPath = null;
 
     function initMap() {
-
+        // Create the map centered on the Gulf of Mexico and set the map type/style to the custom "dark" style.
         map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: 23.825716288660082, lng: -89.12079528143671 },
             zoom: 2,
@@ -34,7 +34,6 @@
         // Set LatLng and title text for the markers. The first marker (Gulf of Mexico)
         // receives the initial focus when tab is pressed. Use arrow keys to
         // move between markers; press tab again to cycle through the map controls.
-        //const infoWindow = new google.maps.InfoWindow();
 
         // Create the markers using the tourStops data.
         airportLocations.forEach((airport, i) => {
@@ -51,6 +50,7 @@
                 optimized: false,
             });
 
+            // Content for each marker's info window.
             const contentString = `
                                             <div>
                                                 <strong>Airport:</strong> ${airport.name} <br>
@@ -70,6 +70,7 @@
         });
     }
 
+    // Load the flight path data when the DOM is ready.
     document.addEventListener("DOMContentLoaded", () => {
         const tableRows = document.querySelectorAll("tr[data-flight-id]");
 
@@ -87,6 +88,7 @@
         });
     });
 
+    // Load the flight path data from the local stored json file.
     async function loadFlightData(flightId) {
         try {
             const response = await fetch(`/html/flight-path/${flightId}.json`);
@@ -101,9 +103,8 @@
         }
     }
 
+    // Display the flight path on the map using Polyline.
     function displayFlightPath(flightData) {
-        // Your code to display the flight path on the map (using a Polyline)
-
         const flightPathLatLng = [];
 
         if (!map || !(map instanceof google.maps.Map)) {
@@ -130,6 +131,7 @@
         flightPath.setMap(map);
     }
 
+    // Toggle the flight path display on the map.
     function toggleFlightPath(flightData) {
 
         // If the flight path is currently displayed, remove it from the map
@@ -167,4 +169,5 @@
     }
 </script>
 
+@*Google Map API access Key. Restricted to specific IP addresses as locking it in "secrets" was no successful!*@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS9BfxZGM4X0KnGyXmRymrrs8eocXLUK0&callback=initMap" async defer></script>

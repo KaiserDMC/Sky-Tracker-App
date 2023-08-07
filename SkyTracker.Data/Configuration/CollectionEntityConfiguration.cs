@@ -1,18 +1,20 @@
 ﻿namespace SkyTracker.Data.Configuration;
 
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using Models;
-using SampleData;
+
 using Seeding;
 
-public class CollectionEntityConfiguration :
-    IEntityTypeConfiguration<Flight>,
-    IEntityTypeConfiguration<Airport>,
-    IEntityTypeConfiguration<Aircraft>,
-    IEntityTypeConfiguration<Runway>,
-    IEntityTypeConfiguration<HeraldPost>
+using DataGeneration;
+
+/// <summary>
+/// This configuration class is used to seed the database with data for the basic entities.
+/// The data is generated with the help of various seeder classes.
+/// </summary>
+
+public class CollectionEntityConfiguration : IEntityTypeConfiguration<Flight>, IEntityTypeConfiguration<Airport>, IEntityTypeConfiguration<Aircraft>, IEntityTypeConfiguration<Runway>, IEntityTypeConfiguration<HeraldPost>
 {
     private readonly RunwaySeeder _runwaySeeder;
     private readonly GenerateData _generateData;

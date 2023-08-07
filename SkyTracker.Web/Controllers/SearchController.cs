@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 
 using SkyTracker.Services.Data.Interfaces;
 
+/// <summary>
+/// Search Controller. Used to search for aircraft, airports, and flights.
+/// </summary>
+
 [Authorize]
 public class SearchController : Controller
 {

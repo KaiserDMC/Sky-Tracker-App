@@ -1,6 +1,6 @@
-﻿using SkyTracker.Web.ViewModels.Airports;
+﻿namespace SkyTracker.Services.Data.Interfaces;
 
-namespace SkyTracker.Services.Data.Interfaces;
+using Web.ViewModels.Airport;
 
 public interface IAirportsService
 {

@@ -1,15 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
-
-namespace SkyTracker.Services.Data;
+﻿namespace SkyTracker.Services.Data;
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 using Interfaces;
+
+using Microsoft.EntityFrameworkCore;
+
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
+
 using Web.ViewModels.Aircraft;
+
+/// <summary>
+/// Aircraft Service used to perform CRUD operations on Aircraft.
+/// </summary>
 
 public class AircraftService : IAircraftService
 {
@@ -63,7 +68,7 @@ public class AircraftService : IAircraftService
 
     public async Task AddAircraftAsync(AircraftFormModel model)
     {
-        if (_dbContext.Aircraft.Where(a => a.Id == model.Id).Any())
+        if (_dbContext.Aircraft.Any(a => a.Id == model.Id))
         {
             model.Error = "Flight already exists.";
             return;

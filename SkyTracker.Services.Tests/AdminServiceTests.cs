@@ -12,12 +12,15 @@ using SkyTracker.Web.Areas.Admin.Services;
 using SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
 using Web.ViewModels.Aircraft;
-using Web.ViewModels.Airports;
+using Web.ViewModels.Airport;
 using Web.ViewModels.Flight;
 using Web.ViewModels.Herald;
 
 using static TestDatabaseSeed;
 
+/// <summary>
+/// Admin Service Unit Tests using InMemoryDatabase and Moq
+/// </summary>
 
 public class AdminServiceTests
 {

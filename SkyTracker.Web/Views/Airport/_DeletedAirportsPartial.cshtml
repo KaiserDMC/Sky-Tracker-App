@@ -31,9 +31,9 @@
 
 <script>
     $(document).ready(function () {
-        // Handle the click event of the "Go Back to Flights" button
+        // Handle the click event of the "Go Back to Airports" button
         $('#goBackToAirports').click(function () {
-            // Load the normal "Flights" partial view
+            // Load the normal "Airports" partial view
             loadPartialViewOnClick('@Url.Action("AirportsPartial", "AdminPanel", new {area = "Admin"})');
         });
     });

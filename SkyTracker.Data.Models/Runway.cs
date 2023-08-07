@@ -1,9 +1,14 @@
 ﻿namespace SkyTracker.Data.Models;
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 using static SkyTracker.Common.DataModelsValidationConstants.Runway;
+
+/// <summary>
+/// This class represents a runway in the database.
+/// Regex pattern became slightly obsolete after the seed data was added through a JSON file.
+/// However, it is kept here for future use.
+/// </summary>
 
 public class Runway
 {

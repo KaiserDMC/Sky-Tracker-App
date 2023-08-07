@@ -1,4 +1,4 @@
-﻿namespace SkyTracker.Web.ViewModels.Airports;
+﻿namespace SkyTracker.Web.ViewModels.Airport;
 
 public class AirportsDetailsViewModel
 {

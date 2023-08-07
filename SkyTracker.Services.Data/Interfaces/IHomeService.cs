@@ -1,6 +1,6 @@
-﻿using SkyTracker.Web.ViewModels.Home;
+﻿namespace SkyTracker.Services.Data.Interfaces;
 
-namespace SkyTracker.Services.Data.Interfaces;
+using Web.ViewModels.Home;
 
 public interface IHomeService
 {

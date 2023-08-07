@@ -2,12 +2,17 @@
 
 using System.Globalization;
 
+using DataGeneration;
+
 using Models;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-using SampleData;
+/// <summary>
+/// This class is used to seed the database with HeraldPost data.
+/// The data comes from the modified_avherald.json file. For the file generation a separate console app was used.
+/// </summary>
 
 public class HeraldPostSeeder
 {
@@ -32,6 +37,7 @@ public class HeraldPostSeeder
 
         JArray jsonArray = JArray.Parse(json);
 
+        // Loop through the JSON and update the date format
         foreach (JObject obj in jsonArray)
         {
             string occurrence = (string)obj["Occurrence"];
@@ -49,7 +55,6 @@ public class HeraldPostSeeder
         heraldPosts = JsonConvert.DeserializeObject<HashSet<HeraldPost>>(json);
 
         // Add AircraftId to some Heralds on random principle
-
         var tempAircraftCollection = new GenerateData().AircraftCollection;
 
         foreach (var aircraft in tempAircraftCollection)

@@ -46,28 +46,30 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>
-    function bindTableRowClickEvent() {
-        $('tr[id^="row-"]').click(function () {
-            var rowId = $(this).attr('id');
-            var flightId = rowId.replace('row-', '');
-
-            window.location.href = '/Flight/GetDetailsFlight?flightId=' + flightId;
-        });
-    }
-
-    $(document).ready(function () {
-        bindTableRowClickEvent();
-    });
-
-    function changePageSize(pageSize) {
-        var url = '@Url.Action("All", "Flight")';
-        url = url + "?page=1&pageSize=" + pageSize; // Redirect to the first page
-        window.location.href = url;
-    }
-</script>
-
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // Upon clicking on a table row, redirect to the details page of the flight
+        function bindTableRowClickEvent() {
+            $('tr[id^="row-"]').click(function () {
+                var rowId = $(this).attr('id');
+                var flightId = rowId.replace('row-', '');
+
+                window.location.href = '/Flight/GetDetailsFlight?flightId=' + flightId;
+            });
+        }
+
+        // Rebind the click event after the table is reloaded
+        $(document).ready(function () {
+            bindTableRowClickEvent();
+        });
+
+        // Change the page size for the table/pagination
+        function changePageSize(pageSize) {
+            var url = '@Url.Action("All", "Flight")';
+            url = url + "?page=1&pageSize=" + pageSize; // Redirect to the first page
+            window.location.href = url;
+        }
+    </script>
 }

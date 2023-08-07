@@ -2,10 +2,16 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 using Services.Interfaces;
+
 using X.PagedList;
 
 using static Common.GeneralApplicationContants;
+
+/// <summary>
+/// Admin Panel Controller. Plays the role of Admin Home page
+/// </summary>
 
 [Area("Admin")]
 [Authorize(Roles = "Admin, Moderator")]

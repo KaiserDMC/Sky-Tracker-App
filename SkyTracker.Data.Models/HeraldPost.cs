@@ -7,6 +7,10 @@ using Newtonsoft.Json;
 
 using static SkyTracker.Common.DataModelsValidationConstants.HeraldPost;
 
+/// <summary>
+/// This class represents the HeraldPost entity. JSON properties used to map the data from the JSON file.
+/// </summary>
+
 public class HeraldPost
 {
     [Key]

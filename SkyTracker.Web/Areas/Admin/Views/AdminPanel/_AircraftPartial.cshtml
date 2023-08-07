@@ -37,6 +37,7 @@
     </tbody>
 </table>
 
+@*Pagination using X.PagedList*@
 <div id="paginationContainer" data-url="@Url.Action("AircraftPartial", "AdminPanel", new { area = "Admin" })">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -64,6 +65,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+    // Delete selected rows
     $(document).ready(function () {
         $('#deleteSelected').click(function () {
             var selectedRows = $('input[name="selectedRows"]:checked');
@@ -97,6 +99,7 @@
             }
         });
 
+        // Get totaled aircraft partial view
         $('#totaledAircraft').click(function () {
             $.ajax({
                 url: '@Url.Action("TotaledAircraft", "Aircraft", new {area = ""})',
@@ -110,6 +113,7 @@
             });
         });
 
+        // Get deleted history partial view
         $('#deletedHistory').click(function () {
             $.ajax({
                 url: '@Url.Action("DeletedHistoryAircraft", "Aircraft", new {area = ""})',

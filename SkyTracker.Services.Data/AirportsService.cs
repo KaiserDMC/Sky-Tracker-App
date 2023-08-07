@@ -1,13 +1,17 @@
-﻿using SkyTracker.Common;
-using SkyTracker.Data.Models;
+﻿namespace SkyTracker.Services.Data;
 
-namespace SkyTracker.Services.Data;
+using Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
-using Interfaces;
-using Web.ViewModels.Airports;
+using SkyTracker.Data.Models;
+
+using Web.ViewModels.Airport;
+
+/// <summary>
+/// Airports Service used for CRUD operations on the Airport entity.
+/// </summary>
 
 public class AirportsService : IAirportsService
 {
@@ -178,6 +182,7 @@ public class AirportsService : IAirportsService
             var currentRunway = await _dbContext.RunwaysAirports
                 .FirstOrDefaultAsync(ra => ra.AirportId == airportToUpdate.IATA);
 
+            // Fix the mapping table based on the new runway.
             airportToUpdate.RunwaysAirports.Remove(currentRunway);
 
             var airportRunway = new RunwayAirport()

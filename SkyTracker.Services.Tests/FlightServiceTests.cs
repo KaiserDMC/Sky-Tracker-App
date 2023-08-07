@@ -6,9 +6,14 @@ using Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
+
 using Web.ViewModels.Flight;
 
 using static TestDatabaseSeed;
+
+/// <summary>
+/// Flight Service Unit Tests using InMemoryDatabase
+/// </summary>
 
 public class FlightServiceTests
 {
@@ -120,11 +125,11 @@ public class FlightServiceTests
     [Test]
     public async Task GetAircraftsCollectionAsync_ShouldWork_ReturnAircraftCollectionViewModel()
     {
-       var result = await _flightService.GetAircraftsCollectionAsync();
+        var result = await _flightService.GetAircraftsCollectionAsync();
 
-       Assert.NotNull(result);
-       Assert.IsTrue(result.Any());
-       Assert.AreEqual(5, result.Count());
+        Assert.NotNull(result);
+        Assert.IsTrue(result.Any());
+        Assert.AreEqual(5, result.Count());
     }
 
     [Test]
@@ -141,7 +146,7 @@ public class FlightServiceTests
         await _flightService.AddFlightAsync(newFlightModel);
 
         var addedFlight = await _dbContext.Flights.FirstOrDefaultAsync(f => f.FlightId == newFlightModel.FlightId);
-        
+
         Assert.NotNull(addedFlight);
         Assert.AreEqual(newFlightModel.FlightId, addedFlight.FlightId);
         Assert.AreEqual(newFlightModel.Callsign, addedFlight.Callsign);
@@ -161,7 +166,7 @@ public class FlightServiceTests
             DepartureId = "ANC",
             Registration = "CGPEV"
         };
-        
+
         await _flightService.AddFlightAsync(modelWithExistingFlightId);
 
         Assert.AreEqual("Flight already exists.", modelWithExistingFlightId.Error);
@@ -175,7 +180,7 @@ public class FlightServiceTests
         var result = await _flightService.GetFlightbyIdAsync(testFlight.FlightId);
 
         Assert.NotNull(result);
-        
+
         Assert.AreEqual(testFlight.DepartureId, result.DepartureId);
         Assert.AreEqual(testFlight.Registration, result.Registration);
         Assert.AreEqual(testFlight.Callsign, result.Callsign);
@@ -196,7 +201,7 @@ public class FlightServiceTests
 
         var updatedFlight = await _dbContext.Flights.FirstOrDefaultAsync(f => f.FlightId == testFlight.FlightId);
 
-        Assert.NotNull(updatedFlight); 
+        Assert.NotNull(updatedFlight);
         Assert.AreEqual(testFlight.FlightId, updatedFlight.FlightId);
         Assert.AreEqual(updatedFlightModel.DepartureId, updatedFlight.DepartureId);
     }

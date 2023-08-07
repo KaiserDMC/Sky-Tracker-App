@@ -1,11 +1,16 @@
 ﻿namespace SkyTracker.Data;
 
+using Configuration;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using Models;
-using Configuration;
+
+/// <summary>
+/// The SkyTrackerDbContext class represents the database context of the application.
+/// </summary>
 
 public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
 {
@@ -72,6 +77,7 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
         SeedData(builder);
     }
 
+    // Seed admin and moderator users and their data for later usage in Development or Test environments
     private void SeedData(ModelBuilder builder)
     {
         var adminUser = new ApplicationUser()
@@ -85,10 +91,8 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
         var passwordHasher = new PasswordHasher<ApplicationUser>();
         adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, "admin");
-
         builder.Entity<ApplicationUser>().HasData(adminUser);
 
-        
         var moderatorUser = new ApplicationUser()
         {
             Id = Guid.NewGuid(),
@@ -101,7 +105,6 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
 
         var passwordHasherModerator = new PasswordHasher<ApplicationUser>();
         moderatorUser.PasswordHash = passwordHasherModerator.HashPassword(moderatorUser, "moderator");
-
         builder.Entity<ApplicationUser>().HasData(moderatorUser);
     }
 }

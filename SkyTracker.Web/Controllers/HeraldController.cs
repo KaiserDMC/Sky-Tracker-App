@@ -8,7 +8,13 @@ using SkyTracker.Services.Data.Interfaces;
 using ViewModels.Herald;
 
 using X.PagedList;
+
 using static Common.GeneralApplicationContants;
+using static Common.UserRoleNames;
+
+/// <summary>
+/// Herald Controller. Used for Herald related actions.
+/// </summary>
 
 [Authorize]
 public class HeraldController : Controller
@@ -119,7 +125,7 @@ public class HeraldController : Controller
             return View(model);
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpGet]
@@ -170,7 +176,7 @@ public class HeraldController : Controller
             return BadRequest();
         }
 
-        return RedirectToAction("Index", "AdminPanel", new {area = "Admin"});
+        return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
     [HttpPost]

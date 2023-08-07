@@ -1,7 +1,7 @@
 ﻿namespace SkyTracker.Web.Areas.Admin.Services.Interfaces;
 
 using ViewModels.Aircraft;
-using ViewModels.Airports;
+using ViewModels.Airport;
 using ViewModels.Flight;
 using ViewModels.Herald;
 

@@ -62,6 +62,7 @@ If you find any issues or have ideas for improvements, please feel free to [open
 - HTML, CSS, Bootstrap
 - JavaScript -> *Radar*, map functionality and more user-friendly interface
 - Font Awesome
+- X.PagedList -> 3rd party NuGet package for easier pagination
 - NUnit
 - Moq
 

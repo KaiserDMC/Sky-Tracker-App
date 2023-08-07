@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using static SkyTracker.Common.GeneralApplicationContants
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,7 +8,7 @@
     <title>@ViewData["Title"] - Sky Tracker</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> @*Added font awesome for icons*@
     <link rel="stylesheet" href="~/Sky_Tracker.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -51,6 +53,7 @@
                     </ul>
 
                 </div>
+                @*Show quick access button for Administrative Panel to Admin and Moderator*@
                 @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                 {
                     <a href="@Url.Action("Index", "AdminPanel", new {area = "Admin"})">
@@ -71,6 +74,7 @@
         </main>
     </div>
 
+    @*Off-canvas functionality*@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffCanvas" aria-labelledby="settingsOffCanvasLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="settingsOffCanvasLabel">Account Settings</h5>
@@ -88,7 +92,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - Sky Tracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @YearCreated - Sky Tracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -110,4 +114,3 @@
     </script>
 </body>
 </html>
-

@@ -1,8 +1,12 @@
 ﻿namespace SkyTracker.Data.Seeding;
 
+using DataGeneration;
+
 using Models;
 
-using SampleData;
+/// <summary>
+/// This class is used to seed the database with flights, i.e. Flights table.
+/// </summary>
 
 public class FlightSeeder
 {

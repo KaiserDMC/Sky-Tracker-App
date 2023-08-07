@@ -12,6 +12,10 @@ using ViewModels.User;
 
 using static Common.UserRoleNames;
 
+/// <summary>
+/// User Management Service used by the Admin Controller to vizuualize specific user data.
+/// </summary>
+
 public class UserManagementService : IUserManagementService
 {
     private readonly SkyTrackerDbContext _dbContext;

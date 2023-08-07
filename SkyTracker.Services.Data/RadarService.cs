@@ -8,6 +8,13 @@ using SkyTracker.Data;
 
 using Web.ViewModels.Radar;
 
+/// <summary>
+/// Radar Service used to get data for the radar page.
+/// Airport data is retrieved from the database.
+/// Flight data is retrieved from the locally stored json files. They hold the flight track data.
+/// This implementation can change in the future to retrieve the flight data from a certain API.
+/// </summary>
+
 public class RadarService : IRadarService
 {
     private readonly SkyTrackerDbContext _dbContext;

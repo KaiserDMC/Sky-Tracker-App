@@ -1,14 +1,20 @@
-﻿using Azure.Storage.Blobs;
-
-namespace SkyTracker.Web.Configuration;
+﻿namespace SkyTracker.Web.Configuration;
 
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
+using Azure.Storage.Blobs;
+
 using Microsoft.AspNetCore.Http;
 
 using static Common.GeneralApplicationContants;
+
+/// <summary>
+/// Image Helper class.
+/// Used to Upload pictures to Azure Storage, after the user adds them to a specific model.
+/// Synchronizes images. Deletes them from "temp" and uploads to Azure. Keeps copy in local file system for fast access.
+/// </summary>
 
 public static class ImageHelper
 {

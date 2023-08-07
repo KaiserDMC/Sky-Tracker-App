@@ -33,6 +33,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
+
+    // Upon clicking a row, redirect to the airport details page
     function bindTableRowClickEvent() {
         $('tr[id^="row-"]').click(function () {
             var rowId = $(this).attr('id');

@@ -11,7 +11,6 @@
     <button id="goToLockedOutList" class="btn btn-light">List of Locked Users</button>
 </p>
 
-
 <div id="userListContainer">
     <table class="table table-striped">
         <thead>
@@ -36,6 +35,7 @@
     </table>
 </div>
 
+@*Pagination with X.PagedList*@
 <div id="paginationContainer" data-url="@Url.Action("UsersPartial", "UserManagement", new {area = "Admin"})">
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -57,8 +57,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
 <script>
+    // Promote selected users to moderator
     $(document).ready(function () {
         $('#promoteSelected').click(function () {
             var selectedUsers = $('input[name="selectedUsers"]:checked');
@@ -92,10 +92,13 @@
             }
         });
 
+        // Load the normal "Users" partial view
         $('#goToModeratorList').click(function () {
+            // Load the normal "Users" partial view
             loadPartialViewOnClick('@Url.Action("ModeratorListPartial", "UserManagement", new {area = "Admin"})');
         });
 
+        // Lockout selected users = ban
         $('#lockOutSelected').click(function () {
             var selectedUsers = $('input[name="selectedUsers"]:checked');
             var selectedIds = [];
@@ -128,8 +131,9 @@
             }
         });
 
+        // Load the normal "Users" partial view
         $('#goToLockedOutList').click(function () {
-            // Load the normal "Admins" partial view
+            // Load the normal "Users" partial view
             loadPartialViewOnClick('@Url.Action("LockedUsersPartial", "UserManagement", new {area = "Admin"})');
         });
     });

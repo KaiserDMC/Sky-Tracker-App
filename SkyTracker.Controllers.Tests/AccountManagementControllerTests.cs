@@ -15,6 +15,10 @@ using SkyTracker.Web.Controllers;
 
 using Web.ViewModels.AccountManagement;
 
+/// <summary>
+/// Account Management Controller Unit Tests using Moq
+/// </summary>
+
 public class AccountManagementControllerTests
 {
     private AccountManagementController _accountManagementController;
@@ -428,7 +432,7 @@ public class AccountManagementControllerTests
         _mockUserManager.Setup(u => u.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync(user);
 
         var result = await _accountManagementController.DeletePersonalData(new DeletePersonalDataModel());
-        
+
         Assert.IsInstanceOf<ViewResult>(result);
         var viewResult = (ViewResult)result;
 

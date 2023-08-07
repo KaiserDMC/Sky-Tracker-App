@@ -2,6 +2,11 @@
 
 using Newtonsoft.Json;
 
+/// <summary>
+/// DTO for seeding Runways.
+/// JSON properties used for deserialization are the same as the ones in the JSON file.
+/// </summary>
+
 public class RunwaySeedDto
 {
     [JsonProperty("guid")]

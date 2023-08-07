@@ -1,4 +1,4 @@
-﻿namespace SkyTracker.Data.SampleData;
+﻿namespace SkyTracker.Data.DataGeneration;
 
 using System.Globalization;
 
@@ -8,6 +8,11 @@ using Models;
 
 using Seeding.DTOs;
 
+/// <summary>
+/// This seeder class is used to provide data for the basic entities of the database.
+/// Data is obtained from the "20210723_flights.csv" file to generate entries for Aircraft, Airport and Flight tables.
+/// Some of the data is filled in manually as it is not present in the latter mentioned csv.
+/// </summary>
 
 public class GenerateData
 {
@@ -22,6 +27,7 @@ public class GenerateData
 
     private void GenerateFlightAndAircraftData()
     {
+        // Obtain the correct full path of the file. The method works for any system and on any machine.
         string projectName = "_Sky-Tracker-info";
         string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         string projectPath = currentDirectory;
@@ -42,7 +48,7 @@ public class GenerateData
             var flights = csv.GetRecords<FlightSeedDto>().ToList();
             int minimumFlightsPerDay = 3;
 
-            // Filter flights that have the same aircraft_id and registration and flew at least twice
+            // Filter flights that have the same aircraft_id and registration and flew at least three times
             var filteredFlights = flights
                 .Where(f =>
                             f.Equipment != null
@@ -60,7 +66,6 @@ public class GenerateData
                 .Take(100)
                 .ToList();
 
-            // Save the filtered flights to the database
             var aircraftDto = filteredFlights
                 .Select(f => new AircraftSeedDto
                 {
@@ -108,6 +113,7 @@ public class GenerateData
 
             #endregion
 
+            // Manual data entries
             #region Seed Airport and Aircraft data and pictures
 
             airports[0].ICAO = "PANC";
@@ -216,6 +222,7 @@ public class GenerateData
 
             #endregion
 
+            // Save final data to the respective collection
             AircraftCollection = aircraft;
             AirportCollection = airports;
             FlightCollection = finalFlight;

@@ -7,9 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
-using Web.ViewModels.Airports;
+using Web.ViewModels.Airport;
 
 using static TestDatabaseSeed;
+
+/// <summary>
+/// Airports Service Unit Tests using InMemoryDatabase
+/// </summary>
 
 public class AirportsServiceTests
 {

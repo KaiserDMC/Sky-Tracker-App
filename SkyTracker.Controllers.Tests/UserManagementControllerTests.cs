@@ -8,8 +8,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 using Moq;
+
 using SkyTracker.Web.Areas.Admin.Controllers;
 using SkyTracker.Web.Areas.Admin.Services.Interfaces;
+
+/// <summary>
+/// User Management Controller Unit Tests using Moq
+/// </summary>
 
 public class UserManagementControllerTests
 {

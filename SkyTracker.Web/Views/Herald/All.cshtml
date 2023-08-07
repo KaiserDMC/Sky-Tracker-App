@@ -46,58 +46,59 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script>
-    var currentPageSize = @Model.PageSize; // Set the initial selected page size value
-
-    function bindTableRowClickEvent() {
-        $('tr[id^="row-"]').click(function () {
-            var rowId = $(this).attr('id');
-            var occurrenceId = rowId.replace('row-', '');
-
-            window.location.href = '/Herald/GetDetails?occurrenceId=' + occurrenceId;
-        });
-    }
-
-    function applyRowColoring() {
-        $('tr[id^="row-"]').each(function () {
-            var typeOccurrence = $(this).find('.type-occurrence').text();
-            var rowColor = getRowColourClass(typeOccurrence);
-            $(this).addClass(rowColor);
-        });
-    }
-
-    function getRowColourClass(typeOccurrence) {
-        // Add your logic here to determine the row color class based on the typeOccurrence
-        // Example logic:
-        switch (typeOccurrence) {
-            case "Crash":
-                return "table-danger";
-            case "Accident":
-                return "table-warning";
-            case "Report":
-                return "table-light";
-            case "News":
-                return "table-secondary";
-            default: //Incident
-                return "table-info";
-        }
-    }
-
-    $(document).ready(function () {
-        bindTableRowClickEvent();
-        applyRowColoring();
-    });
-
-    function changePageSize(pageSize) {
-        currentPageSize = pageSize; // Update the current page size variable
-        var url = '@Url.Action("All", "Herald")';
-        url += "?page=1&pageSize=" + pageSize; // Redirect to the first page
-        window.location.href = url;
-    }
-</script>
-
-
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        var currentPageSize = @Model.PageSize; // Set the initial selected page size value
+
+        // Upon clicking a table row, redirect to the details page
+        function bindTableRowClickEvent() {
+            $('tr[id^="row-"]').click(function () {
+                var rowId = $(this).attr('id');
+                var occurrenceId = rowId.replace('row-', '');
+
+                window.location.href = '/Herald/GetDetails?occurrenceId=' + occurrenceId;
+            });
+        }
+
+        // Apply row coloring based on the type of occurrence
+        function applyRowColoring() {
+            $('tr[id^="row-"]').each(function () {
+                var typeOccurrence = $(this).find('.type-occurrence').text();
+                var rowColor = getRowColourClass(typeOccurrence);
+                $(this).addClass(rowColor);
+            });
+        }
+
+        function getRowColourClass(typeOccurrence) {
+            // Row colouring based on the type of occurrence
+            switch (typeOccurrence) {
+                case "Crash":
+                    return "table-danger";
+                case "Accident":
+                    return "table-warning";
+                case "Report":
+                    return "table-light";
+                case "News":
+                    return "table-secondary";
+                default: //Incident
+                    return "table-info";
+            }
+        }
+
+        // Rebild the table rows after the AJAX call
+        $(document).ready(function () {
+            bindTableRowClickEvent();
+            applyRowColoring();
+        });
+
+        // Change the page size and redirect to the first page
+        function changePageSize(pageSize) {
+            currentPageSize = pageSize; // Update the current page size variable
+            var url = '@Url.Action("All", "Herald")';
+            url += "?page=1&pageSize=" + pageSize; // Redirect to the first page
+            window.location.href = url;
+        }
+    </script>
 }

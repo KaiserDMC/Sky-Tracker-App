@@ -1,11 +1,18 @@
-﻿using System.Globalization;
-using Microsoft.EntityFrameworkCore;
+﻿namespace SkyTracker.Services.Data;
 
-namespace SkyTracker.Services.Data;
+using System.Globalization;
 
 using Interfaces;
+
+using Microsoft.EntityFrameworkCore;
+
 using SkyTracker.Data;
+
 using Web.ViewModels.Home;
+
+/// <summary>
+/// Home Service used to provide the Home -> Index view with the latest Herald News.
+/// </summary>
 
 public class HomeService : IHomeService
 {

@@ -8,7 +8,13 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using SkyTracker.Services.Data.Interfaces;
 
 using ViewModels.Home;
+
 using static Common.UserRoleNames;
+
+/// <summary>
+/// Home Controller. Provides the main landing page for the application.
+/// Plus Privacy and Error pages.
+/// </summary>
 
 public class HomeController : Controller
 {

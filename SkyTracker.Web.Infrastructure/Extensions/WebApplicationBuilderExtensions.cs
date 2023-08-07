@@ -2,15 +2,21 @@
 
 using System.Reflection;
 
+using Data.Models;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-using Data.Models;
 using static Common.UserRoleNames;
+
+/// <summary>
+/// Application extensions: Adding Services and Seeder for Admin and Moderator roles
+/// </summary>
 
 public static class WebApplicationBuilderExtensions
 {
+    // Gets all IService from the assembly and adds them (AddScoped)
     public static void AddApplicationServices(this IServiceCollection services, Type serviceType)
     {
         Assembly? serviceAssembly = Assembly.GetAssembly(serviceType);
@@ -38,6 +44,7 @@ public static class WebApplicationBuilderExtensions
         }
     }
 
+    // Seeds the Admin role to the created Admin user in the DbContext
     public static IApplicationBuilder SeedAdministrator(this IApplicationBuilder app, string email)
     {
         using IServiceScope scopedServices = app.ApplicationServices.CreateScope();
@@ -74,6 +81,7 @@ public static class WebApplicationBuilderExtensions
         return app;
     }
 
+    // Seeds the Moderator role to the created Moderator user in the DbContext
     public static IApplicationBuilder SeedModerator(this IApplicationBuilder app, string email)
     {
         using IServiceScope scopedServices = app.ApplicationServices.CreateScope();

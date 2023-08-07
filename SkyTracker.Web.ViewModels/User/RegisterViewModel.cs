@@ -1,8 +1,9 @@
 ﻿namespace SkyTracker.Web.ViewModels.User;
 
 using System.ComponentModel.DataAnnotations;
-using static Common.DataModelsValidationConstants.UserCheck;
+
 using static Common.DataModelsValidationConstants.Password;
+using static Common.DataModelsValidationConstants.UserCheck;
 using static Common.ErrorMessageStrings.UserCheck;
 
 public class RegisterViewModel

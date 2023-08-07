@@ -3,12 +3,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+using Interfaces;
+
 using Microsoft.EntityFrameworkCore;
 
-using Interfaces;
 using SkyTracker.Data;
 using SkyTracker.Data.Models;
+
 using Web.ViewModels.Flight;
+
+/// <summary>
+/// Flight Service used for CRUD operations on the Flight entity.
+/// </summary>
 
 public class FlightService : IFlightService
 {
@@ -171,7 +177,7 @@ public class FlightService : IFlightService
 
     public async Task AddFlightAsync(FlightFormModel model)
     {
-        if (_dbContext.Flights.Where(f => f.FlightId == model.FlightId).Any())
+        if (_dbContext.Flights.Any(f => f.FlightId == model.FlightId))
         {
             model.Error = "Flight already exists.";
             return;
@@ -190,6 +196,7 @@ public class FlightService : IFlightService
             Reserved = model.Reserved
         };
 
+        // Mapping table 
         var flightAircraft = new FlightAircraft()
         {
             FlightId = flight.FlightId,
@@ -237,6 +244,7 @@ public class FlightService : IFlightService
             .Where(f => f.Flight == flightToUpdate)
             .FirstOrDefaultAsync();
 
+        // Update mapping table after Edit
         _dbContext.FlightsAircraft.Remove(currentAircraftFlight);
 
         var newAircraftFlight = new FlightAircraft()
