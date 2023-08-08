@@ -74,6 +74,15 @@ public class HomeControllerTests
     }
 
     [Test]
+    public void Privacy_ShouldWork_ReturnAboutUsViewResult()
+    {
+        var result = this._homeController.AboutUs();
+
+        Assert.IsInstanceOf<ViewResult>(result);
+        Assert.IsNotNull(result);
+    }
+
+    [Test]
     public async Task Error_ShouldWork_ReturnErrorViewResult()
     {
         var result = await this._homeController.Error(404);

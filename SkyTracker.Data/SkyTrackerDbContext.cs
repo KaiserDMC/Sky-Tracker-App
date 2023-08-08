@@ -52,29 +52,32 @@ public class SkyTrackerDbContext : IdentityDbContext<ApplicationUser, IdentityRo
             .HasKey(fa => new { fa.FlightId, fa.AircraftId });
         });
 
-        //var collectionEntityConfiguration = new CollectionEntityConfiguration();
+        // Comment out lines 58 to 76 before Publish to Azure, also comment out the SeedData method
+        // For local development, reverse the comments
 
-        //builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
-        //builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
-        //builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
+        var collectionEntityConfiguration = new CollectionEntityConfiguration();
 
-        //builder.Entity<Aircraft>()
-        //    .HasIndex(a => a.Registration)
-        //    .IsUnique();
+        builder.ApplyConfiguration<Flight>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Airport>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<Aircraft>(collectionEntityConfiguration);
 
-        //builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
-        //builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
+        builder.Entity<Aircraft>()
+            .HasIndex(a => a.Registration)
+            .IsUnique();
 
-        //var mappingEntityConfiguration = new MappingEntityConfiguration();
+        builder.ApplyConfiguration<Runway>(collectionEntityConfiguration);
+        builder.ApplyConfiguration<HeraldPost>(collectionEntityConfiguration);
 
-        //builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
-        //builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
+        var mappingEntityConfiguration = new MappingEntityConfiguration();
+
+        builder.ApplyConfiguration<FlightAircraft>(mappingEntityConfiguration);
+        builder.ApplyConfiguration<RunwayAirport>(mappingEntityConfiguration);
 
         builder.ApplyConfiguration(new ApplicationUserConfiguration());
 
         base.OnModelCreating(builder);
 
-        //SeedData(builder);
+        SeedData(builder);
     }
 
     // Seed admin and moderator users and their data for later usage in Development or Test environments

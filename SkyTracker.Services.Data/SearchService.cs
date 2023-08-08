@@ -27,31 +27,26 @@ public class SearchService : ISearchService
 
     public async Task<IEnumerable<AircraftAllViewModel>> SearchAircraftAsync(string query, string[] properties)
     {
-        IQueryable<Aircraft> queryable = _dbContext.Aircraft.AsQueryable();
-
-        foreach (string property in properties)
-        {
-            switch (property)
-            {
-                case "aircraftId":
-                    queryable.Where(a => a.Id == property);
-                    break;
-                case "aircraftRegistration":
-                    queryable.Where(a => a.Registration == property);
-                    break;
-                case "aircraftEquipment":
-                    queryable.Where(a => a.Equipment == property);
-                    break;
-            }
-        }
-
-        if (!string.IsNullOrEmpty(query))
-        {
-            queryable = queryable.Where(a => a.Registration.Contains(query) || a.Equipment.Contains(query) || a.Id.Contains(query));
-        }
-        else
+        if (string.IsNullOrEmpty(query) || properties == null || properties.Length == 0)
         {
             return null;
+        }
+
+        IQueryable<Aircraft> queryable = _dbContext.Aircraft.AsQueryable();
+
+        string property = properties.First();
+
+        switch (property)
+        {
+            case "aircraftId":
+                queryable = queryable.Where(a => a.Id == query || a.Id.Contains(query));
+                break;
+            case "aircraftRegistration":
+                queryable = queryable.Where(a => a.Registration == query || a.Registration.Contains(query));
+                break;
+            case "aircraftEquipment":
+                queryable = queryable.Where(a => a.Equipment == query || a.Equipment.Contains(query));
+                break;
         }
 
         return await queryable.Select(a => new AircraftAllViewModel
@@ -64,37 +59,32 @@ public class SearchService : ISearchService
 
     public async Task<IEnumerable<AirportsAllViewModel>> SearchAirportsAsync(string query, string[] properties)
     {
-        IQueryable<Airport> queryable = _dbContext.Airports.AsQueryable();
-
-        foreach (string property in properties)
-        {
-            switch (property)
-            {
-                case "airportIata":
-                    queryable.Where(a => a.IATA == property);
-                    break;
-                case "airportIcao":
-                    queryable.Where(a => a.ICAO == property);
-                    break;
-                case "airportName":
-                    queryable.Where(a => a.CommonName == property);
-                    break;
-                case "airportCity":
-                    queryable.Where(a => a.LocationCity == property);
-                    break;
-                case "airportCountry":
-                    queryable.Where(a => a.LocationCountry == property);
-                    break;
-            }
-        }
-
-        if (!string.IsNullOrEmpty(query))
-        {
-            queryable = queryable.Where(a => a.IATA.Contains(query) || a.ICAO.Contains(query) || a.CommonName.Contains(query) || a.LocationCity.Contains(query) || a.LocationCountry.Contains(query));
-        }
-        else
+        if (string.IsNullOrEmpty(query) || properties == null || properties.Length == 0)
         {
             return null;
+        }
+
+        IQueryable<Airport> queryable = _dbContext.Airports.AsQueryable();
+
+        string property = properties.First();
+
+        switch (property)
+        {
+            case "airportIata":
+                queryable = queryable.Where(a => a.IATA == query || a.IATA.Contains(query));
+                break;
+            case "airportIcao":
+                queryable = queryable.Where(a => a.ICAO == query || a.ICAO.Contains(query));
+                break;
+            case "airportName":
+                queryable = queryable.Where(a => a.CommonName == query || a.CommonName.Contains(query));
+                break;
+            case "airportCity":
+                queryable = queryable.Where(a => a.LocationCity == query || a.LocationCity.Contains(query));
+                break;
+            case "airportCountry":
+                queryable = queryable.Where(a => a.LocationCountry == query || a.LocationCountry.Contains(query));
+                break;
         }
 
         return await queryable.Select(a => new AirportsAllViewModel
@@ -112,14 +102,14 @@ public class SearchService : ISearchService
 
     public async Task<IEnumerable<FlightAllViewModel>> SearchFlightsAsync(string query, string[] properties)
     {
-        IQueryable<Flight> queryable = _dbContext.Flights.AsQueryable();
-
-        var separatedQuery = query.Split(' ');
-
-        if (string.IsNullOrEmpty(query) || properties.Length == 0)
+        if (string.IsNullOrEmpty(query)|| properties == null || properties.Length == 0)
         {
             return null;
         }
+
+        IQueryable<Flight> queryable = _dbContext.Flights.AsQueryable();
+
+        var separatedQuery = query.Split(' ');
 
         foreach (string queryPart in separatedQuery)
         {

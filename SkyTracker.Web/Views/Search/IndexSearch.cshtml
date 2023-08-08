@@ -142,7 +142,7 @@ else
             var selectedProperties = getSelectedProperties();
 
             // Only submit the form if a modelType and at least one property is selected
-            if (modelType && selectedProperties.length > 0) {
+            if (modelType && selectedProperties.length > 0 && searchValue.trim() !== "") {
                 var form = document.getElementById("searchForm");
                 form.action = "/Search/IndexSearch";
                 form.method = "GET";
@@ -160,7 +160,7 @@ else
                 form.submit(); // Submit the form
             } else {
                 // Display an alert to the user
-                alert("Please select at least one property to search.");
+                alert("Please enter a search value and select at least one property to search.");
             }
         }
 

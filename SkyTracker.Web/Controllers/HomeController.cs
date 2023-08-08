@@ -61,6 +61,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult AboutUs()
+    {
+        return View();
+    }
+
     private async Task<IEnumerable<HeraldNewsModel>> GetLatestHeraldNewsAsync()
     {
         var heraldNews = await _homeService.GetLatestHeraldNewsAsync();
@@ -77,7 +82,7 @@ public class HomeController : Controller
             401 => View("Error401"),
             404 => View("Error404"),
             500 => View("Error500"),
-            _ => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier })
+            _ => View("Error")
         };
     }
 }

@@ -10,6 +10,8 @@ public static class GeneralApplicationContants
 {
     public const string YearCreated = "2023";
 
+    public const int PasswordMinLength = 6;
+
     public const int DefaultStartPagePagination = 1;
     
     public const int DefaultListEntitiesPerPage = 10;
