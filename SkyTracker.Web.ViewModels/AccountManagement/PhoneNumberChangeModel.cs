@@ -7,8 +7,8 @@ public class PhoneNumberChangeModel
 {
     public string? CurrentPhoneNumber { get; set; }
 
+    [Phone]
     [Required(ErrorMessage = PhoneErrorMessage)]
-    [DataType(DataType.PhoneNumber)]
     [Display(Name = "New Phone Number")]
     public string NewPhoneNumber { get; set; } = null!;
 }

@@ -231,12 +231,13 @@ public class AccountManagementController : Controller
             return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
         }
 
+        var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+
         if (!ModelState.IsValid)
         {
+            model.CurrentPhoneNumber = phoneNumber;
             return View(model);
         }
-
-        var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
         if (!string.IsNullOrWhiteSpace(model.NewPhoneNumber))
         {

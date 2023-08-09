@@ -32,13 +32,17 @@ public class HomeController : Controller
             return this.RedirectToAction("Index", "AdminPanel", new { Area = AdminRole });
         }
 
-        var tempData = ControllerContext.HttpContext.Items["__ControllerTempData"] as TempDataDictionary;
-        var statusMessage = String.Empty;
+        var statusMessage = TempData["StatusMessage"] as string;
+
+        // This is only for Unit Testing
+
+        //var tempData = ControllerContext.HttpContext.Items["__ControllerTempData"] as TempDataDictionary;
+        //var statusMessage = String.Empty;
         
-        if (tempData != null)
-        {
-            statusMessage = tempData["StatusMessage"] as string;
-        }
+        //if (tempData != null)
+        //{
+        //    statusMessage = tempData["StatusMessage"] as string;
+        //}
 
         if (!string.IsNullOrEmpty(statusMessage))
         {
