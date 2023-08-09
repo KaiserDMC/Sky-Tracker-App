@@ -305,11 +305,18 @@ public class HeraldServiceTests
             var deletedHerald = await _dbContext.HeraldPosts.FirstOrDefaultAsync(h => h.Id == herald.Id);
             Assert.NotNull(deletedHerald);
             Assert.IsTrue(deletedHerald.IsDeleted);
+
+            if (herald.TypeOccurence == HeraldType.Crash.ToString())
+            {
+                var aircraftCrashed = await _dbContext.Aircraft.FirstOrDefaultAsync(a => a.Id == herald.AircraftId);
+                Assert.NotNull(aircraftCrashed);
+                Assert.AreEqual(false, aircraftCrashed.IsTotaled);
+            }
         }
     }
 
     [Test]
-    public async Task DeleteFlightAsync_ShouldThrow_NonExistingHeraldNotDeleted()
+    public async Task DeleteHeraldAsync_ShouldThrow_NonExistingHeraldNotDeleted()
     {
         var heraldIdsToDelete = new string[] { "11111111", "22222222" };
 

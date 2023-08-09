@@ -235,6 +235,18 @@ public class HeraldService : IHeraldService
         foreach (var herald in await heraldsToDelete)
         {
             herald.IsDeleted = true;
+
+            if (herald.AircraftId != null && herald.TypeOccurence == "Crash")
+            {
+                var aircraft = await _dbContext.Aircraft
+                    .Where(x => x.Id == herald.AircraftId)
+                    .FirstOrDefaultAsync();
+
+                if (aircraft != null)
+                {
+                    aircraft.IsTotaled = false;
+                }
+            }
         }
 
         await _dbContext.SaveChangesAsync();

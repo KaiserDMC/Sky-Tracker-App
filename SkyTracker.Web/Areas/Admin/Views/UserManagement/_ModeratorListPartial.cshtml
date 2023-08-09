@@ -2,6 +2,8 @@
 @using X.PagedList.Web.Common;
 @model X.PagedList.IPagedList<UserViewModel>
 
+@Html.AntiForgeryToken()
+
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
@@ -87,7 +89,9 @@
                 $.ajax({
                     url: '@Url.Action("Demote", "UserManagement", new {area = "Admin"})',
                     type: 'POST',
-                    data: { userIds: selectedIds },
+                    data: { userIds: selectedIds,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
                     success: function (result) {
                         if (result.success) {
                             selectedUsers.closest('tr').remove();

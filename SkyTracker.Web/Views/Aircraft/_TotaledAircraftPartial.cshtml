@@ -9,6 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th></th>
             <th>Aircraft Id</th>
             <th>A/C Registration</th>
             <th>A/C Type</th>
@@ -19,6 +20,7 @@
         {
             <tr id="row-@item.Id">
                 <td><input type="checkbox" name="selectedAircraft" value="@item.Id" /></td>
+                <td>@item.Id</td>
                 <td>@item.Registration</td>
                 <td>@item.Equipment</td>
             </tr>

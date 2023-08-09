@@ -37,7 +37,7 @@
             </div>
             <div class="mb-3">
                 <label asp-for="@Model.Equipment" class="form-label-add-edit">A/C Type</label>
-                <select asp-for="@Model.Equipment" class="form-control" aria-required="false" id="equipmentDropdown" disabled>
+                <select asp-for="@Model.Equipment" class="form-control" aria-required="true" id="equipmentDropdown" disabled>
                     <option value="@Model.Equipment">@Model.Equipment</option>
                     @foreach (var aircraft in Model.AircraftList)
                     {
@@ -121,6 +121,11 @@
                 var selectedEquipment = $(this).find("option:selected").data("equipment");
 
                 $("#equipmentDropdown").val(selectedEquipment);
+            });
+
+            // Remove 'disabled' attribute from the equipment dropdown before form submission
+            $("form").submit(function () {
+                $("#equipmentDropdown").removeAttr("disabled");
             });
         });
     </script>

@@ -109,6 +109,11 @@
 
                 $("#equipmentDropdown").val(selectedEquipment);
             });
+
+            // Remove 'disabled' attribute from the equipment dropdown before form submission
+            $("form").submit(function () {
+                $("#equipmentDropdown").removeAttr("disabled");
+            });
         });
     </script>
 }

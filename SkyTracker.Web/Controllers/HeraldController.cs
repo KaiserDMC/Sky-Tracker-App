@@ -86,6 +86,7 @@ public class HeraldController : Controller
 
         HeraldFormModel model = new HeraldFormModel
         {
+            Occurrence = DateTime.UtcNow,
             HeraldTypes = types,
             AircraftHeralds = aircraftCollection
         };
@@ -140,6 +141,7 @@ public class HeraldController : Controller
 
         herald.HeraldTypes = heraldTypes;
         herald.AircraftHeralds = aircraftCollection;
+        herald.Occurrence = herald.Occurrence;
 
         return View(herald);
     }
