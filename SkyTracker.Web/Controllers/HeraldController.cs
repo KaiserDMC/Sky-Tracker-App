@@ -141,7 +141,6 @@ public class HeraldController : Controller
 
         herald.HeraldTypes = heraldTypes;
         herald.AircraftHeralds = aircraftCollection;
-        herald.Occurrence = herald.Occurrence;
 
         return View(herald);
     }

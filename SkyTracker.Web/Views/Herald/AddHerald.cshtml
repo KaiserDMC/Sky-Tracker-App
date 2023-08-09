@@ -21,7 +21,7 @@
         <form asp-action="AddHerald" method="post">
             <div class="mb-3">
                 <label asp-for="@Model.Occurrence" class="form-label-add-edit">Occurrence</label>
-                <input asp-for="@Model.Occurrence" value="@Model.Occurrence" class="form-control" aria-required="true" />
+                <input asp-for="@Model.Occurrence" value="@Model.Occurrence.ToString("yyyy-MM-dd HH:mm")" class="form-control" aria-required="true" />
                 <span asp-validation-for="@Model.Occurrence" class="text-danger"></span>
             </div>
             <div class="mb-3">
