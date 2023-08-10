@@ -90,7 +90,7 @@ Sky Tracker App uses total of 3 environments:
 The Production version is also *Published* using once again *Microsoft Azure* and can be accessed via:
 
 <p align="center">
-  <a href="https://sky-tracker.info" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 4px;">
+  <a href="https://www.sky-tracker.info" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; display: inline-block; border-radius: 4px;">
     Sky Tracker Website
   </a>
 </p>
