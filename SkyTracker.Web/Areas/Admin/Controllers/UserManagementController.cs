@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 using Services.Interfaces;
 
+using SkyTracker.Data.Migrations;
+
 using X.PagedList;
 
 using static Common.GeneralApplicationContants;
@@ -55,57 +57,77 @@ public class UserManagementController : Controller
         int pageNumber = page ?? 1;
 
         var pagedData = users.ToPagedList(pageNumber, pageSize);
-
         return PartialView("_ModeratorListPartial", pagedData);
     }
 
     [HttpPost]
     public async Task<IActionResult> Promote(string[] userIds)
     {
-        foreach (var userId in userIds)
+        try
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user != null)
+            foreach (var userId in userIds)
             {
-                await _userManager.AddToRoleAsync(user, ModeratorRole);
-            }
-        }
+                var user = await _userManager.FindByIdAsync(userId);
 
-        return Json(new { success = true });
+                if (user != null)
+                {
+                    await _userManager.AddToRoleAsync(user, ModeratorRole);
+                }
+            }
+
+            return Json(new { success = true, message = "Selected users were promoted to Moderators successfully!" });
+        }
+        catch
+        {
+           return Json(new { success = false, message = "Error: Something went wrong and users were not promoted to Moderators!" });
+        }
     }
 
     [HttpPost]
     public async Task<IActionResult> Demote(string[] userIds)
     {
-        foreach (var userId in userIds)
+        try
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user != null)
+            foreach (var userId in userIds)
             {
-                await _userManager.RemoveFromRoleAsync(user, ModeratorRole);
-            }
-        }
+                var user = await _userManager.FindByIdAsync(userId);
 
-        return Json(new { success = true });
+                if (user != null)
+                {
+                    await _userManager.RemoveFromRoleAsync(user, ModeratorRole);
+                }
+            }
+
+            return Json(new { success = true, message = "Selected users were demoted to Regular users successfully!" });
+        }
+        catch
+        {
+            return Json(new { success = false, message = "Error: Something went wrong and users were not demoted to Regular users!" });
+        }
     }
 
     [HttpPost]
     public async Task<IActionResult> Lockout(string[] userIds)
     {
-        foreach (var userId in userIds)
+        try
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user != null)
+            foreach (var userId in userIds)
             {
-                user.LockoutEnabled = true;
-                await _userManager.SetLockoutEndDateAsync(user, DateTime.UtcNow.AddYears(100));
-            }
-        }
+                var user = await _userManager.FindByIdAsync(userId);
 
-        return Json(new { success = true });
+                if (user != null)
+                {
+                    user.LockoutEnabled = true;
+                    await _userManager.SetLockoutEndDateAsync(user, DateTime.UtcNow.AddYears(100));
+                }
+            }
+
+            return Json(new { success = true, message =  "Selected users were banned successfully!"});
+        }
+        catch
+        {
+            return Json(new { success = false, message = "Error: Something went wrong and users were not banned!" });
+        }
     }
 
     [HttpGet]
@@ -125,16 +147,23 @@ public class UserManagementController : Controller
     [HttpPost]
     public async Task<IActionResult> Unlock(string[] userIds)
     {
-        foreach (var userId in userIds)
+        try
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user != null)
+            foreach (var userId in userIds)
             {
-                await _userManager.SetLockoutEndDateAsync(user, null);
-            }
-        }
+                var user = await _userManager.FindByIdAsync(userId);
 
-        return Json(new { success = true });
+                if (user != null)
+                {
+                    await _userManager.SetLockoutEndDateAsync(user, null);
+                }
+            }
+
+            return Json(new { success = true, message = "Selected users were released from jail successfully!" });
+        }
+        catch
+        {
+            return Json(new { success = false, message = "Error: Something went wrong and users were not released from jail!" });
+        }
     }
 }

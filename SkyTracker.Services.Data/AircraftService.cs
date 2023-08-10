@@ -70,7 +70,7 @@ public class AircraftService : IAircraftService
     {
         if (_dbContext.Aircraft.Any(a => a.Id == model.Id))
         {
-            model.Error = "Flight already exists.";
+            model.Error = "Aircraft already exists.";
             return;
         }
 

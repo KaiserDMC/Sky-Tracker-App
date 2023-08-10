@@ -2,6 +2,8 @@
 @using X.PagedList.Web.Common;
 @model X.PagedList.IPagedList<AircraftAllViewModel>
 
+<div id="statusMessageContainer"></div>
+
 <h2 class="text-center">@ViewBag.Title</h2>
 
 <p>
@@ -90,6 +92,29 @@
                             selectedRows.closest('tr').remove();
                         } else {
                             alert('An error occurred while deleting the rows. Please try again.');
+                        }
+
+                        if (result.message) {
+                            var alertDiv = $('<div>');
+                            alertDiv.text(result.message);
+
+                            if (result.message.includes("Error:")) {
+                                alertDiv.addClass('alert alert-danger');
+                            } else {
+                                alertDiv.addClass('alert alert-success');
+                            }
+
+                            $('#statusMessageContainer').empty().append(alertDiv);
+
+                            // Hide the status message after a certain time interval (in milliseconds)
+                            var statusMessageTimeout = 5000; // 5 seconds
+                            var statusMessageElement = $("#statusMessageContainer");
+
+                            setTimeout(function () {
+                                statusMessageElement.fadeOut("slow", function () {
+                                    $(this).empty(); // Clear the container content
+                                });
+                            }, statusMessageTimeout);
                         }
                     },
                     error: function () {

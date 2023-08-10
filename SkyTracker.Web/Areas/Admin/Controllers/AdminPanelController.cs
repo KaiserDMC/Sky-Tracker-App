@@ -26,6 +26,13 @@ public class AdminPanelController : Controller
 
     public async Task<IActionResult> Index()
     {
+        var statusMessage = TempData["StatusMessage"] as string;
+
+        if (!string.IsNullOrEmpty(statusMessage))
+        {
+            ViewBag.StatusMessage = statusMessage;    
+        }
+
         return View();
     }
 

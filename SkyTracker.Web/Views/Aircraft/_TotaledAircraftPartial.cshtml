@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<AircraftAllViewModel>
 
+<div id="statusMessageContainer"></div>
+
 <button id="goBackToAircraft" class="btn btn-secondary">Go Back to Aircraft</button>
 <button id="repairSelected" class="btn btn-danger">Repair Selected</button>
 
@@ -62,6 +64,29 @@
                             selectedUsers.closest('tr').remove();
                         } else {
                             alert('An error occurred while repairing the aircraft. Please try again.');
+                        }
+
+                        if (result.message) {
+                            var alertDiv = $('<div>');
+                            alertDiv.text(result.message);
+
+                            if (result.message.includes("Error:")) {
+                                alertDiv.addClass('alert alert-danger');
+                            } else {
+                                alertDiv.addClass('alert alert-success');
+                            }
+
+                            $('#statusMessageContainer').empty().append(alertDiv);
+
+                            // Hide the status message after a certain time interval (in milliseconds)
+                            var statusMessageTimeout = 5000; // 5 seconds
+                            var statusMessageElement = $("#statusMessageContainer");
+
+                            setTimeout(function () {
+                                statusMessageElement.fadeOut("slow", function () {
+                                    $(this).empty(); // Clear the container content
+                                });
+                            }, statusMessageTimeout);
                         }
                     },
                     error: function () {

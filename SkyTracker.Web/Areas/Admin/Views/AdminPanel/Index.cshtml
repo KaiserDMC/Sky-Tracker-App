@@ -2,6 +2,13 @@
     ViewBag.Title = "Administrative Panel";
 }
 
+@if (ViewBag.StatusMessage != null)
+{
+    <div id="statusMessage" class="alert alert-success">
+        @ViewBag.StatusMessage
+    </div>
+}
+
 <h3 class="text-center">@ViewBag.Title</h3>
 <hr />
 
@@ -80,5 +87,11 @@
         $('#btnUserManagement').click(function () {
             loadPartialViewOnClick('@Url.Action("UsersPartial", "UserManagement", new {area = "Admin"})');
         });
+
+        setTimeout(function () {
+            $('#statusMessage').fadeOut(1000, function () {
+                $(this).remove();
+            });
+        }, 6000); // 6000 milliseconds = 6 seconds
     });
 </script>

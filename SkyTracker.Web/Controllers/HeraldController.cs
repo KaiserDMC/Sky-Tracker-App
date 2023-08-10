@@ -26,6 +26,9 @@ public class HeraldController : Controller
         _heraldService = heraldService;
     }
 
+    [TempData]
+    public string StatusMessage { get; set; }
+
     [HttpGet]
     public async Task<IActionResult> All(string sortType, int? page, int? pageSize)
     {
@@ -126,6 +129,7 @@ public class HeraldController : Controller
             return View(model);
         }
 
+        StatusMessage = "Herald added successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -177,6 +181,7 @@ public class HeraldController : Controller
             return BadRequest();
         }
 
+        StatusMessage = "Herald edited successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -187,11 +192,11 @@ public class HeraldController : Controller
         try
         {
             await _heraldService.DeleteHeraldAsync(heraldIds);
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Selected heralds were deleted successfully!" });
         }
         catch
         {
-            return Json(new { success = false });
+            return Json(new { success = false, message = "Error: Something went wrong and the selected heralds were not deleted!" });
         }
     }
 

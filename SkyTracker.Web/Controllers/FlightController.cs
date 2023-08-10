@@ -33,6 +33,10 @@ public class FlightController : Controller
         _hostingEnvironment = hostingEnvironment;
     }
 
+    [TempData]
+    public string StatusMessage { get; set; }
+
+    [HttpGet]
     public async Task<IActionResult> All(string sortType, int? page, int? pageSize)
     {
         IEnumerable<FlightAllViewModel> flights;
@@ -74,7 +78,7 @@ public class FlightController : Controller
         return View(updatedPagedListWithPageNumber);
     }
 
-
+    [HttpGet]
     public async Task<IActionResult> GetDetailsFlight(string flightId)
     {
         var flight = await _flightService.GetFlightDetailsByIdAsync(flightId);
@@ -144,9 +148,16 @@ public class FlightController : Controller
 
         if (!string.IsNullOrEmpty(model.Error))
         {
+            model.AircraftList = await _flightService.GetAircraftsCollectionAsync();
+            model.AirportListDeparture = await _flightService.GetAirportsCollectionAsync();
+            model.AirportListArrival = await _flightService.GetAirportsCollectionAsync();
+            model.AirportListActual = await _flightService.GetAirportsCollectionAsync();
+            model.AirporListReserved = await _flightService.GetAirportsCollectionAsync();
+
             return View(model);
         }
 
+        StatusMessage = "Flight added successfully!";
         return RedirectToAction("Index", "AdminPanel", new {area = AdminRole});
     }
 
@@ -211,6 +222,7 @@ public class FlightController : Controller
             return BadRequest();
         }
 
+        StatusMessage = "Flight edited successfully!";
         return RedirectToAction("Index", "AdminPanel", new {area = AdminRole});
     }
 
@@ -221,11 +233,11 @@ public class FlightController : Controller
         try
         {
             await _flightService.DeleteFlightAsync(flightIds);
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Selected flights were deleted successfully!" });
         }
         catch
         {
-            return Json(new { success = false });
+            return Json(new { success = false, message = "Error: Something went wrong and the selected flights were not deleted" });
         }
     }
 

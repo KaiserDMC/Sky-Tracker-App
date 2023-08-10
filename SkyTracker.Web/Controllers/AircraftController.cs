@@ -32,6 +32,10 @@ public class AircraftController : Controller
         _hostingEnvironment = hostingEnvironment;
     }
 
+    [TempData]
+    public string StatusMessage { get; set; }
+
+    [HttpGet]
     public async Task<IActionResult> All()
     {
         var aircraft = await _aircraftService.GetAllAircraftAsync();
@@ -39,6 +43,7 @@ public class AircraftController : Controller
         return View(aircraft);
     }
 
+    [HttpGet]
     public async Task<IActionResult> GetDetailsAircraft(string aircraftId)
     {
         var aircraft = await _aircraftService.GetAircraftDetailsByIdAsync(aircraftId);
@@ -111,6 +116,7 @@ public class AircraftController : Controller
             return View(model);
         }
 
+        StatusMessage = "Aircraft added successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -164,6 +170,7 @@ public class AircraftController : Controller
             return BadRequest();
         }
 
+        StatusMessage = "Aircraft edited successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -179,11 +186,11 @@ public class AircraftController : Controller
 
             await ImageHelper.DeleteAircraftImages(_hostingEnvironment.WebRootPath, picturesToDelete.ToArray());
 
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Selected aircraft were deleted successfully!" });
         }
         catch
         {
-            return Json(new { success = false });
+            return Json(new { success = false, message = "Error: Something went wrong and the selected aircraft were not deleted!" });
         }
     }
 
@@ -213,11 +220,11 @@ public class AircraftController : Controller
         {
             await _aircraftService.RepairAircraftAsync(aircraftIds);
 
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Selected aircraft repaired successfully!" });
         }
         catch
         {
-            return Json(new { success = false });
+            return Json(new { success = false, message = "Error: Something went wrong and the selected aircraft were not repaired!" });
         }
     }
 

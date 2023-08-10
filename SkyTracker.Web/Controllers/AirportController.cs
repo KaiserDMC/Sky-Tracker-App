@@ -35,6 +35,10 @@ public class AirportController : Controller
         _hostingEnvironment = hostingEnvironment;
     }
 
+    [TempData]
+    public string StatusMessage { get; set; }
+
+    [HttpGet]
     public async Task<IActionResult> All()
     {
         var airports = await _airportsService.GetAllAirportsAsync();
@@ -42,6 +46,7 @@ public class AirportController : Controller
         return View(airports);
     }
 
+    [HttpGet]
     public async Task<IActionResult> GetDetailsAirport(string iata)
     {
         var airport = await _airportsService.GetAirportDetailsByIata(iata);
@@ -117,9 +122,11 @@ public class AirportController : Controller
 
         if (!string.IsNullOrEmpty(model.Error))
         {
+            model.Runways = await _airportsService.GetRunwaysCollectionAsync();
             return View(model);
         }
 
+        StatusMessage = "Airport added successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -187,6 +194,7 @@ public class AirportController : Controller
             return BadRequest();
         }
 
+        StatusMessage = "Airport edited successfully!";
         return RedirectToAction("Index", "AdminPanel", new { area = AdminRole });
     }
 
@@ -199,11 +207,11 @@ public class AirportController : Controller
             await _airportsService.DeleteAirportAsync(iataCodes);
             await ImageHelper.DeleteAirportImages(_hostingEnvironment.WebRootPath, iataCodes);
 
-            return Json(new { success = true });
+            return Json(new { success = true, message= "Selected airports were deleted successfully!" });
         }
         catch
         {
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Error: Something went wrong and the selected airports were not deleted!" });
         }
     }
 
