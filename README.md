@@ -3,7 +3,6 @@
 [![GitHub license](https://img.shields.io/github/license/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/issues)
-[![GitHub forks](https://img.shields.io/github/forks/KaiserDMC/Sky-Tracker-App)](https://github.com/KaiserDMC/Sky-Tracker-App/network)
 ![Repo size](https://img.shields.io/github/repo-size/KaiserDMC/Sky-Tracker-App)
 
 <p align="center">
@@ -77,13 +76,14 @@ Sky Tracker App uses total of 3 environments:
   - Utilizes MS SQL Server (ver. 15.00.4316) - Remote host setup via Docker Containers
     - Login Credentials via:
       - user: SA
-      - password: ***
+      - <details><summary>password: Click to reveal!</summary>Sky-Tracker2023</details>
   - Started from *Visual Studio* via **Sky_Tracker_Test** option
 - Production
   - Utilizes MS SQL Server - Remote host setup via Microsoft Azure Services
     - Login Credentials via **Azure account** or:
       - user: SkyTrackerProdAdmin
-      - password: ***
+      - <details><summary>password: Click to reveal!</summary>Sr@6QGLN2PK]RUk</details>
+
     - Started from *Visual Studio* via **Sky_Tracker_Prod** option
 
 **NB!** All environments have the same initial database.  
