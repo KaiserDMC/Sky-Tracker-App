@@ -70,7 +70,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were promoted to Moderators successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -91,7 +91,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were promoted to Moderators successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -116,7 +116,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were demoted to Regular users successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -137,7 +137,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were demoted to Regular users successfully!"});
 
         var actualJson = ToJsonString(data);
 
@@ -158,7 +158,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message =  "Selected users were banned successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -179,7 +179,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message =  "Selected users were banned successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -200,7 +200,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were released from jail successfully!" });
 
         var actualJson = ToJsonString(data);
 
@@ -221,7 +221,7 @@ public class UserManagementControllerTests
         var jsonResult = (JsonResult)result;
         dynamic data = jsonResult.Value;
 
-        var expectedJson = ToJsonString(new { success = true });
+        var expectedJson = ToJsonString(new { success = true, message = "Selected users were released from jail successfully!" });
 
         var actualJson = ToJsonString(data);
 

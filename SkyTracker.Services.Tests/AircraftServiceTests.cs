@@ -136,7 +136,7 @@ public class AircraftServiceTests
 
         await _aircraftService.AddAircraftAsync(model);
 
-        Assert.AreEqual("Flight already exists.", model.Error);
+        Assert.AreEqual("Aircraft already exists.", model.Error);
     }
 
     [Test]
