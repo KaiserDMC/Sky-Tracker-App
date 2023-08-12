@@ -112,6 +112,16 @@
                             }
 
                             $('#statusMessageContainer').empty().append(alertDiv);
+
+                            // Hide the status message after a certain time interval (in milliseconds)
+                            var statusMessageTimeout = 5000; // 5 seconds
+                            var statusMessageElement = $("#statusMessageContainer");
+
+                            setTimeout(function () {
+                                statusMessageElement.fadeOut("slow", function () {
+                                    $(this).empty(); // Clear the container content
+                                });
+                            }, statusMessageTimeout);
                         }
                     },
                     error: function () {
