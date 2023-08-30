@@ -52,4 +52,13 @@
     <None Include="appsettings.Production.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Azure.Identity">
+      <HintPath>bin\Debug\net6.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs">
+      <HintPath>bin\Debug\net6.0\Azure.Storage.Blobs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
